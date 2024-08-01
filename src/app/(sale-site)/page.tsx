@@ -1,3 +1,5 @@
+import { Home } from "@/sections/sale-site";
+
 export default function HomePage() {
-  return <div>Home</div>;
+  return <Home />;
 }
