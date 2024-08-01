@@ -66,6 +66,11 @@ const typography = {
     fontSize: pxToRem(10),
     letterSpacing: "-0.02em",
   },
+  button: {
+    fontWeight: 600,
+    fontSize: pxToRem(16),
+    textTransform: "capitalize",
+  },
 };
 
 declare module "@mui/material/styles" {
