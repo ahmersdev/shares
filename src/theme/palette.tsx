@@ -42,6 +42,10 @@ const INFO = {
 
 const GRADIENTS = {};
 
+const OPACITY = {
+  success: "#47CE8E4D",
+};
+
 const COMMON = {
   common: {
     black: "#000000",
@@ -56,6 +60,7 @@ const COMMON = {
   warning: { ...WARNING },
   error: { ...ERROR },
   info: { ...INFO },
+  opacity: { ...OPACITY },
   grey: GREY,
   gradients: GRADIENTS,
 

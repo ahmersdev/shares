@@ -11,6 +11,7 @@ export default function Header() {
       borderRadius={6}
       px={1}
       py={3}
+      position={"fixed"}
     >
       Mobile Header
     </Box>
