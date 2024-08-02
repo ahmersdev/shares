@@ -23,7 +23,7 @@ export default function Navbar() {
           display={"flex"}
           justifyContent={"space-between"}
           alignItems={"center"}
-          bgcolor={"grey.light"}
+          bgcolor={"grey.50"}
           borderRadius={6}
           mt={2}
           mx={5}
@@ -63,7 +63,7 @@ export default function Navbar() {
               variant={"contained"}
               sx={{
                 ...BUTTON_STYLES,
-                color: "grey.light",
+                color: "grey.50",
                 borderColor: "common.bgDark",
                 backgroundColor: "common.bgDark",
                 ":hover": {

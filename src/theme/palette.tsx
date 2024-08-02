@@ -1,3 +1,5 @@
+import { PaletteMode, PaletteOptions } from "@mui/material";
+
 const PRIMARY = {
   main: "#47CE8E",
   50: "#74ECB3",
@@ -7,8 +9,8 @@ const PRIMARY = {
 };
 
 const GREY = {
-  black: "#0E0E0E",
-  light: "#FCFCFC",
+  900: "#0E0E0E", //black
+  50: "#FCFCFC", //light
 };
 
 const TEXT = {
@@ -55,7 +57,6 @@ const COMMON = {
     bgDark: "#232121",
     bgLight: "#F8FAF8",
   },
-
   primary: { ...PRIMARY },
   text: { ...TEXT },
   success: { ...SUCCESS },
@@ -65,19 +66,17 @@ const COMMON = {
   opacity: { ...OPACITY },
   grey: GREY,
   gradients: GRADIENTS,
-
   divider: TEXT.stroke,
-
   action: {
     hoverOpacity: 0.08,
     disabledOpacity: 0.48,
   },
 };
 
-const palette = {
+const palette: { light: PaletteOptions } = {
   light: {
     ...COMMON,
-    mode: "light",
+    mode: "light" as PaletteMode,
   },
 };
 

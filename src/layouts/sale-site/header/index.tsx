@@ -21,7 +21,7 @@ export default function Header() {
           display={"flex"}
           justifyContent={"space-between"}
           alignItems={"center"}
-          bgcolor={"grey.light"}
+          bgcolor={"grey.50"}
           borderRadius={6}
           m={2}
           p={2}
@@ -31,7 +31,7 @@ export default function Header() {
             <MenuIcon
               sx={{
                 cursor: "pointer",
-                color: "grey.black",
+                color: "grey.900",
               }}
               onClick={() => setOpen(true)}
             />

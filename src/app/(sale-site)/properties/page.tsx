@@ -1,3 +1,5 @@
+import { Properties } from "@/sections/sale-site";
+
 export default function PropertiesPage() {
-  return <div>PropertiesPage</div>;
+  return <Properties />;
 }

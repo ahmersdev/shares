@@ -1,10 +1,10 @@
-import { useTheme } from "@mui/material";
+import { Theme, useTheme } from "@mui/material";
 import NProgress from "nprogress";
 import { useEffect } from "react";
 import { IPushStateInput } from "./loader.interface";
 
 export default function useLoader() {
-  const theme: any = useTheme();
+  const theme = useTheme<Theme>();
 
   useEffect(() => {
     NProgress.configure({ showSpinner: false });

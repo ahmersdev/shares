@@ -17,7 +17,7 @@ const Loader = () => {
             width: "100%",
             position: "fixed",
             zIndex: 9999,
-            backgroundColor: theme?.palette?.primary?.main,
+            backgroundColor: theme.palette.primary.main,
           },
         },
       }}

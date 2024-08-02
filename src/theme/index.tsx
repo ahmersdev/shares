@@ -4,20 +4,19 @@ import { CssBaseline } from "@mui/material";
 import {
   createTheme,
   ThemeProvider as MUIThemeProvider,
+  ThemeOptions,
 } from "@mui/material/styles";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import palette from "./palette";
 import typography from "./typography";
 import breakpoints from "./breakpoints";
-import CustomShadows from "./shadows";
 import { IChildrenProps } from "@/interfaces";
 
 export default function ThemeProvider({ children }: IChildrenProps) {
-  const themeOptions: any = {
-    palette: palette?.light,
+  const themeOptions: ThemeOptions = {
+    palette: palette.light,
     typography,
     breakpoints,
-    CustomShadows: CustomShadows,
     spacing: 10,
     shape: { borderRadius: 4 },
   };

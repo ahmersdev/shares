@@ -1,3 +1,5 @@
+import { FAQs } from "@/sections/sale-site";
+
 export default function FAQsPage() {
-  return <div>FAQsPage</div>;
+  return <FAQs />;
 }

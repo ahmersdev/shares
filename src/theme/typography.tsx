@@ -1,6 +1,7 @@
 import { pxToRem, responsiveFontSizes } from "@/utils/get-font-value";
+import { TypographyOptions } from "@mui/material/styles/createTypography";
 
-const typography = {
+const typography: TypographyOptions = {
   fontFamily: "inherit",
   fontWeightRegular: 400,
   fontWeightMedium: 600,
@@ -75,20 +76,16 @@ const typography = {
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
-    formTopHeading: React.CSSProperties;
-    customStyle: React.CSSProperties;
+    body3: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
-    formTopHeading?: React.CSSProperties;
-    customStyle: React.CSSProperties;
+    body3?: React.CSSProperties;
   }
 }
 
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
-    formTopHeading: true;
-    customStyle: true;
     body3: true;
   }
 }

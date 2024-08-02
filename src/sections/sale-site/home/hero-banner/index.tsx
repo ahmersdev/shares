@@ -47,7 +47,7 @@ export default function HeroBanner() {
         <Typography
           variant={"h1"}
           fontWeight={800}
-          color={"grey.light"}
+          color={"grey.50"}
           maxWidth={"50%"}
           textAlign={"center"}
           textTransform={"capitalize"}
@@ -55,7 +55,7 @@ export default function HeroBanner() {
           Invest in high profitable real estate in Bali from 1000$
         </Typography>
 
-        <Typography variant={"h6"} color={"grey.light"} textAlign={"center"}>
+        <Typography variant={"h6"} color={"grey.50"} textAlign={"center"}>
           10.3% investors average return
         </Typography>
 
@@ -71,10 +71,10 @@ export default function HeroBanner() {
             sx={{
               ...BUTTON_STYLES,
               color: "primary.main",
-              borderColor: "grey.light",
-              backgroundColor: "grey.light",
+              borderColor: "grey.50",
+              backgroundColor: "grey.50",
               ":hover": {
-                backgroundColor: "grey.light",
+                backgroundColor: "grey.50",
               },
             }}
             disableElevation
@@ -85,7 +85,7 @@ export default function HeroBanner() {
             variant={"contained"}
             sx={{
               ...BUTTON_STYLES,
-              color: "grey.light",
+              color: "grey.50",
               borderColor: "primary.main",
               backgroundColor: "primary.main",
               ":hover": {

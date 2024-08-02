@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemButton,
   useTheme,
+  Theme,
 } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,7 +16,7 @@ import { NavItem } from "@/interfaces";
 import { DrawerSaleSiteProps } from "./drawer.interface";
 
 export default function DrawerSaleSite({ open, setOpen }: DrawerSaleSiteProps) {
-  const theme: any = useTheme();
+  const theme = useTheme<Theme>();
   const pathName: string = usePathname();
 
   return (
@@ -26,7 +27,7 @@ export default function DrawerSaleSite({ open, setOpen }: DrawerSaleSiteProps) {
       PaperProps={{
         style: {
           width: "280px",
-          backgroundColor: `${theme?.palette?.grey?.light}`,
+          backgroundColor: `${theme.palette.grey[50]}`,
           padding: "20px",
         },
       }}
