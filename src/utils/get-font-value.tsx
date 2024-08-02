@@ -1,8 +1,10 @@
-export function pxToRem(value: any) {
+import { FontSizeBreakpoints } from "@/interfaces";
+
+export function pxToRem(value: number) {
   return `${value / 16}rem`;
 }
 
-export function responsiveFontSizes({ xs, md, lg }: any) {
+export function responsiveFontSizes({ xs, md, lg }: FontSizeBreakpoints) {
   return {
     "@media (min-width:600px)": {
       fontSize: pxToRem(xs),

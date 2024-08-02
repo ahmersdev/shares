@@ -1,7 +1,8 @@
 import { SALE_SITE } from "@/constants/routes";
+import { NavItem } from "@/interfaces";
 import { pxToRem } from "@/utils/get-font-value";
 
-export const saleSiteDrawerArray = [
+export const saleSiteDrawerArray: NavItem[] = [
   { id: 1, label: "Home", href: SALE_SITE.HOME },
   { id: 3, label: "About Us", href: SALE_SITE.ABOUT_US },
   { id: 4, label: "Properties", href: SALE_SITE.PROPERTIES },
@@ -10,7 +11,7 @@ export const saleSiteDrawerArray = [
   { id: 7, label: "Sign Up", href: "" },
 ];
 
-export const mainStyles = (href: any, pathName: any, theme: any) => {
+export const mainStyles = (href: string, pathName: string, theme: any) => {
   return {
     background: `${
       pathName === href ? theme?.palette?.gradients?.primary : null

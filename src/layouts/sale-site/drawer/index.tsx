@@ -11,10 +11,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import CloseIcon from "@mui/icons-material/Close";
 import { mainStyles, saleSiteDrawerArray } from "./drawer.data";
+import { NavItem } from "@/interfaces";
+import { DrawerSaleSiteProps } from "./drawer.interface";
 
-export default function DrawerSaleSite({ open, setOpen }: any) {
+export default function DrawerSaleSite({ open, setOpen }: DrawerSaleSiteProps) {
   const theme: any = useTheme();
-  const pathName: any = usePathname();
+  const pathName: string = usePathname();
 
   return (
     <Drawer
@@ -44,7 +46,7 @@ export default function DrawerSaleSite({ open, setOpen }: any) {
       </Box>
 
       <List>
-        {saleSiteDrawerArray?.map((item: any) => (
+        {saleSiteDrawerArray?.map((item: NavItem) => (
           <ListItem key={item?.id} sx={{ px: 0 }}>
             <Link
               href={item?.href}
