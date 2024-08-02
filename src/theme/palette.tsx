@@ -6,7 +6,7 @@ const PRIMARY = {
   5: "#EEFFF7",
 };
 
-const GREY: any = {
+const GREY = {
   black: "#0E0E0E",
   light: "#FCFCFC",
 };
@@ -40,7 +40,9 @@ const INFO = {
   secondary: "#E2F2FF",
 };
 
-const GRADIENTS = {};
+const GRADIENTS = {
+  primary: "linear-gradient(90deg, #47CE8E 0%, #C1FFE2 100%)",
+};
 
 const OPACITY = {
   success: "#47CE8E4D",

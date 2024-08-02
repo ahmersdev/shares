@@ -15,6 +15,7 @@ export default function Navbar() {
         maxWidth={"xl"}
         width={"100%"}
         left={"50%"}
+        zIndex={1}
         sx={{ transform: "translate(-50%)" }}
       >
         <Box
