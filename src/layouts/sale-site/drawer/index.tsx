@@ -29,7 +29,7 @@ export default function DrawerSaleSite({ open, setOpen }: DrawerSaleSiteProps) {
           width: "280px",
           backgroundColor: `${theme.palette.grey[50]}`,
           padding: "20px",
-          borderRadius: "0px 30px 30px 0px",
+          borderRadius: "0px 24px 24px 0px",
         },
       }}
     >
