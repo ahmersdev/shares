@@ -10,6 +10,7 @@ const PRIMARY = {
 
 const GREY = {
   900: "#0E0E0E", //black
+  800: "#151515",
   50: "#FCFCFC", //light
 };
 
@@ -48,6 +49,7 @@ const GRADIENTS = {
 
 const OPACITY = {
   success: "#47CE8E4D",
+  qrCode: "#47CE8E1A",
 };
 
 const COMMON = {

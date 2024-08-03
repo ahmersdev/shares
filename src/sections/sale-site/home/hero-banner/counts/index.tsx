@@ -4,7 +4,7 @@ import { CountData } from "./counts.interface";
 
 export default function Counts() {
   return (
-    <Box display={"flex"} justifyContent={"center"} px={2} mt={-9.5}>
+    <Box display={"flex"} justifyContent={"center"} mt={-9.5}>
       <Box
         bgcolor={"grey.50"}
         maxWidth={"lg"}
@@ -13,9 +13,9 @@ export default function Counts() {
         alignItems={"flex-start"}
         justifyContent={"space-between"}
         flexWrap={"wrap"}
-        gap={2}
-        borderRadius={8}
-        px={{ xs: 2, md: 10 }}
+        gap={{ xs: 4, md: 2 }}
+        borderRadius={{ xs: 4, md: 8 }}
+        px={{ xs: 2, md: 9 }}
         py={5}
       >
         {COUNTS_DATA_ARRAY.map((item: CountData) => (
