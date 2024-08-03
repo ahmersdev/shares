@@ -1,4 +1,14 @@
-import { FeatAsanaIcon, FeatTwilioSegmentIcon } from "@/assets/icons";
+import {
+  FeatZeneFitsIcon,
+  FeatAsanaIcon,
+  FeatInterComIcon,
+  FeatTwilioSegmentIcon,
+  FeatGreenHouseIcon,
+  FeatChargeBeeIcon,
+  FeatLatticeIcon,
+  FeatFrameIoIcon,
+  FeatMulinyIcon,
+} from "@/assets/icons";
 import { Box, Theme, Typography, useTheme } from "@mui/material";
 
 export default function Featured() {
@@ -25,13 +35,13 @@ export default function Featured() {
         >
           <FeatTwilioSegmentIcon />
           <FeatAsanaIcon />
-          <FeatTwilioSegmentIcon />
-          <FeatTwilioSegmentIcon />
-          <FeatTwilioSegmentIcon />
-          <FeatTwilioSegmentIcon />
-          <FeatTwilioSegmentIcon />
-          <FeatTwilioSegmentIcon />
-          <FeatTwilioSegmentIcon />
+          <FeatInterComIcon />
+          <FeatZeneFitsIcon />
+          <FeatGreenHouseIcon />
+          <FeatChargeBeeIcon />
+          <FeatLatticeIcon />
+          <FeatFrameIoIcon />
+          <FeatMulinyIcon />
         </Box>
       </Box>
     </Box>
