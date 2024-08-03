@@ -15,7 +15,7 @@ export default function Featured() {
   const theme = useTheme<Theme>();
 
   return (
-    <Box display={"flex"} justifyContent={"center"} px={{ xs: 2, md: 0 }}>
+    <Box display={"flex"} justifyContent={"center"} px={2}>
       <Box
         display={"flex"}
         flexDirection={"column"}
