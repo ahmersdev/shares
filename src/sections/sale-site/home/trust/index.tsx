@@ -94,7 +94,7 @@ export default function Trust() {
         </Grid>
       </Box>
 
-      <Box maxWidth={theme.breakpoints.values.lg - 50} width={"100%"}>
+      <Box maxWidth={theme.breakpoints.values.lg - 50} width={"100%"} my={5}>
         <Grid container spacing={4}>
           {trustDataImagesArray.map((item: ITrustDataImagesArray) => (
             <Grid item xs={12} md={4} position={"relative"} key={item.id}>
