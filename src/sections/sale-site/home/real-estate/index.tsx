@@ -13,6 +13,7 @@ export default function RealEstate() {
       px={2}
       pb={5}
       gap={8}
+      bgcolor={"grey.50"}
     >
       <Box
         maxWidth={"md"}
