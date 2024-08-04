@@ -17,3 +17,4 @@ export { default as WorksEarnIcon } from "./sale-site/works-earn-icon";
 export { default as WorksExitIcon } from "./sale-site/works-exit-icon";
 export { default as IncomeVisaIcon } from "./sale-site/income-visa-icon";
 export { default as IncomePayIcon } from "./sale-site/income-pay-icon";
+export { default as IncomeEarnIcon } from "./sale-site/income-earn-icon";
