@@ -1,11 +1,15 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { trustDataArray } from "./trust.data";
-import { ITrustData } from "./trust.interface";
+import { Box, Button, Grid, Theme, Typography, useTheme } from "@mui/material";
+import { trustDataArray, trustDataImagesArray } from "./trust.data";
+import { ITrustData, ITrustDataImagesArray } from "./trust.interface";
 import { TrustDualIcon } from "@/assets/icons";
 import Link from "next/link";
 import { BUTTON_STYLES } from "@/styles";
+import Image from "next/image";
+import { TrustBaliVilla } from "@/assets/images";
 
 export default function Trust() {
+  const theme = useTheme<Theme>();
+
   return (
     <Box
       display={"flex"}
@@ -25,6 +29,7 @@ export default function Trust() {
           We value your trust as much as your investments
         </Typography>
       </Box>
+
       <Box maxWidth={"lg"} width={"100%"}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
@@ -86,6 +91,66 @@ export default function Trust() {
               ))}
             </Box>
           </Grid>
+        </Grid>
+      </Box>
+
+      <Box maxWidth={theme.breakpoints.values.lg - 50} width={"100%"}>
+        <Grid container spacing={4}>
+          {trustDataImagesArray.map((item: ITrustDataImagesArray) => (
+            <Grid item xs={12} md={4} position={"relative"} key={item.id}>
+              {item.badge && (
+                <Box
+                  position={"absolute"}
+                  left={"40%"}
+                  sx={{ transform: "translate(-40%, -50%)" }}
+                >
+                  <Box
+                    bgcolor={"primary.main"}
+                    borderRadius={"50%"}
+                    width={100}
+                    height={100}
+                    display={"flex"}
+                    flexDirection={"column"}
+                    alignItems={"center"}
+                    justifyContent={"center"}
+                    gap={1}
+                    sx={{ transform: "rotate(-30deg)" }}
+                  >
+                    <Typography
+                      variant={"subtitle2"}
+                      fontWeight={800}
+                      color={"common.white"}
+                      textAlign={"center"}
+                    >
+                      {item.badge.amount}
+                    </Typography>
+                    <Typography
+                      variant={"subtitle2"}
+                      fontWeight={800}
+                      color={"common.white"}
+                      textAlign={"center"}
+                    >
+                      {item.badge.desc}
+                    </Typography>
+                  </Box>
+                </Box>
+              )}
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={331}
+                height={264}
+                style={{ width: "100%", height: "100%", borderRadius: 24 }}
+              />
+              <Typography
+                variant={"h7"}
+                fontWeight={700}
+                color={"text.heading"}
+              >
+                {item.title}
+              </Typography>
+            </Grid>
+          ))}
         </Grid>
       </Box>
     </Box>
