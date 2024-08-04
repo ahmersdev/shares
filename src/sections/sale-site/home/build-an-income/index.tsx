@@ -12,7 +12,6 @@ export default function BuildAnIncome() {
       display={"flex"}
       flexDirection={"column"}
       alignItems={"center"}
-      pb={5}
       px={2}
       gap={5}
     >

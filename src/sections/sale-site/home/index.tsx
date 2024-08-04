@@ -6,6 +6,7 @@ import Featured from "./featured";
 import HowItWorks from "./how-it-works";
 import FeaturedProperties from "./featured-properties";
 import BuildAnIncome from "./build-an-income";
+import Investors from "./investors";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <HowItWorks />
       <FeaturedProperties />
       <BuildAnIncome />
+      <Investors />
     </Stack>
   );
 }
