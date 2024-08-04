@@ -21,6 +21,7 @@ export default function BuildAnIncome() {
         display={"flex"}
         flexDirection={"column"}
         alignItems={"center"}
+        gap={2.4}
       >
         <Typography variant={"h5"} fontWeight={500} color={"primary.main"}>
           How It Works
