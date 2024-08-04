@@ -15,3 +15,5 @@ export { default as WorksBrowseIcon } from "./sale-site/works-browse-icon";
 export { default as WorksInvestIcon } from "./sale-site/works-invest-icon";
 export { default as WorksEarnIcon } from "./sale-site/works-earn-icon";
 export { default as WorksExitIcon } from "./sale-site/works-exit-icon";
+export { default as IncomeVisaIcon } from "./sale-site/income-visa-icon";
+export { default as IncomePayIcon } from "./sale-site/income-pay-icon";

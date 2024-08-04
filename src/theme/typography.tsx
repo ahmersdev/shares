@@ -26,9 +26,9 @@ const typography: TypographyOptions = {
   },
   h4: {
     fontWeight: "bold",
-    fontSize: pxToRem(28),
+    fontSize: pxToRem(32),
     letterSpacing: "0.04em",
-    ...responsiveFontSizes({ xs: 16, md: 18, lg: 28 }),
+    ...responsiveFontSizes({ xs: 16, md: 18, lg: 32 }),
   },
   h5: {
     fontWeight: "bold",
