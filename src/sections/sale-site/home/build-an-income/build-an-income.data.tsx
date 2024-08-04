@@ -1,12 +1,13 @@
 import { IncomeEarnIcon, IncomePayIcon, IncomeVisaIcon } from "@/assets/icons";
 import { IncomeBrowseImg, IncomeInvestImg } from "@/assets/images";
-import { Box, Button, Chip, Theme, Typography } from "@mui/material";
+import { Box, Button, Theme, Typography } from "@mui/material";
 import { IBuildAnIncomeData } from "./build-an-income.interface";
 import Link from "next/link";
 import { BUTTON_STYLES } from "@/styles";
-import { pxToRem } from "@/utils/get-font-value";
 
-export const getBuildAnIncomeDataArray = (theme: Theme): IBuildAnIncomeData[] => {
+export const getBuildAnIncomeDataArray = (
+  theme: Theme
+): IBuildAnIncomeData[] => {
   return [
     {
       id: 1,
@@ -80,29 +81,28 @@ export const getBuildAnIncomeDataArray = (theme: Theme): IBuildAnIncomeData[] =>
           flexDirection={"column"}
           alignItems={"start"}
           gap={3.2}
+          color={"primary.main"}
         >
-          <Chip
-            label={"Sell During Our Exit Windows (Every 12 Months)"}
-            sx={{
-              bgcolor: "primary.5",
-              color: "primary.main",
-              p: 2,
-              borderRadius: 25,
-              fontWeight: 600,
-              fontSize: pxToRem(16),
-            }}
-          />
-          <Chip
-            label={"Full sale of property | 3-5 year holding term"}
-            sx={{
-              bgcolor: "primary.5",
-              color: "primary.main",
-              p: 2,
-              borderRadius: 25,
-              fontWeight: 600,
-              fontSize: pxToRem(16),
-            }}
-          />
+          <Typography
+            variant={"body2"}
+            fontWeight={600}
+            borderRadius={25}
+            bgcolor={"primary.5"}
+            p={2}
+            textAlign={"center"}
+          >
+            Sell During Our Exit Windows (Every 12 Months)
+          </Typography>
+          <Typography
+            variant={"body2"}
+            fontWeight={600}
+            borderRadius={25}
+            bgcolor={"primary.5"}
+            p={2}
+            textAlign={"center"}
+          >
+            Full sale of property | 3-5 year holding term
+          </Typography>
         </Box>
       ),
     },
