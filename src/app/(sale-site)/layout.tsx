@@ -11,7 +11,7 @@ const SaleSiteLayout = ({ children }: IChildrenProps) => {
       <Provider store={store}>
         <Navbar />
         <Header />
-        {/* <QRCode /> */}
+        <QRCode />
         {children}
         <Footer />
       </Provider>

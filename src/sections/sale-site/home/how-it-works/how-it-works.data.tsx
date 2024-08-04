@@ -6,7 +6,7 @@ import {
 } from "@/assets/icons";
 import { IHowItWorksData } from "./how-it-works.interface";
 
-export const HowItWorksDataArray: IHowItWorksData[] = [
+export const howItWorksDataArray: IHowItWorksData[] = [
   {
     id: 1,
     icon: WorksBrowseIcon,

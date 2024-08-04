@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { COUNTS_DATA_ARRAY } from "./counts.data";
+import { countsDataArray } from "./counts.data";
 import { ICountData } from "./counts.interface";
 
 export default function Counts() {
@@ -18,7 +18,7 @@ export default function Counts() {
         px={{ xs: 2, md: 9 }}
         py={5}
       >
-        {COUNTS_DATA_ARRAY.map((item: ICountData) => (
+        {countsDataArray.map((item: ICountData) => (
           <Box display={"flex"} gap={2} key={item.id}>
             <Box
               display={"flex"}

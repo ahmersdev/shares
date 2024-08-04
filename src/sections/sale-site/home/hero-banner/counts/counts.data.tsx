@@ -6,7 +6,7 @@ import {
 } from "@/assets/icons";
 import { ICountData } from "./counts.interface";
 
-export const COUNTS_DATA_ARRAY: ICountData[] = [
+export const countsDataArray: ICountData[] = [
   { id: 1, icon: HomeActiveUsersIcon, title: "6000+", desc: "Active Users" },
   {
     id: 2,

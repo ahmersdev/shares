@@ -1,11 +1,11 @@
 import { Box, Typography, useTheme, Theme, Grid, Button } from "@mui/material";
 import Image from "next/image";
-import { getBuildAnIncomeData } from "./build-an-income.data";
+import { getBuildAnIncomeDataArray } from "./build-an-income.data";
 import { IBuildAnIncomeData } from "./build-an-income.interface";
 
 export default function BuildAnIncome() {
   const theme = useTheme<Theme>();
-  const buildAnIncomeData = getBuildAnIncomeData(theme);
+  const buildAnIncomeData = getBuildAnIncomeDataArray(theme);
 
   return (
     <Box

@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import { HowItWorksDataArray } from "./how-it-works.data";
+import { howItWorksDataArray } from "./how-it-works.data";
 import { IHowItWorksData } from "./how-it-works.interface";
 
 export default function HowItWorks() {
@@ -26,7 +26,7 @@ export default function HowItWorks() {
           Property investing has never been easier
         </Typography>
         <Grid container spacing={2}>
-          {HowItWorksDataArray.map((item: IHowItWorksData) => (
+          {howItWorksDataArray.map((item: IHowItWorksData) => (
             <Grid item xs={12} sm={6} md={3} key={item.id}>
               <Box
                 bgcolor={"common.white"}

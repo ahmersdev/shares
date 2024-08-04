@@ -6,7 +6,7 @@ import Link from "next/link";
 import { BUTTON_STYLES } from "@/styles";
 import { pxToRem } from "@/utils/get-font-value";
 
-export const getBuildAnIncomeData = (theme: Theme): IBuildAnIncomeData[] => {
+export const getBuildAnIncomeDataArray = (theme: Theme): IBuildAnIncomeData[] => {
   return [
     {
       id: 1,
