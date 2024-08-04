@@ -16,7 +16,6 @@ export default function Trust() {
       flexDirection={"column"}
       alignItems={"center"}
       px={2}
-      pb={5}
       gap={8}
     >
       <Box maxWidth={"md"} width={"100%"} textAlign={"center"}>

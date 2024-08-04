@@ -11,7 +11,7 @@ export default function RealEstate() {
       flexDirection={"column"}
       alignItems={"center"}
       px={2}
-      pb={5}
+      py={5}
       gap={8}
       bgcolor={"grey.50"}
     >
