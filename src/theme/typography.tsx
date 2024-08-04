@@ -62,6 +62,12 @@ const typography: TypographyOptions = {
     fontSize: pxToRem(14),
     letterSpacing: "0.04em",
   },
+  heading1: {
+    fontWeight: 800,
+    fontSize: pxToRem(48),
+    letterSpacing: "0.04em",
+    ...responsiveFontSizes({ xs: 20, md: 30, lg: 48 }),
+  },
   subtitle1: {
     fontWeight: "normal",
     fontSize: pxToRem(10),
@@ -83,11 +89,13 @@ declare module "@mui/material/styles" {
   interface TypographyVariants {
     h7: React.CSSProperties;
     body3: React.CSSProperties;
+    heading1: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
     h7?: React.CSSProperties;
     body3?: React.CSSProperties;
+    heading1?: React.CSSProperties;
   }
 }
 
@@ -95,6 +103,7 @@ declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     h7: true;
     body3: true;
+    heading1: true;
   }
 }
 

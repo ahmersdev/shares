@@ -53,6 +53,7 @@ const GRADIENTS = {
 const OPACITY = {
   success: "#47CE8E4D",
   qrCode: "#47CE8E1A",
+  shadow: "#18AF4233",
 };
 
 const COMMON = {

@@ -42,6 +42,7 @@ declare module "@mui/material/styles" {
     opacity: {
       success: string;
       qrCode: string;
+      shadow: string;
     };
     grey: {
       black: string;
