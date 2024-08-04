@@ -11,6 +11,9 @@ const PRIMARY = {
 const GREY = {
   900: "#0E0E0E", //black
   800: "#151515",
+  700: "#1A1A1A",
+  600: "#6A6A6A",
+  500: "#0E0B29",
   50: "#FCFCFC", //light
 };
 

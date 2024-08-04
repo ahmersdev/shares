@@ -4,9 +4,9 @@ import {
   HomeInvestmentsIcon,
   HomeProjectsIcon,
 } from "@/assets/icons";
-import { CountData } from "./counts.interface";
+import { ICountData } from "./counts.interface";
 
-export const COUNTS_DATA_ARRAY: CountData[] = [
+export const COUNTS_DATA_ARRAY: ICountData[] = [
   { id: 1, icon: HomeActiveUsersIcon, title: "6000+", desc: "Active Users" },
   {
     id: 2,

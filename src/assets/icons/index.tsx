@@ -11,3 +11,7 @@ export { default as FeatChargeBeeIcon } from "./sale-site/feat-charge-bee-icon";
 export { default as FeatLatticeIcon } from "./sale-site/feat-lattice-icon";
 export { default as FeatFrameIoIcon } from "./sale-site/feat-frame-io-icon";
 export { default as FeatMulinyIcon } from "./sale-site/feat-muliny-icon";
+export { default as WorksBrowseIcon } from "./sale-site/works-browse-icon";
+export { default as WorksInvestIcon } from "./sale-site/works-invest-icon";
+export { default as WorksEarnIcon } from "./sale-site/works-earn-icon";
+export { default as WorksExitIcon } from "./sale-site/works-exit-icon";

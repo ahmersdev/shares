@@ -9,13 +9,13 @@ export interface IAssetsProps {
   stroke?: string;
 }
 
-export interface NavItem {
+export interface INavItem {
   id: number;
   label: string;
   href: string;
 }
 
-export interface FontSizeBreakpoints {
+export interface IFontSizeBreakpoints {
   xs: number;
   md: number;
   lg: number;

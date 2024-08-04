@@ -12,10 +12,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import CloseIcon from "@mui/icons-material/Close";
 import { mainStyles, saleSiteDrawerArray } from "./drawer.data";
-import { NavItem } from "@/interfaces";
-import { DrawerSaleSiteProps } from "./drawer.interface";
+import { INavItem } from "@/interfaces";
+import { IDrawerSaleSiteProps } from "./drawer.interface";
 
-export default function DrawerSaleSite({ open, setOpen }: DrawerSaleSiteProps) {
+export default function DrawerSaleSite({ open, setOpen }: IDrawerSaleSiteProps) {
   const theme = useTheme<Theme>();
   const pathName: string = usePathname();
 
@@ -48,7 +48,7 @@ export default function DrawerSaleSite({ open, setOpen }: DrawerSaleSiteProps) {
       </Box>
 
       <List>
-        {saleSiteDrawerArray?.map((item: NavItem) => (
+        {saleSiteDrawerArray?.map((item: INavItem) => (
           <ListItem key={item?.id} sx={{ px: 0 }}>
             <Link
               href={item?.href}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { listButtonStyles, saleSiteHeaderArray } from "./navbar.data";
 import { usePathname } from "next/navigation";
 import { BUTTON_STYLES } from "@/styles";
-import { NavItem } from "@/interfaces";
+import { INavItem } from "@/interfaces";
 
 export default function Navbar() {
   const pathName = usePathname();
@@ -33,7 +33,7 @@ export default function Navbar() {
           <Link href={SALE_SITE.HOME}>Shares.</Link>
 
           <List sx={{ display: "flex", whiteSpace: "nowrap" }}>
-            {saleSiteHeaderArray?.map((item: NavItem) => (
+            {saleSiteHeaderArray?.map((item: INavItem) => (
               <ListItem key={item?.id}>
                 <ListItemButton sx={listButtonStyles(item?.href, pathName)}>
                   <Link href={item?.href} style={{ width: "100%" }}>
