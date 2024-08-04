@@ -27,7 +27,7 @@ export default function Investors() {
           textAlign={"center"}
           textTransform={"capitalize"}
         >
-          An investors guide to Bali's real estate market
+          An investors guide to Bali&rsquo;s real estate market
         </Typography>
       </Box>
       <Box
