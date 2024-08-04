@@ -18,7 +18,7 @@ export default function RootLayout({ children }: Readonly<IChildrenProps>) {
     <html lang="en">
       <body
         className={plusJakartaSans.className}
-        style={{ background: "#F8FAF8", color: "#6B7280" }}
+        style={{ background: "#FFFFFF", color: "#6B7280" }}
       >
         <ThemeProvider>
           <SnackbarProviderGlobal>
