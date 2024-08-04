@@ -1,6 +1,8 @@
+import { ComponentType, SVGProps } from "react";
+
 export interface IHowItWorksData {
   id: number;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
   desc: string;
 }

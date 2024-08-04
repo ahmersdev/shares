@@ -15,7 +15,10 @@ import { mainStyles, saleSiteDrawerArray } from "./drawer.data";
 import { INavItem } from "@/interfaces";
 import { IDrawerSaleSiteProps } from "./drawer.interface";
 
-export default function DrawerSaleSite({ open, setOpen }: IDrawerSaleSiteProps) {
+export default function DrawerSaleSite({
+  open,
+  setOpen,
+}: IDrawerSaleSiteProps) {
   const theme = useTheme<Theme>();
   const pathName: string = usePathname();
 
@@ -48,15 +51,15 @@ export default function DrawerSaleSite({ open, setOpen }: IDrawerSaleSiteProps) 
       </Box>
 
       <List>
-        {saleSiteDrawerArray?.map((item: INavItem) => (
-          <ListItem key={item?.id} sx={{ px: 0 }}>
+        {saleSiteDrawerArray.map((item: INavItem) => (
+          <ListItem key={item.id} sx={{ px: 0 }}>
             <Link
-              href={item?.href}
+              href={item.href}
               style={{ width: "100%" }}
               onClick={() => setOpen(false)}
             >
-              <ListItemButton sx={mainStyles(item?.href, pathName, theme)}>
-                {item?.label}
+              <ListItemButton sx={mainStyles(item.href, pathName, theme)}>
+                {item.label}
               </ListItemButton>
             </Link>
           </ListItem>

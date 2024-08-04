@@ -33,11 +33,11 @@ export default function Navbar() {
           <Link href={SALE_SITE.HOME}>Shares.</Link>
 
           <List sx={{ display: "flex", whiteSpace: "nowrap" }}>
-            {saleSiteHeaderArray?.map((item: INavItem) => (
-              <ListItem key={item?.id}>
-                <ListItemButton sx={listButtonStyles(item?.href, pathName)}>
-                  <Link href={item?.href} style={{ width: "100%" }}>
-                    {item?.label}
+            {saleSiteHeaderArray.map((item: INavItem) => (
+              <ListItem key={item.id}>
+                <ListItemButton sx={listButtonStyles(item.href, pathName)}>
+                  <Link href={item.href} style={{ width: "100%" }}>
+                    {item.label}
                   </Link>
                 </ListItemButton>
               </ListItem>

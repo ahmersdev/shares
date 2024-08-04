@@ -1,8 +1,9 @@
 import { StaticImageData } from "next/image";
+import { ComponentType, SVGProps } from "react";
 
 export interface ITrustData {
   id: number;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
   desc: string;
 }
