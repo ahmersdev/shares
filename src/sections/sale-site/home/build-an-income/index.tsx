@@ -85,7 +85,7 @@ export default function BuildAnIncome() {
               <Typography variant={"h4"} color={"text.heading"}>
                 {item.subtitle}
               </Typography>
-              <Typography variant={"body2"} color={"text.body"}>
+              <Typography variant={"body2"}>
                 {item.description}
               </Typography>
               {item.additionalContent}

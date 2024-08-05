@@ -31,7 +31,7 @@ export default function RealEstate() {
         >
           Real estate combines the best of all asset classes
         </Typography>
-        <Typography variant={"h7"} color={"text.body"} textAlign={"center"}>
+        <Typography variant={"h7"} textAlign={"center"}>
           It is one of the most important asset classes for building long-term
           wealth
         </Typography>

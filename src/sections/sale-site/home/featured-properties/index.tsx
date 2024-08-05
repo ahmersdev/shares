@@ -14,7 +14,7 @@ export default function FeaturedProperties() {
         <Typography variant={"heading1"} color={"common.bgDark"}>
           Featured Projects
         </Typography>
-        <Typography variant={"h7"} color={"text.body"} textAlign={"center"}>
+        <Typography variant={"h7"} textAlign={"center"}>
           We only select properties with the highest income potential
         </Typography>
       </Box>

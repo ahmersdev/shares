@@ -9,3 +9,9 @@ export { default as InvestorsTravelImg } from "./sale-site/investors-travel-img.
 export { default as InvestorsBBCImg } from "./sale-site/investors-bbc-img.png";
 export { default as InvestorsDestinImg } from "./sale-site/investors-destin-img.png";
 export { default as InvestorsUSNewsImg } from "./sale-site/investors-us-news-img.png";
+export { default as InvestorsMordorImg } from "./sale-site/investors-mordor-img.png";
+export { default as InvestorsBloombergImg } from "./sale-site/investors-bloomberg-img.png";
+export { default as InvestorsKnightImg } from "./sale-site/investors-knight-img.png";
+export { default as InvestorsUaeImg } from "./sale-site/investors-uae-img.png";
+export { default as InvestorsSavillsImg } from "./sale-site/investors-savills-img.png";
+export { default as InvestorsPwcImg } from "./sale-site/investors-pwc-img.png";

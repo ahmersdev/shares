@@ -43,7 +43,7 @@ export default function QRCode() {
             <Typography variant={"body2"} color={"grey.800"} fontWeight={600}>
               Scan the QR Code
             </Typography>
-            <Typography variant={"subtitle2"} color={"text.body"}>
+            <Typography variant={"subtitle2"}>
               Download Directly On Your Phone
             </Typography>
           </Box>

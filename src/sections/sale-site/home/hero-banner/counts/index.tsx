@@ -33,11 +33,7 @@ export default function Counts() {
               <Typography variant={"h3"} color={"primary.main"}>
                 {item.title}
               </Typography>
-              <Typography
-                variant={"body1"}
-                color={"text.body"}
-                fontWeight={500}
-              >
+              <Typography variant={"body1"} fontWeight={500}>
                 {item.desc}
               </Typography>
             </Box>
