@@ -23,3 +23,5 @@ export { default as TrustIndonesianIcon } from "./sale-site/trust-indonesian-ico
 export { default as TrustDualIcon } from "./sale-site/trust-dual-icon";
 export { default as RealEstateAppreciationIcon } from "./sale-site/real-estate-appreciation-icon";
 export { default as ArrowRightIcon } from "./sale-site/arrow-right-icon";
+export { default as InvestorsGlobeIcon } from "./sale-site/investors-globe-icon";
+export { default as InvestorsSearchIcon } from "./sale-site/investors-search-icon";

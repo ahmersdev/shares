@@ -1,4 +1,8 @@
+import { HorizontalTabs } from "@/components/tabs";
 import { Box, Typography } from "@mui/material";
+import { investorsTabsDataArray } from "./investors.data";
+import MarketAnalysis from "./market-analysis";
+import GlobalGrowth from "./global-growth";
 
 export default function Investors() {
   return (
@@ -30,15 +34,11 @@ export default function Investors() {
           An investors guide to Bali&rsquo;s real estate market
         </Typography>
       </Box>
-      <Box
-        maxWidth={"lg"}
-        width={"100%"}
-        display={"flex"}
-        flexDirection={"column"}
-        alignItems={"center"}
-        gap={2}
-      >
-        Tabs
+      <Box maxWidth={"lg"} width={"100%"}>
+        <HorizontalTabs tabsDataArray={investorsTabsDataArray} margin={"auto"}>
+          <GlobalGrowth />
+          <MarketAnalysis />
+        </HorizontalTabs>
       </Box>
     </Box>
   );
