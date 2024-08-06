@@ -23,7 +23,7 @@ export default function MarketAnalysis() {
             >
               {item.title}
             </Typography>
-            <Typography variant={"body2"} my={1.6}>
+            <Typography variant={"body2"} my={1.6} color={"text.body"}>
               {item.desc}
             </Typography>
             <Image src={item.image} alt={item.title ?? ""} height={27} />

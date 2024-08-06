@@ -9,6 +9,7 @@ import BuildAnIncome from "./build-an-income";
 import Investors from "./investors";
 import Trust from "./trust";
 import RealEstate from "./real-estate";
+import Dubai from "./dubai";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Investors />
       <Trust />
       <RealEstate />
+      <Dubai />
     </Stack>
   );
 }
