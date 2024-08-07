@@ -11,6 +11,7 @@ import Trust from "./trust";
 import RealEstate from "./real-estate";
 import Dubai from "./dubai";
 import InHouse from "./in-house";
+import Testimonials from "./testimonials";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <RealEstate />
       <Dubai />
       <InHouse />
+      <Testimonials />
     </Stack>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import "swiper/css";
+import "swiper/css/effect-coverflow";
 import { Provider } from "react-redux";
 import store from "@/store";
 import { IChildrenProps } from "@/interfaces";

@@ -16,3 +16,4 @@ export { default as InvestorsUaeImg } from "./sale-site/investors-uae-img.png";
 export { default as InvestorsSavillsImg } from "./sale-site/investors-savills-img.png";
 export { default as InvestorsPwcImg } from "./sale-site/investors-pwc-img.png";
 export { default as DubaiPersonImg } from "./sale-site/dubai-person-img.png";
+export { default as TestimonialsPersonImg } from "./sale-site/testimonials-person-img.png";
