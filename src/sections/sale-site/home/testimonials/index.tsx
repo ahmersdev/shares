@@ -101,7 +101,7 @@ export default function Testimonials() {
         }}
         modules={[EffectCoverflow]}
         className="mySwiper"
-        style={{ width: "100%" }}
+        style={{ width: "100%", marginBottom: 34 }}
         breakpoints={{
           900: {
             slidesPerView: 2,
