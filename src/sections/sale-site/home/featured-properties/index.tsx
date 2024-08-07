@@ -12,7 +12,7 @@ export default function FeaturedProperties() {
         gap={2}
       >
         <Typography variant={"heading1"} color={"common.bgDark"}>
-          Featured Projects
+          Featured Properties
         </Typography>
         <Typography variant={"h7"} textAlign={"center"}>
           We only select properties with the highest income potential
