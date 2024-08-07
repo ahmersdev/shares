@@ -25,3 +25,5 @@ export { default as RealEstateAppreciationIcon } from "./sale-site/real-estate-a
 export { default as ArrowRightIcon } from "./sale-site/arrow-right-icon";
 export { default as InvestorsGlobeIcon } from "./sale-site/investors-globe-icon";
 export { default as InvestorsSearchIcon } from "./sale-site/investors-search-icon";
+export { default as FooterAppStoreButton } from "./sale-site/footer-app-store-button";
+export { default as FooterGooglePlayButton } from "./sale-site/footer-google-play-button";

@@ -17,3 +17,4 @@ export { default as InvestorsSavillsImg } from "./sale-site/investors-savills-im
 export { default as InvestorsPwcImg } from "./sale-site/investors-pwc-img.png";
 export { default as DubaiPersonImg } from "./sale-site/dubai-person-img.png";
 export { default as TestimonialsPersonImg } from "./sale-site/testimonials-person-img.png";
+export { default as FooterPhoneImg } from "./sale-site/footer-phone-img.png";
