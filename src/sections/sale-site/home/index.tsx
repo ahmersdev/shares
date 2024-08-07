@@ -10,6 +10,7 @@ import Investors from "./investors";
 import Trust from "./trust";
 import RealEstate from "./real-estate";
 import Dubai from "./dubai";
+import InHouse from "./in-house";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <Trust />
       <RealEstate />
       <Dubai />
+      <InHouse />
     </Stack>
   );
 }

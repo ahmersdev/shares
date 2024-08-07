@@ -6,7 +6,7 @@ export default function Dubai() {
   const theme = useTheme<Theme>();
 
   return (
-    <Box display={"flex"} justifyContent={"center"} px={2} pb={5}>
+    <Box display={"flex"} justifyContent={"center"} px={2}>
       <Box
         maxWidth={theme.breakpoints.values.lg - 100}
         width={"100%"}
