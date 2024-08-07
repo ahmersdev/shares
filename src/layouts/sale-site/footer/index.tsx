@@ -15,6 +15,12 @@ export default function Footer() {
         borderRadius={10}
         bgcolor={"primary.main"}
         my={5}
+        display={"flex"}
+        flexDirection={"column"}
+        gap={2.4}
+        pl={{ xs: 2, sm: 12 }}
+        pr={{ xs: 2, sm: 0 }}
+        py={7.4}
         sx={{
           backgroundImage: `url(${FooterPhoneImg.src})`,
           backgroundPosition: { xs: "100% 100%", sm: "right center" },
@@ -22,35 +28,40 @@ export default function Footer() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <Box display={"flex"} justifyContent={"space-between"}>
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            justifyContent={"center"}
-            pl={{ xs: 2, sm: 12 }}
-            pr={{ xs: 2, sm: 0 }}
-            gap={2.4}
-            py={7.4}
-          >
-            <Typography
-              variant={"heading1"}
-              fontWeight={700}
-              color={"grey.50"}
-              maxWidth={"sm"}
-              width={"100%"}
-            >
-              The modern way for anyone to invest in real estate
-            </Typography>
+        <Typography
+          variant={"heading1"}
+          fontWeight={700}
+          color={"grey.50"}
+          maxWidth={"sm"}
+          width={"100%"}
+        >
+          The modern way for anyone to invest in real estate
+        </Typography>
 
-            <Box display={"flex"} gap={2.4}>
-              <FooterAppStoreButton />
-              <FooterGooglePlayButton />
-            </Box>
-          </Box>
+        <Box display={"flex"} gap={2.4}>
+          <FooterAppStoreButton />
+          <FooterGooglePlayButton />
         </Box>
       </Box>
 
       <FooterNav />
+
+      <Box
+        maxWidth={"lg"}
+        width={"100%"}
+        display={"flex"}
+        justifyContent={"space-between"}
+        mb={5}
+        flexWrap={"wrap"}
+        gap={2}
+      >
+        <Typography variant={"body2"} textAlign={"center"}>
+          Copyrights © 2024 Shares | All Rights Reserved
+        </Typography>
+        <Typography variant={"body2"} textAlign={"center"}>
+          Privacy Policy | Terms & Conditions
+        </Typography>
+      </Box>
     </Box>
   );
 }

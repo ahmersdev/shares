@@ -14,7 +14,7 @@ export default function Header() {
         position={"fixed"}
         width={"100%"}
         left={"50%"}
-        zIndex={1}
+        zIndex={9}
         sx={{ transform: "translate(-50%)" }}
       >
         <Box

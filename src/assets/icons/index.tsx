@@ -27,3 +27,8 @@ export { default as InvestorsGlobeIcon } from "./sale-site/investors-globe-icon"
 export { default as InvestorsSearchIcon } from "./sale-site/investors-search-icon";
 export { default as FooterAppStoreButton } from "./sale-site/footer-app-store-button";
 export { default as FooterGooglePlayButton } from "./sale-site/footer-google-play-button";
+export { default as FooterFacebookIcon } from "./sale-site/footer-facebook-icon";
+export { default as FooterYoutubeIcon } from "./sale-site/footer-youtube-icon";
+export { default as FooterDribbleIcon } from "./sale-site/footer-dribble-icon";
+export { default as FooterFigmaIcon } from "./sale-site/footer-figma-icon";
+export { default as FooterWhatsappIcon } from "./sale-site/footer-whatsapp-icon";
