@@ -29,7 +29,7 @@ export default function Slider() {
       pt={16}
       pb={3.2}
     >
-      <Box maxWidth={"lg"} width={"100%"}>
+      <Box maxWidth={"md"} width={"100%"}>
         <Swiper
           effect={"coverflow"}
           grabCursor
@@ -86,10 +86,11 @@ export default function Slider() {
             />
             <Box
               color={"grey.50"}
-              pl={6.2}
+              pl={{ xs: 0, md: 6.2 }}
               py={{ xs: 2, md: 9 }}
               zIndex={2}
               textAlign={{ xs: "center", md: "unset" }}
+              width={{ xs: "100%", md: "unset" }}
             >
               <Typography variant={"h5"} fontWeight={800}>
                 As Seen on TV
@@ -108,7 +109,7 @@ export default function Slider() {
               height={"100%"}
               width={{ xs: "100%", md: "unset" }}
               position={"relative"}
-              pr={{ xs: 2, md: 20 }}
+              pr={{ xs: 0, md: 20 }}
             >
               <Typography variant={"h1"} fontWeight={600}>
                 THE BIG

@@ -32,3 +32,6 @@ export { default as FooterYoutubeIcon } from "./sale-site/footer-youtube-icon";
 export { default as FooterDribbleIcon } from "./sale-site/footer-dribble-icon";
 export { default as FooterFigmaIcon } from "./sale-site/footer-figma-icon";
 export { default as FooterWhatsappIcon } from "./sale-site/footer-whatsapp-icon";
+export { default as PropertiesBedIcon } from "./sale-site/properties-bed-icon";
+export { default as PropertiesStatusIcon } from "./sale-site/properties-status-icon";
+export { default as PropertiesNumberIcon } from "./sale-site/properties-number-icon";
