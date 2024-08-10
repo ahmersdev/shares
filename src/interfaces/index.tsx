@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 export interface IChildrenProps {
@@ -20,21 +19,4 @@ export interface IFontSizeBreakpoints {
   xs: number;
   md: number;
   lg: number;
-}
-
-export interface IProperty {
-  id: number;
-  imageSrc: StaticImageData;
-  bedInfo: number;
-  status: string;
-  number: string;
-  title: string;
-  description: string;
-  price: string;
-  investors: number;
-  annualROI: string;
-  completionDate: string;
-  investmentFrom: string;
-  progress: number;
-  sharesLeft: number;
 }

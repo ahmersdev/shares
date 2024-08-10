@@ -1,15 +1,14 @@
-import {
-  PropertiesBedIcon,
-  PropertiesNumberIcon,
-  PropertiesStatusIcon,
-} from "@/assets/icons";
 import { BUTTON_STYLES } from "@/styles";
 import { Box, Button, Grid, LinearProgress, Typography } from "@mui/material";
 import Image from "next/image";
 import { IPropertiesDataArray } from "./properties-card.interface";
-import { IProperty } from "@/interfaces";
 import Link from "next/link";
 import { SALE_SITE } from "@/constants/routes";
+import {
+  IDetailsPublic,
+  IInteriorDetails,
+  IProperty,
+} from "@/interfaces/properties";
 
 export default function PropertiesCard({
   propertiesDataArray,
@@ -36,24 +35,19 @@ export default function PropertiesCard({
                 gap={2.4}
                 flexWrap={"wrap"}
               >
-                <Box display={"flex"} alignItems={"center"} gap={1}>
-                  <PropertiesBedIcon />
-                  <Typography variant={"body3"} fontWeight={500}>
-                    {property.bedInfo} Bed
-                  </Typography>
-                </Box>
-                <Box display={"flex"} alignItems={"center"} gap={1}>
-                  <PropertiesStatusIcon />
-                  <Typography variant={"body3"} fontWeight={500}>
-                    {property.status}
-                  </Typography>
-                </Box>
-                <Box display={"flex"} alignItems={"center"} gap={1}>
-                  <PropertiesNumberIcon />
-                  <Typography variant={"body3"} fontWeight={500}>
-                    {property.number}
-                  </Typography>
-                </Box>
+                {property.interiorDetails.map((interior: IInteriorDetails) => (
+                  <Box
+                    display={"flex"}
+                    alignItems={"center"}
+                    gap={1}
+                    key={interior.interiorId}
+                  >
+                    <interior.icon />
+                    <Typography variant={"body3"} fontWeight={500}>
+                      {interior.info}
+                    </Typography>
+                  </Box>
+                ))}
               </Box>
 
               <Typography
@@ -94,48 +88,23 @@ export default function PropertiesCard({
                 p={1.2}
                 gap={1.2}
               >
-                <Box
-                  display={"flex"}
-                  alignItems={"center"}
-                  justifyContent={"space-between"}
-                  flexWrap={"wrap"}
-                  gap={1}
-                >
-                  <Typography variant={"body2"} fontWeight={600}>
-                    Annual ROI Estimate
-                  </Typography>
-                  <Typography variant={"body2"} fontWeight={700}>
-                    {property.annualROI}
-                  </Typography>
-                </Box>
-                <Box
-                  display={"flex"}
-                  alignItems={"center"}
-                  justifyContent={"space-between"}
-                  flexWrap={"wrap"}
-                  gap={1}
-                >
-                  <Typography variant={"body2"} fontWeight={600}>
-                    Completion Date
-                  </Typography>
-                  <Typography variant={"body2"} fontWeight={700}>
-                    {property.completionDate}
-                  </Typography>
-                </Box>
-                <Box
-                  display={"flex"}
-                  alignItems={"center"}
-                  justifyContent={"space-between"}
-                  flexWrap={"wrap"}
-                  gap={1}
-                >
-                  <Typography variant={"body2"} fontWeight={600}>
-                    Investment From
-                  </Typography>
-                  <Typography variant={"body2"} fontWeight={700}>
-                    {property.investmentFrom}
-                  </Typography>
-                </Box>
+                {property.detailsPublic.map((detail: IDetailsPublic) => (
+                  <Box
+                    display={"flex"}
+                    alignItems={"center"}
+                    justifyContent={"space-between"}
+                    flexWrap={"wrap"}
+                    gap={1}
+                    key={detail.detailsId}
+                  >
+                    <Typography variant={"body2"} fontWeight={600}>
+                      {detail.title}
+                    </Typography>
+                    <Typography variant={"body2"} fontWeight={700}>
+                      {detail.detail}
+                    </Typography>
+                  </Box>
+                ))}
               </Box>
 
               <LinearProgress
