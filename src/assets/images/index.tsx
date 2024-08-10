@@ -21,3 +21,5 @@ export { default as FooterPhoneImg } from "./sale-site/footer-phone-img.png";
 export { default as PropertiesSliderOneImg } from "./sale-site/properties-slider-one-img.png";
 export { default as PropertiesSliderOnePersonImg } from "./sale-site/properties-slider-one-person-img.png";
 export { default as PropertiesVillaOneImg } from "./sale-site/properties-villa-one-img.png";
+export { default as PropertiesDetailsHeroOneImg } from "./sale-site/properties-details-hero-one-img.png";
+export { default as PropertiesDetailsHeroTwoImg } from "./sale-site/properties-details-hero-two-img.png";

@@ -146,6 +146,9 @@ export default function PropertiesCard({
                   borderRadius: 1.5,
                   height: 6,
                   backgroundColor: "primary.5",
+                  "& .MuiLinearProgress-bar1Determinate": {
+                    borderRadius: "inherit",
+                  },
                 }}
               />
 

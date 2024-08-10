@@ -6,7 +6,7 @@ import Counts from "./counts";
 
 export default function HeroBanner() {
   return (
-    <Box>
+    <Box position={"relative"}>
       <Box
         position={"absolute"}
         top={0}

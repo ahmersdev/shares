@@ -1,5 +1,12 @@
 "use client";
 
+import { Stack } from "@mui/material";
+import HeroBanner from "./hero-banner";
+
 export default function Details() {
-  return <div>Details</div>;
+  return (
+    <Stack direction={"column"} spacing={5}>
+      <HeroBanner />
+    </Stack>
+  );
 }
