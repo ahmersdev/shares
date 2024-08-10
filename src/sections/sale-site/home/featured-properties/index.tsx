@@ -1,4 +1,6 @@
+import PropertiesCard from "@/components/properties-card";
 import { Box, Typography } from "@mui/material";
+import { propertiesData } from "./featured-properties.data";
 
 export default function FeaturedProperties() {
   return (
@@ -17,6 +19,8 @@ export default function FeaturedProperties() {
         <Typography variant={"h7"} textAlign={"center"}>
           We only select properties with the highest income potential
         </Typography>
+
+        <PropertiesCard propertiesDataArray={propertiesData} />
       </Box>
     </Box>
   );
