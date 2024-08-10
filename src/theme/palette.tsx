@@ -14,6 +14,7 @@ const GREY = {
   700: "#1A1A1A",
   600: "#6A6A6A",
   500: "#0E0B29",
+  400: "#D9D9D9",
   50: "#FCFCFC", //light
 };
 
@@ -47,7 +48,8 @@ const INFO = {
 };
 
 const GRADIENTS = {
-  primary: "linear-gradient(90deg, #47CE8E 0%, #C1FFE2 100%)",
+  primary:
+    "linear-gradient(180deg, rgba(71, 206, 142, 0.8) 0%, rgba(71, 206, 142, 0.8) 52.5%, rgba(71, 206, 142, 0.8) 100%)",
 };
 
 const OPACITY = {

@@ -2,6 +2,7 @@
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 import { Provider } from "react-redux";
 import store from "@/store";
 import { IChildrenProps } from "@/interfaces";

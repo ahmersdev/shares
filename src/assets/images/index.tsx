@@ -18,3 +18,5 @@ export { default as InvestorsPwcImg } from "./sale-site/investors-pwc-img.png";
 export { default as DubaiPersonImg } from "./sale-site/dubai-person-img.png";
 export { default as TestimonialsPersonImg } from "./sale-site/testimonials-person-img.png";
 export { default as FooterPhoneImg } from "./sale-site/footer-phone-img.png";
+export { default as PropertiesSliderOneImg } from "./sale-site/properties-slider-one-img.png";
+export { default as PropertiesSliderOnePersonImg } from "./sale-site/properties-slider-one-person-img.png";
