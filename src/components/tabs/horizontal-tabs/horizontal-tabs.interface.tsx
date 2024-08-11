@@ -1,3 +1,4 @@
+import { SxProps, Theme } from "@mui/material";
 import { ReactNode } from "react";
 
 export interface ITabData {
@@ -12,4 +13,7 @@ export interface IHorizontalTabsProps {
   variant?: "scrollable" | "standard" | "fullWidth";
   defaultValue?: number;
   margin?: string | number;
+  indicatorDisplay?: string;
+  tabStyle?: SxProps<Theme>;
+  typographyStyle?: SxProps<Theme>;
 }

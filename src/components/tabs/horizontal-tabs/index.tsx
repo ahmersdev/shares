@@ -14,7 +14,6 @@ import {
   useTheme,
   Theme,
 } from "@mui/material";
-import { pxToRem } from "@/utils/get-font-value";
 import { IHorizontalTabsProps, ITabData } from "./horizontal-tabs.interface";
 
 const HorizontalTabs = ({
@@ -24,6 +23,9 @@ const HorizontalTabs = ({
   variant = "scrollable",
   defaultValue = 0,
   margin = "unset",
+  indicatorDisplay = "default",
+  tabStyle = {},
+  typographyStyle = {},
 }: IHorizontalTabsProps) => {
   const theme = useTheme<Theme>();
 
@@ -59,6 +61,9 @@ const HorizontalTabs = ({
           "&.MuiTabs-root": {
             margin: margin,
           },
+          "& .MuiTabs-indicator": {
+            display: indicatorDisplay,
+          },
         }}
       >
         {tabsDataArray.map((tabData: ITabData, index: number) => (
@@ -66,35 +71,36 @@ const HorizontalTabs = ({
             wrapped
             sx={{
               color: "text.body",
-              fontSize: pxToRem(20),
-              fontWeight: 600,
-              borderRadius: 0,
+              mr: 1.6,
+              p: 0,
               "&.Mui-selected": {
                 color: "primary.main",
               },
+              ...tabStyle,
             }}
-            key={tabData?.title}
+            key={tabData.title}
             onClick={() => {
               setActiveTab ? setActiveTab(tabData?.title) : null;
             }}
             icon={
               tabData.icon && (
-                <tabData.icon
-                  fill={
-                    value === index
-                      ? theme.palette.primary.main
-                      : theme.palette.text.body
-                  }
-                />
+                <Box>
+                  <tabData.icon
+                    fill={
+                      value === index
+                        ? theme.palette.primary.main
+                        : theme.palette.text.body
+                    }
+                  />
+                </Box>
               )
             }
             iconPosition="start"
             label={
               <Typography
-                variant="body1"
-                component="span"
-                fontWeight={600}
-                ml={0.5}
+                variant={"h7"}
+                component={"span"}
+                sx={{ fontWeight: 600, ...typographyStyle }}
               >
                 {tabData?.title}
               </Typography>

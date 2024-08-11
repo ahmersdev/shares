@@ -74,7 +74,7 @@ const COMMON = {
   opacity: { ...OPACITY },
   grey: GREY,
   gradients: GRADIENTS,
-  divider: TEXT.stroke,
+  divider: TEXT.bodyLight,
   action: {
     hoverOpacity: 0.08,
     disabledOpacity: 0.48,
