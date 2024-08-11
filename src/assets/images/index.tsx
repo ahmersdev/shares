@@ -19,6 +19,8 @@ export { default as DubaiPersonImg } from "./sale-site/dubai-person-img.png";
 export { default as TestimonialsPersonImg } from "./sale-site/testimonials-person-img.png";
 export { default as FooterPhoneImg } from "./sale-site/footer-phone-img.png";
 export { default as PropertiesSliderOneImg } from "./sale-site/properties-slider-one-img.png";
+export { default as PropertiesSliderTwoImg } from "./sale-site/properties-slider-two-img.png";
+export { default as PropertiesSliderThreeImg } from "./sale-site/properties-slider-three-img.png";
 export { default as PropertiesSliderOnePersonImg } from "./sale-site/properties-slider-one-person-img.png";
 export { default as PropertiesVillaOneImg } from "./sale-site/properties-villa-one-img.png";
 export { default as PropertiesDetailsHeroOneImg } from "./sale-site/properties-details-hero-one-img.png";

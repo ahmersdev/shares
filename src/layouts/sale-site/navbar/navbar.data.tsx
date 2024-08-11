@@ -10,9 +10,13 @@ export const saleSiteHeaderArray: INavItem[] = [
 ];
 
 export const listButtonStyles = (href: string, pathName: string) => {
+  const isHomePage = href === SALE_SITE.HOME && pathName === href;
+  const isActive =
+    isHomePage || (pathName.includes(href) && href !== SALE_SITE.HOME);
+
   return {
-    color: pathName === href ? "primary.main" : "text.body",
-    fontWeight: pathName === href ? 700 : 400,
+    color: isActive ? "primary.main" : "text.body",
+    fontWeight: isActive ? 700 : 400,
     fontSize: pxToRem(16),
     background: "transparent",
     p: 0,

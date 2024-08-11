@@ -8,15 +8,19 @@ export const saleSiteDrawerArray: INavItem[] = [
   { id: 3, label: "About Us", href: SALE_SITE.ABOUT_US },
   { id: 4, label: "Properties", href: SALE_SITE.PROPERTIES },
   { id: 5, label: "FAQs", href: SALE_SITE.FAQS },
-  { id: 6, label: "Sign In", href: "" },
-  { id: 7, label: "Sign Up", href: "" },
+  { id: 6, label: "Sign In", href: "#" },
+  { id: 7, label: "Sign Up", href: "#" },
 ];
 
 export const mainStyles = (href: string, pathName: string, theme: Theme) => {
+  const isHomePage = href === SALE_SITE.HOME && pathName === href;
+  const isActive =
+    isHomePage || (pathName.includes(href) && href !== SALE_SITE.HOME);
+
   return {
-    background: `${pathName === href ? theme.palette.primary.main : null}`,
-    color: `${pathName === href ? "grey.50" : "text.body"}`,
-    fontWeight: pathName === href ? 700 : 400,
+    background: isActive ? theme.palette.primary.main : null,
+    color: isActive ? "grey.50" : "text.body",
+    fontWeight: isActive ? 700 : 400,
     padding: "10px 16px 10px 30px",
     fontSize: pxToRem(16),
     borderRadius: "200px 200px 200px 200px",

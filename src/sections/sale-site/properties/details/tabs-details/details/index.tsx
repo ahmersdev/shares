@@ -31,10 +31,10 @@ export default function Details() {
         <br />
         <br />
         Each of the three bedrooms exudes an enchanting ethnic theme, offering a
-        relaxing garden view that enhances the villa's serene ambiance. The
-        spacious, modern kitchen bar and living room provide the perfect setting
-        for guests to enjoy culinary delights, and the semi-open living area
-        seamlessly connects the indoors with the outdoors.
+        relaxing garden view that enhances the villa&rsquo;s serene ambiance.
+        The spacious, modern kitchen bar and living room provide the perfect
+        setting for guests to enjoy culinary delights, and the semi-open living
+        area seamlessly connects the indoors with the outdoors.
         <br />
         <br />
         Villa Lembah Giri&rsquo;s private infinity pool and cozy outdoor lounge
