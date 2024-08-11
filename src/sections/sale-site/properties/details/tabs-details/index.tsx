@@ -1,6 +1,9 @@
 import { HorizontalTabs } from "@/components/tabs";
 import { Box } from "@mui/material";
 import { tabsDataArray } from "./tabs-details.data";
+import Details from "./details";
+import Market from "./market";
+import TimelineTab from "./timeline";
 
 export default function TabsDetails() {
   return (
@@ -19,11 +22,11 @@ export default function TabsDetails() {
           }}
           typographyStyle={{ fontWeight: 400, px: 2.4 }}
         >
-          <>Details</>
+          <Details />
           <>Financials</>
           <>Documents</>
-          <>Market</>
-          <>Timeline</>
+          <Market />
+          <TimelineTab />
         </HorizontalTabs>
       </Box>
     </Box>

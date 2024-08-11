@@ -108,7 +108,7 @@ const HorizontalTabs = ({
           />
         ))}
       </Tabs>
-      <Box sx={{ py: 3 }}>
+      <Box sx={{ py: 4 }}>
         {arrayChildren.map((child, index) => (
           <Box key={index}>
             {value === index &&
