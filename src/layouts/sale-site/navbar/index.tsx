@@ -1,5 +1,12 @@
-import { SALE_SITE } from "@/constants/routes";
-import { Box, Button, List, ListItem, ListItemButton } from "@mui/material";
+import { AUTH, SALE_SITE } from "@/constants/routes";
+import {
+  Box,
+  Button,
+  List,
+  ListItem,
+  ListItemButton,
+  Typography,
+} from "@mui/material";
 import Link from "next/link";
 import { listButtonStyles, saleSiteHeaderArray } from "./navbar.data";
 import { usePathname } from "next/navigation";
@@ -30,7 +37,18 @@ export default function Navbar() {
           px={4}
           py={2.5}
         >
-          <Link href={SALE_SITE.HOME}>Shares.</Link>
+          <Link
+            href={SALE_SITE.HOME}
+            style={{ display: "flex", alignItems: "baseline" }}
+          >
+            <Typography variant={"logo"}>Shares</Typography>
+            <Box
+              width={8}
+              height={8}
+              bgcolor={"primary.main"}
+              borderRadius={"50%"}
+            />
+          </Link>
 
           <List sx={{ display: "flex", whiteSpace: "nowrap" }}>
             {saleSiteHeaderArray.map((item: INavItem) => (
@@ -44,36 +62,41 @@ export default function Navbar() {
             ))}
           </List>
           <Box display={"flex"} alignItems={"center"} gap={1}>
-            <Button
-              variant={"contained"}
-              sx={{
-                ...BUTTON_STYLES,
-                color: "text.heading",
-                borderColor: "text.stroke",
-                background: "transparent",
-                ":hover": {
-                  backgroundColor: "text.stroke",
-                },
-              }}
-              disableElevation
-            >
-              Login
-            </Button>
-            <Button
-              variant={"contained"}
-              sx={{
-                ...BUTTON_STYLES,
-                color: "grey.50",
-                borderColor: "common.bgDark",
-                backgroundColor: "common.bgDark",
-                ":hover": {
+            <Link href={AUTH.SIGN_IN}>
+              <Button
+                variant={"contained"}
+                sx={{
+                  ...BUTTON_STYLES,
+                  color: "text.heading",
+                  borderColor: "text.stroke",
+                  background: "transparent",
+                  ":hover": {
+                    backgroundColor: "text.stroke",
+                  },
+                }}
+                disableElevation
+              >
+                Login
+              </Button>
+            </Link>
+
+            <Link href={AUTH.SIGN_UP}>
+              <Button
+                variant={"contained"}
+                sx={{
+                  ...BUTTON_STYLES,
+                  color: "grey.50",
+                  borderColor: "common.bgDark",
                   backgroundColor: "common.bgDark",
-                },
-              }}
-              disableElevation
-            >
-              Sign Up
-            </Button>
+                  ":hover": {
+                    backgroundColor: "common.bgDark",
+                  },
+                }}
+                disableElevation
+              >
+                Sign Up
+              </Button>
+            </Link>
           </Box>
         </Box>
       </Box>

@@ -1,6 +1,5 @@
 import { FooterPhoneImg } from "@/assets/images";
 import { Box, Theme, Typography, useTheme } from "@mui/material";
-import Image from "next/image";
 import FooterNav from "./footer-nav";
 import { FooterAppStoreButton, FooterGooglePlayButton } from "@/assets/icons";
 

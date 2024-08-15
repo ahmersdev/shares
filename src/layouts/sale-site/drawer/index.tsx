@@ -7,6 +7,7 @@ import {
   ListItemButton,
   useTheme,
   Theme,
+  Typography,
 } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -41,9 +42,20 @@ export default function DrawerSaleSite({
         alignItems={"center"}
         justifyContent={"space-between"}
       >
-        <Link href={SALE_SITE.HOME} onClick={() => setOpen(false)}>
-          Shares.
-        </Link>
+        <Box onClick={() => setOpen(false)}>
+          <Link
+            href={SALE_SITE.HOME}
+            style={{ display: "flex", alignItems: "baseline" }}
+          >
+            <Typography variant={"logo"}>Shares</Typography>
+            <Box
+              width={8}
+              height={8}
+              bgcolor={"primary.main"}
+              borderRadius={"50%"}
+            />
+          </Link>
+        </Box>
         <CloseIcon
           sx={{ cursor: "pointer", color: "secondary.100" }}
           onClick={() => setOpen(false)}

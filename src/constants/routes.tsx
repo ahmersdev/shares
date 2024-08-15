@@ -4,3 +4,8 @@ export const SALE_SITE = {
   PROPERTIES: "/properties",
   FAQS: "/faqs",
 };
+
+export const AUTH = {
+  SIGN_IN: "/sign-in",
+  SIGN_UP: "/sign-up",
+};

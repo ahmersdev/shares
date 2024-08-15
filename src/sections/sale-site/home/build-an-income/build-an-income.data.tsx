@@ -13,7 +13,7 @@ export const getBuildAnIncomeDataArray = (
       id: 1,
       title: "Browse",
       subtitle: "Get access to high profitable properties in Bali",
-      description: "The world's most lucrative market for rental properties",
+      description: "The worlds most lucrative market for rental properties",
       image: IncomeBrowseImg,
       additionalContent: (
         <Link href={""}>
@@ -88,7 +88,8 @@ export const getBuildAnIncomeDataArray = (
             fontWeight={600}
             borderRadius={25}
             bgcolor={"primary.5"}
-            p={2}
+            px={2}
+            py={1}
             textAlign={"center"}
           >
             Sell During Our Exit Windows (Every 12 Months)
@@ -98,7 +99,8 @@ export const getBuildAnIncomeDataArray = (
             fontWeight={600}
             borderRadius={25}
             bgcolor={"primary.5"}
-            p={2}
+            px={2}
+            py={1}
             textAlign={"center"}
           >
             Full sale of property | 3-5 year holding term

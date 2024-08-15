@@ -2,7 +2,7 @@ import { TestimonialsPersonImg } from "@/assets/images";
 import { Box, Grid, Rating, Theme, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import { EffectCoverflow } from "swiper/modules";
 import { testimonialsDataArray } from "./testimonials.data";
 import { ITestimonialsDataArray } from "./testimonials.interface";
 

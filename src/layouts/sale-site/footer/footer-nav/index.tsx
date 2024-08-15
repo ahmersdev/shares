@@ -36,7 +36,18 @@ export default function FooterNav() {
       gap={2}
     >
       <Box display={"flex"} flexDirection={"column"} gap={3}>
-        <Link href={SALE_SITE.HOME}>Shares.</Link>
+        <Link
+          href={SALE_SITE.HOME}
+          style={{ display: "flex", alignItems: "baseline" }}
+        >
+          <Typography variant={"logo"}>Shares</Typography>
+          <Box
+            width={8}
+            height={8}
+            bgcolor={"primary.main"}
+            borderRadius={"50%"}
+          />
+        </Link>
 
         <Typography
           variant={"body2"}

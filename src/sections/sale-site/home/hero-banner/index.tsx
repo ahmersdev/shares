@@ -3,6 +3,8 @@ import { BUTTON_STYLES } from "@/styles";
 import { pxToRem } from "@/utils/get-font-value";
 import { Box, Button, Chip, Typography } from "@mui/material";
 import Counts from "./counts";
+import Link from "next/link";
+import { AUTH, SALE_SITE } from "@/constants/routes";
 
 export default function HeroBanner() {
   return (
@@ -14,7 +16,7 @@ export default function HeroBanner() {
         zIndex={-1}
         borderRadius={"0px 0px 64px 64px"}
         width={"100%"}
-        height={"100vh"}
+        height={"90vh"}
         sx={{
           backgroundImage: `url(${HomeHeroBanner.src})`,
           backgroundSize: "cover",
@@ -29,7 +31,7 @@ export default function HeroBanner() {
         alignItems={"Center"}
         gap={3}
         position={"relative"}
-        height={"100vh"}
+        height={"90vh"}
         px={2}
       >
         <Chip
@@ -48,7 +50,7 @@ export default function HeroBanner() {
           variant={"h1"}
           fontWeight={800}
           color={"grey.50"}
-          maxWidth={"50%"}
+          maxWidth={"55%"}
           textAlign={"center"}
           textTransform={"capitalize"}
         >
@@ -66,36 +68,41 @@ export default function HeroBanner() {
           flexWrap={"wrap"}
           gap={1}
         >
-          <Button
-            variant={"contained"}
-            sx={{
-              ...BUTTON_STYLES,
-              color: "primary.main",
-              borderColor: "grey.50",
-              backgroundColor: "grey.50",
-              ":hover": {
+          <Link href={SALE_SITE.ABOUT_US}>
+            <Button
+              variant={"contained"}
+              sx={{
+                ...BUTTON_STYLES,
+                color: "primary.main",
+                borderColor: "grey.50",
                 backgroundColor: "grey.50",
-              },
-            }}
-            disableElevation
-          >
-            What Is Shares
-          </Button>
-          <Button
-            variant={"contained"}
-            sx={{
-              ...BUTTON_STYLES,
-              color: "grey.50",
-              borderColor: "primary.main",
-              backgroundColor: "primary.main",
-              ":hover": {
+                ":hover": {
+                  backgroundColor: "grey.50",
+                },
+              }}
+              disableElevation
+            >
+              What Is Shares
+            </Button>
+          </Link>
+
+          <Link href={AUTH.SIGN_UP}>
+            <Button
+              variant={"contained"}
+              sx={{
+                ...BUTTON_STYLES,
+                color: "grey.50",
+                borderColor: "primary.main",
                 backgroundColor: "primary.main",
-              },
-            }}
-            disableElevation
-          >
-            Get Started
-          </Button>
+                ":hover": {
+                  backgroundColor: "primary.main",
+                },
+              }}
+              disableElevation
+            >
+              Get Started
+            </Button>
+          </Link>
         </Box>
       </Box>
 

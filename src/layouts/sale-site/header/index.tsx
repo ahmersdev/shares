@@ -1,5 +1,5 @@
 import { SALE_SITE } from "@/constants/routes";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -35,7 +35,18 @@ export default function Header() {
               }}
               onClick={() => setOpen(true)}
             />
-            <Link href={SALE_SITE.HOME}>Shares.</Link>
+            <Link
+              href={SALE_SITE.HOME}
+              style={{ display: "flex", alignItems: "baseline" }}
+            >
+              <Typography variant={"logo"}>Shares</Typography>
+              <Box
+                width={8}
+                height={8}
+                bgcolor={"primary.main"}
+                borderRadius={"50%"}
+              />
+            </Link>
           </Box>
         </Box>
       </Box>

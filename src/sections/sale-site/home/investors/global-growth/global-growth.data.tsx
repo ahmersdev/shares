@@ -1,8 +1,4 @@
-import { InvestorsGlobeIcon } from "@/assets/icons";
-import {
-  IGlobalGrowthData,
-  IGlobalGrowthSmallCards,
-} from "./global-growth.interface";
+import { IGlobalGrowthData } from "./global-growth.interface";
 import {
   InvestorsBBCImg,
   InvestorsDestinImg,
@@ -11,21 +7,6 @@ import {
   InvestorsTripAdvisorImg,
   InvestorsUSNewsImg,
 } from "@/assets/images";
-
-export const globalGrowthSmallCards: IGlobalGrowthSmallCards[] = [
-  {
-    id: 1,
-    amount: "+5%",
-    icon: InvestorsGlobeIcon,
-    desc: "Average global property value growth",
-  },
-  {
-    id: 2,
-    amount: "+5%",
-    icon: InvestorsGlobeIcon,
-    desc: "Average global property value growth",
-  },
-];
 
 export const globalGrowthData: IGlobalGrowthData[] = [
   {
