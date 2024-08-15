@@ -15,7 +15,15 @@ export default function PropertiesCard({
     <Grid container spacing={2.4}>
       {propertiesDataArray.map((property: IProperty) => (
         <Grid item xs={12} sm={6} md={4} key={property.id}>
-          <Box borderRadius={6} bgcolor={"common.bgLight"} overflow={"hidden"}>
+          <Box
+            borderRadius={6}
+            bgcolor={"common.bgLight"}
+            overflow={"hidden"}
+            display={"flex"}
+            flexDirection={"column"}
+            height={"100%"}
+            justifyContent={"space-between"}
+          >
             <Image
               src={property.imageSrc}
               alt={property.title}
@@ -27,25 +35,28 @@ export default function PropertiesCard({
               }}
             />
             <Box p={1.6} display={"flex"} flexDirection={"column"} gap={1}>
-              <Box
-                display={"flex"}
-                alignItems={"center"}
-                gap={2.4}
-                flexWrap={"wrap"}
-              >
-                {property.interiorDetails.map((interior: IInteriorDetails) => (
-                  <Box
-                    display={"flex"}
-                    alignItems={"center"}
-                    gap={1}
-                    key={interior.interiorId}
-                  >
-                    <interior.icon />
-                    <Typography variant={"body3"} fontWeight={500}>
-                      {interior.info}
-                    </Typography>
-                  </Box>
-                ))}
+              <Box display={"flex"} alignItems={"center"} flexWrap={"wrap"}>
+                {property.interiorDetails.map(
+                  (interior: IInteriorDetails, index: number) => (
+                    <Box
+                      display={"flex"}
+                      alignItems={"center"}
+                      gap={0.5}
+                      key={interior.interiorId}
+                      pr={1.2}
+                      pl={0.6}
+                      borderRight={
+                        index !== property.interiorDetails.length - 1 ? 1 : 0
+                      }
+                      borderColor={"text.stroke"}
+                    >
+                      <interior.icon />
+                      <Typography variant={"caption"}>
+                        {interior.info}
+                      </Typography>
+                    </Box>
+                  )
+                )}
               </Box>
 
               <Typography

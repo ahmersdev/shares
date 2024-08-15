@@ -79,6 +79,10 @@ const typography: TypographyOptions = {
     fontSize: pxToRem(10),
     letterSpacing: "0.02em",
   },
+  caption: {
+    fontSize: pxToRem(12),
+    letterSpacing: "0.02em",
+  },
   button: {
     fontWeight: 600,
     fontSize: pxToRem(16),
