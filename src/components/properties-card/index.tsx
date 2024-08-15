@@ -2,8 +2,6 @@ import { BUTTON_STYLES } from "@/styles";
 import { Box, Button, Grid, LinearProgress, Typography } from "@mui/material";
 import Image from "next/image";
 import { IPropertiesDataArray } from "./properties-card.interface";
-import Link from "next/link";
-import { SALE_SITE } from "@/constants/routes";
 import {
   IDetailsPublic,
   IInteriorDetails,
@@ -137,30 +135,22 @@ export default function PropertiesCard({
                 </Typography>
               </Box>
 
-              <Link
-                href={{
-                  pathname: SALE_SITE.PROPERTIES_DETAILS,
-                  query: { id: property.id },
-                }}
-                style={{ width: "100%" }}
-              >
-                <Button
-                  variant={"contained"}
-                  sx={{
-                    ...BUTTON_STYLES,
-                    color: "grey.50",
-                    borderColor: "primary.main",
+              <Button
+                variant={"contained"}
+                sx={{
+                  ...BUTTON_STYLES,
+                  color: "grey.50",
+                  borderColor: "primary.main",
+                  backgroundColor: "primary.main",
+                  width: "100%",
+                  ":hover": {
                     backgroundColor: "primary.main",
-                    width: "100%",
-                    ":hover": {
-                      backgroundColor: "primary.main",
-                    },
-                  }}
-                  disableElevation
-                >
-                  Get More Details
-                </Button>
-              </Link>
+                  },
+                }}
+                disableElevation
+              >
+                Get More Details
+              </Button>
             </Box>
           </Box>
         </Grid>

@@ -23,5 +23,3 @@ export { default as PropertiesSliderTwoImg } from "./sale-site/properties-slider
 export { default as PropertiesSliderThreeImg } from "./sale-site/properties-slider-three-img.png";
 export { default as PropertiesSliderOnePersonImg } from "./sale-site/properties-slider-one-person-img.png";
 export { default as PropertiesVillaOneImg } from "./sale-site/properties-villa-one-img.png";
-export { default as PropertiesDetailsHeroOneImg } from "./sale-site/properties-details-hero-one-img.png";
-export { default as PropertiesDetailsHeroTwoImg } from "./sale-site/properties-details-hero-two-img.png";

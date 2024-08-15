@@ -35,7 +35,3 @@ export { default as FooterWhatsappIcon } from "./sale-site/footer-whatsapp-icon"
 export { default as PropertiesBedIcon } from "./sale-site/properties-bed-icon";
 export { default as PropertiesStatusIcon } from "./sale-site/properties-status-icon";
 export { default as PropertiesNumberIcon } from "./sale-site/properties-number-icon";
-export { default as PropertiesDetailsBedIcon } from "./sale-site/properties-details-bed-icon";
-export { default as PropertiesDetailsBathroomIcon } from "./sale-site/properties-details-bathroom-icon";
-export { default as PropertiesDetailsAreaIcon } from "./sale-site/properties-details-area-icon";
-export { default as PropertiesDetailsTypeIcon } from "./sale-site/properties-details-type-icon";
