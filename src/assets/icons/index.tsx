@@ -38,4 +38,3 @@ export { default as FooterWhatsappIcon } from "./sale-site/footer-whatsapp-icon"
 export { default as PropertiesBedIcon } from "./sale-site/properties-bed-icon";
 export { default as PropertiesStatusIcon } from "./sale-site/properties-status-icon";
 export { default as PropertiesLocationIcon } from "./sale-site/properties-location-icon";
-export { default as PropertiesNumberIcon } from "./sale-site/properties-number-icon";
