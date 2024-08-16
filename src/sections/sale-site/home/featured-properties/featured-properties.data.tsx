@@ -18,7 +18,7 @@ export const propertiesData: IProperty[] = [
       {
         interiorId: 11,
         icon: PropertiesBedIcon,
-        info: "3 Apartments",
+        info: "3 Bedrooms Apartment",
       },
       {
         interiorId: 12,

@@ -5,7 +5,6 @@ import { TrustDualIcon } from "@/assets/icons";
 import Link from "next/link";
 import { BUTTON_STYLES } from "@/styles";
 import Image from "next/image";
-import { TrustBaliVilla } from "@/assets/images";
 
 export default function Trust() {
   const theme = useTheme<Theme>();
@@ -15,10 +14,9 @@ export default function Trust() {
       display={"flex"}
       flexDirection={"column"}
       alignItems={"center"}
-      px={2}
       gap={8}
     >
-      <Box maxWidth={"md"} width={"100%"} textAlign={"center"}>
+      <Box maxWidth={"md"} width={"100%"} textAlign={"center"} px={2}>
         <Typography
           variant={"heading1"}
           color={"text.heading"}
@@ -29,7 +27,7 @@ export default function Trust() {
         </Typography>
       </Box>
 
-      <Box maxWidth={"lg"} width={"100%"}>
+      <Box maxWidth={"lg"} width={"100%"} px={2}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <Box
@@ -93,61 +91,92 @@ export default function Trust() {
         </Grid>
       </Box>
 
-      <Box maxWidth={theme.breakpoints.values.lg - 50} width={"100%"} my={5}>
-        <Grid container spacing={4}>
+      <Box position={"relative"}>
+        <Box
+          position={"absolute"}
+          left={0}
+          top={0}
+          width={279}
+          height={"100%"}
+          zIndex={2}
+          display={{ xs: "none", sm: "block" }}
+          sx={{
+            background: theme.palette.gradients.secondary,
+          }}
+        />
+        <Box
+          position={"absolute"}
+          right={0}
+          top={0}
+          width={279}
+          height={"100%"}
+          zIndex={2}
+          display={{ xs: "none", sm: "block" }}
+          sx={{
+            background: theme.palette.gradients.secondary,
+            transform: "rotate(-180deg)",
+          }}
+        />
+        <Grid container spacing={3.2} my={5} px={2}>
           {trustDataImagesArray.map((item: ITrustDataImagesArray) => (
-            <Grid item xs={12} md={4} position={"relative"} key={item.id}>
-              {item.badge && (
-                <Box
-                  position={"absolute"}
-                  left={"40%"}
-                  sx={{ transform: "translate(-40%, -50%)" }}
-                >
+            <Grid item xs={12} sm={4} md={2.4} key={item.id}>
+              <Box position={"relative"}>
+                {item.badge && (
                   <Box
-                    bgcolor={"primary.main"}
-                    borderRadius={"50%"}
-                    width={100}
-                    height={100}
-                    display={"flex"}
-                    flexDirection={"column"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
-                    gap={1}
-                    sx={{ transform: "rotate(-30deg)" }}
+                    position={"absolute"}
+                    right={"5%"}
+                    sx={{ transform: "translate(5%, -50%)" }}
                   >
-                    <Typography
-                      variant={"subtitle2"}
-                      fontWeight={800}
-                      color={"common.white"}
-                      textAlign={"center"}
+                    <Box
+                      bgcolor={"primary.main"}
+                      borderRadius={"50%"}
+                      width={100}
+                      height={100}
+                      display={"flex"}
+                      flexDirection={"column"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                      gap={1}
+                      sx={{ transform: "rotate(-30deg)" }}
                     >
-                      {item.badge.amount}
-                    </Typography>
-                    <Typography
-                      variant={"subtitle2"}
-                      fontWeight={800}
-                      color={"common.white"}
-                      textAlign={"center"}
-                    >
-                      {item.badge.desc}
-                    </Typography>
+                      <Typography
+                        variant={"subtitle2"}
+                        fontWeight={800}
+                        color={"common.white"}
+                        textAlign={"center"}
+                      >
+                        {item.badge.amount}
+                      </Typography>
+                      <Typography
+                        variant={"subtitle2"}
+                        fontWeight={800}
+                        color={"common.white"}
+                        textAlign={"center"}
+                      >
+                        {item.badge.desc}
+                      </Typography>
+                    </Box>
                   </Box>
+                )}
+                <Box>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={252}
+                    height={184}
+                    style={{ width: "100%", borderRadius: 24 }}
+                  />
+                  <Typography
+                    variant={"h7"}
+                    component={"h6"}
+                    fontWeight={700}
+                    color={"text.heading"}
+                    textAlign={"center"}
+                  >
+                    {item.title}
+                  </Typography>
                 </Box>
-              )}
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={331}
-                height={264}
-                style={{ width: "100%", height: "100%", borderRadius: 24 }}
-              />
-              <Typography
-                variant={"h7"}
-                fontWeight={700}
-                color={"text.heading"}
-              >
-                {item.title}
-              </Typography>
+              </Box>
             </Grid>
           ))}
         </Grid>

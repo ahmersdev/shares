@@ -9,6 +9,7 @@ declare module "@mui/material/styles" {
     };
     gradients: {
       primary: string;
+      secondary: string;
     };
   }
 

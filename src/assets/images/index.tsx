@@ -2,7 +2,11 @@ export { default as HomeHeroBanner } from "./sale-site/home-hero-banner-img.png"
 export { default as QRCodeImg } from "./sale-site/qr-code-img.png";
 export { default as IncomeBrowseImg } from "./sale-site/income-browse-img.png";
 export { default as IncomeInvestImg } from "./sale-site/income-invest-img.png";
-export { default as TrustBaliVilla } from "./sale-site/trust-bali-villa.png";
+export { default as TrustVillaOne } from "./sale-site/trust-villa-one.png";
+export { default as TrustVillaTwo } from "./sale-site/trust-villa-two.png";
+export { default as TrustVillaThree } from "./sale-site/trust-villa-three.png";
+export { default as TrustVillaFour } from "./sale-site/trust-villa-four.png";
+export { default as TrustVillaFive } from "./sale-site/trust-villa-five.png";
 export { default as InvestorsTripAdvisorImg } from "./sale-site/investors-trip-advisor-img.png";
 export { default as InvestorsForbesImg } from "./sale-site/investors-forbes-img.png";
 export { default as InvestorsTravelImg } from "./sale-site/investors-travel-img.png";

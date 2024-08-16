@@ -1,6 +1,12 @@
 import { TrustBaliIcon, TrustIndonesianIcon } from "@/assets/icons";
 import { ITrustData, ITrustDataImagesArray } from "./trust.interface";
-import { TrustBaliVilla } from "@/assets/images";
+import {
+  TrustVillaFive,
+  TrustVillaFour,
+  TrustVillaOne,
+  TrustVillaThree,
+  TrustVillaTwo,
+} from "@/assets/images";
 
 export const trustDataArray: ITrustData[] = [
   {
@@ -20,18 +26,28 @@ export const trustDataArray: ITrustData[] = [
 export const trustDataImagesArray: ITrustDataImagesArray[] = [
   {
     id: 1,
-    image: TrustBaliVilla,
-    title: "Bali Villa",
+    image: TrustVillaOne,
+    title: "Uluwatu Temple",
     badge: { amount: "$12 USD +", desc: "Fully Funded Properties" },
   },
   {
     id: 2,
-    image: TrustBaliVilla,
-    title: "Bali Villa",
+    image: TrustVillaTwo,
+    title: "Sacred Monkey Forest Sanctuary",
   },
   {
     id: 3,
-    image: TrustBaliVilla,
-    title: "Bali Villa",
+    image: TrustVillaThree,
+    title: "Ceking Rice Terrace",
+  },
+  {
+    id: 4,
+    image: TrustVillaFour,
+    title: "Pura Tirta Empul",
+  },
+  {
+    id: 5,
+    image: TrustVillaFive,
+    title: "Tegenungan Waterfall",
   },
 ];
