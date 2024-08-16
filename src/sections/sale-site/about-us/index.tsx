@@ -5,6 +5,7 @@ import HeroBanner from "./hero-banner";
 import SuccessStories from "./success-stories";
 import StoriesSingle from "./stories-single";
 import Mission from "./mission";
+import Investors from "./investors";
 
 export default function AboutUs() {
   return (
@@ -13,6 +14,7 @@ export default function AboutUs() {
       <SuccessStories />
       <StoriesSingle />
       <Mission />
+      <Investors />
     </Stack>
   );
 }

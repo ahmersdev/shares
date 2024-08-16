@@ -34,3 +34,9 @@ export { default as PropertiesVillaThreeImg } from "./sale-site/properties-villa
 export { default as PropertiesVillaFourImg } from "./sale-site/properties-villa-four-img.png";
 export { default as PropertiesVillaFiveImg } from "./sale-site/properties-villa-five-img.png";
 export { default as HeroBannerBgImg } from "./sale-site/hero-banner-bg-img.png";
+export { default as AboutInvestorsIterativeImg } from "./sale-site/about-investors-iterative-img.png";
+export { default as AboutInvestorsXAImg } from "./sale-site/about-investors-xa-img.png";
+export { default as AboutInvestorsColliersImg } from "./sale-site/about-investors-colliers-img.png";
+export { default as AboutInvestorsSavillsImg } from "./sale-site/about-investors-savills-img.png";
+export { default as AboutInvestorsCoImg } from "./sale-site/about-investors-co-img.png";
+export { default as AboutInvestorsBniImg } from "./sale-site/about-investors-bni-img.png";
