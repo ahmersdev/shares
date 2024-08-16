@@ -1,4 +1,4 @@
-import { TestimonialsPersonImg } from "@/assets/images";
+import { PersonThreeImg } from "@/assets/images";
 import { Box, Grid, Rating, Theme, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -43,13 +43,14 @@ export default function Testimonials() {
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <Image
-              src={TestimonialsPersonImg}
+              src={PersonThreeImg}
               alt={"Testimonials"}
               width={580}
               height={397}
               style={{
                 width: "100%",
-                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center center",
                 borderRadius: 24,
                 border: "1px solid",
                 borderColor: theme.palette.primary[25],

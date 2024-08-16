@@ -1,4 +1,4 @@
-import { DubaiPersonImg } from "@/assets/images";
+import { PersonOneImg } from "@/assets/images";
 import { Box, Grid, Theme, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 
@@ -30,7 +30,7 @@ export default function Dubai() {
         <Grid container spacing={2.4}>
           <Grid item xs={12} md={3}>
             <Image
-              src={DubaiPersonImg}
+              src={PersonOneImg}
               alt={"Rami Tabbara"}
               width={275}
               height={329}

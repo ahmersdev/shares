@@ -19,8 +19,9 @@ export { default as InvestorsKnightImg } from "./sale-site/investors-knight-img.
 export { default as InvestorsUaeImg } from "./sale-site/investors-uae-img.png";
 export { default as InvestorsSavillsImg } from "./sale-site/investors-savills-img.png";
 export { default as InvestorsPwcImg } from "./sale-site/investors-pwc-img.png";
-export { default as DubaiPersonImg } from "./sale-site/dubai-person-img.png";
-export { default as TestimonialsPersonImg } from "./sale-site/testimonials-person-img.png";
+export { default as PersonOneImg } from "./sale-site/person-one-img.png";
+export { default as PersonTwoImg } from "./sale-site/person-two-img.png";
+export { default as PersonThreeImg } from "./sale-site/person-three-img.png";
 export { default as FooterPhoneImg } from "./sale-site/footer-phone-img.png";
 export { default as PropertiesSliderOneImg } from "./sale-site/properties-slider-one-img.png";
 export { default as PropertiesSliderTwoImg } from "./sale-site/properties-slider-two-img.png";
