@@ -6,6 +6,7 @@ import SuccessStories from "./success-stories";
 import StoriesSingle from "./stories-single";
 import Mission from "./mission";
 import Investors from "./investors";
+import OurTeam from "./our-team";
 
 export default function AboutUs() {
   return (
@@ -15,6 +16,7 @@ export default function AboutUs() {
       <StoriesSingle />
       <Mission />
       <Investors />
+      <OurTeam />
     </Stack>
   );
 }

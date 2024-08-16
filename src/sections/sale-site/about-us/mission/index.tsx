@@ -1,10 +1,8 @@
-import { Box, Grid, Theme, Typography, useTheme } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { missionData } from "./mission.data";
 import { IMissionData } from "./mission.interface";
 
 export default function Mission() {
-  const theme = useTheme<Theme>();
-
   return (
     <Box
       display={"flex"}
@@ -27,28 +25,26 @@ export default function Mission() {
           that&rsquo;s where we come in!
         </Typography>
       </Box>
-      <Box maxWidth={theme.breakpoints.values.xl - 100} width={"100%"}>
-        <Box mx={{ xs: 2, md: 5 }}>
-          <Grid container spacing={4}>
-            {missionData.map((mission: IMissionData) => (
-              <Grid item xs={12} md={6} key={mission.id}>
-                <Box
-                  border={1}
-                  borderColor={"primary.main"}
-                  p={2.4}
-                  borderRadius={6}
-                  bgcolor={"primary.5"}
-                  height={"100%"}
-                >
-                  <Typography variant={"h5"} color={"primary.main"} mb={2.4}>
-                    {mission.title}
-                  </Typography>
-                  <Typography variant={"body1"}>{mission.desc}</Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+      <Box maxWidth={"lg"} width={"100%"}>
+        <Grid container spacing={4}>
+          {missionData.map((mission: IMissionData) => (
+            <Grid item xs={12} md={6} key={mission.id}>
+              <Box
+                border={1}
+                borderColor={"primary.main"}
+                p={2.4}
+                borderRadius={6}
+                bgcolor={"primary.5"}
+                height={"100%"}
+              >
+                <Typography variant={"h5"} color={"primary.main"} mb={2.4}>
+                  {mission.title}
+                </Typography>
+                <Typography variant={"body1"}>{mission.desc}</Typography>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
       </Box>
     </Box>
   );
