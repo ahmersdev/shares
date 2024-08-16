@@ -40,7 +40,7 @@ export default function RealEstate() {
       <Box maxWidth={"lg"} width={"100%"}>
         <Grid container spacing={4}>
           {realEstateDataArray.map((item: IRealEstateData) => (
-            <Grid item xs={12} md={6} key={item.id}>
+            <Grid item xs={12} sm={6} key={item.id}>
               <Box
                 border={"1px solid"}
                 borderColor={"primary.main"}
