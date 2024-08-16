@@ -13,7 +13,11 @@ export default function FeaturedProperties() {
         alignItems={"center"}
         gap={2}
       >
-        <Typography variant={"heading1"} color={"common.bgDark"}>
+        <Typography
+          variant={"heading1"}
+          component={"h1"}
+          color={"common.bgDark"}
+        >
           Featured Properties
         </Typography>
         <Typography variant={"h7"} textAlign={"center"}>

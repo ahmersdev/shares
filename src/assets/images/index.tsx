@@ -31,3 +31,4 @@ export { default as PropertiesVillaTwoImg } from "./sale-site/properties-villa-t
 export { default as PropertiesVillaThreeImg } from "./sale-site/properties-villa-three-img.png";
 export { default as PropertiesVillaFourImg } from "./sale-site/properties-villa-four-img.png";
 export { default as PropertiesVillaFiveImg } from "./sale-site/properties-villa-five-img.png";
+export { default as HeroBannerBgImg } from "./sale-site/hero-banner-bg-img.png";

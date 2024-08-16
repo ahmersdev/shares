@@ -28,7 +28,7 @@ export default function HeroBanner() {
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
-        alignItems={"Center"}
+        alignItems={"center"}
         gap={3}
         position={"relative"}
         height={"90vh"}

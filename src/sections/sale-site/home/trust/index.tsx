@@ -19,6 +19,7 @@ export default function Trust() {
       <Box maxWidth={"md"} width={"100%"} textAlign={"center"} px={2}>
         <Typography
           variant={"heading1"}
+          component={"h1"}
           color={"text.heading"}
           textAlign={"center"}
           textTransform={"capitalize"}

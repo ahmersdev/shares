@@ -20,6 +20,7 @@ export default function Dubai() {
         </Typography>
         <Typography
           variant={"heading1"}
+          component={"h1"}
           textAlign={"center"}
           color={"text.heading"}
         >

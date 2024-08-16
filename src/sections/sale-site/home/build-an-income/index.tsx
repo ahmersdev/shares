@@ -28,6 +28,7 @@ export default function BuildAnIncome() {
         </Typography>
         <Typography
           variant={"heading1"}
+          component={"h1"}
           color={"text.heading"}
           textAlign={"center"}
           textTransform={"capitalize"}
@@ -85,9 +86,7 @@ export default function BuildAnIncome() {
               <Typography variant={"h4"} color={"text.heading"}>
                 {item.subtitle}
               </Typography>
-              <Typography variant={"body2"}>
-                {item.description}
-              </Typography>
+              <Typography variant={"body2"}>{item.description}</Typography>
               {item.additionalContent}
             </Grid>
           </Grid>

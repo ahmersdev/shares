@@ -25,6 +25,7 @@ export default function RealEstate() {
       >
         <Typography
           variant={"heading1"}
+          component={"h1"}
           color={"text.heading"}
           textAlign={"center"}
           textTransform={"capitalize"}

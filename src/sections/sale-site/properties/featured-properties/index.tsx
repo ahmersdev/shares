@@ -14,6 +14,7 @@ export default function FeaturedProperties() {
     >
       <Typography
         variant={"heading1"}
+        component={"h1"}
         color={"common.bgDark"}
         textAlign={"center"}
       >

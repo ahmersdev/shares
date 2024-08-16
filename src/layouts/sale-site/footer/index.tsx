@@ -29,6 +29,7 @@ export default function Footer() {
       >
         <Typography
           variant={"heading1"}
+          component={"h1"}
           fontWeight={700}
           color={"grey.50"}
           maxWidth={"sm"}

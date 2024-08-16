@@ -26,7 +26,7 @@ export default function Investors() {
           Golden Sands, Golden Opportunities
         </Typography>
         <Typography
-          variant={"heading1"}
+          variant={"heading1"}component={"h1"}
           color={"text.heading"}
           textAlign={"center"}
           textTransform={"capitalize"}
