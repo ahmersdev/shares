@@ -41,3 +41,4 @@ export { default as PropertiesLocationIcon } from "./sale-site/properties-locati
 export { default as LinkedInIcon } from "./common/linkedin-icon";
 export { default as FacebookIcon } from "./common/facebook-icon";
 export { default as InstagramIcon } from "./common/instagram-icon";
+export { default as SearchIcon } from "./common/search-icon";
