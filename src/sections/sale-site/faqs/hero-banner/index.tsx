@@ -42,7 +42,7 @@ export default function HeroBanner({
         position={"relative"}
         height={"45vh"}
         gap={4}
-        mt={5}
+        pt={5}
       >
         <Typography
           variant={"heading1"}
