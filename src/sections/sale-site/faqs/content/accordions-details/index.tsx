@@ -16,7 +16,7 @@ export default function AccordionsDetails({
 
   return (
     <Box display={"flex"} flexDirection={"column"} gap={4}>
-      <Box display={"flex"} alignItems={"center"} gap={1.6}>
+      <Box display={"flex"} alignItems={"center"} gap={1.6} flexWrap={"wrap"}>
         <Box onClick={onBackClickHandler} sx={{ cursor: "pointer" }}>
           <BackArrowIcon />
         </Box>
