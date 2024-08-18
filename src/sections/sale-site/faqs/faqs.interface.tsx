@@ -1,4 +1,10 @@
-import { ChangeEvent, ComponentType, SVGProps } from "react";
+import {
+  ChangeEvent,
+  ComponentType,
+  Dispatch,
+  SetStateAction,
+  SVGProps,
+} from "react";
 
 export interface IHeroBannerProps {
   searchTerm: string;
@@ -7,6 +13,11 @@ export interface IHeroBannerProps {
 
 export interface IContentProps {
   contentData: IContentData[];
+  setSearchTerm?: Dispatch<SetStateAction<string>> | any;
+}
+
+export interface IAccordionsDetailsProps {
+  setSearchTerm: Dispatch<SetStateAction<string>>;
 }
 
 export interface IContentData {

@@ -7,7 +7,7 @@ import Content from "./content";
 import { contentData } from "./faqs.data";
 
 export default function FAQs() {
-  const { searchTerm, handleInputChange } = useFaqs();
+  const { searchTerm, setSearchTerm, handleInputChange } = useFaqs();
 
   return (
     <Stack direction={"column"} spacing={5}>
@@ -16,7 +16,7 @@ export default function FAQs() {
         handleInputChange={handleInputChange}
       />
 
-      <Content contentData={contentData} />
+      <Content contentData={contentData} setSearchTerm={setSearchTerm} />
     </Stack>
   );
 }

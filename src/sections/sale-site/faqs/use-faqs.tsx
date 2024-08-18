@@ -36,5 +36,5 @@ export default function useFaqs() {
     setSearchTerm(event.target.value);
   };
 
-  return { searchTerm, handleInputChange };
+  return { searchTerm, setSearchTerm, handleInputChange };
 }
