@@ -29,7 +29,7 @@ export interface IContentData {
   accordions?: IAccordionData[];
 }
 
-interface IAccordionData {
+export interface IAccordionData {
   accordionId: number;
   summary: string;
   details: string;

@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { IContentData, IContentProps } from "../faqs.interface";
 import useContent from "./use-content";
 import AccordionsDetails from "./accordions-details";
+import MainSearch from "./main-search";
 
 export default function Content({ contentData, setSearchTerm }: IContentProps) {
   const { theme, handleClick, singleFaq, search } = useContent({ contentData });
@@ -16,7 +17,9 @@ export default function Content({ contentData, setSearchTerm }: IContentProps) {
           />
         </Box>
       ) : !singleFaq.length && search ? (
-        <>Search Accordions</>
+        <Box maxWidth={theme.breakpoints.values.lg + 40} width={"100%"}>
+          <MainSearch search={search} setSearchTerm={setSearchTerm} />
+        </Box>
       ) : (
         <Grid
           container

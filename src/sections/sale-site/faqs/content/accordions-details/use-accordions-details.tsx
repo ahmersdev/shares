@@ -1,6 +1,6 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { IAccordionsDetailsProps } from "../../faqs.interface";
+import { IAccordionData, IAccordionsDetailsProps } from "../../faqs.interface";
 
 export default function useAccordionsDetails({
   setSearchTerm,
@@ -10,7 +10,7 @@ export default function useAccordionsDetails({
   const searchParams = useSearchParams();
   const search = searchParams.get("search")?.toLowerCase();
 
-  const [filteredArray, setFilteredArray] = useState<any[]>([]);
+  const [filteredArray, setFilteredArray] = useState<IAccordionData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const singleFaqDetails = singleFaq[0];
@@ -19,7 +19,7 @@ export default function useAccordionsDetails({
     setLoading(true);
     if (singleFaqDetails.accordions) {
       const filtered = singleFaqDetails.accordions.filter(
-        (accordion) =>
+        (accordion: IAccordionData) =>
           accordion.summary?.toLowerCase().includes(search ?? "") ||
           accordion.details?.toLowerCase().includes(search ?? "")
       );
