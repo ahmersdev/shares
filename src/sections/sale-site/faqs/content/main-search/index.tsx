@@ -12,7 +12,11 @@ export default function MainSearch({ search, setSearchTerm }: any) {
   return (
     <Box display={"flex"} flexDirection={"column"} gap={4}>
       <Box display={"flex"} alignItems={"center"} gap={1.6}>
-        <Box onClick={onBackClickHandler} sx={{ cursor: "pointer" }}>
+        <Box
+          onClick={onBackClickHandler}
+          display={"flex"}
+          sx={{ cursor: "pointer" }}
+        >
           <BackArrowIcon />
         </Box>
         <Typography
