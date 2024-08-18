@@ -18,6 +18,7 @@ export interface IContentProps {
 
 export interface IAccordionsDetailsProps {
   setSearchTerm: Dispatch<SetStateAction<string>>;
+  singleFaq: IContentData[];
 }
 
 export interface IContentData {
@@ -25,4 +26,11 @@ export interface IContentData {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
   desc: string;
+  accordions?: IAccordionData[];
+}
+
+interface IAccordionData {
+  accordionId: number;
+  summary: string;
+  details: string;
 }

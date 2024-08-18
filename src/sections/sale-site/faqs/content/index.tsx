@@ -10,7 +10,10 @@ export default function Content({ contentData, setSearchTerm }: IContentProps) {
     <Box display={"flex"} flexDirection={"column"} alignItems={"center"} px={2}>
       {singleFaq.length ? (
         <Box maxWidth={theme.breakpoints.values.lg + 40} width={"100%"}>
-          <AccordionsDetails setSearchTerm={setSearchTerm} />
+          <AccordionsDetails
+            setSearchTerm={setSearchTerm}
+            singleFaq={singleFaq}
+          />
         </Box>
       ) : !singleFaq.length && search ? (
         <>Search Accordions</>

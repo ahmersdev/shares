@@ -1,15 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import { BackArrowIcon, NextIcon } from "@/assets/icons";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { IAccordionsDetailsProps } from "../../faqs.interface";
+import CustomAccordion from "@/components/custom-accordion";
 
 export default function AccordionsDetails({
   setSearchTerm,
+  singleFaq,
 }: IAccordionsDetailsProps) {
   const router = useRouter();
 
-  const searchParams = useSearchParams();
-  const title = searchParams.get("title");
+  const singleFaqDetails = singleFaq[0];
 
   const onBackClickHandler = () => {
     const params = new URLSearchParams(window.location.search);
@@ -35,9 +36,35 @@ export default function AccordionsDetails({
         </Typography>
         <NextIcon />
         <Typography variant={"h7"} component={"p"}>
-          {title}
+          {singleFaqDetails.title}
         </Typography>
       </Box>
+
+      <singleFaqDetails.icon />
+
+      <Typography variant={"h5"} fontWeight={800} color={"text.heading"}>
+        {singleFaqDetails.title}
+      </Typography>
+
+      <Typography variant={"h7"} component={"p"}>
+        {singleFaqDetails.desc}
+      </Typography>
+
+      {singleFaqDetails.accordions ? (
+        <Box
+          sx={{ bgcolor: "common.bgLight" }}
+          border={1}
+          borderColor={"text.headingLight"}
+          borderRadius={3}
+          overflow={"hidden"}
+        >
+          <CustomAccordion accordions={singleFaqDetails.accordions} />
+        </Box>
+      ) : (
+        <Typography variant={"h5"} color={"error.main"} textAlign={"center"}>
+          No Faqs Available for this category
+        </Typography>
+      )}
     </Box>
   );
 }

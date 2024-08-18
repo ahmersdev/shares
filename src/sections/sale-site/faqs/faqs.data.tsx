@@ -17,6 +17,43 @@ export const contentData: IContentData[] = [
     icon: FaqsAboutIcon,
     title: "About Stack",
     desc: "Learn More About Shares and How To Get Started",
+    accordions: [
+      {
+        accordionId: 1,
+        summary: "What Is Shares?",
+        details: "What Is Shares?",
+      },
+      {
+        accordionId: 2,
+        summary: "Who Can Invest In Shares?",
+        details: "",
+      },
+      {
+        accordionId: 3,
+        summary: "How Do It Get Started?",
+        details: "",
+      },
+      {
+        accordionId: 4,
+        summary: "How  Does It Work?",
+        details: "",
+      },
+      {
+        accordionId: 5,
+        summary: "What are Share’s Services?",
+        details: "",
+      },
+      {
+        accordionId: 6,
+        summary: "Is Shares a Long- Term  Investment?",
+        details: "",
+      },
+      {
+        accordionId: 7,
+        summary: "What Are Shares’s Fees?",
+        details: "",
+      },
+    ],
   },
   {
     parentId: 2,
