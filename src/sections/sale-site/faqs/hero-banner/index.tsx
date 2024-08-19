@@ -26,7 +26,7 @@ export default function HeroBanner({
         zIndex={-1}
         borderRadius={"0px 0px 64px 64px"}
         width={"100%"}
-        height={"45vh"}
+        height={"50vh"}
         sx={{
           backgroundImage: `url(${HeroBannerBgImg.src})`,
           backgroundSize: "cover",
@@ -40,9 +40,9 @@ export default function HeroBanner({
         justifyContent={"center"}
         alignItems={"center"}
         position={"relative"}
-        height={"45vh"}
+        height={"50vh"}
         gap={4}
-        pt={5}
+        pt={10}
       >
         <Typography
           variant={"heading1"}
