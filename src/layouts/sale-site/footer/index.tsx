@@ -1,7 +1,8 @@
-import { FooterPhoneImg } from "@/assets/images";
-import { Box, Theme, Typography, useTheme } from "@mui/material";
+import { FooterMobilePhoneImg, FooterPhoneImg } from "@/assets/images";
+import { Box, Grid, Theme, Typography, useTheme } from "@mui/material";
 import FooterNav from "./footer-nav";
 import { FooterAppStoreButton, FooterGooglePlayButton } from "@/assets/icons";
+import Image from "next/image";
 
 export default function Footer() {
   const theme = useTheme<Theme>();
@@ -14,34 +15,67 @@ export default function Footer() {
         borderRadius={10}
         bgcolor={"primary.main"}
         my={5}
-        display={"flex"}
-        flexDirection={"column"}
-        gap={2.4}
-        pl={{ xs: 2, sm: 12 }}
-        pr={{ xs: 2, sm: 0 }}
-        py={7.4}
-        sx={{
-          backgroundImage: `url(${FooterPhoneImg.src})`,
-          backgroundPosition: { xs: "100% 100%", sm: "right center" },
-          backgroundSize: { xs: "cover", sm: "contain" },
-          backgroundRepeat: "no-repeat",
-        }}
+        height={"100%"}
+        overflow={"hidden"}
       >
-        <Typography
-          variant={"heading1"}
-          component={"h1"}
-          fontWeight={700}
-          color={"grey.50"}
-          maxWidth={"sm"}
-          width={"100%"}
-        >
-          The modern way for anyone to invest in real estate
-        </Typography>
+        <Grid container spacing={{ xs: 0, sm: 4 }}>
+          <Grid item xs={12} sm={7}>
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              gap={2.4}
+              pt={7.4}
+              pb={{ xs: 2, sm: 7.4 }}
+              pl={{ xs: 2, sm: 9 }}
+              pr={{ xs: 2, sm: 0 }}
+            >
+              <Typography
+                variant={"heading1"}
+                component={"h1"}
+                fontWeight={700}
+                color={"grey.50"}
+              >
+                The modern way for anyone to invest in real estate
+              </Typography>
 
-        <Box display={"flex"} gap={2.4}>
-          <FooterAppStoreButton />
-          <FooterGooglePlayButton />
-        </Box>
+              <Box display={"flex"} gap={2.4}>
+                <FooterAppStoreButton />
+                <FooterGooglePlayButton />
+              </Box>
+            </Box>
+          </Grid>
+
+          <Grid item xs={12} sm={5}>
+            <Box
+              textAlign={"end"}
+              position={"relative"}
+              width={"100%"}
+              height={"100%"}
+              overflow={"hidden"}
+              display={{ xs: "none", sm: "block" }}
+            >
+              <Image
+                src={FooterPhoneImg}
+                alt={"Iphone"}
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </Box>
+            <Box
+              textAlign={"end"}
+              position={"relative"}
+              width={"100%"}
+              height={"100%"}
+              overflow={"hidden"}
+              display={{ xs: "block", sm: "none" }}
+            >
+              <Image
+                src={FooterMobilePhoneImg}
+                alt={"Iphone"}
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </Box>
+          </Grid>
+        </Grid>
       </Box>
 
       <FooterNav />
