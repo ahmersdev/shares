@@ -65,7 +65,7 @@ export default function MobileSlider() {
             borderRadius={6}
             overflow={"hidden"}
             pt={7}
-            height={"50vh"}
+            height={"80vh"}
           >
             <Box
               component="span"
@@ -120,6 +120,7 @@ export default function MobileSlider() {
                 height={300}
                 style={{
                   objectFit: "cover",
+                  objectPosition: "top center",
                   width: "100%",
                   height: "100%",
                 }}
@@ -136,7 +137,7 @@ export default function MobileSlider() {
             overflow={"hidden"}
             pt={7}
             bgcolor={"primary.main"}
-            height={"50vh"}
+            height={"80vh"}
           >
             <Box
               color={"grey.50"}
@@ -186,7 +187,7 @@ export default function MobileSlider() {
             overflow={"hidden"}
             pt={7}
             bgcolor={"primary.main"}
-            height={"50vh"}
+            height={"80vh"}
           >
             <Box
               color={"grey.50"}
@@ -221,6 +222,7 @@ export default function MobileSlider() {
                   objectFit: "cover",
                   width: "100%",
                   height: "100%",
+                  objectPosition: "top center",
                 }}
               />
             </Box>
