@@ -48,8 +48,5 @@ export { default as FaqsReturnsIcon } from "./sale-site/faqs-returns-icon";
 export { default as FaqsDepositIcon } from "./sale-site/faqs-deposit-icon";
 export { default as FaqsWindowsIcon } from "./sale-site/faqs-windows-icon";
 export { default as FaqsRewardsIcon } from "./sale-site/faqs-rewards-icon";
-export { default as FaqsVisaIcon } from "./sale-site/faqs-visa-icon";
-export { default as FaqsRegulationsIcon } from "./sale-site/faqs-regulations-icon";
-export { default as FaqsStakeIcon } from "./sale-site/faqs-stake-icon";
 export { default as BackArrowIcon } from "./common/back-arrow-icon";
 export { default as NextIcon } from "./common/next-icon";

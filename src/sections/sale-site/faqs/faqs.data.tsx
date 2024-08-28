@@ -2,11 +2,8 @@ import {
   FaqsAboutIcon,
   FaqsDepositIcon,
   FaqsInvestingIcon,
-  FaqsRegulationsIcon,
   FaqsReturnsIcon,
   FaqsRewardsIcon,
-  FaqsStakeIcon,
-  FaqsVisaIcon,
   FaqsWindowsIcon,
 } from "@/assets/icons";
 import { IContentData } from "./faqs.interface";
@@ -15,7 +12,7 @@ export const contentData: IContentData[] = [
   {
     parentId: 1,
     icon: FaqsAboutIcon,
-    title: "About Stack",
+    title: "About Shares",
     desc: "Learn More About Shares and How To Get Started",
     accordions: [
       {
@@ -84,23 +81,5 @@ export const contentData: IContentData[] = [
     icon: FaqsRewardsIcon,
     title: "Rewards",
     desc: "Earn More Through Our Loyalty and Referral Programs",
-  },
-  {
-    parentId: 7,
-    icon: FaqsVisaIcon,
-    title: "Golden Visa",
-    desc: "Applying For Residency",
-  },
-  {
-    parentId: 8,
-    icon: FaqsRegulationsIcon,
-    title: "Regulations",
-    desc: "Learn More About the Regulatory Environment We Operate In",
-  },
-  {
-    parentId: 9,
-    icon: FaqsStakeIcon,
-    title: "Stake KSA",
-    desc: "Coming Soon!",
   },
 ];
