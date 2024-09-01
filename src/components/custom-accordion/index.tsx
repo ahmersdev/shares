@@ -21,6 +21,9 @@ export default function CustomAccordion({ accordions }: ICustomAccordionProps) {
             "&.Mui-expanded": {
               margin: 0,
             },
+            "&:before": {
+              display: "none",
+            },
           }}
         >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>

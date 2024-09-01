@@ -1,6 +1,6 @@
 import { IAssetsProps } from "@/interfaces";
 
-const SearchIcon = ({ fill = "#47CE8E" }: IAssetsProps) => {
+const SearchIcon = ({ fill = "#4E4E4E" }: IAssetsProps) => {
   return (
     <svg
       width="24"

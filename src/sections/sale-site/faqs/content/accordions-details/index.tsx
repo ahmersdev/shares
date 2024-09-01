@@ -54,7 +54,7 @@ export default function AccordionsDetails({
         </Box>
       ) : filteredArray && filteredArray.length > 0 ? (
         <Box
-          sx={{ bgcolor: "common.bgLight" }}
+          sx={{ bgcolor: "opacity.bg" }}
           border={1}
           borderColor={"text.headingLight"}
           borderRadius={3}
