@@ -25,7 +25,7 @@ export default function DesktopSlider() {
 
   return (
     <Box
-      bgcolor={"primary.5"}
+      bgcolor={"opacity.bg"}
       display={{ xs: "none", sm: "flex" }}
       flexDirection={"column"}
       alignItems={"center"}

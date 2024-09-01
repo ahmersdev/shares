@@ -26,7 +26,7 @@ export default function MobileSlider() {
 
   return (
     <Box
-      bgcolor={"primary.5"}
+      bgcolor={"opacity.bg"}
       display={{ xs: "flex", sm: "none" }}
       flexDirection={"column"}
       alignItems={"center"}
