@@ -34,7 +34,7 @@ export default function Investors() {
               borderColor={"primary.main"}
               p={"12px 20px"}
               borderRadius={3}
-              bgcolor={"primary.5"}
+              bgcolor={"opacity.bg"}
               height={"100%"}
               display={"flex"}
               alignItems={"center"}
@@ -68,7 +68,7 @@ export default function Investors() {
               borderColor={"primary.main"}
               p={"12px 20px"}
               borderRadius={3}
-              bgcolor={"primary.5"}
+              bgcolor={"opacity.bg"}
               height={"100%"}
               display={"flex"}
               alignItems={"center"}

@@ -34,7 +34,7 @@ export default function Mission() {
                 borderColor={"primary.main"}
                 p={2.4}
                 borderRadius={6}
-                bgcolor={"primary.5"}
+                bgcolor={"opacity.bg"}
                 height={"100%"}
               >
                 <Typography variant={"h5"} color={"primary.main"} mb={2.4}>

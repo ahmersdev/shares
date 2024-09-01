@@ -4,13 +4,7 @@ import Image from "next/image";
 
 export default function StoriesSingle() {
   return (
-    <Box
-      display={"flex"}
-      justifyContent={"center"}
-      bgcolor={"primary.5"}
-      py={5}
-      px={2}
-    >
+    <Box display={"flex"} justifyContent={"center"} py={5} px={2}>
       <Box maxWidth={"lg"} width={"100%"}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={5}>

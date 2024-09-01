@@ -57,7 +57,7 @@ const OPACITY = {
   success: "#47CE8E4D",
   qrCode: "#4E4E4E1A",
   shadow: "#4E4E4E33",
-  bg: "#F5F0EB33",
+  bg: "#F5F0EB4D",
 };
 
 const COMMON = {
