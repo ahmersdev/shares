@@ -1,11 +1,11 @@
 import { PaletteMode, PaletteOptions } from "@mui/material";
 
 const PRIMARY = {
-  main: "#47CE8E",
-  50: "#74ECB3",
-  25: "#9CF9CD",
-  10: "#C1FFE2",
-  5: "#EEFFF7",
+  main: "#4E4E4E",
+  50: "#6C6C6C",
+  25: "#A6A6A6",
+  10: "#C4C4C4",
+  5: "#DCDCDC",
 };
 
 const GREY = {
@@ -55,7 +55,7 @@ const GRADIENTS = {
 
 const OPACITY = {
   success: "#47CE8E4D",
-  qrCode: "#47CE8E1A",
+  qrCode: "#4E4E4E1A",
   shadow: "#18AF4233",
 };
 
@@ -65,6 +65,7 @@ const COMMON = {
     white: "#FFFFFF",
     bgDark: "#232121",
     bgLight: "#F8FAF8",
+    button: "#F5F0EB",
   },
   primary: { ...PRIMARY },
   text: { ...TEXT },

@@ -43,8 +43,8 @@ export default function Navbar() {
           >
             <Typography variant={"logo"}>Shares</Typography>
             <Box
-              width={8}
-              height={8}
+              width={7}
+              height={7}
               bgcolor={"primary.main"}
               borderRadius={"50%"}
             />
@@ -67,11 +67,11 @@ export default function Navbar() {
                 variant={"contained"}
                 sx={{
                   ...BUTTON_STYLES,
-                  color: "text.heading",
-                  borderColor: "text.stroke",
-                  background: "transparent",
+                  color: "primary.main",
+                  borderColor: "common.button",
+                  backgroundColor: "common.button",
                   ":hover": {
-                    backgroundColor: "text.stroke",
+                    backgroundColor: "common.button",
                   },
                 }}
                 disableElevation
@@ -86,10 +86,10 @@ export default function Navbar() {
                 sx={{
                   ...BUTTON_STYLES,
                   color: "grey.50",
-                  borderColor: "common.bgDark",
-                  backgroundColor: "common.bgDark",
+                  borderColor: "primary.main",
+                  backgroundColor: "primary.main",
                   ":hover": {
-                    backgroundColor: "common.bgDark",
+                    backgroundColor: "primary.main",
                   },
                 }}
                 disableElevation

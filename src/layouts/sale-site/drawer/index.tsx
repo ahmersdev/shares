@@ -49,8 +49,8 @@ export default function DrawerSaleSite({
           >
             <Typography variant={"logo"}>Shares</Typography>
             <Box
-              width={8}
-              height={8}
+              width={7}
+              height={7}
               bgcolor={"primary.main"}
               borderRadius={"50%"}
             />

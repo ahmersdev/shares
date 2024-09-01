@@ -42,8 +42,8 @@ export default function FooterNav() {
         >
           <Typography variant={"logo"}>Shares</Typography>
           <Box
-            width={8}
-            height={8}
+            width={7}
+            height={7}
             bgcolor={"primary.main"}
             borderRadius={"50%"}
           />
@@ -75,7 +75,11 @@ export default function FooterNav() {
             gap={2}
             key={parent.id}
           >
-            <Typography variant={"body1"} fontWeight={700}>
+            <Typography
+              variant={"body1"}
+              fontWeight={700}
+              color={"text.heading"}
+            >
               {parent.title}
             </Typography>
             <List sx={{ pt: 0 }}>

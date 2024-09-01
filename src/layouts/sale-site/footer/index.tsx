@@ -13,7 +13,7 @@ export default function Footer() {
         maxWidth={theme.breakpoints.values.lg - 20}
         width={"100%"}
         borderRadius={10}
-        bgcolor={"primary.main"}
+        bgcolor={"common.button"}
         my={5}
         height={"100%"}
         overflow={"hidden"}
@@ -33,7 +33,7 @@ export default function Footer() {
                 variant={"heading1"}
                 component={"h1"}
                 fontWeight={700}
-                color={"grey.50"}
+                color={"primary.main"}
               >
                 The modern way for anyone to invest in real estate
               </Typography>

@@ -1,8 +1,8 @@
 import { IAssetsProps } from "@/interfaces";
 
 const FooterFacebookIcon = ({
-  fill = "#EEFFF7",
-  stroke = "#47CE8E",
+  fill = "#F5F0EB4D",
+  stroke = "#4E4E4E",
 }: IAssetsProps) => {
   return (
     <svg
