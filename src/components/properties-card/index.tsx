@@ -17,12 +17,14 @@ export default function PropertiesCard({
         <Grid item xs={12} sm={6} md={4} key={property.id}>
           <Box
             borderRadius={6}
-            bgcolor={"common.bgLight"}
+            bgcolor={"opacity.bg"}
             overflow={"hidden"}
             display={"flex"}
             flexDirection={"column"}
             height={"100%"}
             justifyContent={"space-between"}
+            border={1}
+            borderColor={"primary.main"}
           >
             <Image
               src={property.imageSrc}

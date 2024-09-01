@@ -68,10 +68,10 @@ export default function Navbar() {
                 sx={{
                   ...BUTTON_STYLES,
                   color: "primary.main",
-                  borderColor: "common.button",
-                  backgroundColor: "common.button",
+                  borderColor: "common.bgLightTwo",
+                  backgroundColor: "common.bgLightTwo",
                   ":hover": {
-                    backgroundColor: "common.button",
+                    backgroundColor: "common.bgLightTwo",
                   },
                 }}
                 disableElevation

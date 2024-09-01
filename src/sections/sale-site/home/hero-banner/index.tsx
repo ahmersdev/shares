@@ -37,7 +37,7 @@ export default function HeroBanner() {
         <Chip
           label={"8% Cash Back From Day 1"}
           sx={{
-            bgcolor: "opacity.success",
+            bgcolor: "common.bgLightTwo",
             color: "primary.main",
             px: 1,
             py: 2,
@@ -74,10 +74,10 @@ export default function HeroBanner() {
               sx={{
                 ...BUTTON_STYLES,
                 color: "primary.main",
-                borderColor: "grey.50",
-                backgroundColor: "grey.50",
+                borderColor: "common.bgLightTwo",
+                backgroundColor: "common.bgLightTwo",
                 ":hover": {
-                  backgroundColor: "grey.50",
+                  backgroundColor: "common.bgLightTwo",
                 },
               }}
               disableElevation

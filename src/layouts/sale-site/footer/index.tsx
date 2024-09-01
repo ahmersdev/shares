@@ -13,7 +13,7 @@ export default function Footer() {
         maxWidth={theme.breakpoints.values.lg - 20}
         width={"100%"}
         borderRadius={10}
-        bgcolor={"common.button"}
+        bgcolor={"common.bgLightTwo"}
         my={5}
         height={"100%"}
         overflow={"hidden"}

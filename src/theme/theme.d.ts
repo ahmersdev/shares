@@ -6,6 +6,7 @@ declare module "@mui/material/styles" {
       success: string;
       qrCode: string;
       shadow: string;
+      bg: string;
     };
     gradients: {
       primary: string;
@@ -28,7 +29,7 @@ declare module "@mui/material/styles" {
   interface CommonColors {
     bgDark: string;
     bgLight: string;
-    button: string;
+    bgLightTwo: string;
   }
 
   interface PaletteColor {

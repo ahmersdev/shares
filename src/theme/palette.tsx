@@ -56,7 +56,8 @@ const GRADIENTS = {
 const OPACITY = {
   success: "#47CE8E4D",
   qrCode: "#4E4E4E1A",
-  shadow: "#18AF4233",
+  shadow: "#4E4E4E33",
+  bg: "#F5F0EB33",
 };
 
 const COMMON = {
@@ -65,7 +66,7 @@ const COMMON = {
     white: "#FFFFFF",
     bgDark: "#232121",
     bgLight: "#F8FAF8",
-    button: "#F5F0EB",
+    bgLightTwo: "#F5F0EB",
   },
   primary: { ...PRIMARY },
   text: { ...TEXT },

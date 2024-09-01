@@ -32,7 +32,7 @@ export default function Trust() {
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <Box
-              bgcolor={"primary.5"}
+              bgcolor={"common.bgLightTwo"}
               border={"1px solid"}
               borderColor={"primary.main"}
               borderRadius={10}
@@ -57,7 +57,7 @@ export default function Trust() {
                     ...BUTTON_STYLES,
                     color: "primary.main",
                     borderColor: "primary.main",
-                    background: "transparent",
+                    backgroundColor: "common.white",
                     ":hover": {
                       backgroundColor: "primary.10",
                     },
@@ -75,7 +75,7 @@ export default function Trust() {
                 <Box
                   key={item.id}
                   border={"1px solid"}
-                  borderColor={"text.stroke"}
+                  borderColor={"primary.main"}
                   borderRadius={8}
                   p={4.5}
                   color={"text.heading"}
@@ -129,7 +129,7 @@ export default function Trust() {
                     sx={{ transform: "translate(5%, -50%)" }}
                   >
                     <Box
-                      bgcolor={"primary.main"}
+                      bgcolor={"common.bgLightTwo"}
                       borderRadius={"50%"}
                       width={100}
                       height={100}
@@ -139,11 +139,11 @@ export default function Trust() {
                       justifyContent={"center"}
                       gap={1}
                       sx={{ transform: "rotate(-30deg)" }}
+                      color={"primary.main"}
                     >
                       <Typography
                         variant={"subtitle2"}
                         fontWeight={800}
-                        color={"common.white"}
                         textAlign={"center"}
                       >
                         {item.badge.amount}
@@ -151,7 +151,6 @@ export default function Trust() {
                       <Typography
                         variant={"subtitle2"}
                         fontWeight={800}
-                        color={"common.white"}
                         textAlign={"center"}
                       >
                         {item.badge.desc}
