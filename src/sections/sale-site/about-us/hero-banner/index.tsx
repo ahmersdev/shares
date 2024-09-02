@@ -30,7 +30,7 @@ export default function HeroBanner() {
           variant={"heading1"}
           component={"h1"}
           fontWeight={800}
-          color={"grey.50"}
+          color={"grey.900"}
           maxWidth={"55%"}
           textAlign={"center"}
         >

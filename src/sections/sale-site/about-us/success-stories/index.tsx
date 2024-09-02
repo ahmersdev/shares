@@ -78,7 +78,7 @@ export default function SuccessStories() {
           >
             <Grid item xs={12} md={5}>
               <Box
-                bgcolor={"primary.main"}
+                bgcolor={"common.bgLightTwo"}
                 borderRadius={10}
                 overflow={"hidden"}
               >
@@ -100,15 +100,12 @@ export default function SuccessStories() {
                   justifyContent={"center"}
                   gap={1}
                   p={1.2}
+                  color={"grey.900"}
                 >
-                  <Typography variant={"h5"} fontWeight={600} color={"grey.50"}>
+                  <Typography variant={"h5"} fontWeight={600}>
                     {story.name}
                   </Typography>
-                  <Typography
-                    variant={"body2"}
-                    fontWeight={500}
-                    color={"grey.50"}
-                  >
+                  <Typography variant={"body2"} fontWeight={500}>
                     {story.role}
                   </Typography>
 

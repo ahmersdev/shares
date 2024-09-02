@@ -48,7 +48,7 @@ export default function HeroBanner({
           variant={"heading1"}
           component={"h1"}
           fontWeight={800}
-          color={"grey.50"}
+          color={"grey.900"}
           textAlign={"center"}
         >
           Need Answers? Explore Our FAQs
@@ -83,12 +83,18 @@ export default function HeroBanner({
                 fontWeight: 500,
                 fontSize: pxToRem(20),
                 bgcolor: theme.palette.grey[50],
-                borderColor: theme.palette.primary.main,
+                borderColor: theme.palette.common.bgLightTwo,
                 "&:hover fieldset": {
-                  borderColor: theme.palette.primary.main,
+                  borderColor: theme.palette.common.bgLightTwo,
+                },
+                "& fieldset": {
+                  borderColor: theme.palette.common.bgLightTwo,
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.primary.main,
+                  borderColor: theme.palette.common.bgLightTwo,
+                },
+                "& ::placeholder": {
+                  color: theme.palette.text.body,
                 },
               },
             }}
