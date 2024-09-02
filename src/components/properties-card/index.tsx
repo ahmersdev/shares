@@ -94,7 +94,7 @@ export default function PropertiesCard({
               <Box
                 display={"flex"}
                 flexDirection={"column"}
-                bgcolor={"text.headingLight"}
+                bgcolor={"common.bgLightTwo"}
                 borderRadius={2}
                 p={1.2}
                 gap={1.2}
