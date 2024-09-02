@@ -96,7 +96,7 @@ export default function DesktopSlider() {
                 zIndex: 1,
               }}
             />
-            <Box color={"grey.50"} pl={6.2} py={9} zIndex={2}>
+            <Box color={"grey.900"} pl={6.2} py={9} zIndex={2}>
               <Typography variant={"h5"} fontWeight={800}>
                 As Seen on TV
               </Typography>
@@ -106,7 +106,7 @@ export default function DesktopSlider() {
             </Box>
 
             <Box
-              color={"grey.50"}
+              color={"grey.900"}
               zIndex={2}
               display={"flex"}
               flexDirection={"column"}
@@ -165,7 +165,7 @@ export default function DesktopSlider() {
                 zIndex: 0,
               }}
             />
-            <Box color={"grey.50"} pl={"30%"} zIndex={2}>
+            <Box color={"grey.900"} pl={"30%"} zIndex={2}>
               <Chip
                 label={"New Project At Shares"}
                 sx={{

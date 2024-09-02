@@ -136,11 +136,11 @@ export default function MobileSlider() {
             borderRadius={6}
             overflow={"hidden"}
             pt={7}
-            bgcolor={"primary.main"}
+            bgcolor={"common.bgLightTwo"}
             height={"80vh"}
           >
             <Box
-              color={"grey.50"}
+              color={"grey.900"}
               zIndex={2}
               textAlign={"center"}
               width={"100%"}
@@ -186,11 +186,11 @@ export default function MobileSlider() {
             borderRadius={6}
             overflow={"hidden"}
             pt={7}
-            bgcolor={"primary.main"}
+            bgcolor={"common.bgLightTwo"}
             height={"80vh"}
           >
             <Box
-              color={"grey.50"}
+              color={"grey.900"}
               zIndex={2}
               textAlign={"center"}
               width={"100%"}

@@ -49,7 +49,7 @@ const INFO = {
 
 const GRADIENTS = {
   primary:
-    "linear-gradient(180deg, rgba(71, 206, 142, 0.8) 0%, rgba(71, 206, 142, 0.8) 52.5%, rgba(71, 206, 142, 0.8) 100%)",
+    "linear-gradient(180deg, rgba(245, 240, 235, 0.8) 0%, rgba(245, 240, 235, 0.8) 52.5%, rgba(245, 240, 235, 0.8) 100%)",
   secondary: "linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)",
 };
 
