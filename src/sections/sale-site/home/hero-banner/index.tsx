@@ -37,7 +37,7 @@ export default function HeroBanner() {
         <Chip
           label={"8% Cash Back From Day 1"}
           sx={{
-            bgcolor: "common.bgLightTwo",
+            bgcolor: "primary.5",
             color: "primary.main",
             px: 1,
             py: 2,
@@ -53,6 +53,9 @@ export default function HeroBanner() {
           maxWidth={"55%"}
           textAlign={"center"}
           textTransform={"capitalize"}
+          sx={{
+            textShadow: "0px 0px 24px #FFFFFF7A, 2px 2px 8px #FFFFFF3D",
+          }}
         >
           Invest in high profitable real estate in Bali from 1000$
         </Typography>
@@ -74,10 +77,10 @@ export default function HeroBanner() {
               sx={{
                 ...BUTTON_STYLES,
                 color: "primary.main",
-                borderColor: "common.bgLightTwo",
-                backgroundColor: "common.bgLightTwo",
+                borderColor: "primary.5",
+                backgroundColor: "primary.5",
                 ":hover": {
-                  backgroundColor: "common.bgLightTwo",
+                  backgroundColor: "primary.5",
                 },
               }}
               disableElevation

@@ -2,10 +2,10 @@ import { PaletteMode, PaletteOptions } from "@mui/material";
 
 const PRIMARY = {
   main: "#4E4E4E",
-  50: "#6C6C6C",
-  25: "#A6A6A6",
-  10: "#C4C4C4",
-  5: "#DCDCDC",
+  50: "#85807B",
+  25: "#BCB0A5",
+  10: "#F0E7DE",
+  5: "#F5F0EB",
 };
 
 const GREY = {
@@ -66,7 +66,6 @@ const COMMON = {
     white: "#FFFFFF",
     bgDark: "#232121",
     bgLight: "#F8FAF8",
-    bgLightTwo: "#F5F0EB",
   },
   primary: { ...PRIMARY },
   text: { ...TEXT },

@@ -83,15 +83,15 @@ export default function HeroBanner({
                 fontWeight: 500,
                 fontSize: pxToRem(20),
                 bgcolor: theme.palette.grey[50],
-                borderColor: theme.palette.common.bgLightTwo,
+                borderColor: theme.palette.primary[5],
                 "&:hover fieldset": {
-                  borderColor: theme.palette.common.bgLightTwo,
+                  borderColor: theme.palette.primary[5],
                 },
                 "& fieldset": {
-                  borderColor: theme.palette.common.bgLightTwo,
+                  borderColor: theme.palette.primary[5],
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.common.bgLightTwo,
+                  borderColor: theme.palette.primary[5],
                 },
                 "& ::placeholder": {
                   color: theme.palette.text.body,

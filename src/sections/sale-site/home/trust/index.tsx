@@ -32,7 +32,7 @@ export default function Trust() {
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <Box
-              bgcolor={"common.bgLightTwo"}
+              bgcolor={"primary.5"}
               border={"1px solid"}
               borderColor={"primary.main"}
               borderRadius={10}
@@ -129,7 +129,7 @@ export default function Trust() {
                     sx={{ transform: "translate(5%, -50%)" }}
                   >
                     <Box
-                      bgcolor={"common.bgLightTwo"}
+                      bgcolor={"primary.5"}
                       borderRadius={"50%"}
                       width={100}
                       height={100}

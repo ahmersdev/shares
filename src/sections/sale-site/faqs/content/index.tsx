@@ -41,7 +41,7 @@ export default function Content({ contentData, setSearchTerm }: IContentProps) {
                 sx={{ cursor: "pointer" }}
                 onClick={() => handleClick(parent.title)}
               >
-                <Box width={"100%"} bgcolor={"common.bgLightTwo"} p={2.4}>
+                <Box width={"100%"} bgcolor={"primary.5"} p={2.4}>
                   <parent.icon />
                 </Box>
                 <Typography

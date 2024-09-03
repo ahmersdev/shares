@@ -136,7 +136,7 @@ export default function MobileSlider() {
             borderRadius={6}
             overflow={"hidden"}
             pt={7}
-            bgcolor={"common.bgLightTwo"}
+            bgcolor={"primary.5"}
             height={"80vh"}
           >
             <Box
@@ -186,7 +186,7 @@ export default function MobileSlider() {
             borderRadius={6}
             overflow={"hidden"}
             pt={7}
-            bgcolor={"common.bgLightTwo"}
+            bgcolor={"primary.5"}
             height={"80vh"}
           >
             <Box

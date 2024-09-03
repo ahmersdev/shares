@@ -77,11 +77,7 @@ export default function SuccessStories() {
             }}
           >
             <Grid item xs={12} md={5}>
-              <Box
-                bgcolor={"common.bgLightTwo"}
-                borderRadius={10}
-                overflow={"hidden"}
-              >
+              <Box bgcolor={"primary.5"} borderRadius={10} overflow={"hidden"}>
                 <Image
                   src={story.imageSrc}
                   alt={story.name}
