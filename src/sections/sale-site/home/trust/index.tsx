@@ -5,6 +5,7 @@ import { TrustDualIcon } from "@/assets/icons";
 import Link from "next/link";
 import { BUTTON_STYLES } from "@/styles";
 import Image from "next/image";
+import { SALE_SITE } from "@/constants/routes";
 
 export default function Trust() {
   const theme = useTheme<Theme>();
@@ -50,7 +51,7 @@ export default function Trust() {
                 Invest with the assurance that we are dual regulated by the most
                 prestigious regulators in the Middle East
               </Typography>
-              <Link href={""}>
+              <Link href={SALE_SITE.PROPERTIES}>
                 <Button
                   variant={"contained"}
                   sx={{

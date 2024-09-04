@@ -9,7 +9,7 @@ export default function InHouse() {
       justifyContent={"center"}
       px={2}
       py={5}
-      bgcolor={"grey.50"}
+      bgcolor={"opacity.bg"}
     >
       <Box
         maxWidth={"md"}

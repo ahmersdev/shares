@@ -94,7 +94,7 @@ export default function MobileSlider() {
               }}
             />
             <Box
-              color={"grey.50"}
+              color={"grey.900"}
               zIndex={2}
               textAlign={"center"}
               width={"100%"}

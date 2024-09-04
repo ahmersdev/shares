@@ -212,7 +212,7 @@ export default function DesktopSlider() {
               }}
             />
 
-            <Box color={"grey.50"} pl={"45%"} zIndex={2}>
+            <Box color={"grey.900"} pl={"45%"} zIndex={2}>
               <Typography variant={"h5"} fontWeight={800} my={1.6}>
                 Now Available On Android & IOS
               </Typography>
