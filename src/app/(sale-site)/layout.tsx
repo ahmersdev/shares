@@ -10,7 +10,7 @@ import { QRCode, Footer, Header, Navbar } from "@/layouts/sale-site";
 
 const SaleSiteLayout = ({ children }: IChildrenProps) => {
   return (
-    <main>
+    <main style={{ background: "#FFFFFF", color: "#6B7280" }}>
       <Provider store={store}>
         <Navbar />
         <Header />
