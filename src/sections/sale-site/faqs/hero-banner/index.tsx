@@ -86,12 +86,15 @@ export default function HeroBanner({
                 borderColor: theme.palette.primary[5],
                 "&:hover fieldset": {
                   borderColor: theme.palette.primary[5],
+                  border: 1,
                 },
                 "& fieldset": {
                   borderColor: theme.palette.primary[5],
+                  border: 1,
                 },
                 "&.Mui-focused fieldset": {
                   borderColor: theme.palette.primary[5],
+                  border: 1,
                 },
                 "& ::placeholder": {
                   color: theme.palette.text.body,

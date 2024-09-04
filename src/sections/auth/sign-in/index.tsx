@@ -1,8 +1,16 @@
+"use client";
+
+import { FormProvider, RHFTextField } from "@/components/react-hook-form";
 import { AUTH } from "@/constants/routes";
 import { Box, Grid, Typography } from "@mui/material";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 export default function SignIn() {
+  const methods: any = useForm({
+    defaultValues: { email: "" },
+  });
+
   return (
     <Box
       height={"100vh"}
@@ -26,7 +34,13 @@ export default function SignIn() {
           </Grid>
 
           <Grid item xs={12}>
-            Form
+            <FormProvider methods={methods}>
+              <RHFTextField
+                name={"email"}
+                label={"Email"}
+                placeholder={"Enter Email Address"}
+              />
+            </FormProvider>
           </Grid>
 
           <Grid item xs={12}>
