@@ -50,3 +50,5 @@ export { default as FaqsWindowsIcon } from "./sale-site/faqs-windows-icon";
 export { default as FaqsRewardsIcon } from "./sale-site/faqs-rewards-icon";
 export { default as BackArrowIcon } from "./common/back-arrow-icon";
 export { default as NextIcon } from "./common/next-icon";
+export { default as EyeWithoutSlashIcon } from "./common/eye-without-slash-icon";
+export { default as EyeWithSlashIcon } from "./common/eye-with-slash-icon";

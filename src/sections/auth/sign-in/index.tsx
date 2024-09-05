@@ -1,17 +1,54 @@
 "use client";
 
 import { SignInBgImg } from "@/assets/images";
-import { FormProvider, RHFTextField } from "@/components/react-hook-form";
+import { FormProvider } from "@/components/react-hook-form";
 import { AUTH, SALE_SITE } from "@/constants/routes";
 import { pxToRem } from "@/utils/get-font-value";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Theme, Typography, useTheme } from "@mui/material";
 import Link from "next/link";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import {
+  getSignInDataArray,
+  signInFormDefaultValues,
+  signInFormValidationSchema,
+} from "./sign-in.data";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { LoadingButton } from "@mui/lab";
+import { BUTTON_STYLES } from "@/styles";
+import {
+  IFormArrayItem,
+  IPasswordVisibility,
+  ITogglePasswordVisibility,
+} from "./sign-in.interface";
 
 export default function SignIn() {
-  const methods: any = useForm({
-    defaultValues: { email: "" },
+  const theme = useTheme<Theme>();
+
+  const [passwordVisibility, setPasswordVisibility] =
+    useState<IPasswordVisibility>({
+      password: false,
+    });
+
+  const togglePasswordVisibility: ITogglePasswordVisibility = (field) => {
+    setPasswordVisibility((prev) => ({
+      ...prev,
+      [field]: !prev[field],
+    }));
+  };
+
+  const signInDataArray = getSignInDataArray(
+    togglePasswordVisibility,
+    passwordVisibility
+  );
+
+  const methods = useForm({
+    resolver: yupResolver(signInFormValidationSchema),
+    defaultValues: signInFormDefaultValues,
   });
+  const { handleSubmit } = methods;
+
+  const onSubmit = async () => {};
 
   return (
     <Box
@@ -67,7 +104,7 @@ export default function SignIn() {
         }}
       />
       <Box
-        maxWidth={"sm"}
+        maxWidth={theme.breakpoints.values.sm - 150}
         width={"100%"}
         bgcolor={"grey.50"}
         px={2.4}
@@ -84,12 +121,33 @@ export default function SignIn() {
           </Grid>
 
           <Grid item xs={12}>
-            <FormProvider methods={methods}>
-              <RHFTextField
-                name={"email"}
-                label={"Email"}
-                placeholder={"Enter Email Address"}
-              />
+            <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+              <Grid container spacing={3.2}>
+                {signInDataArray?.map((item: IFormArrayItem) => (
+                  <Grid item xs={12} key={item.id}>
+                    <item.component {...item?.componentProps} size={"small"} />
+                  </Grid>
+                ))}
+                <Grid item xs={12}>
+                  <LoadingButton
+                    variant={"contained"}
+                    fullWidth
+                    sx={{
+                      ...BUTTON_STYLES,
+                      color: "grey.50",
+                      borderColor: "primary.main",
+                      backgroundColor: "primary.main",
+                      ":hover": {
+                        backgroundColor: "primary.main",
+                      },
+                    }}
+                    disableElevation
+                    type={"submit"}
+                  >
+                    Login
+                  </LoadingButton>
+                </Grid>
+              </Grid>
             </FormProvider>
           </Grid>
 
