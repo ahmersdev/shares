@@ -1,9 +1,16 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { contentData } from "../../faqs.data";
-import { IAccordionData, IContentData } from "../../faqs.interface";
+import {
+  IAccordionData,
+  IContentData,
+  IMainSearchProps,
+} from "../../faqs.interface";
 
-export default function useMainSearch({ search, setSearchTerm }: any) {
+export default function useMainSearch({
+  search,
+  setSearchTerm,
+}: IMainSearchProps) {
   const router = useRouter();
 
   const [filteredArray, setFilteredArray] = useState<IAccordionData[]>([]);

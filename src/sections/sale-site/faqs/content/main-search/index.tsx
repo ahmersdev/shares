@@ -2,8 +2,12 @@ import { Box, CircularProgress, Typography } from "@mui/material";
 import { BackArrowIcon } from "@/assets/icons";
 import CustomAccordion from "@/components/custom-accordion";
 import useMainSearch from "./use-main-search";
+import { IMainSearchProps } from "../../faqs.interface";
 
-export default function MainSearch({ search, setSearchTerm }: any) {
+export default function MainSearch({
+  search,
+  setSearchTerm,
+}: IMainSearchProps) {
   const { onBackClickHandler, loading, filteredArray } = useMainSearch({
     search,
     setSearchTerm,

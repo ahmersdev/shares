@@ -34,3 +34,8 @@ export interface IAccordionData {
   summary: string;
   details: string;
 }
+
+export interface IMainSearchProps {
+  search: string;
+  setSearchTerm: Dispatch<SetStateAction<string>>;
+}
