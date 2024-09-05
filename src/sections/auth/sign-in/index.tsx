@@ -21,6 +21,7 @@ export default function SignIn() {
       alignItems={"center"}
       position={"relative"}
       overflow={"auto"}
+      bgcolor={"primary.5"}
     >
       <Box
         position={"absolute"}

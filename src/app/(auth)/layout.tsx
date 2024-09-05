@@ -6,7 +6,7 @@ import { IChildrenProps } from "@/interfaces";
 
 const AuthLayout = ({ children }: IChildrenProps) => {
   return (
-    <main style={{ background: "#F5F0EB", color: "#6B7280" }}>
+    <main>
       <Provider store={store}>{children}</Provider>
     </main>
   );
