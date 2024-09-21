@@ -52,3 +52,8 @@ export { default as BackArrowIcon } from "./common/back-arrow-icon";
 export { default as NextIcon } from "./common/next-icon";
 export { default as EyeWithoutSlashIcon } from "./common/eye-without-slash-icon";
 export { default as EyeWithSlashIcon } from "./common/eye-with-slash-icon";
+export { default as PropertiesIcon } from "./web-app/properties-icon";
+export { default as WalletIcon } from "./web-app/wallet-icon";
+export { default as PortfolioIcon } from "./web-app/portfolio-icon";
+export { default as RewardIcon } from "./web-app/reward-icon";
+export { default as CartIcon } from "./web-app/cart-icon";

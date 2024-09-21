@@ -10,3 +10,11 @@ export const AUTH = {
   SIGN_UP: "/sign-up",
   FORGOT_PASSWORD: "/forgot-password",
 };
+
+export const WEB_APP = {
+  PROPERTIES: "/client-properties",
+  WALLET: "/client-wallet",
+  PORTFOLIO: "/client-portfolio",
+  REWARD: "/client-rewards",
+  CART: "/client-cart",
+};
