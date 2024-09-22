@@ -5,6 +5,7 @@ import {
   RewardIcon,
   WalletIcon,
 } from "@/assets/icons";
+import { WEB_APP_LAYOUT } from "@/constants/layout";
 import { WEB_APP } from "@/constants/routes";
 import { pxToRem } from "@/utils/get-font-value";
 import { Theme } from "@mui/material";
@@ -13,26 +14,31 @@ export const mainRoutesArray = [
   {
     id: 1,
     icon: PropertiesIcon,
-    label: "Properties",
+    label: WEB_APP_LAYOUT.PROPERTIES,
     href: WEB_APP.PROPERTIES,
   },
-  { id: 2, icon: WalletIcon, label: "Wallet", href: WEB_APP.WALLET },
+  {
+    id: 2,
+    icon: WalletIcon,
+    label: WEB_APP_LAYOUT.WALLET,
+    href: WEB_APP.WALLET,
+  },
   {
     id: 3,
     icon: PortfolioIcon,
-    label: "Portfolio",
+    label: WEB_APP_LAYOUT.PORTFOLIO,
     href: WEB_APP.PORTFOLIO,
   },
   {
     id: 4,
     icon: RewardIcon,
-    label: "Reward",
-    href: WEB_APP.REWARD,
+    label: WEB_APP_LAYOUT.REWARDS,
+    href: WEB_APP.REWARDS,
   },
   {
     id: 5,
     icon: CartIcon,
-    label: "Cart",
+    label: WEB_APP_LAYOUT.CART,
     href: WEB_APP.CART,
   },
 ];

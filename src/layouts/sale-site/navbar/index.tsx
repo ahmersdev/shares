@@ -12,6 +12,7 @@ import { listButtonStyles, saleSiteHeaderArray } from "./navbar.data";
 import { usePathname } from "next/navigation";
 import { BUTTON_STYLES } from "@/styles";
 import { INavItem } from "@/interfaces";
+import { SALE_SITE_LAYOUT } from "@/constants/layout";
 
 export default function Navbar() {
   const pathName = usePathname();
@@ -76,7 +77,7 @@ export default function Navbar() {
                 }}
                 disableElevation
               >
-                Login
+                {SALE_SITE_LAYOUT.SIGN_IN}
               </Button>
             </Link>
 
@@ -94,7 +95,7 @@ export default function Navbar() {
                 }}
                 disableElevation
               >
-                Sign Up
+                {SALE_SITE_LAYOUT.SIGN_UP}
               </Button>
             </Link>
           </Box>

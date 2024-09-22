@@ -15,6 +15,6 @@ export const WEB_APP = {
   PROPERTIES: "/client-properties",
   WALLET: "/client-wallet",
   PORTFOLIO: "/client-portfolio",
-  REWARD: "/client-rewards",
+  REWARDS: "/client-rewards",
   CART: "/client-cart",
 };

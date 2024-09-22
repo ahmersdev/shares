@@ -1,14 +1,19 @@
 import { SALE_SITE } from "@/constants/routes";
 import { pxToRem } from "@/utils/get-font-value";
 import { IFooterNavDataArray } from "./footer-nav.interface";
+import { SALE_SITE_LAYOUT } from "@/constants/layout";
 
 export const footerNavDataArray: IFooterNavDataArray[] = [
   {
     id: 1,
     title: "Company",
     navItems: [
-      { id: 11, label: "Properties", href: SALE_SITE.PROPERTIES },
-      { id: 12, label: "About Us", href: SALE_SITE.ABOUT_US },
+      {
+        id: 11,
+        label: SALE_SITE_LAYOUT.PROPERTIES,
+        href: SALE_SITE.PROPERTIES,
+      },
+      { id: 12, label: SALE_SITE_LAYOUT.ABOUT_US, href: SALE_SITE.ABOUT_US },
       { id: 13, label: "How it works", href: "#" },
       { id: 14, label: "Newsletter", href: "#" },
     ],

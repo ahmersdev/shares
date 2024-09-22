@@ -10,13 +10,13 @@ const WebAppLayout = ({ children }: IChildrenProps) => {
   return (
     <main>
       <Provider store={store}>
-        <Grid container>
+        <Grid container bgcolor={"common.bgLight"}>
           <Grid item xs={0} md={2} height={"100vh"} overflow={"hidden"}>
             <Navbar />
           </Grid>
           <Grid item xs={12} md={10} height={"100vh"} overflow={"auto"}>
             <Header />
-            <Box py={2}>{children}</Box>
+            <Box p={{ xs: 1, md: 2.4 }}>{children}</Box>
           </Grid>
         </Grid>
       </Provider>

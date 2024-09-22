@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { mainRoutesArray, mainStyles } from "./navbar.data";
+import { mainRoutesArray, mainStyles } from "../web-app.data";
 
 export default function Navbar() {
   const theme = useTheme<Theme>();
@@ -54,7 +54,7 @@ export default function Navbar() {
                     }
                   />
                 </ListItemIcon>
-                {item?.label}
+                {item.label}
               </ListItemButton>
             </Link>
           </ListItem>

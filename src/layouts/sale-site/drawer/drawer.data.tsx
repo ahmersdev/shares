@@ -1,15 +1,16 @@
+import { SALE_SITE_LAYOUT } from "@/constants/layout";
 import { AUTH, SALE_SITE } from "@/constants/routes";
 import { INavItem } from "@/interfaces";
 import { pxToRem } from "@/utils/get-font-value";
 import { Theme } from "@mui/material";
 
 export const saleSiteDrawerArray: INavItem[] = [
-  { id: 1, label: "Home", href: SALE_SITE.HOME },
-  { id: 3, label: "About Us", href: SALE_SITE.ABOUT_US },
-  { id: 4, label: "Properties", href: SALE_SITE.PROPERTIES },
-  { id: 5, label: "FAQs", href: SALE_SITE.FAQS },
-  { id: 6, label: "Sign In", href: AUTH.SIGN_IN },
-  { id: 7, label: "Sign Up", href: AUTH.SIGN_UP },
+  { id: 1, label: SALE_SITE_LAYOUT.HOME, href: SALE_SITE.HOME },
+  { id: 3, label: SALE_SITE_LAYOUT.ABOUT_US, href: SALE_SITE.ABOUT_US },
+  { id: 4, label: SALE_SITE_LAYOUT.PROPERTIES, href: SALE_SITE.PROPERTIES },
+  { id: 5, label: SALE_SITE_LAYOUT.FAQS, href: SALE_SITE.FAQS },
+  { id: 6, label: SALE_SITE_LAYOUT.SIGN_IN, href: AUTH.SIGN_IN },
+  { id: 7, label: SALE_SITE_LAYOUT.SIGN_UP, href: AUTH.SIGN_UP },
 ];
 
 export const mainStyles = (href: string, pathName: string, theme: Theme) => {

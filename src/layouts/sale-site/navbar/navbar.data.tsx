@@ -1,12 +1,13 @@
+import { SALE_SITE_LAYOUT } from "@/constants/layout";
 import { SALE_SITE } from "@/constants/routes";
 import { INavItem } from "@/interfaces";
 import { pxToRem } from "@/utils/get-font-value";
 
 export const saleSiteHeaderArray: INavItem[] = [
-  { id: 1, label: "Home", href: SALE_SITE.HOME },
-  { id: 2, label: "About Us", href: SALE_SITE.ABOUT_US },
-  { id: 3, label: "Properties", href: SALE_SITE.PROPERTIES },
-  { id: 4, label: "FAQs", href: SALE_SITE.FAQS },
+  { id: 1, label: SALE_SITE_LAYOUT.HOME, href: SALE_SITE.HOME },
+  { id: 2, label: SALE_SITE_LAYOUT.ABOUT_US, href: SALE_SITE.ABOUT_US },
+  { id: 3, label: SALE_SITE_LAYOUT.PROPERTIES, href: SALE_SITE.PROPERTIES },
+  { id: 4, label: SALE_SITE_LAYOUT.FAQS, href: SALE_SITE.FAQS },
 ];
 
 export const listButtonStyles = (href: string, pathName: string) => {
