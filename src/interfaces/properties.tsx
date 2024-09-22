@@ -24,4 +24,6 @@ export interface IProperty {
   detailsPublic: IDetailsPublic[];
   progress: number;
   sharesLeft: number;
+  buttonRender?: boolean;
+  soldOutBadge?: boolean;
 }

@@ -1,6 +1,7 @@
 import PropertiesCard from "@/components/properties-card";
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { propertiesData } from "./featured-properties.data";
+import { IProperty } from "@/interfaces/properties";
 
 export default function FeaturedProperties() {
   return (
@@ -24,7 +25,13 @@ export default function FeaturedProperties() {
           We only select properties with the highest income potential
         </Typography>
 
-        <PropertiesCard propertiesDataArray={propertiesData} />
+        <Grid container spacing={2.4}>
+          {propertiesData.map((property: IProperty) => (
+            <Grid item xs={12} sm={6} md={4} key={property.id}>
+              <PropertiesCard property={property} />
+            </Grid>
+          ))}
+        </Grid>
       </Box>
     </Box>
   );

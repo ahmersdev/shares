@@ -54,7 +54,6 @@ export const propertiesData: IProperty[] = [
     ],
     progress: 98,
     sharesLeft: 6663,
-    buttonRender: true,
   },
   {
     id: 2,
@@ -99,7 +98,6 @@ export const propertiesData: IProperty[] = [
     ],
     progress: 98,
     sharesLeft: 6663,
-    buttonRender: true,
   },
   {
     id: 3,
@@ -144,6 +142,5 @@ export const propertiesData: IProperty[] = [
     ],
     progress: 98,
     sharesLeft: 6663,
-    buttonRender: true,
   },
 ];
