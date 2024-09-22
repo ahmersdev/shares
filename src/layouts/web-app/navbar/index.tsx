@@ -8,6 +8,7 @@ import {
   Theme,
   Typography,
   useTheme,
+  Divider,
 } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -37,66 +38,30 @@ export default function Navbar() {
         />
       </Link>
 
-      <Box
-        display={"flex"}
-        flexDirection={"column"}
-        justifyContent={"space-between"}
-        height={"96%"}
-        pt={2}
-      >
-        <List>
-          {mainRoutesArray.map((item) => (
-            <ListItem key={item.id} sx={{ px: 0 }}>
-              <Link href={item.href} style={{ width: "100%" }}>
-                <ListItemButton sx={mainStyles(item.href, pathName, theme)}>
-                  <ListItemIcon sx={{ minWidth: { xs: "30px", lg: "40px" } }}>
-                    <item.icon
-                      fill={
-                        pathName.includes(item.href)
-                          ? theme.palette.text.heading
-                          : theme.palette.text.body
-                      }
-                    />
-                  </ListItemIcon>
-                  {item?.label}
-                </ListItemButton>
-              </Link>
-            </ListItem>
-          ))}
-        </List>
+      <Divider sx={{ my: 3, borderColor: "text.stroke" }} />
 
-        {/* <List>
-          <ListItem sx={{ px: 0 }}>
-            <Link href={"/coach-settings"} style={{ width: "100%" }}>
-              <ListItemButton
-                sx={mainStyles("/coach-settings", pathName, theme)}
-              >
+      <List>
+        {mainRoutesArray.map((item) => (
+          <ListItem key={item.id} sx={{ px: 0 }}>
+            <Link href={item.href} style={{ width: "100%" }}>
+              <ListItemButton sx={mainStyles(item.href, pathName, theme)}>
                 <ListItemIcon sx={{ minWidth: { xs: "30px", lg: "40px" } }}>
-                  <SettingsIcon
+                  <item.icon
                     fill={
-                      "/coach-settings" === pathName
-                        ? theme?.palette?.grey?.[100]
-                        : theme?.palette?.secondary?.[400]
+                      pathName.includes(item.href)
+                        ? theme.palette.text.heading
+                        : theme.palette.text.body
                     }
                   />
                 </ListItemIcon>
-                Settings
+                {item?.label}
               </ListItemButton>
             </Link>
           </ListItem>
-          <ListItem sx={{ px: 0 }}>
-            <ListItemButton
-              sx={mainStyles("/sign-in", pathName, theme)}
-              onClick={handleLogout}
-            >
-              <ListItemIcon sx={{ minWidth: { xs: "30px", lg: "40px" } }}>
-                <SignOutIcon fill={theme?.palette?.secondary?.[400]} />
-              </ListItemIcon>
-              Sign Out
-            </ListItemButton>
-          </ListItem>
-        </List> */}
-      </Box>
+        ))}
+      </List>
+
+      <Divider sx={{ my: 3, borderColor: "text.stroke" }} />
     </Box>
   );
 }
