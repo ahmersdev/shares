@@ -12,7 +12,9 @@ import {
   PropertiesStatusIcon,
 } from "@/assets/icons";
 
-export const propertiesData: IProperty[] = [
+export const getPropertiesData = (
+  setOpenDialog: (openDialog: boolean) => void
+): IProperty[] => [
   {
     id: 1,
     imageSrc: PropertiesVillaOneImg,
@@ -57,6 +59,7 @@ export const propertiesData: IProperty[] = [
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
+    buttonClick: () => setOpenDialog(true),
   },
   {
     id: 2,
@@ -102,6 +105,7 @@ export const propertiesData: IProperty[] = [
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
+    buttonClick: () => setOpenDialog(true),
   },
   {
     id: 3,
@@ -147,6 +151,7 @@ export const propertiesData: IProperty[] = [
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
+    buttonClick: () => setOpenDialog(true),
   },
   {
     id: 4,
@@ -192,6 +197,7 @@ export const propertiesData: IProperty[] = [
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
+    buttonClick: () => setOpenDialog(true),
   },
   {
     id: 5,
@@ -237,5 +243,6 @@ export const propertiesData: IProperty[] = [
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
+    buttonClick: () => setOpenDialog(true),
   },
 ];

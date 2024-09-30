@@ -26,4 +26,5 @@ export interface IProperty {
   sharesLeft: number;
   buttonRender?: boolean;
   soldOutBadge?: boolean;
+  buttonClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

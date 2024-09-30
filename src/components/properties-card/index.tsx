@@ -158,6 +158,7 @@ export default function PropertiesCard(props: IPropertiesDataArray) {
               },
             }}
             disableElevation
+            onClick={property.buttonClick}
           >
             Get More Details
           </Button>

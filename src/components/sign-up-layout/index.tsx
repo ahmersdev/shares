@@ -7,8 +7,9 @@ import Link from "next/link";
 import { propertiesData } from "./sign-up-layout.data";
 import { IProperty } from "@/interfaces/properties";
 import PropertiesCard from "../properties-card";
+import { ISignUpLayoutProps } from "./sign-up-layout.interface";
 
-export default function SignUpLayout(props: any) {
+export default function SignUpLayout(props: ISignUpLayoutProps) {
   const { children, hrefBackRoute } = props;
 
   const theme = useTheme<Theme>();
