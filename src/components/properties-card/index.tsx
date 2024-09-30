@@ -5,12 +5,12 @@ import { IDetailsPublic, IInteriorDetails } from "@/interfaces/properties";
 import { IPropertiesDataArray } from "./properties-card.interface";
 
 export default function PropertiesCard(props: IPropertiesDataArray) {
-  const { property } = props;
+  const { property, bgcolor = "opacity.bg" } = props;
 
   return (
     <Box
       borderRadius={6}
-      bgcolor={"opacity.bg"}
+      bgcolor={bgcolor}
       overflow={"hidden"}
       display={"flex"}
       flexDirection={"column"}

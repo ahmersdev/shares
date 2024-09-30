@@ -17,7 +17,6 @@ export interface IFormArrayItem {
   id: number;
   componentProps: IComponentProps;
   component: React.ElementType;
-  md: number;
 }
 
 export interface ITogglePasswordVisibility {

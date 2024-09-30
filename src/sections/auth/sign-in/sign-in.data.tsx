@@ -8,9 +8,12 @@ import {
   ITogglePasswordVisibility,
 } from "./sign-in.interface";
 
-export const signInFormValidationSchema = Yup?.object()?.shape({
-  email: Yup?.string()?.trim()?.required("Email is Required"),
-  password: Yup?.string()?.trim()?.required("Password is Required"),
+export const signInFormValidationSchema = Yup.object().shape({
+  email: Yup.string()
+    .trim()
+    .email("Invalid Email Format")
+    .required("Email is Required"),
+  password: Yup.string().trim().required("Password is Required"),
 });
 
 export const signInFormDefaultValues = {
@@ -30,7 +33,6 @@ export const getSignInDataArray = (
       placeholder: "Enter Email Address",
     },
     component: RHFTextField,
-    md: 5,
   },
   {
     id: 2,
@@ -58,6 +60,5 @@ export const getSignInDataArray = (
       },
     },
     component: RHFTextField,
-    md: 5,
   },
 ];
