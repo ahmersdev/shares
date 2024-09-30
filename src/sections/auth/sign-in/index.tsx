@@ -123,9 +123,9 @@ export default function SignIn() {
           <Grid item xs={12}>
             <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
               <Grid container spacing={3.2}>
-                {signInDataArray?.map((item: IFormArrayItem) => (
+                {signInDataArray.map((item: IFormArrayItem) => (
                   <Grid item xs={12} key={item.id}>
-                    <item.component {...item?.componentProps} size={"small"} />
+                    <item.component {...item.componentProps} size={"small"} />
                   </Grid>
                 ))}
                 <Grid item xs={12}>

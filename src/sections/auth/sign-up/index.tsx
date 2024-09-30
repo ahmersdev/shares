@@ -31,9 +31,9 @@ export default function SignUp() {
       </Typography>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={3.2}>
-          {signUpDataArray?.map((item) => (
+          {signUpDataArray.map((item) => (
             <Grid item xs={12} key={item.id}>
-              <item.component {...item?.componentProps} size={"small"} />
+              <item.component {...item.componentProps} size={"small"} />
             </Grid>
           ))}
 
