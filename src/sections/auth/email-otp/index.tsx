@@ -4,7 +4,6 @@ import { OtpImg } from "@/assets/images";
 import SignUpLayout from "@/components/sign-up-layout";
 import { AUTH } from "@/constants/routes";
 import { BUTTON_STYLES } from "@/styles";
-import { pxToRem } from "@/utils/get-font-value";
 import { LoadingButton } from "@mui/lab";
 import { Typography } from "@mui/material";
 import Image from "next/image";
@@ -13,12 +12,15 @@ import useEmailOtp from "./use-email-otp";
 
 export default function EmailOtp() {
   const {
-    theme,
     email,
     otp,
     setOtp,
     onSubmit,
     postEmailOtpVerificationStatus,
+    onSubmitResendOtp,
+    postResendOtpStatus,
+    timer,
+    otpEmailStyles,
   } = useEmailOtp();
 
   return (
@@ -42,17 +44,8 @@ export default function EmailOtp() {
           setOtp(otp);
         }}
         numInputs={4}
-        inputStyle={{
-          width: 85,
-          height: 70,
-          fontSize: pxToRem(20),
-          border: `1.5px solid ${theme.palette.text.bodyLight}`,
-          background: "transparent",
-          borderRadius: "8px",
-          outline: "none",
-          color: theme.palette.text.body,
-        }}
-        containerStyle={{ justifyContent: "center", gap: pxToRem(20) }}
+        inputStyle={otpEmailStyles.otpInputStyle}
+        containerStyle={otpEmailStyles.otpContainerStyle}
         renderInput={(props) => <input {...props} />}
       />
 
@@ -75,6 +68,24 @@ export default function EmailOtp() {
       >
         Verify OTP
       </LoadingButton>
+
+      <Typography
+        variant={"body2"}
+        fontWeight={600}
+        color={timer ? "text.disabled" : "primary.main"}
+        onClick={
+          timer === null && !postResendOtpStatus.isLoading
+            ? onSubmitResendOtp
+            : undefined
+        }
+        sx={{ cursor: timer === null ? "pointer" : "not-allowed" }}
+      >
+        {postResendOtpStatus.isLoading
+          ? "Sending OTP..."
+          : timer
+          ? `Resend OTP in ${timer}s`
+          : "Resend OTP"}
+      </Typography>
     </SignUpLayout>
   );
 }
