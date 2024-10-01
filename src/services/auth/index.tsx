@@ -10,7 +10,18 @@ export const authAPI = baseAPI.injectEndpoints({
         body,
       }),
     }),
+
+    postEmailOtpVerification: builder.mutation({
+      query: (body: any) => ({
+        url: AUTH.EMAIL_OTP_VERIFICATION,
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
-export const { usePostSignUpUserMutation } = authAPI;
+export const {
+  usePostSignUpUserMutation,
+  usePostEmailOtpVerificationMutation,
+} = authAPI;

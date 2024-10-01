@@ -17,8 +17,11 @@ import SignUpLayout from "@/components/sign-up-layout";
 import { usePostSignUpUserMutation } from "@/services/auth";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { ISignUpFormData } from "./sign-up.interface";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
+  const router = useRouter();
+
   const methods = useForm({
     resolver: yupResolver(signUpFormValidationSchema),
     defaultValues: signUpFormDefaultValues,
@@ -36,6 +39,9 @@ export default function SignUp() {
         successSnackbar(
           res.msg ?? "Please, Check Email for Verification Code!"
         );
+        const params = new URLSearchParams({ email: data.email });
+        const url = `${AUTH.OTP}?${params.toString()}`;
+        router.push(url);
       }
     } catch (error: any) {
       errorSnackbar(error?.data?.message);

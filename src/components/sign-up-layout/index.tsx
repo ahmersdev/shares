@@ -46,7 +46,7 @@ export default function SignUpLayout(props: ISignUpLayoutProps) {
           <Divider sx={{ borderColor: "text.stroke" }} />
 
           {hrefBackRoute && (
-            <Box position={"relative"} padding={"40px 60px"}>
+            <Box position={"relative"}>
               <Link
                 href={hrefBackRoute}
                 style={{
@@ -54,6 +54,7 @@ export default function SignUpLayout(props: ISignUpLayoutProps) {
                   alignItems: "baseline",
                   maxHeight: pxToRem(135),
                   position: "absolute",
+                  padding: "40px 60px",
                 }}
               >
                 <BackCircleIcon />
@@ -65,6 +66,7 @@ export default function SignUpLayout(props: ISignUpLayoutProps) {
             display={"flex"}
             flexDirection={"column"}
             justifyContent={"center"}
+            alignItems={"center"}
             p={2}
             maxWidth={theme.breakpoints.values.sm - 150}
             width={"100%"}
