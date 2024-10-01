@@ -6,7 +6,7 @@ import {
   IFormArrayItem,
   IPasswordVisibility,
   ITogglePasswordVisibility,
-} from "./sign-in.interface";
+} from "./sign-in-form.interface";
 
 export const signInFormValidationSchema = Yup.object().shape({
   email: Yup.string()
@@ -30,6 +30,7 @@ export const getSignInDataArray = (
     componentProps: {
       name: "email",
       label: "Email",
+      type: "email",
       placeholder: "Enter Email Address",
     },
     component: RHFTextField,

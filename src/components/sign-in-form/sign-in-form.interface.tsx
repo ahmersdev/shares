@@ -1,8 +1,13 @@
+export interface ISignInFormProps {
+  mt?: number;
+  textAlign?: "start" | "center";
+}
+
 export interface IPasswordVisibility {
   password: boolean;
 }
 
-export interface IComponentProps {
+interface IComponentProps {
   name: string;
   label: string;
   placeholder: string;
@@ -21,9 +26,4 @@ export interface IFormArrayItem {
 
 export interface ITogglePasswordVisibility {
   (field: keyof IPasswordVisibility): void;
-}
-
-export interface IGetSignInDataArray {
-  togglePasswordVisibility: ITogglePasswordVisibility;
-  passwordVisibility: IPasswordVisibility;
 }
