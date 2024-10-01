@@ -6,7 +6,7 @@ import { RootState } from "@/store";
 export const TAGS = [];
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: BASE_URL,
+  baseUrl: `${BASE_URL}/api`,
   prepareHeaders: (headers, { getState }) => {
     const token = getState() as RootState;
     if (token) {

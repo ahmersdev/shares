@@ -14,15 +14,33 @@ import {
   signUpFormValidationSchema,
 } from "./sign-up.data";
 import SignUpLayout from "@/components/sign-up-layout";
+import { usePostSignUpUserMutation } from "@/services/auth";
+import { errorSnackbar, successSnackbar } from "@/utils/api";
+import { ISignUpFormData } from "./sign-up.interface";
 
 export default function SignUp() {
   const methods = useForm({
     resolver: yupResolver(signUpFormValidationSchema),
     defaultValues: signUpFormDefaultValues,
   });
+
   const { handleSubmit } = methods;
 
-  const onSubmit = async () => {};
+  const [postSignUpUserTrigger, postSignUpUserStatus] =
+    usePostSignUpUserMutation();
+
+  const onSubmit = async (data: ISignUpFormData) => {
+    try {
+      const res = await postSignUpUserTrigger(data).unwrap();
+      if (res) {
+        successSnackbar(
+          res.msg ?? "Please, Check Email for Verification Code!"
+        );
+      }
+    } catch (error: any) {
+      errorSnackbar(error?.data?.message);
+    }
+  };
 
   return (
     <SignUpLayout>
@@ -52,6 +70,7 @@ export default function SignUp() {
               }}
               disableElevation
               type={"submit"}
+              loading={postSignUpUserStatus.isLoading}
             >
               Let’s Go
             </LoadingButton>

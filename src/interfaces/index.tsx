@@ -20,3 +20,10 @@ export interface IFontSizeBreakpoints {
   md: number;
   lg: number;
 }
+
+export interface INotistackVariants {
+  SUCCESS: "success";
+  ERROR: "error";
+  WARNING: "warning";
+  INFO: "info";
+}
