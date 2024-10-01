@@ -8,7 +8,7 @@ export const SALE_SITE = {
 export const AUTH = {
   SIGN_IN: "/sign-in",
   SIGN_UP: "/sign-up",
-  OTP: "/email-otp",
+  EMAIL_OTP: "/email-otp",
   FORGOT_PASSWORD: "/forgot-password",
 };
 

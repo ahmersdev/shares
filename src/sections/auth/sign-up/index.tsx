@@ -4,49 +4,14 @@ import { FormProvider } from "@/components/react-hook-form";
 import { AUTH } from "@/constants/routes";
 import { Grid, Typography } from "@mui/material";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { LoadingButton } from "@mui/lab";
 import { BUTTON_STYLES } from "@/styles";
-import {
-  signUpDataArray,
-  signUpFormDefaultValues,
-  signUpFormValidationSchema,
-} from "./sign-up.data";
+import { signUpDataArray } from "./sign-up.data";
 import SignUpLayout from "@/components/sign-up-layout";
-import { usePostSignUpUserMutation } from "@/services/auth";
-import { errorSnackbar, successSnackbar } from "@/utils/api";
-import { ISignUpFormData } from "./sign-up.interface";
-import { useRouter } from "next/navigation";
+import useSignUp from "./use-sign-up";
 
 export default function SignUp() {
-  const router = useRouter();
-
-  const methods = useForm({
-    resolver: yupResolver(signUpFormValidationSchema),
-    defaultValues: signUpFormDefaultValues,
-  });
-
-  const { handleSubmit } = methods;
-
-  const [postSignUpUserTrigger, postSignUpUserStatus] =
-    usePostSignUpUserMutation();
-
-  const onSubmit = async (data: ISignUpFormData) => {
-    try {
-      const res = await postSignUpUserTrigger(data).unwrap();
-      if (res) {
-        successSnackbar(
-          res.msg ?? "Please, Check Email for Verification Code!"
-        );
-        const params = new URLSearchParams({ email: data.email });
-        const url = `${AUTH.OTP}?${params.toString()}`;
-        router.push(url);
-      }
-    } catch (error: any) {
-      errorSnackbar(error?.data?.message);
-    }
-  };
+  const { methods, handleSubmit, onSubmit, postSignUpUserStatus } = useSignUp();
 
   return (
     <SignUpLayout>

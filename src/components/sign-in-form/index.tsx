@@ -2,50 +2,15 @@ import { FormProvider } from "@/components/react-hook-form";
 import { AUTH } from "@/constants/routes";
 import { Grid, Typography } from "@mui/material";
 import Link from "next/link";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import {
-  getSignInDataArray,
-  signInFormDefaultValues,
-  signInFormValidationSchema,
-} from "./sign-in-form.data";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { LoadingButton } from "@mui/lab";
 import { BUTTON_STYLES } from "@/styles";
-import {
-  IFormArrayItem,
-  IPasswordVisibility,
-  ISignInFormProps,
-  ITogglePasswordVisibility,
-} from "./sign-in-form.interface";
+import { IFormArrayItem, ISignInFormProps } from "./sign-in-form.interface";
+import useSignInForm from "./use-sign-in-form";
 
 export default function SignInForm(props: ISignInFormProps) {
   const { mt = 0, textAlign = "start" } = props;
 
-  const [passwordVisibility, setPasswordVisibility] =
-    useState<IPasswordVisibility>({
-      password: false,
-    });
-
-  const togglePasswordVisibility: ITogglePasswordVisibility = (field) => {
-    setPasswordVisibility((prev) => ({
-      ...prev,
-      [field]: !prev[field],
-    }));
-  };
-
-  const signInDataArray = getSignInDataArray(
-    togglePasswordVisibility,
-    passwordVisibility
-  );
-
-  const methods = useForm({
-    resolver: yupResolver(signInFormValidationSchema),
-    defaultValues: signInFormDefaultValues,
-  });
-  const { handleSubmit } = methods;
-
-  const onSubmit = async () => {};
+  const { methods, handleSubmit, onSubmit, signInDataArray } = useSignInForm();
 
   return (
     <Grid container spacing={3.2}>

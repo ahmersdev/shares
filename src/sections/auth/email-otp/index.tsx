@@ -3,46 +3,23 @@
 import { OtpImg } from "@/assets/images";
 import SignUpLayout from "@/components/sign-up-layout";
 import { AUTH } from "@/constants/routes";
-import { usePostEmailOtpVerificationMutation } from "@/services/auth";
 import { BUTTON_STYLES } from "@/styles";
-import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { pxToRem } from "@/utils/get-font-value";
 import { LoadingButton } from "@mui/lab";
-import { Theme, Typography, useTheme } from "@mui/material";
+import { Typography } from "@mui/material";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
-import { useState } from "react";
 import OTPInput from "react-otp-input";
+import useEmailOtp from "./use-email-otp";
 
 export default function EmailOtp() {
-  const theme = useTheme<Theme>();
-
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email");
-
-  const [otp, setOtp] = useState("");
-
-  const [postEmailOtpVerificationTrigger, postEmailOtpVerificationStatus] =
-    usePostEmailOtpVerificationMutation();
-
-  const onSubmit = async (data: string) => {
-    const updatedData = {
-      otp: data,
-      email,
-    };
-
-    try {
-      const resOtp = await postEmailOtpVerificationTrigger(
-        updatedData
-      ).unwrap();
-      if (resOtp) {
-        successSnackbar("Verification Successful! Please Buy Plan");
-      }
-    } catch (error) {
-      errorSnackbar(error?.data?.message);
-      setOtp("");
-    }
-  };
+  const {
+    theme,
+    email,
+    otp,
+    setOtp,
+    onSubmit,
+    postEmailOtpVerificationStatus,
+  } = useEmailOtp();
 
   return (
     <SignUpLayout hrefBackRoute={AUTH.SIGN_UP}>
