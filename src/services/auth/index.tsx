@@ -18,10 +18,19 @@ export const authAPI = baseAPI.injectEndpoints({
         body,
       }),
     }),
+
+    postCreatePassword: builder.mutation({
+      query: (body: any) => ({
+        url: AUTH.CREATE_PASSWORD,
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
 export const {
   usePostSignUpUserMutation,
   usePostEmailOtpVerificationMutation,
+  usePostCreatePasswordMutation,
 } = authAPI;

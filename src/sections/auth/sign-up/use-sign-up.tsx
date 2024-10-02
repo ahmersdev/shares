@@ -9,6 +9,7 @@ import { usePostSignUpUserMutation } from "@/services/auth";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { ISignUpFormData } from "./sign-up.interface";
 import { useRouter } from "next/navigation";
+import { IApiErrorResponse } from "@/interfaces";
 
 export default function useSignUp() {
   const router = useRouter();
@@ -34,8 +35,9 @@ export default function useSignUp() {
         const url = `${AUTH.EMAIL_OTP}?data=${encodedParams}`;
         router.push(url);
       }
-    } catch (error: any) {
-      errorSnackbar(error?.data?.message);
+    } catch (error) {
+      const errorResponse = error as IApiErrorResponse;
+      errorSnackbar(errorResponse.data.msg);
     }
   };
 

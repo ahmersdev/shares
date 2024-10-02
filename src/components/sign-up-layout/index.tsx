@@ -10,7 +10,7 @@ import PropertiesCard from "../properties-card";
 import { ISignUpLayoutProps } from "./sign-up-layout.interface";
 
 export default function SignUpLayout(props: ISignUpLayoutProps) {
-  const { children, hrefBackRoute } = props;
+  const { children, hrefBackRoute, alignItems = "normal" } = props;
 
   const theme = useTheme<Theme>();
 
@@ -66,7 +66,7 @@ export default function SignUpLayout(props: ISignUpLayoutProps) {
             display={"flex"}
             flexDirection={"column"}
             justifyContent={"center"}
-            alignItems={"center"}
+            alignItems={alignItems}
             p={2}
             maxWidth={theme.breakpoints.values.sm - 150}
             width={"100%"}

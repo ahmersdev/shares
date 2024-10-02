@@ -21,10 +21,11 @@ export default function EmailOtp() {
     postResendOtpStatus,
     timer,
     otpEmailStyles,
+    error,
   } = useEmailOtp();
 
   return (
-    <SignUpLayout hrefBackRoute={AUTH.SIGN_UP}>
+    <SignUpLayout hrefBackRoute={AUTH.SIGN_UP} alignItems={"center"}>
       <Typography variant={"h3"} color={"text.heading"}>
         Confirm Your Email
       </Typography>
@@ -48,6 +49,17 @@ export default function EmailOtp() {
         containerStyle={otpEmailStyles.otpContainerStyle}
         renderInput={(props) => <input {...props} />}
       />
+
+      {error && (
+        <Typography
+          variant={"body2"}
+          component={"span"}
+          sx={{ display: "block", textAlign: "center" }}
+          color={"error.main"}
+        >
+          Please Enter Full OTP
+        </Typography>
+      )}
 
       <LoadingButton
         variant={"contained"}

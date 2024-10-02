@@ -4,31 +4,42 @@ import {
 } from "@/services/auth";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { Theme, useTheme } from "@mui/material";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { getEmailOtpStyles } from "./email-otp.styles";
+import { AUTH } from "@/constants/routes";
+import { IApiErrorResponse } from "@/interfaces";
 
 export default function useEmailOtp() {
   const theme = useTheme<Theme>();
 
+  const router = useRouter();
   const searchParams = useSearchParams();
-  const encodedData = searchParams.get("data");
+
+  const encodedParams = searchParams.get("data");
 
   let email = "No email provided";
   let fullName = "No name provided";
 
-  if (encodedData) {
-    const decodedData = atob(encodedData);
-    [email, fullName] = decodedData.split("|");
+  if (encodedParams) {
+    const decodedParams = atob(encodedParams);
+    [email, fullName] = decodedParams.split("|");
   }
 
   const [otp, setOtp] = useState("");
+  const [error, setError] = useState(false);
   const [timer, setTimer] = useState<number | null>(null);
 
   const [postEmailOtpVerificationTrigger, postEmailOtpVerificationStatus] =
     usePostEmailOtpVerificationMutation();
 
   const onSubmit = async (data: string) => {
+    if (otp.length < 4) {
+      setError(true);
+      return;
+    }
+    setError(false);
+
     const updatedData = { otp: data, email };
     try {
       const resOtp = await postEmailOtpVerificationTrigger(
@@ -37,9 +48,12 @@ export default function useEmailOtp() {
       if (resOtp) {
         successSnackbar(resOtp.msg ?? "Verification Successful!");
         localStorage.removeItem("resendOtpEndTime");
+        const url = `${AUTH.EMAIL_OTP}?data=${encodedParams}`;
+        router.push(url);
       }
-    } catch (error: any) {
-      errorSnackbar(error?.message);
+    } catch (error) {
+      const errorResponse = error as IApiErrorResponse;
+      errorSnackbar(errorResponse.data.msg);
       setOtp("");
     }
   };
@@ -58,8 +72,9 @@ export default function useEmailOtp() {
         localStorage.setItem("resendOtpEndTime", endTime.toString());
         setTimer(newTimer);
       }
-    } catch (error: any) {
-      errorSnackbar(error?.data?.message);
+    } catch (error) {
+      const errorResponse = error as IApiErrorResponse;
+      errorSnackbar(errorResponse.data.msg);
     }
   };
 
@@ -99,5 +114,6 @@ export default function useEmailOtp() {
     postResendOtpStatus,
     timer,
     otpEmailStyles,
+    error,
   };
 }

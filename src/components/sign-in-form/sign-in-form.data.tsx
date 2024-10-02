@@ -42,7 +42,7 @@ export const getSignInDataArray = (
       label: "Password",
       placeholder: "Your Password",
       borderRadius: 25,
-      type: passwordVisibility?.password ? "text" : "password",
+      type: passwordVisibility.password ? "text" : "password",
       InputProps: {
         endAdornment: (
           <InputAdornment position="end">

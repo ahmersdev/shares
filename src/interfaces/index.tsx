@@ -27,3 +27,10 @@ export interface INotistackVariants {
   WARNING: "warning";
   INFO: "info";
 }
+
+export interface IApiErrorResponse {
+  status: number;
+  data: {
+    msg: string;
+  };
+}

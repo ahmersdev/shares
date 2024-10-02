@@ -80,7 +80,7 @@ const HorizontalTabs = ({
             }}
             key={tabData.title}
             onClick={() => {
-              setActiveTab ? setActiveTab(tabData?.title) : null;
+              setActiveTab ? setActiveTab(tabData.title) : null;
             }}
             icon={
               tabData.icon && (
@@ -102,7 +102,7 @@ const HorizontalTabs = ({
                 component={"span"}
                 sx={{ fontWeight: 600, ...typographyStyle }}
               >
-                {tabData?.title}
+                {tabData.title}
               </Typography>
             }
           />

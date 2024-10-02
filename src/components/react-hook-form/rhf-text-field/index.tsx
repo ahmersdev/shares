@@ -18,7 +18,7 @@ export default function RHFTextField({ name, ...other }: any) {
       control={control}
       render={({ field, fieldState: { error } }) => (
         <>
-          <FormLabel sx={{ color: "text.heading" }}>{other?.label}</FormLabel>
+          <FormLabel sx={{ color: "text.heading" }}>{other.label}</FormLabel>
           <TextField
             {...field}
             fullWidth
@@ -56,7 +56,7 @@ export default function RHFTextField({ name, ...other }: any) {
                 variant={"body2"}
                 component={"span"}
                 sx={{ display: "block", textAlign: "center" }}
-                color={"error.700"}
+                color={"error.main"}
               >
                 {error?.message}
               </Typography>

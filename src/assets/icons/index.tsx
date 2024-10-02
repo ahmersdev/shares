@@ -58,3 +58,4 @@ export { default as PortfolioIcon } from "./web-app/portfolio-icon";
 export { default as RewardIcon } from "./web-app/reward-icon";
 export { default as CartIcon } from "./web-app/cart-icon";
 export { default as BackCircleIcon } from "./common/back-circle-icon";
+export { default as PasswordLockIcon } from "./common/password-lock-icon";

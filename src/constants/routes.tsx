@@ -10,6 +10,7 @@ export const AUTH = {
   SIGN_UP: "/sign-up",
   EMAIL_OTP: "/email-otp",
   FORGOT_PASSWORD: "/forgot-password",
+  CREATE_PASSWORD: "/create-password",
 };
 
 export const WEB_APP = {

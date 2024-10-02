@@ -1,7 +1,7 @@
 import { WEB_APP } from "@/constants/routes";
 import { WEB_APP_LAYOUT } from "@/constants/layout";
 
-export const headerTitle = (pathName: any) => {
+export const headerTitle = (pathName: string) => {
   let title;
 
   switch (pathName) {
@@ -29,7 +29,7 @@ export const headerTitle = (pathName: any) => {
       title = WEB_APP_LAYOUT.CART;
       break;
 
-    // case COACH_SITE?.CLIENTS_OVERVIEW:
+    // case COACH_SITE.CLIENTS_OVERVIEW:
     //   title = (
     //     <>
     //       <Typography component={"span"} variant={"h3"} color={"grey.500"}>
