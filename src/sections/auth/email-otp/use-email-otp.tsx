@@ -48,7 +48,7 @@ export default function useEmailOtp() {
       if (resOtp) {
         successSnackbar(resOtp.msg ?? "Verification Successful!");
         localStorage.removeItem("resendOtpEndTime");
-        const url = `${AUTH.EMAIL_OTP}?data=${encodedParams}`;
+        const url = `${AUTH.CREATE_PASSWORD}?data=${encodedParams}`;
         router.push(url);
       }
     } catch (error) {
