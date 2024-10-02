@@ -32,20 +32,7 @@ export default function RHFTextField({ name, ...other }: any) {
               mt: 0.5,
               ".MuiInputBase-root": {
                 borderRadius: 3,
-                border: 1,
                 borderColor: theme.palette.text.bodyLight,
-                "&:hover fieldset": {
-                  border: 1,
-                  borderColor: theme.palette.text.bodyLight,
-                },
-                "& fieldset": {
-                  border: 1,
-                  borderColor: theme.palette.text.bodyLight,
-                },
-                "&.Mui-focused fieldset": {
-                  border: 1,
-                  borderColor: theme.palette.text.bodyLight,
-                },
                 "& ::placeholder": {
                   color: theme.palette.text.disabled,
                 },
