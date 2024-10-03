@@ -5,4 +5,5 @@ export const AUTH = {
   SIGN_IN: `/users/login`,
   RESET_PASSWORD: `/users/reset-password/email`,
   RESET_PASSWORD_OTP: `/users/reset-password/otp`,
+  RESET_SET_PASSWORD: `/users/reset-password`,
 };
