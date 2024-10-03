@@ -7,7 +7,7 @@ import {
   Theme,
 } from "@mui/material";
 import { ISignInDialogProps } from "./sign-in-dialog.interface";
-import SignInForm from "@/components/sign-in-form";
+import SignInForm from "../sign-in-form";
 
 export default function SignInDialog(props: ISignInDialogProps) {
   const { openDialog, setOpenDialog } = props;

@@ -9,8 +9,14 @@ import {
   PropertiesLocationIcon,
   PropertiesStatusIcon,
 } from "@/assets/icons";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { WEB_APP } from "@/constants/routes";
 
-export const propertiesData: IProperty[] = [
+export const getPropertiesData = (
+  tokenCookies: string,
+  router: AppRouterInstance,
+  setOpenDialog: (openDialog: boolean) => void
+): IProperty[] => [
   {
     id: 1,
     imageSrc: PropertiesVillaOneImg,
@@ -55,6 +61,9 @@ export const propertiesData: IProperty[] = [
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
+    buttonClick: () => {
+      tokenCookies ? router.push(WEB_APP.PROPERTIES) : setOpenDialog(true);
+    },
   },
   {
     id: 2,
@@ -100,6 +109,9 @@ export const propertiesData: IProperty[] = [
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
+    buttonClick: () => {
+      tokenCookies ? router.push(WEB_APP.PROPERTIES) : setOpenDialog(true);
+    },
   },
   {
     id: 3,
@@ -145,5 +157,8 @@ export const propertiesData: IProperty[] = [
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
+    buttonClick: () => {
+      tokenCookies ? router.push(WEB_APP.PROPERTIES) : setOpenDialog(true);
+    },
   },
 ];

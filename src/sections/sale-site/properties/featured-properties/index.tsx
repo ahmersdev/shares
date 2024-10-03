@@ -1,14 +1,11 @@
 import PropertiesCard from "@/components/properties-card";
-import { Box, Typography, Grid, Dialog, DialogTitle } from "@mui/material";
-import { getPropertiesData } from "./featured-properties.data";
+import { Box, Typography, Grid } from "@mui/material";
 import { IProperty } from "@/interfaces/properties";
-import { useState } from "react";
-import SignInDialog from "./sign-in-dialog";
+import useFeaturedProperties from "./use-featured-properties";
+import SignInDialog from "@/components/sign-in-dialog";
 
 export default function FeaturedProperties() {
-  const [openDialog, setOpenDialog] = useState(false);
-
-  const propertiesData = getPropertiesData(setOpenDialog);
+  const { propertiesData, openDialog, setOpenDialog } = useFeaturedProperties();
 
   return (
     <>

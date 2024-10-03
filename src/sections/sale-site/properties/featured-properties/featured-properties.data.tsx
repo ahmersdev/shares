@@ -11,8 +11,12 @@ import {
   PropertiesLocationIcon,
   PropertiesStatusIcon,
 } from "@/assets/icons";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { WEB_APP } from "@/constants/routes";
 
 export const getPropertiesData = (
+  tokenCookies: string,
+  router: AppRouterInstance,
   setOpenDialog: (openDialog: boolean) => void
 ): IProperty[] => [
   {
@@ -59,7 +63,9 @@ export const getPropertiesData = (
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
-    buttonClick: () => setOpenDialog(true),
+    buttonClick: () => {
+      tokenCookies ? router.push(WEB_APP.PROPERTIES) : setOpenDialog(true);
+    },
   },
   {
     id: 2,
@@ -105,7 +111,9 @@ export const getPropertiesData = (
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
-    buttonClick: () => setOpenDialog(true),
+    buttonClick: () => {
+      tokenCookies ? router.push(WEB_APP.PROPERTIES) : setOpenDialog(true);
+    },
   },
   {
     id: 3,
@@ -151,7 +159,9 @@ export const getPropertiesData = (
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
-    buttonClick: () => setOpenDialog(true),
+    buttonClick: () => {
+      tokenCookies ? router.push(WEB_APP.PROPERTIES) : setOpenDialog(true);
+    },
   },
   {
     id: 4,
@@ -197,7 +207,9 @@ export const getPropertiesData = (
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
-    buttonClick: () => setOpenDialog(true),
+    buttonClick: () => {
+      tokenCookies ? router.push(WEB_APP.PROPERTIES) : setOpenDialog(true);
+    },
   },
   {
     id: 5,
@@ -243,6 +255,8 @@ export const getPropertiesData = (
     progress: 98,
     sharesLeft: 6663,
     buttonRender: true,
-    buttonClick: () => setOpenDialog(true),
+    buttonClick: () => {
+      tokenCookies ? router.push(WEB_APP.PROPERTIES) : setOpenDialog(true);
+    },
   },
 ];
