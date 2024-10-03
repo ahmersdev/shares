@@ -12,6 +12,7 @@ export const AUTH = {
   FORGOT_PASSWORD: "/forgot-password",
   CREATE_PASSWORD: "/create-password",
   FORGOT_OTP: "/forgot-otp",
+  FORGOT_CREATE_PASSWORD: "/forgot-create-password",
 };
 
 export const WEB_APP = {

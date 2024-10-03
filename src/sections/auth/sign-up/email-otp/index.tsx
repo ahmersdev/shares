@@ -89,7 +89,8 @@ export default function EmailOtp() {
           <Typography
             variant={"body2"}
             component={"span"}
-            sx={{ display: "block", textAlign: "center" }}
+            textAlign={"center"}
+            display={"block"}
             color={"error.main"}
           >
             Please Enter Full OTP
@@ -110,7 +111,7 @@ export default function EmailOtp() {
           }}
           disableElevation
           type={"submit"}
-          onClick={() => onSubmit(otp)}
+          onClick={onSubmit}
           loading={postEmailOtpVerificationStatus.isLoading}
         >
           Verify OTP

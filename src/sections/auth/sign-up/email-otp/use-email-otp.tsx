@@ -6,9 +6,9 @@ import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { Theme, useTheme } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { getEmailOtpStyles } from "./email-otp.styles";
 import { AUTH } from "@/constants/routes";
 import { IApiErrorResponse } from "@/interfaces";
+import { getEmailOtpStyles } from "@/styles/otp.style";
 
 export default function useEmailOtp() {
   const theme = useTheme<Theme>();
@@ -33,14 +33,14 @@ export default function useEmailOtp() {
   const [postEmailOtpVerificationTrigger, postEmailOtpVerificationStatus] =
     usePostEmailOtpVerificationMutation();
 
-  const onSubmit = async (data: string) => {
+  const onSubmit = async () => {
     if (otp.length < 4) {
       setError(true);
       return;
     }
     setError(false);
 
-    const updatedData = { otp: data, email };
+    const updatedData = { otp, email };
     try {
       const resOtp = await postEmailOtpVerificationTrigger(
         updatedData
