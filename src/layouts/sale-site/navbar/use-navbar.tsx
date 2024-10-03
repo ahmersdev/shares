@@ -14,7 +14,7 @@ export default function useNavbar() {
       setTokenCookies(token || "");
     }
     setInitialLoad(false);
-  }, [tokenCookies]);
+  }, [tokenCookies, pathName]);
 
   return { pathName, tokenCookies, initialLoad };
 }

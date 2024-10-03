@@ -15,7 +15,7 @@ export default function useDrawer() {
     if (token !== tokenCookies) {
       setTokenCookies(token || "");
     }
-  }, [tokenCookies]);
+  }, [tokenCookies, pathName]);
 
   const saleSiteDrawerArray = getSaleSiteDrawerArray(tokenCookies);
 
