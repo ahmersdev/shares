@@ -105,6 +105,7 @@ export default function useEmailOtp() {
   const otpEmailStyles = getEmailOtpStyles(theme);
 
   return {
+    theme,
     email,
     otp,
     setOtp,

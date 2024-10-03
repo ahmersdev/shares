@@ -17,8 +17,11 @@ import { WEB_APP } from "@/constants/routes";
 import Cookies from "js-cookie";
 import { useAppDispatch } from "@/store";
 import { logIn } from "@/store/auth";
+import { Theme, useTheme } from "@mui/material";
 
 export default function useCreatePassword() {
+  const theme = useTheme<Theme>();
+
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -75,6 +78,7 @@ export default function useCreatePassword() {
   };
 
   return {
+    theme,
     encodedParams,
     methods,
     handleSubmit,

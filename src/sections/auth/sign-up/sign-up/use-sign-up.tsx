@@ -10,8 +10,10 @@ import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { ISignUpFormData } from "./sign-up.interface";
 import { useRouter } from "next/navigation";
 import { IApiErrorResponse } from "@/interfaces";
+import { Theme, useTheme } from "@mui/material";
 
 export default function useSignUp() {
+  const theme = useTheme<Theme>();
   const router = useRouter();
 
   const methods = useForm({
@@ -41,5 +43,5 @@ export default function useSignUp() {
     }
   };
 
-  return { methods, handleSubmit, onSubmit, postSignUpUserStatus };
+  return { theme, methods, handleSubmit, onSubmit, postSignUpUserStatus };
 }

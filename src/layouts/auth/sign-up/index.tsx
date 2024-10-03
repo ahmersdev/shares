@@ -1,17 +1,14 @@
-import { BackCircleIcon } from "@/assets/icons";
 import { SignUpBgImg } from "@/assets/images";
 import { SALE_SITE } from "@/constants/routes";
 import { pxToRem } from "@/utils/get-font-value";
 import { Box, Divider, Grid, Theme, Typography, useTheme } from "@mui/material";
 import Link from "next/link";
-import { propertiesData } from "./sign-up-layout.data";
+import { propertiesData } from "./sign-up.data";
 import { IProperty } from "@/interfaces/properties";
-import PropertiesCard from "../properties-card";
-import { ISignUpLayoutProps } from "./sign-up-layout.interface";
+import PropertiesCard from "@/components/properties-card";
+import { IChildrenProps } from "@/interfaces";
 
-export default function SignUpLayout(props: ISignUpLayoutProps) {
-  const { children, hrefBackRoute, alignItems = "normal" } = props;
-
+export default function SignUpBackground({ children }: IChildrenProps) {
   const theme = useTheme<Theme>();
 
   return (
@@ -45,38 +42,7 @@ export default function SignUpLayout(props: ISignUpLayoutProps) {
 
           <Divider sx={{ borderColor: "text.stroke" }} />
 
-          {hrefBackRoute && (
-            <Box position={"relative"}>
-              <Link
-                href={hrefBackRoute}
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  maxHeight: pxToRem(135),
-                  position: "absolute",
-                  padding: "40px 60px",
-                }}
-              >
-                <BackCircleIcon />
-              </Link>
-            </Box>
-          )}
-
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            justifyContent={"center"}
-            alignItems={alignItems}
-            p={2}
-            maxWidth={theme.breakpoints.values.sm - 150}
-            width={"100%"}
-            margin={"auto"}
-            gap={3.2}
-            maxHeight={"calc(100vh - 140px)"}
-            height={"100%"}
-          >
-            {children}
-          </Box>
+          {children}
         </Box>
       </Grid>
 

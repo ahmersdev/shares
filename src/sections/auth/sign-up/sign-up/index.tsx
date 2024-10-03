@@ -2,19 +2,30 @@
 
 import { FormProvider } from "@/components/react-hook-form";
 import { AUTH } from "@/constants/routes";
-import { Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import Link from "next/link";
 import { LoadingButton } from "@mui/lab";
 import { BUTTON_STYLES } from "@/styles";
 import { signUpDataArray } from "./sign-up.data";
-import SignUpLayout from "@/components/sign-up-layout";
 import useSignUp from "./use-sign-up";
 
 export default function SignUp() {
-  const { methods, handleSubmit, onSubmit, postSignUpUserStatus } = useSignUp();
+  const { theme, methods, handleSubmit, onSubmit, postSignUpUserStatus } =
+    useSignUp();
 
   return (
-    <SignUpLayout>
+    <Box
+      display={"flex"}
+      flexDirection={"column"}
+      justifyContent={"center"}
+      p={2}
+      maxWidth={theme.breakpoints.values.sm - 150}
+      width={"100%"}
+      margin={"auto"}
+      gap={3.2}
+      maxHeight={"calc(100vh - 140px)"}
+      height={"100%"}
+    >
       <Typography variant={"h3"} color={"text.heading"}>
         Join Shares
       </Typography>
@@ -61,6 +72,6 @@ export default function SignUp() {
           </Grid>
         </Grid>
       </FormProvider>
-    </SignUpLayout>
+    </Box>
   );
 }
