@@ -1,4 +1,3 @@
-import useSyncCookiesWithState from "@/hooks/use-sync-cookies";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
@@ -10,8 +9,6 @@ export default function useDrawer() {
   const pathName: string = usePathname();
 
   const [tokenCookies, setTokenCookies] = useState("");
-
-  useSyncCookiesWithState();
 
   useEffect(() => {
     const token = Cookies.get("authenticationToken");

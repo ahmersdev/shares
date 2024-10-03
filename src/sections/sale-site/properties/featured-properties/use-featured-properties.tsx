@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPropertiesData } from "./featured-properties.data";
 import { useRouter } from "next/navigation";
-import useSyncCookiesWithState from "@/hooks/use-sync-cookies";
 import Cookies from "js-cookie";
 
 export default function useFeaturedProperties() {
@@ -9,8 +8,6 @@ export default function useFeaturedProperties() {
 
   const [openDialog, setOpenDialog] = useState(false);
   const [tokenCookies, setTokenCookies] = useState("");
-
-  useSyncCookiesWithState();
 
   useEffect(() => {
     const token = Cookies.get("authenticationToken");
