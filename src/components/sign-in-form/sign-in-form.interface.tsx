@@ -27,3 +27,8 @@ export interface IFormArrayItem {
 export interface ITogglePasswordVisibility {
   (field: keyof IPasswordVisibility): void;
 }
+
+export interface IFormData {
+  email: string;
+  password: string;
+}

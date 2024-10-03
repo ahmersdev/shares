@@ -26,6 +26,14 @@ export const authAPI = baseAPI.injectEndpoints({
         body,
       }),
     }),
+
+    postSignIn: builder.mutation({
+      query: (body: any) => ({
+        url: AUTH.SIGN_IN,
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
@@ -33,4 +41,5 @@ export const {
   usePostSignUpUserMutation,
   usePostEmailOtpVerificationMutation,
   usePostCreatePasswordMutation,
+  usePostSignInMutation,
 } = authAPI;

@@ -10,7 +10,8 @@ import useSignInForm from "./use-sign-in-form";
 export default function SignInForm(props: ISignInFormProps) {
   const { mt = 0, textAlign = "start" } = props;
 
-  const { methods, handleSubmit, onSubmit, signInDataArray } = useSignInForm();
+  const { methods, handleSubmit, onSubmit, signInDataArray, postSignInStatus } =
+    useSignInForm();
 
   return (
     <Grid container spacing={3.2}>
@@ -48,6 +49,7 @@ export default function SignInForm(props: ISignInFormProps) {
                 }}
                 disableElevation
                 type={"submit"}
+                loading={postSignInStatus.isLoading}
               >
                 Login
               </LoadingButton>

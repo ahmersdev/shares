@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { baseAPI } from "@/services/base-api";
+import authReducer from "./auth";
 
 const store = configureStore({
   reducer: {
     [baseAPI.reducerPath]: baseAPI.reducer,
+    auth: authReducer,
   },
 
   middleware: (getDefaultMiddleware) =>
