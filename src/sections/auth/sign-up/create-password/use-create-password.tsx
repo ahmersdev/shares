@@ -14,10 +14,15 @@ import { usePostCreatePasswordMutation } from "@/services/auth";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { IApiErrorResponse } from "@/interfaces";
 import { WEB_APP } from "@/constants/routes";
+import Cookies from "js-cookie";
+import { useAppDispatch } from "@/store";
+import { logIn } from "@/store/auth";
 
 export default function useCreatePassword() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  const dispatch = useAppDispatch();
 
   const encodedParams = searchParams.get("data");
 
@@ -57,6 +62,9 @@ export default function useCreatePassword() {
     try {
       const res = await postCreatePasswordTrigger(updatedData).unwrap();
       if (res) {
+        const encryptedToken = res.token;
+        Cookies.set("authenticationToken", encryptedToken);
+        dispatch(logIn(encryptedToken));
         successSnackbar(res.msg ?? "Account Created Successfully!");
         router.push(WEB_APP.PROPERTIES);
       }
