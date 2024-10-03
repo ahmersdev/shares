@@ -16,7 +16,7 @@ const authSlice = createSlice({
     },
     logOut: (state) => {
       state.token = null;
-      Cookies.remove("token");
+      Cookies.remove("authenticationToken");
     },
   },
 });

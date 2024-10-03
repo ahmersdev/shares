@@ -13,4 +13,5 @@ export const SALE_SITE_LAYOUT = {
   FAQS: "FAQs",
   SIGN_IN: "Login",
   SIGN_UP: "Sign Up",
+  DASHBOARD: "Dashboard",
 };

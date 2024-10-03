@@ -22,7 +22,7 @@ export default function SignIn() {
     >
       <Box
         position={"absolute"}
-        top={"5%"}
+        top={{ xs: "2%", md: "5%" }}
         display={"flex"}
         justifyContent={"center"}
         zIndex={1}

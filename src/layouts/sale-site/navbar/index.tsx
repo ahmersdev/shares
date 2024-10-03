@@ -1,7 +1,8 @@
-import { AUTH, SALE_SITE } from "@/constants/routes";
+import { AUTH, SALE_SITE, WEB_APP } from "@/constants/routes";
 import {
   Box,
   Button,
+  CircularProgress,
   List,
   ListItem,
   ListItemButton,
@@ -9,13 +10,13 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { listButtonStyles, saleSiteHeaderArray } from "./navbar.data";
-import { usePathname } from "next/navigation";
 import { BUTTON_STYLES } from "@/styles";
 import { INavItem } from "@/interfaces";
 import { SALE_SITE_LAYOUT } from "@/constants/layout";
+import useNavbar from "./use-navbar";
 
 export default function Navbar() {
-  const pathName = usePathname();
+  const { pathName, tokenCookies, initialLoad } = useNavbar();
 
   return (
     <Box display={{ xs: "none", md: "block" }}>
@@ -62,26 +63,11 @@ export default function Navbar() {
               </ListItem>
             ))}
           </List>
-          <Box display={"flex"} alignItems={"center"} gap={1}>
-            <Link href={AUTH.SIGN_IN}>
-              <Button
-                variant={"contained"}
-                sx={{
-                  ...BUTTON_STYLES,
-                  color: "primary.main",
-                  borderColor: "primary.5",
-                  backgroundColor: "primary.5",
-                  ":hover": {
-                    backgroundColor: "primary.5",
-                  },
-                }}
-                disableElevation
-              >
-                {SALE_SITE_LAYOUT.SIGN_IN}
-              </Button>
-            </Link>
 
-            <Link href={AUTH.SIGN_UP}>
+          {initialLoad ? (
+            <CircularProgress size={20} />
+          ) : tokenCookies ? (
+            <Link href={WEB_APP.PROPERTIES}>
               <Button
                 variant={"contained"}
                 sx={{
@@ -95,10 +81,48 @@ export default function Navbar() {
                 }}
                 disableElevation
               >
-                {SALE_SITE_LAYOUT.SIGN_UP}
+                {SALE_SITE_LAYOUT.DASHBOARD}
               </Button>
             </Link>
-          </Box>
+          ) : (
+            <Box display={"flex"} alignItems={"center"} gap={1}>
+              <Link href={AUTH.SIGN_IN}>
+                <Button
+                  variant={"contained"}
+                  sx={{
+                    ...BUTTON_STYLES,
+                    color: "primary.main",
+                    borderColor: "primary.5",
+                    backgroundColor: "primary.5",
+                    ":hover": {
+                      backgroundColor: "primary.5",
+                    },
+                  }}
+                  disableElevation
+                >
+                  {SALE_SITE_LAYOUT.SIGN_IN}
+                </Button>
+              </Link>
+
+              <Link href={AUTH.SIGN_UP}>
+                <Button
+                  variant={"contained"}
+                  sx={{
+                    ...BUTTON_STYLES,
+                    color: "grey.50",
+                    borderColor: "primary.main",
+                    backgroundColor: "primary.main",
+                    ":hover": {
+                      backgroundColor: "primary.main",
+                    },
+                  }}
+                  disableElevation
+                >
+                  {SALE_SITE_LAYOUT.SIGN_UP}
+                </Button>
+              </Link>
+            </Box>
+          )}
         </Box>
       </Box>
     </Box>

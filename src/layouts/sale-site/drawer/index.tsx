@@ -5,23 +5,20 @@ import {
   List,
   ListItem,
   ListItemButton,
-  useTheme,
-  Theme,
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import CloseIcon from "@mui/icons-material/Close";
-import { mainStyles, saleSiteDrawerArray } from "./drawer.data";
+import { mainStyles } from "./drawer.data";
 import { INavItem } from "@/interfaces";
 import { IDrawerSaleSiteProps } from "./drawer.interface";
+import useDrawer from "./use-drawer";
 
 export default function DrawerSaleSite({
   open,
   setOpen,
 }: IDrawerSaleSiteProps) {
-  const theme = useTheme<Theme>();
-  const pathName: string = usePathname();
+  const { theme, pathName, saleSiteDrawerArray } = useDrawer();
 
   return (
     <Drawer

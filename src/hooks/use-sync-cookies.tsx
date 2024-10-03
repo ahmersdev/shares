@@ -7,7 +7,7 @@ const useSyncCookiesWithState = () => {
   const dispatch = useDispatch();
 
   const syncCookiesWithState = useCallback(() => {
-    const token = Cookies.get("token");
+    const token = Cookies.get("authenticationToken");
 
     if (!token) {
       dispatch(logOut());
