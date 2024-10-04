@@ -21,4 +21,6 @@ export const WEB_APP = {
   PORTFOLIO: "/client-portfolio",
   REWARDS: "/client-rewards",
   CART: "/client-cart",
+  PROFILE: "/profile",
+  BOOKMARKS: "/bookmarks",
 };

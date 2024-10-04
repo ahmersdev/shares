@@ -7,3 +7,7 @@ export const AUTH = {
   RESET_PASSWORD_OTP: `/users/reset-password/otp`,
   RESET_SET_PASSWORD: `/users/reset-password`,
 };
+
+export const WEB_APP = {
+  USER_PROFILE: `/users/me`,
+};

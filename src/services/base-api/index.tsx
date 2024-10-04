@@ -3,12 +3,12 @@ import { BASE_URL } from "@/config";
 import { RootState } from "@/store";
 
 // Tags
-export const TAGS = [];
+export const TAGS = ["SETTINGS"];
 
 const baseQuery = fetchBaseQuery({
   baseUrl: `${BASE_URL}/api`,
   prepareHeaders: (headers, { getState }) => {
-    const token = getState() as RootState;
+    const token = (getState() as RootState).auth.token;
     if (token) {
       headers.set("Authorization", `Bearer ${token}`);
     }

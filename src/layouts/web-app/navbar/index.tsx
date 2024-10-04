@@ -5,18 +5,35 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  Theme,
   Typography,
-  useTheme,
   Divider,
+  Avatar,
+  CircularProgress,
+  Menu,
+  MenuItem,
+  ListItemText,
 } from "@mui/material";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { mainRoutesArray, mainStyles } from "../web-app.data";
+import PersonIcon from "@mui/icons-material/Person";
+import { getInitials } from "@/utils/avatar";
+import { NextIcon, ProfileIcon } from "@/assets/icons";
+import useNavbar from "./use-navbar";
 
 export default function Navbar() {
-  const theme = useTheme<Theme>();
-  const pathName = usePathname();
+  const {
+    pathName,
+    theme,
+    isLoading,
+    isFetching,
+    isError,
+    data,
+    open,
+    handleClick,
+    anchorEl,
+    handleClose,
+    navbarMenuData,
+  } = useNavbar();
 
   return (
     <Box
@@ -62,6 +79,96 @@ export default function Navbar() {
       </List>
 
       <Divider sx={{ my: 3, borderColor: "text.stroke" }} />
+
+      {isLoading || isFetching ? (
+        <Box textAlign={"center"}>
+          <CircularProgress size={30} />
+        </Box>
+      ) : (
+        <Box
+          display={"flex"}
+          alignItems={"center"}
+          sx={{ cursor: "pointer" }}
+          id="basic-box"
+          aria-controls={open ? "basic-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+          onClick={handleClick}
+        >
+          <Avatar
+            alt={"Profile"}
+            sx={{
+              width: 32,
+              height: 32,
+              bgcolor: "common.bgLight",
+            }}
+          >
+            {isError ? (
+              <PersonIcon sx={{ fontSize: 20 }} color={"primary"} />
+            ) : (
+              <Typography
+                variant={"body3"}
+                component={"p"}
+                fontWeight={700}
+                color={"text.heading"}
+              >
+                {getInitials(data?.data?.fullName)}
+              </Typography>
+            )}
+          </Avatar>
+          <Typography
+            variant={"body2"}
+            color={"text.heading"}
+            textTransform={"capitalize"}
+            ml={1}
+          >
+            {data?.data?.fullName}
+          </Typography>
+
+          <NextIcon />
+        </Box>
+      )}
+
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-box",
+        }}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        sx={{
+          "& .MuiPaper-root": {
+            borderRadius: 3,
+            minWidth: 280,
+          },
+        }}
+      >
+        {navbarMenuData.map((menu) => (
+          <MenuItem
+            key={menu.id}
+            onClick={menu.onClick}
+            sx={{ mb: menu.id === 3 ? 0 : 1 }}
+          >
+            <ListItemIcon>
+              <menu.icon />
+            </ListItemIcon>
+            <ListItemText
+              primaryTypographyProps={{
+                color: "text.disabled",
+                fontWeight: "normal",
+                variant: "body2",
+              }}
+            >
+              {menu.title}
+            </ListItemText>
+          </MenuItem>
+        ))}
+      </Menu>
     </Box>
   );
 }
