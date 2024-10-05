@@ -84,3 +84,4 @@ export { default as TeamMemberThirtyEight } from "./sale-site/team/member-thirty
 export { default as SignInBgImg } from "./auth/sign-in-bg-img.png";
 export { default as SignUpBgImg } from "./auth/sign-up-bg-img.png";
 export { default as OtpImg } from "./auth/otp-img.png";
+export { default as NavbarMobileImg } from "./web-app/navbar-mobile-img.png";

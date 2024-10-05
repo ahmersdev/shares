@@ -13,7 +13,14 @@ const WebAppLayout = ({ children }: IChildrenProps) => {
       <Provider store={store}>
         <AuthGuard>
           <Grid container bgcolor={"common.bgLight"}>
-            <Grid item xs={0} md={2} height={"100vh"} overflow={"hidden"}>
+            <Grid
+              item
+              xs={0}
+              md={2}
+              height={"100vh"}
+              overflow={"hidden"}
+              display={{ xs: "none", md: "block" }}
+            >
               <Navbar />
             </Grid>
             <Grid item xs={12} md={10} height={"100vh"} overflow={"auto"}>

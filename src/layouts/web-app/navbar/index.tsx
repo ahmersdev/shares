@@ -17,8 +17,11 @@ import Link from "next/link";
 import { mainRoutesArray, mainStyles } from "../web-app.data";
 import PersonIcon from "@mui/icons-material/Person";
 import { getInitials } from "@/utils/avatar";
-import { NextIcon } from "@/assets/icons";
+import { HelpAndSupportIcon, NextIcon } from "@/assets/icons";
 import useNavbar from "./use-navbar";
+import { pxToRem } from "@/utils/get-font-value";
+import Image from "next/image";
+import { NavbarMobileImg } from "@/assets/images";
 
 export default function Navbar() {
   const {
@@ -36,12 +39,7 @@ export default function Navbar() {
   } = useNavbar();
 
   return (
-    <Box
-      height={"100%"}
-      bgcolor={"grey.50"}
-      p={{ md: 1, lg: 2 }}
-      display={{ xs: "none", md: "block" }}
-    >
+    <Box height={"100%"} bgcolor={"grey.50"} p={{ md: 1, lg: 2 }}>
       <Link
         href={SALE_SITE.HOME}
         style={{ display: "flex", alignItems: "baseline" }}
@@ -54,9 +52,7 @@ export default function Navbar() {
           borderRadius={"50%"}
         />
       </Link>
-
       <Divider sx={{ my: 3, borderColor: "text.stroke" }} />
-
       <List>
         {mainRoutesArray.map((item) => (
           <ListItem key={item.id} sx={{ px: 0 }}>
@@ -77,9 +73,7 @@ export default function Navbar() {
           </ListItem>
         ))}
       </List>
-
       <Divider sx={{ my: 3, borderColor: "text.stroke" }} />
-
       {isLoading || isFetching ? (
         <Box textAlign={"center"}>
           <CircularProgress size={30} />
@@ -128,7 +122,6 @@ export default function Navbar() {
           <NextIcon />
         </Box>
       )}
-
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -187,6 +180,36 @@ export default function Navbar() {
           </MenuItem>
         ))}
       </Menu>
+      <List>
+        <ListItem sx={{ px: 0, pt: 2 }}>
+          <ListItemButton
+            sx={{
+              background: "transparent",
+              color: theme.palette.text.body,
+              padding: 0.6,
+              fontSize: pxToRem(16),
+              borderRadius: 2,
+              fontWeight: 400,
+              "&:hover": {
+                background: "transparent",
+              },
+            }}
+          >
+            <ListItemIcon sx={{ minWidth: { xs: "30px", lg: "40px" } }}>
+              <HelpAndSupportIcon />
+            </ListItemIcon>
+            Help And Support
+          </ListItemButton>
+        </ListItem>
+      </List>
+
+      <Box display={"flex"} mt={2}>
+        <Image
+          src={NavbarMobileImg}
+          alt={"Mobile App"}
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
+        />
+      </Box>
     </Box>
   );
 }
