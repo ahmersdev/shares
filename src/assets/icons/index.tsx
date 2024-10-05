@@ -61,3 +61,4 @@ export { default as BackCircleIcon } from "./common/back-circle-icon";
 export { default as PasswordLockIcon } from "./common/password-lock-icon";
 export { default as ProfileIcon } from "./common/profile-icon";
 export { default as BookmarksIcon } from "./common/bookmarks-icon";
+export { default as LogOutIcon } from "./common/log-out-icon";

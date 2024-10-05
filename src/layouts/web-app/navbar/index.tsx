@@ -17,7 +17,7 @@ import Link from "next/link";
 import { mainRoutesArray, mainStyles } from "../web-app.data";
 import PersonIcon from "@mui/icons-material/Person";
 import { getInitials } from "@/utils/avatar";
-import { NextIcon, ProfileIcon } from "@/assets/icons";
+import { NextIcon } from "@/assets/icons";
 import useNavbar from "./use-navbar";
 
 export default function Navbar() {
@@ -152,14 +152,32 @@ export default function Navbar() {
           <MenuItem
             key={menu.id}
             onClick={menu.onClick}
-            sx={{ mb: menu.id === 3 ? 0 : 1 }}
+            sx={{
+              mb: menu.id === 3 ? 0 : 1,
+              backgroundColor: pathName.includes(menu.href)
+                ? theme.palette.primary[5]
+                : "transparent",
+              "&:hover": {
+                backgroundColor: theme.palette.primary[5],
+              },
+              "&.Mui-focusVisible": {
+                backgroundColor: pathName.includes(menu.href)
+                  ? theme.palette.primary[5]
+                  : "transparent",
+              },
+              "&:focus": {
+                backgroundColor: pathName.includes(menu.href)
+                  ? theme.palette.primary[5]
+                  : "transparent",
+              },
+            }}
           >
             <ListItemIcon>
               <menu.icon />
             </ListItemIcon>
             <ListItemText
               primaryTypographyProps={{
-                color: "text.disabled",
+                color: menu.id === 3 ? "error.main" : "text.disabled",
                 fontWeight: "normal",
                 variant: "body2",
               }}

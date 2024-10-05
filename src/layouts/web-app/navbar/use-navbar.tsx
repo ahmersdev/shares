@@ -3,11 +3,14 @@ import { usePathname, useRouter } from "next/navigation";
 import { useGetUserDetailsQuery } from "@/services/web-app/settings";
 import { MouseEvent, useState } from "react";
 import { getNavbarMenuData } from "./navbar.data";
+import { useAppDispatch } from "@/store";
 
 export default function useNavbar() {
   const theme = useTheme<Theme>();
   const pathName = usePathname();
   const router = useRouter();
+
+  const dispatch = useAppDispatch();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -25,7 +28,7 @@ export default function useNavbar() {
     { refetchOnMountOrArgChange: true }
   );
 
-  const navbarMenuData = getNavbarMenuData(router, handleClose);
+  const navbarMenuData = getNavbarMenuData(router, handleClose, dispatch);
 
   return {
     pathName,

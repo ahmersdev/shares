@@ -4,6 +4,8 @@ export const WEB_APP_LAYOUT = {
   PORTFOLIO: "Portfolio",
   REWARDS: "Rewards",
   CART: "Cart",
+  PROFILE: "Profile & Settings",
+  BOOKMARKS: "Bookmarks",
 };
 
 export const SALE_SITE_LAYOUT = {
