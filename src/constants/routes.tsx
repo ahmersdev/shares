@@ -23,4 +23,5 @@ export const WEB_APP = {
   CART: "/client-cart",
   PROFILE: "/client-profile",
   BOOKMARKS: "/client-bookmarks",
+  HELP_AND_SUPPORT: "/client-help-and-support",
 };

@@ -1,12 +1,15 @@
 import {
+  BookmarksIcon,
   CartIcon,
+  LogOutIcon,
   PortfolioIcon,
+  ProfileIcon,
   PropertiesIcon,
   RewardIcon,
   WalletIcon,
 } from "@/assets/icons";
 import { WEB_APP_LAYOUT } from "@/constants/layout";
-import { WEB_APP } from "@/constants/routes";
+import { SALE_SITE, WEB_APP } from "@/constants/routes";
 import { pxToRem } from "@/utils/get-font-value";
 import { Theme } from "@mui/material";
 
@@ -40,6 +43,27 @@ export const mainRoutesArray = [
     icon: CartIcon,
     label: WEB_APP_LAYOUT.CART,
     href: WEB_APP.CART,
+  },
+];
+
+export const lowerRoutesArray = [
+  {
+    id: 1,
+    icon: ProfileIcon,
+    label: WEB_APP_LAYOUT.PROFILE,
+    href: WEB_APP.PROFILE,
+  },
+  {
+    id: 2,
+    icon: BookmarksIcon,
+    label: WEB_APP_LAYOUT.BOOKMARKS,
+    href: WEB_APP.BOOKMARKS,
+  },
+  {
+    id: 3,
+    icon: LogOutIcon,
+    label: WEB_APP_LAYOUT.LOG_OUT,
+    href: SALE_SITE.HOME,
   },
 ];
 

@@ -37,6 +37,10 @@ export const headerTitle = (pathName: string) => {
       title = WEB_APP_LAYOUT.BOOKMARKS;
       break;
 
+    case WEB_APP.HELP_AND_SUPPORT:
+      title = WEB_APP_LAYOUT.HELP_AND_SUPPORT;
+      break;
+
     // case COACH_SITE.CLIENTS_OVERVIEW:
     //   title = (
     //     <>

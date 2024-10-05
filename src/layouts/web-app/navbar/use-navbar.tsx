@@ -1,14 +1,12 @@
 import { Theme, useTheme } from "@mui/material";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useGetUserDetailsQuery } from "@/services/web-app/settings";
 import { MouseEvent, useState } from "react";
-import { getNavbarMenuData } from "./navbar.data";
 import { useAppDispatch } from "@/store";
 
 export default function useNavbar() {
   const theme = useTheme<Theme>();
   const pathName = usePathname();
-  const router = useRouter();
 
   const dispatch = useAppDispatch();
 
@@ -28,8 +26,6 @@ export default function useNavbar() {
     { refetchOnMountOrArgChange: true }
   );
 
-  const navbarMenuData = getNavbarMenuData(router, handleClose, dispatch);
-
   return {
     pathName,
     theme,
@@ -41,6 +37,6 @@ export default function useNavbar() {
     handleClick,
     anchorEl,
     handleClose,
-    navbarMenuData,
+    dispatch,
   };
 }

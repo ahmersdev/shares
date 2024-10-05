@@ -10,11 +10,9 @@ import {
   Avatar,
   CircularProgress,
   Menu,
-  MenuItem,
-  ListItemText,
 } from "@mui/material";
 import Link from "next/link";
-import { mainRoutesArray, mainStyles } from "../web-app.data";
+import { lowerRoutesArray, mainRoutesArray, mainStyles } from "../web-app.data";
 import PersonIcon from "@mui/icons-material/Person";
 import { getInitials } from "@/utils/avatar";
 import { HelpAndSupportIcon, NextIcon } from "@/assets/icons";
@@ -22,6 +20,7 @@ import useNavbar from "./use-navbar";
 import { pxToRem } from "@/utils/get-font-value";
 import Image from "next/image";
 import { NavbarMobileImg } from "@/assets/images";
+import { logOut } from "@/store/auth";
 
 export default function Navbar() {
   const {
@@ -35,7 +34,7 @@ export default function Navbar() {
     handleClick,
     anchorEl,
     handleClose,
-    navbarMenuData,
+    dispatch,
   } = useNavbar();
 
   return (
@@ -110,14 +109,16 @@ export default function Navbar() {
               </Typography>
             )}
           </Avatar>
-          <Typography
-            variant={"body2"}
-            color={"text.heading"}
-            textTransform={"capitalize"}
-            ml={1}
-          >
-            {data?.data?.fullName}
-          </Typography>
+          {!isError && (
+            <Typography
+              variant={"body2"}
+              color={"text.heading"}
+              textTransform={"capitalize"}
+              ml={1}
+            >
+              {data?.data?.fullName}
+            </Typography>
+          )}
 
           <NextIcon />
         </Box>
@@ -141,45 +142,53 @@ export default function Navbar() {
           },
         }}
       >
-        {navbarMenuData.map((menu) => (
-          <MenuItem
-            key={menu.id}
-            onClick={menu.onClick}
-            sx={{
-              mb: menu.id === 3 ? 0 : 1,
-              backgroundColor: pathName.includes(menu.href)
-                ? theme.palette.primary[5]
-                : "transparent",
-              "&:hover": {
-                backgroundColor: theme.palette.primary[5],
-              },
-              "&.Mui-focusVisible": {
-                backgroundColor: pathName.includes(menu.href)
-                  ? theme.palette.primary[5]
-                  : "transparent",
-              },
-              "&:focus": {
-                backgroundColor: pathName.includes(menu.href)
-                  ? theme.palette.primary[5]
-                  : "transparent",
-              },
-            }}
-          >
-            <ListItemIcon>
-              <menu.icon />
-            </ListItemIcon>
-            <ListItemText
-              primaryTypographyProps={{
-                color: menu.id === 3 ? "error.main" : "text.disabled",
-                fontWeight: "normal",
-                variant: "body2",
-              }}
-            >
-              {menu.title}
-            </ListItemText>
-          </MenuItem>
-        ))}
+        <List>
+          {lowerRoutesArray.map((item) => (
+            <ListItem key={item.id} sx={{ px: 0 }}>
+              <Link
+                href={item.href}
+                style={{ width: "100%" }}
+                onClick={() => {
+                  handleClose();
+                  item.id === 3 && dispatch(logOut());
+                }}
+              >
+                <ListItemButton
+                  sx={
+                    item.id === 3
+                      ? {
+                          background: "transparent",
+                          color: theme.palette.error.main,
+                          padding: { xs: "10px 8px", lg: "10px 16px" },
+                          fontSize: pxToRem(16),
+                          fontWeight: 400,
+                          borderRadius: 2,
+                          "&:hover": {
+                            background: "transparent",
+                          },
+                        }
+                      : mainStyles(item.href, pathName, theme)
+                  }
+                >
+                  <ListItemIcon sx={{ minWidth: { xs: "30px", lg: "40px" } }}>
+                    <item.icon
+                      fill={
+                        item.id === 3
+                          ? undefined
+                          : pathName.includes(item.href)
+                          ? theme.palette.text.heading
+                          : theme.palette.text.body
+                      }
+                    />
+                  </ListItemIcon>
+                  {item.label}
+                </ListItemButton>
+              </Link>
+            </ListItem>
+          ))}
+        </List>
       </Menu>
+
       <List>
         <ListItem sx={{ px: 0, pt: 2 }}>
           <ListItemButton
