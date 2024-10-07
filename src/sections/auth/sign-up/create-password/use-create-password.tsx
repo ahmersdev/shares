@@ -64,16 +64,16 @@ export default function useCreatePassword() {
     const updatedData = { email, password: data.password };
     try {
       const res = await postCreatePasswordTrigger(updatedData).unwrap();
-      if (res) {
-        const encryptedToken = res?.token;
+      if (res.token) {
+        const encryptedToken = res.token;
         Cookies.set("authenticationToken", encryptedToken);
         dispatch(logIn(encryptedToken));
-        successSnackbar(res?.msg ?? "Account Created Successfully!");
         router.push(WEB_APP.PROPERTIES);
       }
+      successSnackbar(res?.msg ?? "Account Created Successfully!");
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse?.data?.msg);
+      errorSnackbar(errorResponse?.data?.errors);
     }
   };
 

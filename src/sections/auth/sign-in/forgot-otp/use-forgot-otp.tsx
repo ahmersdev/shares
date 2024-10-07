@@ -48,7 +48,7 @@ export default function useForgotOtp() {
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse?.data?.msg);
+      errorSnackbar(errorResponse?.data?.errors);
       setOtp("");
     }
   };

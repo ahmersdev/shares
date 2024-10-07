@@ -39,7 +39,7 @@ export default function useSignUp() {
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse?.data?.msg);
+      errorSnackbar(errorResponse?.data?.errors);
     }
   };
 

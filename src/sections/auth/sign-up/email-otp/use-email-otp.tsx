@@ -53,7 +53,7 @@ export default function useEmailOtp() {
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse?.data?.msg);
+      errorSnackbar(errorResponse?.data?.errors);
       setOtp("");
     }
   };
@@ -74,7 +74,7 @@ export default function useEmailOtp() {
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse.data.msg);
+      errorSnackbar(errorResponse.data.errors);
     }
   };
 

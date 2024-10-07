@@ -62,7 +62,7 @@ export default function useSignInForm() {
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse?.data?.msg);
+      errorSnackbar(errorResponse?.data?.errors);
     }
   };
 

@@ -31,6 +31,6 @@ export interface INotistackVariants {
 export interface IApiErrorResponse {
   status: number;
   data: {
-    msg: string;
+    errors: string;
   };
 }
