@@ -15,6 +15,9 @@ export default function ForgotOtp() {
     error,
     onSubmit,
     postResetPasswordOtpVerificationStatus,
+    timer,
+    postResendOtpStatus,
+    onSubmitResendOtp,
   } = useForgotOtp();
 
   return (
@@ -84,6 +87,27 @@ export default function ForgotOtp() {
         >
           Verify OTP
         </LoadingButton>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Typography
+          variant={"body2"}
+          fontWeight={600}
+          textAlign={"center"}
+          color={timer ? "text.disabled" : "primary.main"}
+          onClick={
+            timer === null && !postResendOtpStatus.isLoading
+              ? onSubmitResendOtp
+              : undefined
+          }
+          sx={{ cursor: timer === null ? "pointer" : "not-allowed" }}
+        >
+          {postResendOtpStatus.isLoading
+            ? "Sending OTP..."
+            : timer
+            ? `Resend OTP in ${timer}s`
+            : "Resend OTP"}
+        </Typography>
       </Grid>
     </Grid>
   );

@@ -1,11 +1,14 @@
 import { AUTH } from "@/constants/routes";
 import { IApiErrorResponse } from "@/interfaces";
-import { usePostResetPasswordOtpVerificationMutation } from "@/services/auth";
+import {
+  usePostResetPasswordEmailMutation,
+  usePostResetPasswordOtpVerificationMutation,
+} from "@/services/auth";
 import { getEmailOtpStyles } from "@/styles/otp.style";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { Theme, useTheme } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function useForgotOtp() {
   const theme = useTheme<Theme>();
@@ -17,6 +20,7 @@ export default function useForgotOtp() {
 
   const [otp, setOtp] = useState("");
   const [error, setError] = useState(false);
+  const [timer, setTimer] = useState<number | null>(null);
 
   const [
     postResetPasswordOtpVerificationTrigger,
@@ -53,6 +57,49 @@ export default function useForgotOtp() {
     }
   };
 
+  const [postResendOtpTrigger, postResendOtpStatus] =
+    usePostResetPasswordEmailMutation();
+
+  const onSubmitResendOtp = async () => {
+    try {
+      const res = await postResendOtpTrigger({ email }).unwrap();
+      if (res) {
+        successSnackbar("OTP Resent Successfully!");
+        const newTimer = 60;
+        const endTime = Date.now() + newTimer * 1000;
+        localStorage.setItem("resendOtpEndTime", endTime.toString());
+        setTimer(newTimer);
+      }
+    } catch (error) {
+      const errorResponse = error as IApiErrorResponse;
+      errorSnackbar(errorResponse.data.errors);
+    }
+  };
+
+  const setUpTimer = useCallback(() => {
+    const interval = setInterval(() => {
+      const endTime = localStorage.getItem("resendOtpEndTime");
+      if (endTime) {
+        const remainingTime = Math.round(
+          (parseInt(endTime) - Date.now()) / 1000
+        );
+        if (remainingTime > 0) {
+          setTimer(remainingTime);
+        } else {
+          setTimer(null);
+          localStorage.removeItem("resendOtpEndTime");
+        }
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const cleanUp = setUpTimer();
+    return cleanUp;
+  }, [setUpTimer]);
+
   const otpEmailStyles = getEmailOtpStyles(theme);
 
   return {
@@ -63,5 +110,8 @@ export default function useForgotOtp() {
     error,
     onSubmit,
     postResetPasswordOtpVerificationStatus,
+    timer,
+    postResendOtpStatus,
+    onSubmitResendOtp,
   };
 }

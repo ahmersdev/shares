@@ -44,7 +44,7 @@ export default function useForgotCreatePassword() {
     usePostResetSetPasswordMutation();
 
   const onSubmit = async (data: any) => {
-    const updatedData = { email, newPassword: data.newPassword };
+    const updatedData = { email, password: data.newPassword };
     try {
       const res = await postResetSetPasswordTrigger(updatedData).unwrap();
       if (res) {
