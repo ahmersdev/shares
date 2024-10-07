@@ -63,3 +63,4 @@ export { default as ProfileIcon } from "./web-app/profile-icon";
 export { default as BookmarksIcon } from "./web-app/bookmarks-icon";
 export { default as LogOutIcon } from "./web-app/log-out-icon";
 export { default as HelpAndSupportIcon } from "./web-app/help-and-support-icon";
+export { default as OnBoardingHeaderIcon } from "./web-app/on-baording-header-icon";

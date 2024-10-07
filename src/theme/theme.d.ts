@@ -29,6 +29,8 @@ declare module "@mui/material/styles" {
   interface CommonColors {
     bgDark: string;
     bgLight: string;
+    bgOnBoarding: string;
+    bgOnBoardingBorder: string;
   }
 
   interface PaletteColor {
