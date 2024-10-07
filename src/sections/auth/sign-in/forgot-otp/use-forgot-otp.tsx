@@ -41,14 +41,14 @@ export default function useForgotOtp() {
         updatedData
       ).unwrap();
       if (resOtp) {
-        successSnackbar(resOtp.msg ?? "Verification Successful!");
+        successSnackbar(resOtp?.msg ?? "Verification Successful!");
         const params = new URLSearchParams({ email });
         const url = `${AUTH.FORGOT_CREATE_PASSWORD}?${params.toString()}`;
         router.push(url);
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse.data.msg);
+      errorSnackbar(errorResponse?.data?.msg);
       setOtp("");
     }
   };

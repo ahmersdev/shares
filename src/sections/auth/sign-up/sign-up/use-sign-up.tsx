@@ -31,7 +31,7 @@ export default function useSignUp() {
       const res = await postSignUpUserTrigger(data).unwrap();
       if (res) {
         successSnackbar(
-          res.msg ?? "Please, Check Email for Verification Code!"
+          res?.msg ?? "Please, Check Email for Verification Code!"
         );
         const encodedParams = btoa(`${data.email}|${data.fullName}`);
         const url = `${AUTH.EMAIL_OTP}?data=${encodedParams}`;
@@ -39,7 +39,7 @@ export default function useSignUp() {
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse.data.msg);
+      errorSnackbar(errorResponse?.data?.msg);
     }
   };
 

@@ -54,15 +54,15 @@ export default function useSignInForm() {
     try {
       const res = await postSignInTrigger(data).unwrap();
       if (res) {
-        const encryptedToken = res.token;
+        const encryptedToken = res?.token;
         Cookies.set("authenticationToken", encryptedToken);
         dispatch(logIn(encryptedToken));
-        successSnackbar(res.msg ?? "Login Successfully!");
+        successSnackbar(res?.msg ?? "Login Successfully!");
         router.push(WEB_APP.PROPERTIES);
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse.data.msg);
+      errorSnackbar(errorResponse?.data?.msg);
     }
   };
 

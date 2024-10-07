@@ -44,16 +44,16 @@ export default function useForgotCreatePassword() {
     usePostResetSetPasswordMutation();
 
   const onSubmit = async (data: any) => {
-    const updatedData = { email, newPassword: data?.newPassword };
+    const updatedData = { email, newPassword: data.newPassword };
     try {
       const res = await postResetSetPasswordTrigger(updatedData).unwrap();
       if (res) {
-        successSnackbar(res.msg ?? "Password Reset Successfully!");
+        successSnackbar(res?.msg ?? "Password Reset Successfully!");
         router.push(AUTH.SIGN_IN);
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse.data.msg);
+      errorSnackbar(errorResponse?.data?.msg);
     }
   };
 

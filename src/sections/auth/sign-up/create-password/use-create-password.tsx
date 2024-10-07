@@ -61,19 +61,19 @@ export default function useCreatePassword() {
     usePostCreatePasswordMutation();
 
   const onSubmit = async (data: any) => {
-    const updatedData = { email, password: data?.password };
+    const updatedData = { email, password: data.password };
     try {
       const res = await postCreatePasswordTrigger(updatedData).unwrap();
       if (res) {
-        const encryptedToken = res.token;
+        const encryptedToken = res?.token;
         Cookies.set("authenticationToken", encryptedToken);
         dispatch(logIn(encryptedToken));
-        successSnackbar(res.msg ?? "Account Created Successfully!");
+        successSnackbar(res?.msg ?? "Account Created Successfully!");
         router.push(WEB_APP.PROPERTIES);
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse.data.msg);
+      errorSnackbar(errorResponse?.data?.msg);
     }
   };
 

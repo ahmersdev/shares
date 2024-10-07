@@ -27,7 +27,7 @@ export default function useForgotPassword() {
       const res = await postResetPasswordTrigger(data).unwrap();
       if (res) {
         successSnackbar(
-          res.msg ?? "Please, Check Email for Verification Code!"
+          res?.msg ?? "Please, Check Email for Verification Code!"
         );
         const params = new URLSearchParams({ email: data.email });
         const url = `${AUTH.FORGOT_OTP}?${params.toString()}`;
@@ -35,7 +35,7 @@ export default function useForgotPassword() {
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse.data.msg);
+      errorSnackbar(errorResponse?.data?.msg);
     }
   };
 

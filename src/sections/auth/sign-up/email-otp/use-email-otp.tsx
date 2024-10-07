@@ -46,14 +46,14 @@ export default function useEmailOtp() {
         updatedData
       ).unwrap();
       if (resOtp) {
-        successSnackbar(resOtp.msg ?? "Verification Successful!");
+        successSnackbar(resOtp?.msg ?? "Verification Successful!");
         localStorage.removeItem("resendOtpEndTime");
         const url = `${AUTH.CREATE_PASSWORD}?data=${encodedParams}`;
         router.push(url);
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse.data.msg);
+      errorSnackbar(errorResponse?.data?.msg);
       setOtp("");
     }
   };
