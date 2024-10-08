@@ -64,3 +64,4 @@ export { default as BookmarksIcon } from "./web-app/bookmarks-icon";
 export { default as LogOutIcon } from "./web-app/log-out-icon";
 export { default as HelpAndSupportIcon } from "./web-app/help-and-support-icon";
 export { default as OnBoardingHeaderIcon } from "./web-app/on-baording-header-icon";
+export { default as ForwardArrowIcon } from "./common/forward-arrow-icon";
