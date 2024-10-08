@@ -8,6 +8,11 @@ export const AUTH = {
   RESET_SET_PASSWORD: `/users/reset-password`,
 };
 
+export const ONBOARDING = {
+  ADD_CONTACT: `/users/add-contact`,
+  VERIFY_CONTACT: `/users/verify-contact`,
+};
+
 export const WEB_APP = {
   USER_PROFILE: `/users/me`,
 };

@@ -10,9 +10,9 @@ const OnboardingLayout = ({ children }: IChildrenProps) => {
   return (
     <main>
       <Provider store={store}>
-        {/* <AuthGuard> */}
+        <AuthGuard>
           <SignUpBackground>{children}</SignUpBackground>
-        {/* </AuthGuard> */}
+        </AuthGuard>
       </Provider>
     </main>
   );

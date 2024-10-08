@@ -3,18 +3,16 @@
 import { BackCircleIcon } from "@/assets/icons";
 import { ONBOARDING } from "@/constants/routes";
 import { pxToRem } from "@/utils/get-font-value";
-import { Box, Theme, Typography, useTheme } from "@mui/material";
+import { Box, FormLabel, Grid, Typography } from "@mui/material";
 import Link from "next/link";
-import { useState } from "react";
 import { MuiTelInput } from "mui-tel-input";
+import { LoadingButton } from "@mui/lab";
+import { BUTTON_STYLES } from "@/styles";
+import usePhoneNumber from "./use-phone-number";
 
 export default function PhoneNumber() {
-  const theme = useTheme<Theme>();
-  const [value, setValue] = useState("");
-
-  const handleChange = (newValue: string) => {
-    setValue(newValue);
-  };
+  const { theme, value, handleChange, isValid, submitted, onSubmit } =
+    usePhoneNumber();
 
   return (
     <>
@@ -58,7 +56,63 @@ export default function PhoneNumber() {
           Please Enter Your Phone Number
         </Typography>
 
-        <MuiTelInput value={value} onChange={handleChange} />
+        <Grid container>
+          <Grid item xs={12}>
+            <FormLabel sx={{ color: "text.heading" }}>Phone Number</FormLabel>
+            <MuiTelInput
+              value={value}
+              onChange={handleChange}
+              defaultCountry={"US"}
+              placeholder={"+x xxx xxx xxxx"}
+              error={!isValid && submitted}
+              fullWidth
+              sx={{
+                mt: 0.5,
+                "& .MuiOutlinedInput-root": {
+                  color: "text.body",
+                  borderRadius: 3,
+                  "& fieldset": {
+                    borderColor: isValid ? "text.bodyLight" : "error.main",
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "text.bodyLight",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "text.bodyLight",
+                  },
+                  "& ::placeholder": {
+                    color: "text.disabled",
+                  },
+                },
+              }}
+            />
+
+            {!isValid && submitted && (
+              <Typography variant="body2" color="error">
+                Please enter a valid number.
+              </Typography>
+            )}
+          </Grid>
+        </Grid>
+
+        <LoadingButton
+          variant={"contained"}
+          fullWidth
+          sx={{
+            ...BUTTON_STYLES,
+            color: "grey.50",
+            borderColor: "primary.main",
+            backgroundColor: "primary.main",
+            ":hover": {
+              backgroundColor: "primary.main",
+            },
+          }}
+          disableElevation
+          type={"submit"}
+          onClick={onSubmit}
+        >
+          Send OTP
+        </LoadingButton>
       </Box>
     </>
   );
