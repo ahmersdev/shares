@@ -15,6 +15,13 @@ export const AUTH = {
   FORGOT_CREATE_PASSWORD: "/forgot-create-password",
 };
 
+export const ONBOARDING = {
+  PHONE_NUMBER: "/phone-number",
+  PHONE_NUMBER_OTP: "/phone-number-otp",
+  KYC_VERIFICATION: "/kyc-verification",
+  QR_CODE: "/qr-code",
+};
+
 export const WEB_APP = {
   PROPERTIES: "/client-properties",
   WALLET: "/client-wallet",
