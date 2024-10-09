@@ -1,7 +1,7 @@
 import { pxToRem } from "@/utils/get-font-value";
 import { Theme } from "@mui/material";
 
-export const getEmailOtpStyles = (theme: Theme) => ({
+export const getOtpStyles = (theme: Theme) => ({
   otpInputStyle: {
     width: 85,
     height: 70,

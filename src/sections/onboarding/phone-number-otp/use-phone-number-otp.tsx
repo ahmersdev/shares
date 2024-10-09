@@ -1,38 +1,35 @@
+import { ONBOARDING } from "@/constants/routes";
+import { IApiErrorResponse } from "@/interfaces";
 import {
-  usePostEmailOtpVerificationMutation,
-  usePostSignUpUserMutation,
-} from "@/services/auth";
+  usePostOnboardingAddPhoneNumberMutation,
+  usePostOnboardingPhoneNumberOtpVerificationMutation,
+} from "@/services/onboarding";
+import { getOtpStyles } from "@/styles/otp.style";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { Theme, useTheme } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { AUTH } from "@/constants/routes";
-import { IApiErrorResponse } from "@/interfaces";
-import { getOtpStyles } from "@/styles/otp.style";
 
-export default function useEmailOtp() {
+export default function usePhoneNumberOtp() {
   const theme = useTheme<Theme>();
 
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const encodedParams = searchParams.get("data");
-
-  let email = "No email provided";
-  let fullName = "No name provided";
-
-  if (encodedParams) {
-    const decodedParams = atob(encodedParams);
-    [email, fullName] = decodedParams.split("|");
-  }
-
   const [otp, setOtp] = useState("");
   const [error, setError] = useState(false);
   const [timer, setTimer] = useState<number | null>(null);
 
-  const [postEmailOtpVerificationTrigger, postEmailOtpVerificationStatus] =
-    usePostEmailOtpVerificationMutation();
+  const encodedParams = searchParams.get("data");
 
+  let number = "No Number provided";
+  if (encodedParams) {
+    const decodedParams = atob(encodedParams);
+    number = decodedParams;
+  }
+
+  const [postNumberOtpVerificationTrigger, postNumberOtpVerificationStatus] =
+    usePostOnboardingPhoneNumberOtpVerificationMutation();
   const onSubmit = async () => {
     if (otp.length < 4) {
       setError(true);
@@ -40,15 +37,12 @@ export default function useEmailOtp() {
     }
     setError(false);
 
-    const updatedData = { otp, email };
     try {
-      const resOtp = await postEmailOtpVerificationTrigger(
-        updatedData
-      ).unwrap();
+      const resOtp = await postNumberOtpVerificationTrigger({ otp }).unwrap();
       if (resOtp) {
         successSnackbar(resOtp?.msg ?? "Verification Successful!");
         localStorage.removeItem("resendOtpEndTime");
-        const url = `${AUTH.CREATE_PASSWORD}?data=${encodedParams}`;
+        const url = `${ONBOARDING.KYC_VERIFICATION}?data=${encodedParams}`;
         router.push(url);
       }
     } catch (error) {
@@ -58,13 +52,16 @@ export default function useEmailOtp() {
     }
   };
 
-  const [postResendOtpTrigger, postResendOtpStatus] =
-    usePostSignUpUserMutation();
+  const [
+    postOnboardingAddPhoneNumberTrigger,
+    postOnboardingAddPhoneNumberStatus,
+  ] = usePostOnboardingAddPhoneNumberMutation();
 
   const onSubmitResendOtp = async () => {
-    const updatedData = { email, fullName };
     try {
-      const res = await postResendOtpTrigger(updatedData).unwrap();
+      const res = await postOnboardingAddPhoneNumberTrigger({
+        phoneNumber: number.replace(/\s/g, ""),
+      }).unwrap();
       if (res) {
         successSnackbar("OTP Resent Successfully!");
         const newTimer = 60;
@@ -102,19 +99,19 @@ export default function useEmailOtp() {
     return cleanUp;
   }, [setUpTimer]);
 
-  const otpEmailStyles = getOtpStyles(theme);
+  const otpNumberStyles = getOtpStyles(theme);
 
   return {
     theme,
-    email,
+    number,
     otp,
     setOtp,
-    onSubmit,
-    postEmailOtpVerificationStatus,
-    onSubmitResendOtp,
-    postResendOtpStatus,
-    timer,
-    otpEmailStyles,
+    otpNumberStyles,
     error,
+    onSubmit,
+    postNumberOtpVerificationStatus,
+    timer,
+    postOnboardingAddPhoneNumberStatus,
+    onSubmitResendOtp,
   };
 }

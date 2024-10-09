@@ -11,8 +11,15 @@ import { BUTTON_STYLES } from "@/styles";
 import usePhoneNumber from "./use-phone-number";
 
 export default function PhoneNumber() {
-  const { theme, value, handleChange, isValid, submitted, onSubmit } =
-    usePhoneNumber();
+  const {
+    theme,
+    value,
+    handleChange,
+    isValid,
+    submitted,
+    onSubmit,
+    postOnboardingAddPhoneNumberStatus,
+  } = usePhoneNumber();
 
   return (
     <>
@@ -110,6 +117,7 @@ export default function PhoneNumber() {
           disableElevation
           type={"submit"}
           onClick={onSubmit}
+          loading={postOnboardingAddPhoneNumberStatus?.isLoading}
         >
           Send OTP
         </LoadingButton>

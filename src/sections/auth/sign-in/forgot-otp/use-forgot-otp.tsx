@@ -4,7 +4,7 @@ import {
   usePostResetPasswordEmailMutation,
   usePostResetPasswordOtpVerificationMutation,
 } from "@/services/auth";
-import { getEmailOtpStyles } from "@/styles/otp.style";
+import { getOtpStyles } from "@/styles/otp.style";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { Theme, useTheme } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -100,7 +100,7 @@ export default function useForgotOtp() {
     return cleanUp;
   }, [setUpTimer]);
 
-  const otpEmailStyles = getEmailOtpStyles(theme);
+  const otpEmailStyles = getOtpStyles(theme);
 
   return {
     email,

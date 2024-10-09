@@ -1,5 +1,10 @@
 import { PhoneNumberOtp } from "@/sections/onboarding";
+import { Suspense } from "react";
 
 export default function PhoneNumberOtpPage() {
-  return <PhoneNumberOtp />;
+  return (
+    <Suspense>
+      <PhoneNumberOtp />
+    </Suspense>
+  );
 }
