@@ -1,20 +1,20 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { ethers } from 'ethers';
+import { ethers, BrowserProvider, Signer } from 'ethers';
 
 declare global {
   interface Window {
-    ethereum?: ethers.providers.ExternalProvider;
+    ethereum?: any;
   }
 }
 
 export default function ClientWallet(): JSX.Element {
   const [walletAddress, setWalletAddress] = useState<string>("");
-  const [provider, setProvider] = useState<ethers.providers.Web3Provider | null>(null);
+  const [provider, setProvider] = useState<BrowserProvider | null>(null);
 
   useEffect(() => {
     if (typeof window.ethereum !== 'undefined') {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const provider = new BrowserProvider(window.ethereum);
       setProvider(provider);
     }
   }, []);
@@ -24,7 +24,7 @@ export default function ClientWallet(): JSX.Element {
       try {
         // Request account access
         await window.ethereum?.request({ method: 'eth_requestAccounts' });
-        const signer = provider.getSigner();
+        const signer: Signer = await provider.getSigner();
         const address = await signer.getAddress();
         setWalletAddress(address);
       } catch (error) {
