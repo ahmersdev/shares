@@ -26,7 +26,6 @@ export { default as RealEstateInflationIcon } from "./sale-site/real-estate-infl
 export { default as RealEstateIncomeIcon } from "./sale-site/real-estate-income-icon";
 export { default as RealEstateWealthIcon } from "./sale-site/real-estate-wealth-icon";
 export { default as ArrowRightIcon } from "./sale-site/arrow-right-icon";
-export { default as InvestorsGlobeIcon } from "./sale-site/investors-globe-icon";
 export { default as InvestorsSearchIcon } from "./sale-site/investors-search-icon";
 export { default as FooterAppStoreButton } from "./sale-site/footer-app-store-button";
 export { default as FooterGooglePlayButton } from "./sale-site/footer-google-play-button";
@@ -63,5 +62,9 @@ export { default as ProfileIcon } from "./web-app/profile-icon";
 export { default as BookmarksIcon } from "./web-app/bookmarks-icon";
 export { default as LogOutIcon } from "./web-app/log-out-icon";
 export { default as HelpAndSupportIcon } from "./web-app/help-and-support-icon";
-export { default as OnBoardingHeaderIcon } from "./web-app/on-baording-header-icon";
+export { default as OnBoardingHeaderIcon } from "./web-app/on-boarding-header-icon";
 export { default as ForwardArrowIcon } from "./common/forward-arrow-icon";
+export { default as CryptoWalletIcon } from "./web-app/crypto-wallet-icon";
+export { default as DeleteIcon } from "./web-app/delete-icon";
+export { default as GlobeIcon } from "./common/globe-icon";
+export { default as MetaMaskIcon } from "./web-app/meta-mask-icon";

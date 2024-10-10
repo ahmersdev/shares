@@ -1,6 +1,6 @@
 import { IAssetsProps } from "@/interfaces";
 
-const InvestorsGlobeIcon = ({ fill = "#6B7280" }: IAssetsProps) => {
+const GlobeIcon = ({ fill = "#6B7280" }: IAssetsProps) => {
   return (
     <svg
       width="25"
@@ -37,4 +37,4 @@ const InvestorsGlobeIcon = ({ fill = "#6B7280" }: IAssetsProps) => {
   );
 };
 
-export default InvestorsGlobeIcon;
+export default GlobeIcon;
