@@ -20,7 +20,7 @@ export default function CryptoWallet() {
       </Typography>
 
       <Box
-        bgcolor={"grey.light"}
+        bgcolor={"grey.50"}
         borderRadius={3}
         border={1}
         borderColor={"text.stroke"}

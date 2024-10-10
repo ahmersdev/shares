@@ -2,12 +2,15 @@
 
 import { Grid } from "@mui/material";
 import CryptoWallet from "./crypto-wallet";
+import Cards from "./cards";
+import Transactions from "./transactions";
+import CashBalance from "./cash-balance";
 
 export default function ClientWallet() {
   return (
     <Grid container spacing={2.5}>
       <Grid item xs={12} md={6}>
-        Cash Balance
+        <CashBalance />
       </Grid>
 
       <Grid item xs={12} md={6}>
@@ -15,11 +18,11 @@ export default function ClientWallet() {
       </Grid>
 
       <Grid item xs={12}>
-        Transactions
+        <Transactions />
       </Grid>
 
       <Grid item xs={12} md={6}>
-        Cards
+        <Cards />
       </Grid>
 
       <Grid item xs={12} md={6}>

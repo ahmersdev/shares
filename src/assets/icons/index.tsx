@@ -68,3 +68,4 @@ export { default as CryptoWalletIcon } from "./web-app/crypto-wallet-icon";
 export { default as DeleteIcon } from "./web-app/delete-icon";
 export { default as GlobeIcon } from "./common/globe-icon";
 export { default as MetaMaskIcon } from "./web-app/meta-mask-icon";
+export { default as CardsIcon } from "./web-app/cards-icon";
