@@ -69,3 +69,4 @@ export { default as DeleteIcon } from "./web-app/delete-icon";
 export { default as GlobeIcon } from "./common/globe-icon";
 export { default as MetaMaskIcon } from "./web-app/meta-mask-icon";
 export { default as CardsIcon } from "./web-app/cards-icon";
+export { default as StarIcon } from "./common/star-icon";

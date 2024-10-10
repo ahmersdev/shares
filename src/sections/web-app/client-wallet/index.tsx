@@ -5,6 +5,7 @@ import CryptoWallet from "./crypto-wallet";
 import Cards from "./cards";
 import Transactions from "./transactions";
 import CashBalance from "./cash-balance";
+import RewardBalance from "./reward-balance";
 
 export default function ClientWallet() {
   return (
@@ -14,7 +15,7 @@ export default function ClientWallet() {
       </Grid>
 
       <Grid item xs={12} md={6}>
-        Reward Balance
+        <RewardBalance />
       </Grid>
 
       <Grid item xs={12}>

@@ -9,13 +9,14 @@ export default function CashBalance() {
       border={1}
       borderColor={"text.stroke"}
       px={3}
-      py={2}
       mt={1.6}
       display={"flex"}
       alignItems={"center"}
       justifyContent={"space-between"}
       flexWrap={"wrap"}
       gap={2}
+      py={{ xs: 1, md: 2 }}
+      height={"100%"}
     >
       <Box display={"flex"} flexDirection={"column"} gap={1}>
         <Typography variant={"body1"}>Cash Balance</Typography>
@@ -31,6 +32,7 @@ export default function CashBalance() {
           sx={{
             ...BUTTON_STYLES,
             color: "grey.50",
+            py: 0.8,
             borderColor: "text.disabled",
             backgroundColor: "text.disabled",
             ":hover": {
@@ -47,6 +49,7 @@ export default function CashBalance() {
           sx={{
             ...BUTTON_STYLES,
             color: "text.disabled",
+            py: 0.8,
             borderColor: "text.disabled",
             ":hover": {
               borderColor: "text.disabled",
