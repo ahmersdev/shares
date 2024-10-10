@@ -16,4 +16,5 @@ export interface IHorizontalTabsProps {
   indicatorDisplay?: string;
   tabStyle?: SxProps<Theme>;
   typographyStyle?: SxProps<Theme>;
+  mainTabStyleProps?: SxProps<Theme>;
 }

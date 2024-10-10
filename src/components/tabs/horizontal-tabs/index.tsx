@@ -26,6 +26,7 @@ const HorizontalTabs = ({
   indicatorDisplay = "default",
   tabStyle = {},
   typographyStyle = {},
+  mainTabStyleProps = {},
 }: IHorizontalTabsProps) => {
   const theme = useTheme<Theme>();
 
@@ -64,6 +65,7 @@ const HorizontalTabs = ({
           "& .MuiTabs-indicator": {
             display: indicatorDisplay,
           },
+          ...mainTabStyleProps,
         }}
       >
         {tabsDataArray.map((tabData: ITabData, index: number) => (

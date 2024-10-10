@@ -1,18 +1,42 @@
 "use client";
 
-import { Grid } from "@mui/material";
-import { propertiesData } from "./client-properties.data";
-import { IProperty } from "@/interfaces/properties";
-import PropertiesCard from "@/components/properties-card";
+import { Theme, useTheme } from "@mui/material";
+import { HorizontalTabs } from "@/components/tabs";
+import Available from "./available";
+import Funded from "./funded";
+import Exited from "./exited";
 
 export default function ClientProperties() {
+  const theme = useTheme<Theme>();
+
   return (
-    <Grid container spacing={2.4}>
-      {propertiesData.map((property: IProperty) => (
-        <Grid item xs={12} sm={6} md={4} key={property.id}>
-          <PropertiesCard property={property} />
-        </Grid>
-      ))}
-    </Grid>
+    <>
+      <HorizontalTabs
+        tabsDataArray={[
+          { title: "Available" },
+          { title: "Funded" },
+          { title: "Exited" },
+        ]}
+        mainTabStyleProps={{
+          background: theme.palette.common.white,
+          px: 1.2,
+          py: 0.8,
+          borderRadius: "100px",
+        }}
+        tabStyle={{
+          px: 4,
+          "&.Mui-selected": {
+            color: "grey.50",
+            bgcolor: "primary.main",
+            borderRadius: "100px",
+          },
+        }}
+        indicatorDisplay={"none"}
+      >
+        <Available />
+        <Funded />
+        <Exited />
+      </HorizontalTabs>
+    </>
   );
 }
