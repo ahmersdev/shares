@@ -1,9 +1,32 @@
+import { WEB_APP } from "@/constants/routes";
+import { IApiErrorResponse } from "@/interfaces";
+import { useLazyGetOnboardingAddKycQuery } from "@/services/onboarding";
 import { BUTTON_STYLES } from "@/styles";
+import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { LoadingButton } from "@mui/lab";
 import { Box, Theme, Typography, useTheme } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 export default function AgreementState() {
   const theme = useTheme<Theme>();
+
+  const router = useRouter();
+
+  const [getOnboardingAddKycTrigger, getOnboardingAddKycStatus] =
+    useLazyGetOnboardingAddKycQuery();
+
+  const kycVerificationHandler = async () => {
+    try {
+      const res = await getOnboardingAddKycTrigger(null).unwrap();
+      if (res) {
+        successSnackbar(res?.msg ?? "Onboarding Completed!");
+        router.push(WEB_APP.PROPERTIES);
+      }
+    } catch (error) {
+      const errorResponse = error as IApiErrorResponse;
+      errorSnackbar(errorResponse?.data?.errors);
+    }
+  };
 
   return (
     <Box
@@ -36,7 +59,9 @@ export default function AgreementState() {
         maxHeight={"40vh"}
         height={"100%"}
         overflow={"auto"}
-      ></Box>
+      >
+        Content to be added
+      </Box>
 
       <LoadingButton
         variant={"contained"}
@@ -51,6 +76,8 @@ export default function AgreementState() {
           },
         }}
         disableElevation
+        loading={getOnboardingAddKycStatus?.isLoading}
+        onClick={kycVerificationHandler}
       >
         Accept
       </LoadingButton>

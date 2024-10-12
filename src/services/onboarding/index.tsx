@@ -26,6 +26,13 @@ export const onboardingAPI = baseAPI.injectEndpoints({
         body,
       }),
     }),
+
+    getOnboardingAddKyc: builder.query({
+      query: () => ({
+        url: ONBOARDING.VERIFY_KYC,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -33,4 +40,5 @@ export const {
   usePostOnboardingAddPhoneNumberMutation,
   usePostOnboardingPhoneNumberOtpVerificationMutation,
   usePostOnboardingAddKycMutation,
+  useLazyGetOnboardingAddKycQuery,
 } = onboardingAPI;

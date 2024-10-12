@@ -12,6 +12,7 @@ export const ONBOARDING = {
   ADD_CONTACT: `/users/add-contact`,
   VERIFY_CONTACT: `/users/verify-contact`,
   ADD_KYC: `/users/add-kyc`,
+  VERIFY_KYC: `/users/verify-kyc`,
 };
 
 export const WEB_APP = {

@@ -1,15 +1,15 @@
 import { AddKycImg } from "@/assets/images";
 import { WEB_APP } from "@/constants/routes";
 import { BUTTON_STYLES } from "@/styles";
-import { Box, Button, Theme, Typography, useTheme } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { IKycStateProps } from "./kyc-state.interface";
+import { LoadingButton } from "@mui/lab";
+import useKycState from "./use-kyc-state";
 
 export default function KycState(props: IKycStateProps) {
-  const { setKycState } = props;
-
-  const theme = useTheme<Theme>();
+  const { theme, isLoading, handleStartVerification } = useKycState(props);
 
   return (
     <Box
@@ -48,7 +48,7 @@ export default function KycState(props: IKycStateProps) {
           layout="responsive"
         />
 
-        <Button
+        <LoadingButton
           variant={"contained"}
           fullWidth
           sx={{
@@ -60,10 +60,12 @@ export default function KycState(props: IKycStateProps) {
               backgroundColor: "primary.main",
             },
           }}
+          onClick={handleStartVerification}
           disableElevation
+          loading={isLoading}
         >
           Start Verification
-        </Button>
+        </LoadingButton>
 
         <Link href={WEB_APP.PROPERTIES} style={{ textAlign: "center" }}>
           <Button

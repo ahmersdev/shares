@@ -9,7 +9,7 @@ export default function KycVerification() {
 
   return (
     <>
-      {!kycState ? <KycState setKycState={setKycState} /> : <AgreementState />}
+      {kycState ? <KycState setKycState={setKycState} /> : <AgreementState />}
     </>
   );
 }
