@@ -6,3 +6,11 @@ export const NOTISTACK_VARIANTS: INotistackVariants = {
   WARNING: "warning",
   INFO: "info",
 };
+
+export const MORE_ABOUT_US_DROPDOWN = {
+  EMPLOYED: "Employed",
+  SELF_EMPLOYED: "Self Employed",
+  STUDENT: "Student",
+  HOMEMAKER: "Homemaker",
+  RETIRED: "Retired",
+};

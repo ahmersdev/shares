@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import InvestingPlaning from "./investing-planing";
-import { Box, Theme, Typography, useTheme } from "@mui/material";
+import { Box, Theme, Typography, useTheme, Grid } from "@mui/material";
 import { pxToRem } from "@/utils/get-font-value";
 import { BackCircleIcon } from "@/assets/icons";
+import { FormProvider } from "@/components/react-hook-form";
+import { useForm } from "react-hook-form";
+import RHFAutocomplete from "@/components/react-hook-form/rhf-autocomplete";
+import { getMoreAboutUsDataArray } from "./more-about-us.data";
 
 export default function MoreAboutUs() {
   const theme = useTheme<Theme>();
@@ -14,9 +18,12 @@ export default function MoreAboutUs() {
 
   const handleNextStep = () => setStepState(2);
 
+  const methods = useForm({});
+  const moreAboutUsDataArray = getMoreAboutUsDataArray();
+
   return (
     <>
-      {stepState === 1 && (
+      {stepState === 2 && (
         <InvestingPlaning
           handleNextStep={handleNextStep}
           sliderValue={sliderValue}
@@ -24,7 +31,7 @@ export default function MoreAboutUs() {
         />
       )}
 
-      {stepState === 2 && (
+      {stepState === 1 && (
         <>
           <Box position={"relative"}>
             <Box
@@ -61,6 +68,16 @@ export default function MoreAboutUs() {
               Our regulator, DFSA, asks for this information to keep your rights
               protected.
             </Typography>
+
+            <FormProvider methods={methods}>
+              <Grid container spacing={3.2}>
+                {moreAboutUsDataArray.map((item) => (
+                  <Grid item xs={12} key={item.id}>
+                    <item.component {...item.componentProps} size={"small"} />
+                  </Grid>
+                ))}
+              </Grid>
+            </FormProvider>
           </Box>
         </>
       )}
