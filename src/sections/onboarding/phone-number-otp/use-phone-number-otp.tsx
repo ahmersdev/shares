@@ -30,6 +30,7 @@ export default function usePhoneNumberOtp() {
 
   const [postNumberOtpVerificationTrigger, postNumberOtpVerificationStatus] =
     usePostOnboardingPhoneNumberOtpVerificationMutation();
+
   const onSubmit = async () => {
     if (otp.length < 4) {
       setError(true);
@@ -42,8 +43,7 @@ export default function usePhoneNumberOtp() {
       if (resOtp) {
         successSnackbar(resOtp?.msg ?? "Verification Successful!");
         localStorage.removeItem("resendOtpEndTime");
-        const url = `${ONBOARDING.KYC_VERIFICATION}?data=${encodedParams}`;
-        router.push(url);
+        router.push(ONBOARDING.KYC_VERIFICATION);
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
