@@ -1,6 +1,5 @@
 "use client";
 
-import { AUTH } from "@/constants/routes";
 import {
   Box,
   Grid,
@@ -18,7 +17,6 @@ import {
 } from "./create-password.data";
 import { FormProvider, RHFTextField } from "@/components/react-hook-form";
 import {
-  BackCircleIcon,
   EyeWithoutSlashIcon,
   EyeWithSlashIcon,
   PasswordLockIcon,
@@ -28,7 +26,6 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { LoadingButton } from "@mui/lab";
 import { BUTTON_STYLES } from "@/styles";
 import useCreatePassword from "./use-create-password";
-import Link from "next/link";
 
 export default function CreatePassword() {
   const {
@@ -44,21 +41,6 @@ export default function CreatePassword() {
 
   return (
     <>
-      <Box position={"relative"}>
-        <Link
-          href={`${AUTH.EMAIL_OTP}?data=${encodedParams}`}
-          style={{
-            display: "flex",
-            alignItems: "baseline",
-            maxHeight: pxToRem(135),
-            position: "absolute",
-            padding: "40px 60px",
-          }}
-        >
-          <BackCircleIcon />
-        </Link>
-      </Box>
-
       <Box
         display={"flex"}
         flexDirection={"column"}
