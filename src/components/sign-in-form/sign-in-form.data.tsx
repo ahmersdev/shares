@@ -3,10 +3,10 @@ import { RHFTextField } from "@/components/react-hook-form";
 import { IconButton, InputAdornment } from "@mui/material";
 import * as Yup from "yup";
 import {
-  IFormArrayItem,
   IPasswordVisibility,
   ITogglePasswordVisibility,
 } from "./sign-in-form.interface";
+import { IFormArrayItem } from "@/interfaces";
 
 export const signInFormValidationSchema = Yup.object().shape({
   email: Yup.string()

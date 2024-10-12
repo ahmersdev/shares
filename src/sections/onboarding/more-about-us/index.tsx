@@ -1,29 +1,34 @@
 "use client";
 
-import { useState } from "react";
 import InvestingPlaning from "./investing-planing";
-import { Box, Theme, Typography, useTheme, Grid } from "@mui/material";
+import { Box, Typography, Grid, Button } from "@mui/material";
 import { pxToRem } from "@/utils/get-font-value";
 import { BackCircleIcon } from "@/assets/icons";
 import { FormProvider } from "@/components/react-hook-form";
-import { useForm } from "react-hook-form";
-import RHFAutocomplete from "@/components/react-hook-form/rhf-autocomplete";
-import { getMoreAboutUsDataArray } from "./more-about-us.data";
+import { IFormArrayItem } from "@/interfaces";
+import { LoadingButton } from "@mui/lab";
+import { BUTTON_STYLES } from "@/styles";
+import Link from "next/link";
+import { WEB_APP } from "@/constants/routes";
+import useMoreAboutUs from "./use-more-about-us";
 
 export default function MoreAboutUs() {
-  const theme = useTheme<Theme>();
-
-  const [stepState, setStepState] = useState(1);
-  const [sliderValue, setSliderValue] = useState<number>(500);
-
-  const handleNextStep = () => setStepState(2);
-
-  const methods = useForm({});
-  const moreAboutUsDataArray = getMoreAboutUsDataArray();
+  const {
+    theme,
+    sliderValue,
+    setSliderValue,
+    handleNextStep,
+    stepState,
+    setStepState,
+    moreAboutUsDataArray,
+    methods,
+    handleSubmit,
+    onSubmit,
+  } = useMoreAboutUs();
 
   return (
     <>
-      {stepState === 2 && (
+      {stepState === 1 && (
         <InvestingPlaning
           handleNextStep={handleNextStep}
           sliderValue={sliderValue}
@@ -31,7 +36,7 @@ export default function MoreAboutUs() {
         />
       )}
 
-      {stepState === 1 && (
+      {stepState === 2 && (
         <>
           <Box position={"relative"}>
             <Box
@@ -51,7 +56,6 @@ export default function MoreAboutUs() {
             display={"flex"}
             flexDirection={"column"}
             justifyContent={"center"}
-            alignItems={"center"}
             p={2}
             maxWidth={theme.breakpoints.values.sm - 150}
             width={"100%"}
@@ -69,15 +73,50 @@ export default function MoreAboutUs() {
               protected.
             </Typography>
 
-            <FormProvider methods={methods}>
-              <Grid container spacing={3.2}>
-                {moreAboutUsDataArray.map((item) => (
-                  <Grid item xs={12} key={item.id}>
-                    <item.component {...item.componentProps} size={"small"} />
+            <Box maxHeight={"50vh"} overflow={"auto"}>
+              <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+                <Grid container spacing={3.2}>
+                  {moreAboutUsDataArray.map((item: IFormArrayItem) => (
+                    <Grid item xs={12} key={item.id}>
+                      <item.component {...item.componentProps} size={"small"} />
+                    </Grid>
+                  ))}
+
+                  <Grid item xs={12}>
+                    <LoadingButton
+                      variant={"contained"}
+                      fullWidth
+                      sx={{
+                        ...BUTTON_STYLES,
+                        color: "grey.50",
+                        borderColor: "primary.main",
+                        backgroundColor: "primary.main",
+                        ":hover": {
+                          backgroundColor: "primary.main",
+                        },
+                      }}
+                      disableElevation
+                      type={"submit"}
+                    >
+                      Next Step
+                    </LoadingButton>
                   </Grid>
-                ))}
-              </Grid>
-            </FormProvider>
+
+                  <Grid item xs={12} textAlign={"center"}>
+                    <Link href={WEB_APP.PROPERTIES}>
+                      <Button
+                        variant={"text"}
+                        size={"small"}
+                        color={"primary"}
+                        disableElevation
+                      >
+                        Do this Later
+                      </Button>
+                    </Link>
+                  </Grid>
+                </Grid>
+              </FormProvider>
+            </Box>
           </Box>
         </>
       )}

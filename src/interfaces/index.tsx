@@ -34,3 +34,21 @@ export interface IApiErrorResponse {
     errors: string;
   };
 }
+
+interface IComponentProps {
+  name: string;
+  label: string;
+  placeholder: string;
+  borderRadius?: number;
+  options?: string[];
+  type?: string;
+  InputProps?: {
+    endAdornment: JSX.Element;
+  };
+}
+
+export interface IFormArrayItem {
+  id: number;
+  componentProps: IComponentProps;
+  component: React.ElementType;
+}

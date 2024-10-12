@@ -12,7 +12,7 @@ export default function SignUpBackground({ children }: IChildrenProps) {
   const theme = useTheme<Theme>();
 
   return (
-    <Grid container height={"100vh"} overflow={"auto"} bgcolor={"grey.50"}>
+    <Grid container height={"100vh"} overflow={"hidden"} bgcolor={"grey.50"}>
       <Grid item xs={12} md={6}>
         <Box height={"100%"}>
           <Link

@@ -4,8 +4,9 @@ import { Grid, Typography } from "@mui/material";
 import Link from "next/link";
 import { LoadingButton } from "@mui/lab";
 import { BUTTON_STYLES } from "@/styles";
-import { IFormArrayItem, ISignInFormProps } from "./sign-in-form.interface";
+import { ISignInFormProps } from "./sign-in-form.interface";
 import useSignInForm from "./use-sign-in-form";
+import { IFormArrayItem } from "@/interfaces";
 
 export default function SignInForm(props: ISignInFormProps) {
   const { mt = 0, textAlign = "start" } = props;

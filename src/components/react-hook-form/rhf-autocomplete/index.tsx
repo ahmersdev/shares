@@ -14,10 +14,10 @@ export default function RHFAutocomplete({
   name,
   options,
   required,
-  noOptionsText = "Nothing in the List",
+  noOptionsText = "Please Select From The List",
   placeholder,
   getOptionLabel = (option: any) => option.replaceAll("_", " "),
-  bgcolor = "secondary.900",
+  isOptionEqualToValue = (option: any, newValue: any) => option === newValue,
   ...other
 }: any) {
   const { control } = useFormContext();
@@ -42,6 +42,7 @@ export default function RHFAutocomplete({
             noOptionsText={noOptionsText}
             value={value}
             getOptionLabel={getOptionLabel}
+            isOptionEqualToValue={isOptionEqualToValue}
             PaperComponent={(props) => (
               <Paper
                 {...props}

@@ -14,3 +14,22 @@ export const MORE_ABOUT_US_DROPDOWN = {
   HOMEMAKER: "Homemaker",
   RETIRED: "Retired",
 };
+
+export const COUNTRIES_DROPDOWN = [
+  "Pakistan",
+  "Serbia",
+  "Brazil",
+  "Iceland",
+  "Réunion",
+  "Moncao",
+  "Sao Tome and Principe",
+  "Haiti",
+  "Algeria",
+  "VietNam",
+  "Bahrain",
+  "South Africa",
+  "Saint Barthélemy",
+  "Saint Vincent and Grenadines",
+  "Israel",
+  "Kiribati",
+];
