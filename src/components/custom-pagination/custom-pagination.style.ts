@@ -1,14 +1,16 @@
+import { pxToRem } from "@/utils/get-font-value";
+
 export const styles = {
   tablePaginationStyle: {
     ".MuiTablePagination-select": {
-      border: `1px solid`,
-      borderColor: "grey.400",
+      border: 1,
+      borderColor: "text.bodyLight",
       borderRadius: 1,
-      color: "grey.400",
+      color: "text.body",
       height: "20px",
       width: "24px",
       fontWeight: 500,
-      fontSize: "14px",
+      fontSize: pxToRem(14),
       marginRight: "-5px",
       display: "flex",
       alignItems: "center",
@@ -17,15 +19,15 @@ export const styles = {
 
     ".MuiTablePagination-selectLabel": {
       fontWeight: 500,
-      color: "grey.400",
-      fontSize: "14px",
+      color: "text.body",
+      fontSize: pxToRem(14),
     },
 
     ".MuiTablePagination-displayedRows": {
       fontWeight: 500,
       marginLeft: "-18px",
-      color: "grey.400",
-      fontSize: "14px",
+      color: "text.body",
+      fontSize: pxToRem(14),
     },
 
     ".MuiTablePagination-actions": {
@@ -33,7 +35,7 @@ export const styles = {
     },
 
     ".MuiTablePagination-selectIcon": {
-      color: "grey.400",
+      color: "text.body",
     },
 
     ".MuiToolbar-root": {

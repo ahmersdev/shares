@@ -1,6 +1,7 @@
 import { Box, Skeleton } from "@mui/material";
+import { ISkeletonsProps } from "../skeletons.interface";
 
-export default function SkeletonTable(props: any) {
+export default function SkeletonTable(props: ISkeletonsProps) {
   const { length = 4 } = props;
 
   return (

@@ -3,6 +3,7 @@ import { CryptoWalletIcon, DeleteIcon } from "@/assets/icons";
 import { BUTTON_STYLES } from "@/styles";
 import AddIcon from "@mui/icons-material/Add";
 import useCryptoWallet from "./use-crypto-wallet";
+import { TruncateText } from "@/components/truncate-text";
 
 export default function CryptoWallet() {
   const {
@@ -68,9 +69,14 @@ export default function CryptoWallet() {
                 <Typography variant={"body3"} fontWeight={600}>
                   {walletName}
                 </Typography>
-                <Typography variant={"caption"} fontWeight={600}>
-                  Wallet Address: {walletAddress}
-                </Typography>
+                <Box display={"flex"}>
+                  <Typography variant={"caption"} fontWeight={600}>
+                    Wallet Address:
+                  </Typography>
+                  <Typography variant={"caption"} fontWeight={600}>
+                    <TruncateText text={walletAddress} />
+                  </Typography>
+                </Box>
               </Box>
             </Box>
 

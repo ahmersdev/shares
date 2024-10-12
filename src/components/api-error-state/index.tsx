@@ -1,7 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
+import { IApiErrorState } from "./api-error-state.interface";
 
-export default function ApiErrorState(props: any) {
+export default function ApiErrorState(props: IApiErrorState) {
   const {
     height = "50vh",
     textColor = "text.heading",

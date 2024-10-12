@@ -1,6 +1,7 @@
 import { Box, Grid, Skeleton } from "@mui/material";
+import { ISkeletonsProps } from "../skeletons.interface";
 
-export default function SkeletonForm(props: any) {
+export default function SkeletonForm(props: ISkeletonsProps) {
   const { length = 4, gridSize } = props;
 
   return (

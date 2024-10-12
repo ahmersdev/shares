@@ -1,7 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
+import { INoData } from "./no-data.interface";
 
-export default function NoData(props: any) {
+export default function NoData(props: INoData) {
   const {
     height = "50vh",
     textColor = "text.heading",
