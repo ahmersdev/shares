@@ -18,10 +18,19 @@ export const onboardingAPI = baseAPI.injectEndpoints({
         body,
       }),
     }),
+
+    postOnboardingAddKyc: builder.mutation({
+      query: (body: any) => ({
+        url: ONBOARDING.ADD_KYC,
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
 export const {
   usePostOnboardingAddPhoneNumberMutation,
   usePostOnboardingPhoneNumberOtpVerificationMutation,
+  usePostOnboardingAddKycMutation,
 } = onboardingAPI;

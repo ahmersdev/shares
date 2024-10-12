@@ -24,6 +24,7 @@ export default function MoreAboutUs() {
     methods,
     handleSubmit,
     onSubmit,
+    postOnboardingAddKycStatus,
   } = useMoreAboutUs();
 
   return (
@@ -97,6 +98,7 @@ export default function MoreAboutUs() {
                       }}
                       disableElevation
                       type={"submit"}
+                      loading={postOnboardingAddKycStatus?.isLoading}
                     >
                       Next Step
                     </LoadingButton>
