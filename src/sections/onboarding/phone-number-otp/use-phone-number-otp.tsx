@@ -43,7 +43,7 @@ export default function usePhoneNumberOtp() {
       if (resOtp) {
         successSnackbar(resOtp?.msg ?? "Verification Successful!");
         localStorage.removeItem("resendOtpEndTime");
-        router.push(ONBOARDING.KYC_VERIFICATION);
+        router.push(ONBOARDING.MORE_ABOUT_US);
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;

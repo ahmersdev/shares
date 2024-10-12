@@ -20,6 +20,7 @@ export const ONBOARDING = {
   PHONE_NUMBER_OTP: "/phone-number-otp",
   KYC_VERIFICATION: "/kyc-verification",
   QR_CODE: "/qr-code",
+  MORE_ABOUT_US: "/more-about-us",
 };
 
 export const WEB_APP = {
