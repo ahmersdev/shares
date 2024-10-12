@@ -13,8 +13,9 @@ import { SkeletonTable } from "../skeletons";
 import CustomPagination from "../custom-pagination";
 import NoData from "../no-data";
 import ApiErrorState from "../api-error-state";
+import { ITanstackTableProps } from "./table.interface";
 
-const TanstackTable = (props: any) => {
+const TanstackTable = <TData,>(props: ITanstackTableProps<TData>) => {
   const {
     columns = [],
     data = [],
@@ -32,6 +33,7 @@ const TanstackTable = (props: any) => {
     setPage,
     setPageLimit,
     errorChildren,
+    noDataProps,
   } = props;
 
   const table = useTanstackTable(data, columns);
@@ -42,8 +44,8 @@ const TanstackTable = (props: any) => {
     <>
       <TableContainer
         sx={{
-          border: "1px solid",
-          borderColor: "secondary.800",
+          border: 1,
+          borderColor: "text.bodyLight",
           borderRadius: 4.5,
         }}
       >
@@ -76,8 +78,7 @@ const TanstackTable = (props: any) => {
                     <StyledTableCell
                       key={index}
                       sx={{
-                        bgcolor:
-                          rowIndex % 2 === 0 ? "initial" : "secondary.800",
+                        bgcolor: rowIndex % 2 === 0 ? "grey.50" : "initial",
                       }}
                     >
                       {flexRender(
@@ -93,7 +94,8 @@ const TanstackTable = (props: any) => {
         {isError ? (
           <ApiErrorState>{errorChildren}</ApiErrorState>
         ) : (
-          !!!table?.getRowModel()?.rows?.length && isSuccess && <NoData />
+          !!!table?.getRowModel()?.rows?.length &&
+          isSuccess && <NoData {...noDataProps} />
         )}
       </TableContainer>
 
