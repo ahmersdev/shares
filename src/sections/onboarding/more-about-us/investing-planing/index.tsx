@@ -37,7 +37,7 @@ export default function InvestingPlaning(props: IInvestingPlaningProps) {
         Investing Planning
       </Typography>
 
-      <Typography variant={"body2"} color={"text.heading"}>
+      <Typography variant={"body2"} color={"text.body"}>
         How Much Do You Plan To Invest In the Next 12 Month?
       </Typography>
 

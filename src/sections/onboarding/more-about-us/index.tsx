@@ -69,7 +69,7 @@ export default function MoreAboutUs() {
               More About Us
             </Typography>
 
-            <Typography variant={"body2"} color={"text.heading"}>
+            <Typography variant={"body2"} color={"text.body"}>
               Our regulator, DFSA, asks for this information to keep your rights
               protected.
             </Typography>
