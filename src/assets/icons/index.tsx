@@ -76,3 +76,5 @@ export { default as AnalyticsIcon } from "./web-app/analytics-icon";
 export { default as PercentageIcon } from "./web-app/percentage-icon";
 export { default as HomeIcon } from "./web-app/home-icon";
 export { default as PortfolioFooterIcon } from "./web-app/portfolio-footer-icon";
+export { default as PersonIcon } from "./web-app/person-icon";
+export { default as ReferIcon } from "./web-app/refer-icon";
