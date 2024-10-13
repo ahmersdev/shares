@@ -5,3 +5,7 @@ export { default as ClientProperties } from "./client-properties";
 export { default as ClientRewards } from "./client-rewards";
 export { default as ClientWallet } from "./client-wallet";
 export { default as ClientHelpAndSupport } from "./client-help-and-support";
+export { default as AccountInformation } from "./client-profile/account-information";
+export { default as Preferences } from "./client-profile/preferences";
+export { default as ReferAFriend } from "./client-profile/refer-a-friend";
+export { default as SecurityAndPrivacy } from "./client-profile/security-and-privacy";
