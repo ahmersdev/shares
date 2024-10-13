@@ -1,5 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { StarIcon } from "@/assets/icons";
+import { CustomTooltip } from "@/components/custom-tooltip";
+import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
 
 export default function RewardBalance() {
   return (
@@ -19,7 +21,14 @@ export default function RewardBalance() {
       height={"100%"}
     >
       <Box display={"flex"} flexDirection={"column"} gap={1}>
-        <Typography variant={"body1"}>Reward Balance</Typography>
+        <Typography variant={"body1"}>
+          Reward Balance{" "}
+          <CustomTooltip title={"Reward Balance"}>
+            <ErrorOutlineRoundedIcon
+              sx={{ fontSize: "15px", cursor: "pointer" }}
+            />
+          </CustomTooltip>
+        </Typography>
         <Typography variant={"h5"} color={"text.heading"}>
           USD 0
         </Typography>
