@@ -10,9 +10,9 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
+  Button,
 } from "@mui/material";
-import { NextIcon, ReferIcon, StarIcon } from "@/assets/icons";
+import { CopyIcon, NextIcon, ReferIcon, StarIcon } from "@/assets/icons";
 import { CustomTooltip } from "@/components/custom-tooltip";
 import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
 import { getClientsRewardsData, referAndEarn } from "./client-rewards.data";
@@ -20,11 +20,29 @@ import Link from "next/link";
 import { WEB_APP } from "@/constants/routes";
 import { pxToRem } from "@/utils/get-font-value";
 import DoneIcon from "@mui/icons-material/Done";
+import { FormProvider, RHFTextField } from "@/components/react-hook-form";
+import { useForm } from "react-hook-form";
+import { BUTTON_STYLES } from "@/styles";
+import { successSnackbar } from "@/utils/api";
 
 export default function ClientRewards() {
   const theme = useTheme<Theme>();
 
+  const domain = window.location.hostname;
+
   const clientsRewardsData = getClientsRewardsData();
+
+  const methods = useForm({
+    defaultValues: {
+      link: `${domain}/sign-up?rewards=1234`,
+    },
+  });
+  const { getValues } = methods;
+
+  const copyUrlHandler = () => {
+    navigator.clipboard.writeText(getValues("link"));
+    successSnackbar("URL Copied Successfully!");
+  };
 
   return (
     <Grid container spacing={4}>
@@ -243,6 +261,36 @@ export default function ClientRewards() {
                 </ListItem>
               ))}
             </List>
+
+            <Box display={"flex"} alignItems={"end"} gap={1} width={"100%"}>
+              <FormProvider methods={methods} style={{ width: "100%" }}>
+                <Typography variant={"subtitle2"} fontWeight={600}>
+                  Share Your Link
+                </Typography>
+                <RHFTextField name={"link"} disabled size={"small"} />
+              </FormProvider>
+
+              <Button
+                variant={"contained"}
+                startIcon={<CopyIcon />}
+                sx={{
+                  ...BUTTON_STYLES,
+                  color: "grey.50",
+                  borderColor: "primary.main",
+                  backgroundColor: "primary.main",
+                  mb: 0.5,
+                  whiteSpace: "nowrap",
+                  fontSize: pxToRem(10),
+                  ":hover": {
+                    backgroundColor: "primary.main",
+                  },
+                }}
+                disableElevation
+                onClick={copyUrlHandler}
+              >
+                Copy Link
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Grid>
