@@ -1,4 +1,11 @@
-import { Box, Button, CircularProgress, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Theme,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import DrawerNavbar from "../drawer-navbar";
 import { usePathname } from "next/navigation";
@@ -13,6 +20,8 @@ import { ONBOARDING } from "@/constants/routes";
 
 const Header = () => {
   const pathName = usePathname();
+
+  const theme = useTheme<Theme>();
 
   const [open, setOpen] = useState(false);
 
@@ -104,7 +113,7 @@ const Header = () => {
             onClick={() => setOpen(true)}
           />
           <Typography variant={"h4"} color={"common.black"}>
-            {headerTitle(pathName)}
+            {headerTitle(pathName, theme)}
           </Typography>
         </Box>
       </Box>

@@ -1,10 +1,14 @@
 import { IAssetsProps } from "@/interfaces";
 
-const ReferIcon = ({ fill = "#4E4E4E" }: IAssetsProps) => {
+const ReferIcon = ({
+  fill = "#4E4E4E",
+  width = "32",
+  height = "32",
+}: IAssetsProps) => {
   return (
     <svg
-      width="32"
-      height="32"
+      width={width}
+      height={height}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

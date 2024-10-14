@@ -187,6 +187,24 @@ export default function ClientCart() {
               USD $2,000
             </Typography>
           </Box>
+
+          <Button
+            variant={"contained"}
+            sx={{
+              ...BUTTON_STYLES,
+              color: "grey.50",
+              borderColor: "primary.main",
+              backgroundColor: "primary.main",
+              width: "100%",
+              mt: 2,
+              ":hover": {
+                backgroundColor: "primary.main",
+              },
+            }}
+            disableElevation
+          >
+            Checkout
+          </Button>
         </Box>
       </Grid>
     </Grid>

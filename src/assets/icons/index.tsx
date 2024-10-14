@@ -80,3 +80,5 @@ export { default as PersonIcon } from "./web-app/person-icon";
 export { default as ReferIcon } from "./web-app/refer-icon";
 export { default as CopyIcon } from "./common/copy-icon";
 export { default as DeleteTransparentIcon } from "./common/delete-transparent-icon";
+export { default as PreferencesIcon } from "./web-app/preferences-icon";
+export { default as SecurityAndPrivacyIcon } from "./web-app/security-and-privacy-icon";

@@ -1,7 +1,10 @@
 import { WEB_APP } from "@/constants/routes";
 import { WEB_APP_LAYOUT } from "@/constants/layout";
+import { Theme, Typography } from "@mui/material";
+import { NextIcon } from "@/assets/icons";
+import Link from "next/link";
 
-export const headerTitle = (pathName: string) => {
+export const headerTitle = (pathName: string, theme: Theme) => {
   let title;
 
   switch (pathName) {
@@ -41,16 +44,83 @@ export const headerTitle = (pathName: string) => {
       title = WEB_APP_LAYOUT.HELP_AND_SUPPORT;
       break;
 
-    // case COACH_SITE.CLIENTS_OVERVIEW:
-    //   title = (
-    //     <>
-    //       <Typography component={"span"} variant={"h3"} color={"grey.500"}>
-    //         Client /
-    //       </Typography>{" "}
-    //       Overview
-    //     </>
-    //   );
-    //   break;
+    case WEB_APP.ACCOUNT_INFORMATION:
+      title = (
+        <Typography
+          component={"p"}
+          variant={"body1"}
+          color={"text.bodyLight"}
+          fontWeight={600}
+          display={"flex"}
+          alignItems={"center"}
+          gap={1}
+        >
+          <Link href={WEB_APP.PROFILE}>
+            <Typography
+              component={"span"}
+              variant={"body1"}
+              color={"text.body"}
+              fontWeight={600}
+            >
+              Profile & Settings
+            </Typography>
+          </Link>
+          <NextIcon fill={theme.palette.common.bgDark} /> Account Settings
+        </Typography>
+      );
+      break;
+
+    case WEB_APP.PREFERENCES:
+      title = (
+        <Typography
+          component={"p"}
+          variant={"body1"}
+          color={"text.bodyLight"}
+          fontWeight={600}
+          display={"flex"}
+          alignItems={"center"}
+          gap={1}
+        >
+          <Link href={WEB_APP.PROFILE}>
+            <Typography
+              component={"span"}
+              variant={"body1"}
+              color={"text.body"}
+              fontWeight={600}
+            >
+              Profile & Settings
+            </Typography>
+          </Link>
+          <NextIcon fill={theme.palette.common.bgDark} /> Preferences
+        </Typography>
+      );
+      break;
+
+    case WEB_APP.SECURITY_AND_PRIVACY:
+      title = (
+        <Typography
+          component={"p"}
+          variant={"body1"}
+          color={"text.bodyLight"}
+          fontWeight={600}
+          display={"flex"}
+          alignItems={"center"}
+          gap={1}
+        >
+          <Link href={WEB_APP.PROFILE}>
+            <Typography
+              component={"span"}
+              variant={"body1"}
+              color={"text.body"}
+              fontWeight={600}
+            >
+              Profile & Settings
+            </Typography>
+          </Link>
+          <NextIcon fill={theme.palette.common.bgDark} /> Security & Privacy
+        </Typography>
+      );
+      break;
 
     default:
       title = "Unknown Page";

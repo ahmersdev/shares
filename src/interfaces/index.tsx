@@ -7,6 +7,8 @@ export interface IChildrenProps {
 export interface IAssetsProps {
   fill?: string;
   stroke?: string;
+  width?: string;
+  height?: string;
 }
 
 export interface INavItem {
