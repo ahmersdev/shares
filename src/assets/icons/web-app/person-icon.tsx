@@ -1,10 +1,10 @@
-import { IAssetsProps } from "@/interfaces";
+import { IAssetsPropsDimension } from "@/interfaces";
 
 const PersonIcon = ({
   fill = "#4E4E4E",
   width = "16",
   height = "16",
-}: IAssetsProps) => {
+}: IAssetsPropsDimension) => {
   return (
     <svg
       width={width}

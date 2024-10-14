@@ -1,10 +1,10 @@
-import { IAssetsProps } from "@/interfaces";
+import { IAssetsPropsDimension } from "@/interfaces";
 
 const ReferIcon = ({
   fill = "#4E4E4E",
   width = "32",
   height = "32",
-}: IAssetsProps) => {
+}: IAssetsPropsDimension) => {
   return (
     <svg
       width={width}

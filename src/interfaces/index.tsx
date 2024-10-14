@@ -7,6 +7,9 @@ export interface IChildrenProps {
 export interface IAssetsProps {
   fill?: string;
   stroke?: string;
+}
+
+export interface IAssetsPropsDimension extends IAssetsProps {
   width?: string;
   height?: string;
 }
