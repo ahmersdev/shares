@@ -34,6 +34,5 @@ export const WEB_APP = {
   HELP_AND_SUPPORT: "/client-help-and-support",
   ACCOUNT_INFORMATION: "/client-profile/account-information",
   PREFERENCES: "/client-profile/preferences",
-  REFER_A_FRIEND: "/client-profile/refer-a-friend",
   SECURITY_AND_PRIVACY: "/client-profile/security-and-privacy",
 };

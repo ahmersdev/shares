@@ -30,13 +30,4 @@ export const clientProfileData = [
     description: "Setup Additional Security For Your Account",
     link: WEB_APP.SECURITY_AND_PRIVACY,
   },
-  {
-    id: 4,
-    icon: ReferIcon,
-    iconWidth: "24",
-    iconHeight: "24",
-    title: "Refer a Friend",
-    description: "View and Manage Your Personal Details",
-    link: WEB_APP.REFER_A_FRIEND,
-  },
 ];

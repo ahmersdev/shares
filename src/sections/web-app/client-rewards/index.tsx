@@ -221,27 +221,17 @@ export default function ClientRewards() {
           borderRadius={3}
         >
           <Box p={2.4} borderBottom={1} borderColor={"text.stroke"}>
-            <Link
-              href={WEB_APP.REFER_A_FRIEND}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
+            <Typography
+              variant={"body2"}
+              fontWeight={700}
+              color={"text.heading"}
+              display={"flex"}
+              alignItems={"center"}
+              gap={1}
             >
-              <Typography
-                variant={"body2"}
-                fontWeight={700}
-                color={"text.heading"}
-                display={"flex"}
-                alignItems={"center"}
-                gap={1}
-              >
-                <ReferIcon />
-                Refer and Earn
-              </Typography>
-              <NextIcon fill={theme.palette.text.heading} />
-            </Link>
+              <ReferIcon />
+              Refer and Earn
+            </Typography>
 
             <Typography variant={"body3"} component={"p"} mt={1}>
               Invite your friends and you’ll both receive a rewards balance to
