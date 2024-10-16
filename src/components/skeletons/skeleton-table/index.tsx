@@ -6,7 +6,7 @@ export default function SkeletonTable(props: ISkeletonsProps) {
 
   return (
     <Box
-      border={"1px solid"}
+      border={1}
       borderColor={"grey.400"}
       borderRadius={3}
       overflow={"hidden"}

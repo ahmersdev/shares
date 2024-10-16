@@ -3,7 +3,7 @@ import { BASE_URL } from "@/config";
 import { RootState } from "@/store";
 
 // Tags
-export const TAGS = ["SETTINGS"];
+export const TAGS = ["PROPERTIES", "SETTINGS"];
 
 const baseQuery = fetchBaseQuery({
   baseUrl: `${BASE_URL}/api`,

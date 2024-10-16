@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
+import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
 import { IApiErrorState } from "./api-error-state.interface";
 
 export default function ApiErrorState(props: IApiErrorState) {
@@ -19,7 +19,7 @@ export default function ApiErrorState(props: IApiErrorState) {
       justifyContent={"center"}
       gap={0.6}
     >
-      <AccessTimeRoundedIcon
+      <ErrorOutlineRoundedIcon
         sx={{ color: "text.heading" }}
         fontSize={"large"}
       />
