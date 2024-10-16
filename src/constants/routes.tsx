@@ -31,7 +31,6 @@ export const WEB_APP = {
   CART: "/client-cart",
   PROFILE: "/client-profile",
   BOOKMARKS: "/client-bookmarks",
-  HELP_AND_SUPPORT: "/client-help-and-support",
   ACCOUNT_INFORMATION: "/client-profile/account-information",
   PREFERENCES: "/client-profile/preferences",
   SECURITY_AND_PRIVACY: "/client-profile/security-and-privacy",

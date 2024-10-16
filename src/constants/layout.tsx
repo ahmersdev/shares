@@ -7,7 +7,6 @@ export const WEB_APP_LAYOUT = {
   PROFILE: "Profile & Settings",
   BOOKMARKS: "Bookmarks",
   LOG_OUT: "Log Out",
-  HELP_AND_SUPPORT: "Help And Support",
 };
 
 export const SALE_SITE_LAYOUT = {

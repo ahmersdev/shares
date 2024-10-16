@@ -6,6 +6,7 @@ import { IChildrenProps } from "@/interfaces";
 import { Box, Grid } from "@mui/material";
 import { Header, Navbar } from "@/layouts/web-app";
 import AuthGuard from "@/guards/auth-guard";
+import Chat from "@/layouts/web-app/chat";
 
 const WebAppLayout = ({ children }: IChildrenProps) => {
   return (
@@ -28,6 +29,7 @@ const WebAppLayout = ({ children }: IChildrenProps) => {
               <Box p={{ xs: 1, md: 2.4 }}>{children}</Box>
             </Grid>
           </Grid>
+          <Chat />
         </AuthGuard>
       </Provider>
     </main>

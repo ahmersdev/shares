@@ -15,7 +15,7 @@ import Link from "next/link";
 import { lowerRoutesArray, mainRoutesArray, mainStyles } from "../web-app.data";
 import PersonIcon from "@mui/icons-material/Person";
 import { getInitials } from "@/utils/avatar";
-import { HelpAndSupportIcon, NextIcon } from "@/assets/icons";
+import { NextIcon } from "@/assets/icons";
 import useNavbar from "./use-navbar";
 import { pxToRem } from "@/utils/get-font-value";
 import Image from "next/image";
@@ -38,7 +38,12 @@ export default function Navbar() {
   } = useNavbar();
 
   return (
-    <Box height={"100%"} bgcolor={"grey.50"} p={{ md: 1, lg: 2 }}>
+    <Box
+      height={"100%"}
+      bgcolor={"grey.50"}
+      overflow={"auto"}
+      p={{ md: 1, lg: 2 }}
+    >
       <Link
         href={SALE_SITE.HOME}
         style={{ display: "flex", alignItems: "baseline" }}
@@ -188,29 +193,6 @@ export default function Navbar() {
           ))}
         </List>
       </Menu>
-
-      <List>
-        <ListItem sx={{ px: 0, pt: 2 }}>
-          <ListItemButton
-            sx={{
-              background: "transparent",
-              color: theme.palette.text.body,
-              padding: 0.6,
-              fontSize: pxToRem(16),
-              borderRadius: 2,
-              fontWeight: 400,
-              "&:hover": {
-                background: "transparent",
-              },
-            }}
-          >
-            <ListItemIcon sx={{ minWidth: { xs: "30px", lg: "40px" } }}>
-              <HelpAndSupportIcon />
-            </ListItemIcon>
-            Help And Support
-          </ListItemButton>
-        </ListItem>
-      </List>
 
       <Box display={"flex"} mt={2}>
         <Image

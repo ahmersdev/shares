@@ -40,10 +40,6 @@ export const headerTitle = (pathName: string, theme: Theme) => {
       title = WEB_APP_LAYOUT.BOOKMARKS;
       break;
 
-    case WEB_APP.HELP_AND_SUPPORT:
-      title = WEB_APP_LAYOUT.HELP_AND_SUPPORT;
-      break;
-
     case WEB_APP.ACCOUNT_INFORMATION:
       title = (
         <>

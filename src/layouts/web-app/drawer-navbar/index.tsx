@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
-import { SALE_SITE, WEB_APP } from "@/constants/routes";
+import { SALE_SITE } from "@/constants/routes";
 import { lowerRoutesArray, mainRoutesArray, mainStyles } from "../web-app.data";
 import { IDrawerNavbarProps } from "./drawer-navbar.interface";
 import useDrawerNavbar from "./use-drawer-navbar";
@@ -24,7 +24,6 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import { getInitials } from "@/utils/avatar";
 import { pxToRem } from "@/utils/get-font-value";
 import { logOut } from "@/store/auth";
-import { HelpAndSupportIcon } from "@/assets/icons";
 
 const DrawerNavbar = (props: IDrawerNavbarProps) => {
   const { open, setOpen } = props;
@@ -205,35 +204,6 @@ const DrawerNavbar = (props: IDrawerNavbarProps) => {
           </Collapse>
         </List>
       )}
-
-      <List sx={{ p: 0 }}>
-        <ListItem sx={{ px: 0 }}>
-          <Link
-            href={WEB_APP.HELP_AND_SUPPORT}
-            style={{ width: "100%" }}
-            onClick={() => setOpen(false)}
-          >
-            <ListItemButton
-              sx={{
-                background: "transparent",
-                color: theme.palette.text.body,
-                padding: "10px 8px",
-                fontSize: pxToRem(16),
-                fontWeight: 400,
-                borderRadius: 2,
-                "&:hover": {
-                  background: "transparent",
-                },
-              }}
-            >
-              <ListItemIcon sx={{ minWidth: "40px" }}>
-                <HelpAndSupportIcon />
-              </ListItemIcon>
-              Help And Support
-            </ListItemButton>
-          </Link>
-        </ListItem>
-      </List>
     </Drawer>
   );
 };
