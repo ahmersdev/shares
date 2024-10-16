@@ -38,7 +38,7 @@ export default function SkeletonCard(props: ISkeletonsProps) {
                 bgcolor: "grey.400",
                 border: 1,
                 borderColor: "grey.400",
-                mx: 1,
+                mx: 1.6,
               }}
             />
 
@@ -50,7 +50,7 @@ export default function SkeletonCard(props: ISkeletonsProps) {
                 bgcolor: "grey.400",
                 border: 1,
                 borderColor: "grey.400",
-                mx: 1,
+                mx: 1.6,
               }}
             />
 
@@ -62,7 +62,7 @@ export default function SkeletonCard(props: ISkeletonsProps) {
                 bgcolor: "grey.400",
                 border: 1,
                 borderColor: "grey.400",
-                m: 1,
+                m: 1.6,
               }}
             />
           </Box>

@@ -1,5 +1,5 @@
 export const investingPlaningSliderMarks = [
-  { value: 500, label: "500" },
+  { value: 1_000, label: "1,000" },
   { value: 25_000, label: "25,000" },
   { value: 50_000, label: "50,000" },
   { value: 75_000, label: "75,000" },
