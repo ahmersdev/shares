@@ -7,19 +7,13 @@ import {
   useTheme,
   Theme,
   LinearProgress,
-  List,
-  ListItem,
-  ListItemIcon,
   Button,
 } from "@mui/material";
 import { CopyIcon, NextIcon, ReferIcon, StarIcon } from "@/assets/icons";
 import { CustomTooltip } from "@/components/custom-tooltip";
 import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
 import { getClientsRewardsData, referAndEarn } from "./client-rewards.data";
-import Link from "next/link";
-import { WEB_APP } from "@/constants/routes";
 import { pxToRem } from "@/utils/get-font-value";
-import DoneIcon from "@mui/icons-material/Done";
 import { FormProvider, RHFTextField } from "@/components/react-hook-form";
 import { useForm } from "react-hook-form";
 import { BUTTON_STYLES } from "@/styles";
@@ -240,17 +234,43 @@ export default function ClientRewards() {
           </Box>
 
           <Box p={2.4}>
-            <List>
-              {referAndEarn.map((item, index) => (
-                <ListItem sx={{ pl: 0 }} key={index}>
-                  <ListItemIcon sx={{ minWidth: pxToRem(30) }}>
-                    <DoneIcon color={"primary"} />
-                  </ListItemIcon>
-
+            {referAndEarn.map((item) => (
+              <Box
+                display={"flex"}
+                alignItems={"center"}
+                justifyContent={"space-between"}
+                mb={1.5}
+                key={item.id}
+              >
+                <Box>
+                  <Typography
+                    variant={"body2"}
+                    fontWeight={700}
+                    color={"text.heading"}
+                  >
+                    Step {item.id}
+                  </Typography>
                   <Typography variant="caption">{item.text}</Typography>
-                </ListItem>
-              ))}
-            </List>
+                </Box>
+
+                <Box
+                  width={34}
+                  height={34}
+                  bgcolor={"primary.5"}
+                  borderRadius={"50%"}
+                  display={"flex"}
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                >
+                  <item.icon fill={theme.palette.primary.main} />
+                </Box>
+              </Box>
+            ))}
+
+            <Typography variant={"body3"} component={"p"} mb={1.5}>
+              Bonus Is Paid Into Your Account After Your Friends Investment are
+              Fully Funded And Closed
+            </Typography>
 
             <Box display={"flex"} alignItems={"end"} gap={1} width={"100%"}>
               <FormProvider methods={methods} style={{ width: "100%" }}>
