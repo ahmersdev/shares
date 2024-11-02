@@ -18,4 +18,5 @@ export const ONBOARDING = {
 export const WEB_APP = {
   USER_PROFILE: `/users/me`,
   GET_ALL_PROPERTIES: `/properties/all`,
+  GET_SINGLE_PROPERTY: `/properties`,
 };

@@ -12,6 +12,10 @@ export const headerTitle = (pathName: string, theme: Theme) => {
       title = WEB_APP_LAYOUT.PROPERTIES;
       break;
 
+    case WEB_APP.PROPERTIES_DETAILS:
+      title = null;
+      break;
+
     case WEB_APP.WALLET:
       title = WEB_APP_LAYOUT.WALLET;
       break;

@@ -25,6 +25,7 @@ export const ONBOARDING = {
 
 export const WEB_APP = {
   PROPERTIES: "/client-properties",
+  PROPERTIES_DETAILS: "/client-properties/details",
   WALLET: "/client-wallet",
   PORTFOLIO: "/client-portfolio",
   REWARDS: "/client-rewards",

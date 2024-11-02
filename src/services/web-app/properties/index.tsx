@@ -13,7 +13,16 @@ export const propertiesApi = baseAPI.injectEndpoints({
       }),
       providesTags: TAG,
     }),
+
+    getSingleProperty: builder.query({
+      query: (propertyId: any) => ({
+        url: `${WEB_APP.GET_SINGLE_PROPERTY}/${propertyId}`,
+        method: "GET",
+      }),
+      providesTags: TAG,
+    }),
   }),
 });
 
-export const { useGetAllPropertiesQuery } = propertiesApi;
+export const { useGetAllPropertiesQuery, useGetSinglePropertyQuery } =
+  propertiesApi;

@@ -10,6 +10,7 @@ import {
 import dayjs from "dayjs";
 import { IPropertiesBeDataArray } from "./properties-card-be.interface";
 import Link from "next/link";
+import { WEB_APP } from "@/constants/routes";
 
 export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
   const { property, soldOut = false } = props;
@@ -178,7 +179,12 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
         </Box>
 
         {!soldOut && (
-          <Link href={""}>
+          <Link
+            href={{
+              pathname: WEB_APP.PROPERTIES_DETAILS,
+              query: { propertyId: property._id },
+            }}
+          >
             <Button
               variant={"contained"}
               sx={{
