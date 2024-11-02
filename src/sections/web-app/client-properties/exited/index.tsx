@@ -1,7 +1,4 @@
 import { Grid } from "@mui/material";
-import { IProperty } from "@/interfaces/properties";
-import PropertiesCard from "@/components/properties-card";
-import { exitedPropertiesData } from "./exited.data";
 import { useGetAllPropertiesQuery } from "@/services/web-app/properties";
 import { PROPERTIES_STATUSES } from "@/constants";
 import { SkeletonCard } from "@/components/skeletons";
@@ -26,11 +23,7 @@ export default function Exited() {
           <NoData message={"No Properties Found"} />
         </Grid>
       ) : (
-        exitedPropertiesData.map((property: IProperty) => (
-          <Grid item xs={12} sm={6} md={4} key={property.id}>
-            <PropertiesCard property={property} />
-          </Grid>
-        ))
+        <></>
       )}
     </Grid>
   );

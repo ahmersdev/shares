@@ -3,3 +3,7 @@ export const PROPERTIES_STATUSES = {
   FUNDED: "funded",
   EXITED: "exited",
 };
+
+export const DATE_FORMATS = {
+  UI: "MMM DD, YYYY",
+};
