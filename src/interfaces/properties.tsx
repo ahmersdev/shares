@@ -28,3 +28,21 @@ export interface IProperty {
   soldOutBadge?: boolean;
   buttonClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
+
+export interface IPropertyBe {
+  _id: string;
+  title: string;
+  description?: string;
+  thumbnail: string;
+  price: number;
+  numberOfBed?: number;
+  type?: string;
+  location?: string;
+  totalInvestors?: number;
+  minAnnualROI: number;
+  maxAnnualROI: number;
+  completionDate: string;
+  investmentForm: number;
+  progress?: number;
+  sharesLeft?: number;
+}

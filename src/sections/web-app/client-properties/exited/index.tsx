@@ -4,6 +4,8 @@ import { PROPERTIES_STATUSES } from "@/constants";
 import { SkeletonCard } from "@/components/skeletons";
 import ApiErrorState from "@/components/api-error-state";
 import NoData from "@/components/no-data";
+import { IPropertyBe } from "@/interfaces/properties";
+import PropertiesCardBe from "@/components/properties-card-be";
 
 export default function Exited() {
   const { data, isLoading, isFetching, isError } = useGetAllPropertiesQuery(
@@ -12,7 +14,7 @@ export default function Exited() {
   );
 
   if (isLoading || isFetching)
-    return <SkeletonCard gridSize={{ sm: 6, md: 4 }} length={6} />;
+    return <SkeletonCard gridSize={{ sm: 6, lg: 4 }} length={6} />;
 
   if (isError) return <ApiErrorState />;
 
@@ -23,7 +25,11 @@ export default function Exited() {
           <NoData message={"No Properties Found"} />
         </Grid>
       ) : (
-        <></>
+        data?.data?.map((property: IPropertyBe) => (
+          <Grid item xs={12} sm={6} lg={4} key={property._id}>
+            <PropertiesCardBe property={property} soldOut />
+          </Grid>
+        ))
       )}
     </Grid>
   );
