@@ -106,7 +106,7 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
             USD
           </Typography>
           <Typography variant={"body2"} fontWeight={600}>
-            {property.totalInvestors ?? "0"} Investors
+            {property.investorsCount ?? "0"} Investors
           </Typography>
         </Box>
 
@@ -150,7 +150,7 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
 
         <LinearProgress
           variant={"determinate"}
-          value={98}
+          value={property.progress ? property.progress : 0}
           color={"primary"}
           sx={{
             borderRadius: 1.5,
@@ -171,10 +171,10 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
           gap={1}
         >
           <Typography variant={"body2"} fontWeight={500}>
-            {property.progress ?? 0}%
+            {property.progress ? property.progress.toFixed(2) : "0"}%
           </Typography>
           <Typography variant={"body2"} fontWeight={500}>
-            {property.sharesLeft ?? 0} Shares Left
+            {property.remainingShares ?? "0"} Shares Left
           </Typography>
         </Box>
 

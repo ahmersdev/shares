@@ -38,11 +38,11 @@ export interface IPropertyBe {
   numberOfBed?: number;
   type?: string;
   location?: string;
-  totalInvestors?: number;
+  investorsCount?: number;
   minAnnualROI: number;
   maxAnnualROI: number;
   completionDate: string;
   investmentForm: number;
   progress?: number;
-  sharesLeft?: number;
+  remainingShares?: number;
 }
