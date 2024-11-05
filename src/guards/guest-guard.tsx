@@ -14,7 +14,7 @@ export default function GuestGuard({ children }: IChildrenProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   const checkAuth = useCallback(() => {
-    const tokenCookies = Cookies.get("authenticationToken");
+    const tokenCookies = Cookies.get("authenticationTokenSharesByCoco");
     if (tokenCookies) {
       errorSnackbar("Already Logged In!");
       router.push(SALE_SITE.HOME);

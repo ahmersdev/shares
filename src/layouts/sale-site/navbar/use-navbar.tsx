@@ -9,7 +9,7 @@ export default function useNavbar() {
   const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
-    const token = Cookies.get("authenticationToken");
+    const token = Cookies.get("authenticationTokenSharesByCoco");
     if (token !== tokenCookies) {
       setTokenCookies(token || "");
     }

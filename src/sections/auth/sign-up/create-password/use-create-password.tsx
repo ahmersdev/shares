@@ -66,7 +66,7 @@ export default function useCreatePassword() {
       const res = await postCreatePasswordTrigger(updatedData).unwrap();
       if (res.token) {
         const encryptedToken = res.token;
-        Cookies.set("authenticationToken", encryptedToken);
+        Cookies.set("authenticationTokenSharesByCoco", encryptedToken);
         dispatch(logIn(encryptedToken));
         router.push(WEB_APP.PROPERTIES);
       }

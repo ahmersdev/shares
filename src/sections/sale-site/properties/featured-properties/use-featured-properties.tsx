@@ -10,7 +10,7 @@ export default function useFeaturedProperties() {
   const [tokenCookies, setTokenCookies] = useState("");
 
   useEffect(() => {
-    const token = Cookies.get("authenticationToken");
+    const token = Cookies.get("authenticationTokenSharesByCoco");
     if (token !== tokenCookies) {
       setTokenCookies(token || "");
     }

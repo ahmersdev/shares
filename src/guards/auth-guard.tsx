@@ -20,7 +20,7 @@ export default function AuthGuard({ children }: IChildrenProps) {
   });
 
   const checkAuth = useCallback(() => {
-    const tokenCookies = Cookies.get("authenticationToken");
+    const tokenCookies = Cookies.get("authenticationTokenSharesByCoco");
     if (!tokenCookies) {
       errorSnackbar("Session Expired! Login to Continue");
       router.push(AUTH.SIGN_IN);
@@ -35,7 +35,7 @@ export default function AuthGuard({ children }: IChildrenProps) {
         "data" in fetchError &&
         (fetchError.data as any).msg === "Token expired"
       ) {
-        Cookies.remove("authenticationToken");
+        Cookies.remove("authenticationTokenSharesByCoco");
         errorSnackbar("Session Expired! Login to Continue");
         router.push(AUTH.SIGN_IN);
         return false;

@@ -55,7 +55,7 @@ export default function useSignInForm() {
       const res = await postSignInTrigger(data).unwrap();
       if (res) {
         const encryptedToken = res?.token;
-        Cookies.set("authenticationToken", encryptedToken);
+        Cookies.set("authenticationTokenSharesByCoco", encryptedToken);
         dispatch(logIn(encryptedToken));
         successSnackbar(res?.msg ?? "Login Successfully!");
         router.push(WEB_APP.PROPERTIES);
