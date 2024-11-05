@@ -10,10 +10,18 @@ import ApiErrorState from "@/components/api-error-state";
 import { SkeletonDetails } from "@/components/skeletons";
 import usePropertiesDetails from "./use-details";
 import LightBox from "./lightbox";
+import BookmarksFilledIcon from "@/assets/icons/web-app/bookmarks-filled-icon";
 
 export default function PropertiesDetails() {
-  const { theme, dataToDisplay, isLoading, isFetching, isError } =
-    usePropertiesDetails();
+  const {
+    theme,
+    dataToDisplay,
+    isLoading,
+    isFetching,
+    isError,
+    bookmarkClickHandler,
+    getAddRemoveBookmarkStatus,
+  } = usePropertiesDetails();
 
   if (isLoading || isFetching)
     return (
@@ -61,7 +69,13 @@ export default function PropertiesDetails() {
         <LoadingButton
           variant={"outlined"}
           size={"small"}
-          startIcon={<BookmarksIcon fill={theme.palette.text.heading} />}
+          startIcon={
+            dataToDisplay?.isBookmarked ? (
+              <BookmarksFilledIcon fill={theme.palette.text.heading} />
+            ) : (
+              <BookmarksIcon fill={theme.palette.text.heading} />
+            )
+          }
           sx={{
             ...BUTTON_STYLES,
             color: "text.heading",
@@ -71,6 +85,8 @@ export default function PropertiesDetails() {
             },
           }}
           disableElevation
+          onClick={bookmarkClickHandler}
+          loading={getAddRemoveBookmarkStatus?.isLoading}
         >
           Bookmark
         </LoadingButton>

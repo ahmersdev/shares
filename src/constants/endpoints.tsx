@@ -19,4 +19,5 @@ export const WEB_APP = {
   USER_PROFILE: `/users/me`,
   GET_ALL_PROPERTIES: `/properties/all`,
   GET_SINGLE_PROPERTY: `/properties`,
+  ADD_REMOVE_BOOKMARK: `/properties/add-to-bookmark`,
 };

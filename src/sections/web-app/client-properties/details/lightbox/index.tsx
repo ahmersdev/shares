@@ -3,6 +3,7 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import { pxToRem } from "@/utils/get-font-value";
 import { MouseEvent, useState } from "react";
+import Image from "next/image";
 
 export default function LightBox(props: {
   dataToDisplay: { images: string[] };
@@ -26,15 +27,17 @@ export default function LightBox(props: {
               key={photo}
               onClick={(e) => handleImageClick(e, index)}
             >
-              <img
+              <Image
                 src={photo}
                 alt={`Property Image ${index + 1}`}
-                loading="lazy"
+                loading={"lazy"}
+                width={100}
+                height={148}
                 style={{
                   borderRadius: "8px",
                   cursor: "pointer",
                   width: "100%",
-                  height: index === 0 ? pxToRem(302) : pxToRem(148),
+                  height: index === 0 ? pxToRem(310) : pxToRem(148),
                   objectFit: "cover",
                 }}
               />

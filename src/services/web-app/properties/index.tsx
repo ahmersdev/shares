@@ -21,8 +21,19 @@ export const propertiesApi = baseAPI.injectEndpoints({
       }),
       providesTags: TAG,
     }),
+
+    getAddRemoveBookmark: builder.query({
+      query: (propertyId: any) => ({
+        url: `${WEB_APP.ADD_REMOVE_BOOKMARK}/${propertyId}`,
+        method: "GET",
+      }),
+      providesTags: TAG,
+    }),
   }),
 });
 
-export const { useGetAllPropertiesQuery, useGetSinglePropertyQuery } =
-  propertiesApi;
+export const {
+  useGetAllPropertiesQuery,
+  useGetSinglePropertyQuery,
+  useLazyGetAddRemoveBookmarkQuery,
+} = propertiesApi;
