@@ -2,28 +2,20 @@ import { Box, LinearProgress, Typography } from "@mui/material";
 import { CustomTooltip } from "@/components/custom-tooltip";
 import { ErrorOutlineRounded } from "@mui/icons-material";
 import { FormProvider, RHFTextField } from "@/components/react-hook-form";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
 import { LoadingButton } from "@mui/lab";
 import { BUTTON_STYLES } from "@/styles";
-import { IAddToCardProps } from "./add-to-cart.interface";
+import { IAddToCartProps } from "./add-to-cart.interface";
+import useAddToCart from "./use-add-to-cart";
 
-export default function AddToCart(props: IAddToCardProps) {
+export default function AddToCart(props: IAddToCartProps) {
   const { dataToDisplay } = props;
 
-  const methods = useForm({
-    resolver: yupResolver(
-      Yup.object().shape({
-        amount: Yup.number().required("Amount is Required"),
-      })
-    ),
-    defaultValues: { amount: undefined },
-  });
-
-  const { handleSubmit } = methods;
-
-  const onSubmit = async () => {};
+  const {
+    methods,
+    handleSubmit,
+    onSubmit,
+    postAddPropertyToCardFromPropertyStatus,
+  } = useAddToCart(props);
 
   return (
     <Box
@@ -137,7 +129,11 @@ export default function AddToCart(props: IAddToCardProps) {
 
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
         <Box display={"flex"} alignItems={"center"} gap={1}>
-          <RHFTextField name={"amount"} placeholder={"USD 2,000"} />
+          <RHFTextField
+            name={"amount"}
+            placeholder={"USD 2,000"}
+            type={"number"}
+          />
           <LoadingButton
             variant={"contained"}
             sx={{
@@ -154,7 +150,7 @@ export default function AddToCart(props: IAddToCardProps) {
             }}
             disableElevation
             type={"submit"}
-            // loading={postSignInStatus.isLoading}
+            loading={postAddPropertyToCardFromPropertyStatus?.isLoading}
           >
             Add To Cart
           </LoadingButton>

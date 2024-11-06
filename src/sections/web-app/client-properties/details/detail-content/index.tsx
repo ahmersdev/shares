@@ -1,8 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import {
   PropertiesBedIcon,
   PropertiesLocationIcon,
   PropertiesNumberIcon,
+  PropertiesRegulatedIcon,
   PropertiesStatusIcon,
 } from "@/assets/icons";
 
@@ -24,7 +25,7 @@ export default function DetailContent(props: any) {
         {dataToDisplay.title}, {dataToDisplay.location}
       </Typography>
 
-      <Box display={"flex"} alignItems={"center"} flexWrap={"wrap"}>
+      <Box display={"flex"} alignItems={"center"} flexWrap={"wrap"} mt={1}>
         {[
           {
             icon: <PropertiesBedIcon />,
@@ -59,6 +60,12 @@ export default function DetailContent(props: any) {
             </Typography>
           </Box>
         ))}
+      </Box>
+
+      <Divider sx={{ my: 1, borderColor: "text.stroke" }} />
+
+      <Box display={"flex"} gap={1}>
+        <PropertiesRegulatedIcon />
       </Box>
     </Box>
   );

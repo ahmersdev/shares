@@ -29,6 +29,14 @@ export const propertiesApi = baseAPI.injectEndpoints({
       }),
       providesTags: TAG,
     }),
+
+    postAddPropertyToCardFromProperty: builder.mutation({
+      query: ({ body, propertyId }: any) => ({
+        url: `${WEB_APP.ADD_TO_CART}/${propertyId}`,
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
@@ -36,4 +44,5 @@ export const {
   useGetAllPropertiesQuery,
   useGetSinglePropertyQuery,
   useLazyGetAddRemoveBookmarkQuery,
+  usePostAddPropertyToCardFromPropertyMutation,
 } = propertiesApi;

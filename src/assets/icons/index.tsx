@@ -83,3 +83,4 @@ export { default as DeleteTransparentIcon } from "./common/delete-transparent-ic
 export { default as PreferencesIcon } from "./web-app/preferences-icon";
 export { default as SecurityAndPrivacyIcon } from "./web-app/security-and-privacy-icon";
 export { default as PropertiesNumberIcon } from "./web-app/properties-number-icon";
+export { default as PropertiesRegulatedIcon } from "./web-app/properties-regulated-icon";

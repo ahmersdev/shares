@@ -1,4 +1,4 @@
-export interface IAddToCardProps {
+export interface IAddToCartProps {
   dataToDisplay: {
     price: number;
     progress?: number;
@@ -8,4 +8,5 @@ export interface IAddToCardProps {
     maxAnnualROI: number;
     yearlyInvReturn: number;
   };
+  propertyId: string | null;
 }

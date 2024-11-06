@@ -23,6 +23,7 @@ export default function PropertiesDetails() {
     isError,
     bookmarkClickHandler,
     buttonLoading,
+    propertyId,
   } = usePropertiesDetails();
 
   if (isLoading || isFetching)
@@ -103,7 +104,10 @@ export default function PropertiesDetails() {
             </Grid>
 
             <Grid item xs={12} md={5}>
-              <AddToCart dataToDisplay={dataToDisplay} />
+              <AddToCart
+                dataToDisplay={dataToDisplay}
+                propertyId={propertyId}
+              />
             </Grid>
           </Grid>
         </Box>

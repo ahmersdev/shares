@@ -20,4 +20,5 @@ export const WEB_APP = {
   GET_ALL_PROPERTIES: `/properties/all`,
   GET_SINGLE_PROPERTY: `/properties`,
   ADD_REMOVE_BOOKMARK: `/properties/add-to-bookmark`,
+  ADD_TO_CART: `/properties/add-to-cart`,
 };
