@@ -89,7 +89,7 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
         </Typography>
         {property.description && (
           <Typography variant={"body3"} fontWeight={500}>
-            {property.description}
+            {property.description?.slice(0, 45)}...
           </Typography>
         )}
 

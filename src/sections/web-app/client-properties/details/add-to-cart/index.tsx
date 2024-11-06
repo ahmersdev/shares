@@ -94,12 +94,14 @@ export default function AddToCart(props: IAddToCartProps) {
           },
           {
             label: "Exit by completion",
-            value: `${dataToDisplay.minAnnualROI}-${dataToDisplay.maxAnnualROI}%`,
+            value: `${dataToDisplay.minAnnualROI ?? "-"}-${
+              dataToDisplay.maxAnnualROI ?? "-"
+            }%`,
             tooltip: "Exit by completion",
           },
           {
             label: "3-5 year total return",
-            value: `${dataToDisplay.yearlyInvReturn}%`,
+            value: `${dataToDisplay.yearlyInvReturn ?? "-"}%`,
             tooltip: "3-5 year total return",
           },
         ].map(({ label, value, tooltip }) => (

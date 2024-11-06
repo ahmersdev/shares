@@ -16,7 +16,7 @@ export default function HeroBanner() {
         zIndex={-1}
         borderRadius={"0px 0px 64px 64px"}
         width={"100%"}
-        height={"90vh"}
+        height={"100vh"}
         sx={{
           backgroundImage: `url(${HomeHeroBanner.src})`,
           backgroundSize: "cover",
@@ -31,7 +31,7 @@ export default function HeroBanner() {
         alignItems={"center"}
         gap={3}
         position={"relative"}
-        height={"90vh"}
+        height={"100vh"}
         px={2}
       >
         <Chip
@@ -50,9 +50,9 @@ export default function HeroBanner() {
           variant={"h1"}
           fontWeight={800}
           color={"grey.50"}
-          maxWidth={"55%"}
+          maxWidth={"60%"}
           textAlign={"center"}
-          textTransform={"capitalize"}
+          textTransform={"uppercase"}
           sx={{
             textShadow: "0px 0px 24px #FFFFFF7A, 2px 2px 8px #FFFFFF3D",
           }}
