@@ -7,8 +7,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { LoadingButton } from "@mui/lab";
 import { BUTTON_STYLES } from "@/styles";
+import { IAddToCardProps } from "./add-to-cart.interface";
 
-export default function AddToCart(props: any) {
+export default function AddToCart(props: IAddToCardProps) {
   const { dataToDisplay } = props;
 
   const methods = useForm({
@@ -163,11 +164,23 @@ export default function AddToCart(props: any) {
       <Box
         display={"flex"}
         alignItems={"center"}
-        justifyContent={"space-between"}
+        p={1}
+        gap={1}
+        flexWrap={"wrap"}
       >
-        <Typography variant={"caption"} component={"p"} bgcolor={"primary.5"}>
-          +USD 2,000
-        </Typography>
+        {["+USD 2,000", "+USD 5,000", "+USD 10,000"].map((item: string) => (
+          <Typography
+            variant={"caption"}
+            component={"p"}
+            bgcolor={"primary.5"}
+            px={1}
+            py={0.6}
+            borderRadius={1}
+            key={item}
+          >
+            {item}
+          </Typography>
+        ))}
       </Box>
     </Box>
   );

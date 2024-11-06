@@ -1,4 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import {
+  PropertiesBedIcon,
+  PropertiesLocationIcon,
+  PropertiesNumberIcon,
+  PropertiesStatusIcon,
+} from "@/assets/icons";
 
 export default function DetailContent(props: any) {
   const { dataToDisplay } = props;
@@ -14,7 +20,46 @@ export default function DetailContent(props: any) {
       height={"100%"}
       overflow={"auto"}
     >
-      1
+      <Typography variant={"h5"} color={"text.heading"}>
+        {dataToDisplay.title}, {dataToDisplay.location}
+      </Typography>
+
+      <Box display={"flex"} alignItems={"center"} flexWrap={"wrap"}>
+        {[
+          {
+            icon: <PropertiesBedIcon />,
+            label: `${dataToDisplay.numberOfBed ?? 0} Bedrooms`,
+          },
+          {
+            icon: <PropertiesStatusIcon />,
+            label: dataToDisplay.type ?? "---",
+          },
+          {
+            icon: <PropertiesNumberIcon />,
+            label: `#${dataToDisplay.propertyNumber ?? "---"}`,
+          },
+          {
+            icon: <PropertiesLocationIcon />,
+            label: dataToDisplay.location ?? "---",
+          },
+        ].map(({ icon, label }, index) => (
+          <Box
+            key={index}
+            display={"flex"}
+            alignItems={"center"}
+            gap={0.5}
+            pr={1.2}
+            pl={index === 0 ? 0 : 0.6}
+            borderRight={index < 3 ? 1 : 0}
+            borderColor={"text.stroke"}
+          >
+            {icon}
+            <Typography variant={"caption"} textTransform={"capitalize"}>
+              {label}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 }

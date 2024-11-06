@@ -37,7 +37,7 @@ export interface IPropertyBe {
   price: number;
   numberOfBed?: number;
   type?: string;
-  location?: string;
+  propertyNumber?: string;
   investorsCount?: number;
   minAnnualROI: number;
   maxAnnualROI: number;

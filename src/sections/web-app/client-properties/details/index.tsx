@@ -99,7 +99,7 @@ export default function PropertiesDetails() {
         <Box>
           <Grid container spacing={2}>
             <Grid item xs={12} md={7}>
-              <DetailContent />
+              <DetailContent dataToDisplay={dataToDisplay} />
             </Grid>
 
             <Grid item xs={12} md={5}>

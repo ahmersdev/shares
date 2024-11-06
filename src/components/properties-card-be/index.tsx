@@ -4,7 +4,7 @@ import Image from "next/image";
 import { BUTTON_STYLES } from "@/styles";
 import {
   PropertiesBedIcon,
-  PropertiesLocationIcon,
+  PropertiesNumberIcon,
   PropertiesStatusIcon,
 } from "@/assets/icons";
 import dayjs from "dayjs";
@@ -62,8 +62,8 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
               label: property.type ?? "---",
             },
             {
-              icon: <PropertiesLocationIcon />,
-              label: property.location ?? "---",
+              icon: <PropertiesNumberIcon />,
+              label: `#${property.propertyNumber ?? "---"}`,
             },
           ].map(({ icon, label }, index) => (
             <Box
@@ -77,7 +77,9 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
               borderColor={"text.stroke"}
             >
               {icon}
-              <Typography variant={"caption"}>{label}</Typography>
+              <Typography variant={"caption"} textTransform={"capitalize"}>
+                {label}
+              </Typography>
             </Box>
           ))}
         </Box>
