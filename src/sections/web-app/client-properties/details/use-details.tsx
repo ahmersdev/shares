@@ -6,9 +6,12 @@ import {
 import { useSearchParams } from "next/navigation";
 import { IApiErrorResponse } from "@/interfaces";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
+import { useState } from "react";
 
 export default function usePropertiesDetails() {
   const theme = useTheme<Theme>();
+
+  const [buttonLoading, setButtonLoading] = useState(false);
 
   const searchParams = useSearchParams();
   const propertyId = searchParams.get("propertyId");
@@ -21,11 +24,11 @@ export default function usePropertiesDetails() {
 
   const dataToDisplay = data?.data;
 
-  const [getAddRemoveBookmarkTrigger, getAddRemoveBookmarkStatus] =
-    useLazyGetAddRemoveBookmarkQuery();
+  const [getAddRemoveBookmarkTrigger] = useLazyGetAddRemoveBookmarkQuery();
 
   const bookmarkClickHandler = async () => {
     try {
+      setButtonLoading(true);
       await getAddRemoveBookmarkTrigger(propertyId);
       if (dataToDisplay?.isBookmarked) {
         successSnackbar("Property Removed From Bookmark Successfully!");
@@ -36,6 +39,8 @@ export default function usePropertiesDetails() {
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
       errorSnackbar(errorResponse?.data?.errors);
+    } finally {
+      setButtonLoading(false);
     }
   };
 
@@ -46,6 +51,6 @@ export default function usePropertiesDetails() {
     isFetching,
     isError,
     bookmarkClickHandler,
-    getAddRemoveBookmarkStatus,
+    buttonLoading,
   };
 }
