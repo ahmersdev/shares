@@ -13,7 +13,14 @@ export const walletApi = baseAPI.injectEndpoints({
       }),
       invalidatesTags: TAG,
     }),
+    getCardList: builder.query({
+      query: () => ({
+        url: WEB_APP.GET_CARD,
+        method: "GET",
+      }),
+      providesTags: TAG,
+    }),
   }),
 });
 
-export const { usePostAddCardMutation } = walletApi;
+export const { usePostAddCardMutation, useGetCardListQuery } = walletApi;

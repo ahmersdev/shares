@@ -47,7 +47,9 @@ export default function useCashBalance() {
     contract = new Contract(contractAddress, RealEstateSPVABI, signer);
   };
 
-  const depositCash = async (data: { amount: number }) => {
+  const depositCashViaCard = async () => {};
+
+  const depositCashViaCrypto = async (data: { amount: number }) => {
     setLoading(true);
     try {
       if (!contract) await initializeContract();
@@ -83,7 +85,8 @@ export default function useCashBalance() {
     loading,
     methods,
     handleSubmit,
-    depositCash,
+    depositCashViaCard,
+    depositCashViaCrypto,
     withdrawCash,
   };
 }

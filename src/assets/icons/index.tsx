@@ -85,3 +85,10 @@ export { default as SecurityAndPrivacyIcon } from "./web-app/security-and-privac
 export { default as PropertiesNumberIcon } from "./web-app/properties-number-icon";
 export { default as PropertiesAnnualIcon } from "./web-app/properties-annual-icon";
 export { default as PropertiesMessageIcon } from "./web-app/properties-message-icon";
+export { default as CardVisaIcon } from "./web-app/card-visa-icon";
+export { default as CardMasterIcon } from "./web-app/card-master-icon";
+export { default as CardAmericanIcon } from "./web-app/card-american-icon";
+export { default as CardDiscoverIcon } from "./web-app/card-discover-icon";
+export { default as CardDinersIcon } from "./web-app/card-diners-icon";
+export { default as CardJcbIcon } from "./web-app/card-jcb-icon";
+export { default as CardUnionPayIcon } from "./web-app/card-union-pay-icon";

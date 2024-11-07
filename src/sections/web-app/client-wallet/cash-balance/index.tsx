@@ -22,7 +22,8 @@ export default function CashBalance() {
     loading,
     methods,
     handleSubmit,
-    depositCash,
+    depositCashViaCard,
+    depositCashViaCrypto,
     withdrawCash,
   } = useCashBalance();
 
@@ -96,7 +97,7 @@ export default function CashBalance() {
             borderRadius: 6,
             border: 1,
             borderColor: "text.stroke",
-            maxWidth: theme.breakpoints.values.sm - 150,
+            maxWidth: theme.breakpoints.values.sm - 80,
           },
         }}
       >
@@ -108,13 +109,13 @@ export default function CashBalance() {
           }}
         >
           <Typography variant={"body1"} fontWeight={700} color={"text.heading"}>
-            Enter Amount
+            Deposit Amount
           </Typography>
 
           <CloseRoundedIcon sx={{ color: "text.body", cursor: "pointer" }} />
         </DialogTitle>
 
-        <FormProvider methods={methods} onSubmit={handleSubmit(depositCash)}>
+        <FormProvider methods={methods}>
           <DialogContent>
             <RHFTextField
               name={"amount"}
@@ -153,10 +154,28 @@ export default function CashBalance() {
                 },
               }}
               disableElevation
-              type={"submit"}
+              onClick={handleSubmit(depositCashViaCard)}
               loading={loading}
             >
-              Deposit
+              Deposit Via Card
+            </LoadingButton>
+            <LoadingButton
+              variant={"contained"}
+              size={"small"}
+              sx={{
+                ...BUTTON_STYLES,
+                color: "common.white",
+                borderColor: "primary.main",
+                backgroundColor: "primary.main",
+                ":hover": {
+                  backgroundColor: "primary.main",
+                },
+              }}
+              disableElevation
+              onClick={handleSubmit(depositCashViaCrypto)}
+              loading={loading}
+            >
+              Deposit Via Wallet
             </LoadingButton>
           </DialogActions>
         </FormProvider>

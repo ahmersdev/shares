@@ -22,4 +22,5 @@ export const WEB_APP = {
   ADD_REMOVE_BOOKMARK: `/properties/add-to-bookmark`,
   ADD_TO_CART: `/properties/add-to-cart`,
   ADD_CARD: `/user/card/add`,
+  GET_CARD: `/user/card/all`,
 };
