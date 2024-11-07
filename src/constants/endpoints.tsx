@@ -23,4 +23,5 @@ export const WEB_APP = {
   ADD_TO_CART: `/properties/add-to-cart`,
   ADD_CARD: `/user/card/add`,
   GET_CARD: `/user/card/all`,
+  DELETE_CARD: `/user/card/delete`,
 };

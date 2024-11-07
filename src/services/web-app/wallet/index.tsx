@@ -20,7 +20,18 @@ export const walletApi = baseAPI.injectEndpoints({
       }),
       providesTags: TAG,
     }),
+
+    deleteCard: builder.mutation({
+      query: (cardId: any) => ({
+        url: `${WEB_APP.DELETE_CARD}/${cardId}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
-export const { usePostAddCardMutation, useGetCardListQuery } = walletApi;
+export const {
+  usePostAddCardMutation,
+  useGetCardListQuery,
+  useDeleteCardMutation,
+} = walletApi;

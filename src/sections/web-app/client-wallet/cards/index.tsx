@@ -22,6 +22,7 @@ export default function Cards() {
     isFetching,
     isError,
     cardBrandIcon,
+    deleteCard,
   } = useCards();
 
   return (
@@ -65,7 +66,7 @@ export default function Cards() {
                 borderColor={"text.disabled"}
                 px={1.6}
                 py={0.8}
-                key={item?.id}
+                key={item.id}
               >
                 <Box display={"flex"} alignItems={"center"} gap={0.6}>
                   <Box width={34} height={24}>
@@ -93,7 +94,10 @@ export default function Cards() {
                   </Box>
                 </Box>
 
-                <Box sx={{ cursor: "pointer" }}>
+                <Box
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => deleteCard(item.id)}
+                >
                   <DeleteIcon />
                 </Box>
               </Box>

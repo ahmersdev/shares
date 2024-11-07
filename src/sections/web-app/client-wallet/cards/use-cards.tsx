@@ -1,4 +1,7 @@
-import { useGetCardListQuery } from "@/services/web-app/wallet";
+import {
+  useDeleteCardMutation,
+  useGetCardListQuery,
+} from "@/services/web-app/wallet";
 import { useState } from "react";
 import { CARD_BRANDS } from "./cards.data";
 import {
@@ -11,6 +14,8 @@ import {
   CardUnionPayIcon,
   CardVisaIcon,
 } from "@/assets/icons";
+import { IApiErrorResponse } from "@/interfaces";
+import { errorSnackbar, successSnackbar } from "@/utils/api";
 
 export default function useCards() {
   const [openDialog, setOpenDialog] = useState(false);
@@ -61,6 +66,20 @@ export default function useCards() {
     return brandIcon;
   };
 
+  const [deleteCardTrigger, deleteCardStatus] = useDeleteCardMutation();
+
+  const deleteCard = async (cardId: string) => {
+    try {
+      const res = await deleteCardTrigger(cardId).unwrap();
+      if (res) {
+        successSnackbar(res?.msg ?? "Card Deleted Successfully!");
+      }
+    } catch (error) {
+      const errorResponse = error as IApiErrorResponse;
+      errorSnackbar(errorResponse?.data?.errors);
+    }
+  };
+
   return {
     openDialog,
     setOpenDialog,
@@ -70,5 +89,6 @@ export default function useCards() {
     isFetching,
     isError,
     cardBrandIcon,
+    deleteCard,
   };
 }
