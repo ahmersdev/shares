@@ -11,12 +11,14 @@ import { BUTTON_STYLES } from "@/styles";
 import useCashBalance from "./use-cash-balance";
 import { FormProvider, RHFTextField } from "@/components/react-hook-form";
 import { LoadingButton } from "@mui/lab";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 export default function CashBalance() {
   const {
     theme,
     openDialog,
     setOpenDialog,
+    onCloseDialogHandler,
     loading,
     methods,
     handleSubmit,
@@ -87,7 +89,7 @@ export default function CashBalance() {
 
       <Dialog
         open={openDialog}
-        onClose={() => setOpenDialog(false)}
+        onClose={onCloseDialogHandler}
         fullWidth
         PaperProps={{
           sx: {
@@ -98,10 +100,18 @@ export default function CashBalance() {
           },
         }}
       >
-        <DialogTitle bgcolor={"primary.5"}>
+        <DialogTitle
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <Typography variant={"body1"} fontWeight={700} color={"text.heading"}>
-            Enter the Amount to Deposit
+            Enter Amount
           </Typography>
+
+          <CloseRoundedIcon sx={{ color: "text.body", cursor: "pointer" }} />
         </DialogTitle>
 
         <FormProvider methods={methods} onSubmit={handleSubmit(depositCash)}>
@@ -119,14 +129,14 @@ export default function CashBalance() {
               size={"small"}
               sx={{
                 ...BUTTON_STYLES,
-                color: "text.disabled",
-                borderColor: "text.disabled",
+                color: "text.body",
+                borderColor: "text.body",
                 ":hover": {
-                  borderColor: "text.disabled",
+                  borderColor: "text.body",
                 },
               }}
               disableElevation
-              onClick={() => setOpenDialog(false)}
+              onClick={onCloseDialogHandler}
             >
               Cancel
             </Button>
@@ -136,10 +146,10 @@ export default function CashBalance() {
               sx={{
                 ...BUTTON_STYLES,
                 color: "common.white",
-                borderColor: "text.heading",
-                backgroundColor: "text.heading",
+                borderColor: "primary.main",
+                backgroundColor: "primary.main",
                 ":hover": {
-                  backgroundColor: "text.heading",
+                  backgroundColor: "primary.main",
                 },
               }}
               disableElevation

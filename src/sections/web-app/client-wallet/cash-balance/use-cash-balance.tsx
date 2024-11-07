@@ -15,6 +15,10 @@ export default function useCashBalance() {
   const [openDialog, setOpenDialog] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const onCloseDialogHandler = () => {
+    setOpenDialog(false);
+  };
+
   const methods = useForm({
     resolver: yupResolver(
       Yup.object().shape({
@@ -75,6 +79,7 @@ export default function useCashBalance() {
     theme,
     openDialog,
     setOpenDialog,
+    onCloseDialogHandler,
     loading,
     methods,
     handleSubmit,
