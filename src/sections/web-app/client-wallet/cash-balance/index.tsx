@@ -1,7 +1,29 @@
-import { Box, Button, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Typography,
+} from "@mui/material";
 import { BUTTON_STYLES } from "@/styles";
+import useCashBalance from "./use-cash-balance";
+import { FormProvider, RHFTextField } from "@/components/react-hook-form";
+import { LoadingButton } from "@mui/lab";
 
 export default function CashBalance() {
+  const {
+    theme,
+    openDialog,
+    setOpenDialog,
+    loading,
+    methods,
+    handleSubmit,
+    depositCash,
+    withdrawCash,
+  } = useCashBalance();
+
   return (
     <Box
       bgcolor={"grey.50"}
@@ -40,6 +62,7 @@ export default function CashBalance() {
             },
           }}
           disableElevation
+          onClick={() => setOpenDialog(true)}
         >
           Deposit
         </Button>
@@ -56,10 +79,78 @@ export default function CashBalance() {
             },
           }}
           disableElevation
+          onClick={withdrawCash}
         >
           Withdraw
         </Button>
       </Box>
+
+      <Dialog
+        open={openDialog}
+        onClose={() => setOpenDialog(false)}
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: 6,
+            border: 1,
+            borderColor: "text.stroke",
+            maxWidth: theme.breakpoints.values.sm - 150,
+          },
+        }}
+      >
+        <DialogTitle bgcolor={"primary.5"}>
+          <Typography variant={"body1"} fontWeight={700} color={"text.heading"}>
+            Enter the Amount to Deposit
+          </Typography>
+        </DialogTitle>
+
+        <FormProvider methods={methods} onSubmit={handleSubmit(depositCash)}>
+          <DialogContent>
+            <RHFTextField
+              name={"amount"}
+              placeholder={"USD 2,000"}
+              type={"number"}
+            />
+          </DialogContent>
+
+          <DialogActions sx={{ pr: 2.4, pb: 2.4 }}>
+            <Button
+              variant={"outlined"}
+              size={"small"}
+              sx={{
+                ...BUTTON_STYLES,
+                color: "text.disabled",
+                borderColor: "text.disabled",
+                ":hover": {
+                  borderColor: "text.disabled",
+                },
+              }}
+              disableElevation
+              onClick={() => setOpenDialog(false)}
+            >
+              Cancel
+            </Button>
+            <LoadingButton
+              variant={"contained"}
+              size={"small"}
+              sx={{
+                ...BUTTON_STYLES,
+                color: "common.white",
+                borderColor: "text.heading",
+                backgroundColor: "text.heading",
+                ":hover": {
+                  backgroundColor: "text.heading",
+                },
+              }}
+              disableElevation
+              type={"submit"}
+              loading={loading}
+            >
+              Deposit
+            </LoadingButton>
+          </DialogActions>
+        </FormProvider>
+      </Dialog>
     </Box>
   );
 }
