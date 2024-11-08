@@ -3,10 +3,12 @@ import { ICartItem } from "./client-cart.interface";
 import { useForm, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { errorSnackbar } from "@/utils/api";
 
 export default function useClientCart() {
+  const [initialized, setInitialized] = useState(false);
+
   const { data, isLoading, isFetching, isError } = useGetAllCartItemsQuery(
     null,
     { refetchOnMountOrArgChange: true }
@@ -50,7 +52,12 @@ export default function useClientCart() {
     0
   );
 
-  useEffect(() => reset(defaultValues), [reset, data]);
+  useEffect(() => {
+    if (data && !initialized) {
+      setInitialized(true);
+      reset(defaultValues);
+    }
+  }, [data, reset, defaultValues, initialized]);
 
   const subtractFromCartItem = (item: ICartItem) => {
     const currentAmount = getValues(`amount_${item._id}`) || 0;
