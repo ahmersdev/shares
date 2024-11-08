@@ -7,7 +7,7 @@ import {
   useTheme,
 } from "@mui/material";
 
-export default function RHFTextField({ name, ...other }: any) {
+export default function RHFTextField({ name, sxProps, style, ...other }: any) {
   const { control } = useFormContext();
 
   const theme = useTheme<Theme>();
@@ -26,6 +26,7 @@ export default function RHFTextField({ name, ...other }: any) {
             inputProps={{
               style: {
                 color: theme.palette.text.body,
+                ...style,
               },
             }}
             sx={{
@@ -37,6 +38,7 @@ export default function RHFTextField({ name, ...other }: any) {
                   color: theme.palette.text.disabled,
                 },
               },
+              ...sxProps,
             }}
             helperText={
               <Typography
