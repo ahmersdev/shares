@@ -9,6 +9,7 @@ import CardDialog from "./card-dialog";
 import ApiErrorState from "@/components/api-error-state";
 import { DeleteIcon } from "@/assets/icons";
 import useCards from "./use-cards";
+import { ICardItem } from "./cards.interface";
 
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
@@ -55,7 +56,7 @@ export default function Cards() {
           <ApiErrorState height={"10vh"} />
         ) : (
           <>
-            {data?.data?.map((item: any) => (
+            {data?.data?.map((item: ICardItem) => (
               <Box
                 display={"flex"}
                 alignItems={"center"}

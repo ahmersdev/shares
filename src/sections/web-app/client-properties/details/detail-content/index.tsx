@@ -37,8 +37,9 @@ import {
 import TripOriginOutlinedIcon from "@mui/icons-material/TripOriginOutlined";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { BUTTON_STYLES } from "@/styles";
+import { IDetailContentProps } from "./detail-content.interface";
 
-export default function DetailContent(props: any) {
+export default function DetailContent(props: IDetailContentProps) {
   const { dataToDisplay } = props;
 
   const theme = useTheme<Theme>();

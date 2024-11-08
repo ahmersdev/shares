@@ -1,32 +1,35 @@
+import { CellContext } from "@tanstack/react-table";
+import { ITransactionTableColumn } from "./transactions.interface";
+
 export const transactionsTableColumns = [
   {
-    accessorFn: (row: any) => row?.time,
+    accessorFn: (row: ITransactionTableColumn) => row?.time,
     id: "time",
     header: "Time",
-    cell: (info: any) => info.getValue(),
+    cell: (info: CellContext<ITransactionTableColumn, any>) => info.getValue(),
   },
   {
-    accessorFn: (row: any) => row?.status,
+    accessorFn: (row: ITransactionTableColumn) => row?.status,
     id: "status",
     header: "Status",
-    cell: (info: any) => info.getValue(),
+    cell: (info: CellContext<ITransactionTableColumn, any>) => info.getValue(),
   },
   {
-    accessorFn: (row: any) => row?.date,
+    accessorFn: (row: ITransactionTableColumn) => row?.date,
     id: "date",
     header: "Date",
-    cell: (info: any) => info.getValue(),
+    cell: (info: CellContext<ITransactionTableColumn, any>) => info.getValue(),
   },
   {
-    accessorFn: (row: any) => row?.wallet,
+    accessorFn: (row: ITransactionTableColumn) => row?.wallet,
     id: "wallet",
     header: "Wallet",
-    cell: (info: any) => info.getValue(),
+    cell: (info: CellContext<ITransactionTableColumn, any>) => info.getValue(),
   },
   {
-    accessorFn: (row: any) => row?.amount,
+    accessorFn: (row: ITransactionTableColumn) => row?.amount,
     id: "amount",
     header: "Amount",
-    cell: (info: any) => info.getValue(),
+    cell: (info: CellContext<ITransactionTableColumn, any>) => info.getValue(),
   },
 ];

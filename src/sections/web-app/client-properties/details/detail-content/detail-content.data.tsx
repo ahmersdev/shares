@@ -2,6 +2,10 @@ import { Theme } from "@mui/material";
 import { ApexOptions } from "apexcharts";
 import dayjs from "dayjs";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
+import {
+  IPropertyDetails,
+  ITimelineItemData,
+} from "./detail-content.interface";
 
 export const getChartOptions = (theme: Theme): ApexOptions => {
   return {
@@ -78,7 +82,9 @@ export const chartSeries = [
   },
 ];
 
-export const getTimelineData = (dataToDisplay: any) => [
+export const getTimelineData = (
+  dataToDisplay: IPropertyDetails
+): ITimelineItemData[] => [
   {
     title: "Latest funding date",
     date: dataToDisplay.fundedDate

@@ -7,22 +7,34 @@ import {
   Grid,
   IconButton,
   LinearProgress,
-  Theme,
+  Skeleton,
   Typography,
-  useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { BUTTON_STYLES } from "@/styles";
 import { DeleteTransparentIcon } from "@/assets/icons";
+import { useGetAllCartItemsQuery } from "@/services/web-app/cart";
+import ApiErrorState from "@/components/api-error-state";
+import { SkeletonCart } from "@/components/skeletons";
 
 export default function ClientCart() {
-  const theme = useTheme<Theme>();
+  const { data, isLoading, isFetching, isError } = useGetAllCartItemsQuery(
+    null,
+    { refetchOnMountOrArgChange: true }
+  );
+
+  if (isLoading || isFetching) return <SkeletonCart />;
+
+  if (isError) return <ApiErrorState />;
 
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={8}>
+        {data?.data?.map((item: any) => (
+          <></>
+        ))}
         <Box
           bgcolor={"grey.50"}
           border={1}
@@ -158,6 +170,7 @@ export default function ClientCart() {
           </Box>
         </Box>
       </Grid>
+
       <Grid item xs={12} md={4}>
         <Box
           bgcolor={"grey.50"}

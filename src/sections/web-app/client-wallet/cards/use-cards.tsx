@@ -27,7 +27,7 @@ export default function useCards() {
     refetchOnMountOrArgChange: true,
   });
 
-  const cardBrandIcon = (cardBrand: any) => {
+  const cardBrandIcon = (cardBrand: string) => {
     let brandIcon;
 
     switch (cardBrand) {
