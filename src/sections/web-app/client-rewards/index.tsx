@@ -18,6 +18,8 @@ import { FormProvider, RHFTextField } from "@/components/react-hook-form";
 import { useForm } from "react-hook-form";
 import { BUTTON_STYLES } from "@/styles";
 import { successSnackbar } from "@/utils/api";
+import { WEB_APP } from "@/constants/routes";
+import Link from "next/link";
 
 export default function ClientRewards() {
   const theme = useTheme<Theme>();
@@ -76,16 +78,18 @@ export default function ClientRewards() {
                 <Typography variant={"h5"} color={"text.heading"}>
                   USD 0
                 </Typography>
-                <Box display={"flex"} gap={1}>
-                  <Typography
-                    variant={"body2"}
-                    fontWeight={600}
-                    color={"text.heading"}
-                  >
-                    View Current Balance
-                  </Typography>
-                  <NextIcon fill={theme.palette.text.heading} />
-                </Box>
+                <Link href={WEB_APP.WALLET}>
+                  <Box display={"flex"} gap={1}>
+                    <Typography
+                      variant={"body2"}
+                      fontWeight={600}
+                      color={"text.heading"}
+                    >
+                      View Current Balance
+                    </Typography>
+                    <NextIcon fill={theme.palette.text.heading} />
+                  </Box>
+                </Link>
               </Box>
 
               <StarIcon />

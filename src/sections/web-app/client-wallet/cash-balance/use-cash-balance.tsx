@@ -34,8 +34,18 @@ export default function useCashBalance() {
   const { handleSubmit, reset } = methods;
 
   if (typeof window === "undefined" || !(window as any)?.ethereum) {
-    errorSnackbar("MetaMask not found. Please install it.");
-    throw new Error("MetaMask not found. Please install it.");
+    return {
+      theme,
+      openDialog,
+      setOpenDialog,
+      onCloseDialogHandler,
+      loading,
+      methods,
+      handleSubmit,
+      depositCashViaCard: () => {},
+      depositCashViaCrypto: () => {},
+      withdrawCash: () => {},
+    };
   }
 
   const provider = new BrowserProvider((window as any)?.ethereum);
@@ -52,6 +62,12 @@ export default function useCashBalance() {
   const depositCashViaCrypto = async (data: { amount: number }) => {
     setLoading(true);
     try {
+      if (typeof window === "undefined" || !(window as any)?.ethereum) {
+        errorSnackbar("MetaMask not found. Please install it.");
+        setLoading(false);
+        return;
+      }
+
       if (!contract) await initializeContract();
       const tx = await contract!.invest({
         value: ethers?.parseEther(data?.amount?.toString()),
