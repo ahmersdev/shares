@@ -1,4 +1,4 @@
-import { Box, LinearProgress, Typography } from "@mui/material";
+import { Box, InputAdornment, LinearProgress, Typography } from "@mui/material";
 import { CustomTooltip } from "@/components/custom-tooltip";
 import { ErrorOutlineRounded } from "@mui/icons-material";
 import { FormProvider, RHFTextField } from "@/components/react-hook-form";
@@ -133,8 +133,13 @@ export default function AddToCart(props: IAddToCartProps) {
         <Box display={"flex"} alignItems={"center"} gap={1}>
           <RHFTextField
             name={"amount"}
-            placeholder={"USD 2,000"}
+            placeholder={"1000"}
             type={"number"}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">USD</InputAdornment>
+              ),
+            }}
           />
           <LoadingButton
             variant={"contained"}
