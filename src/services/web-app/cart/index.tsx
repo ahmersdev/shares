@@ -12,7 +12,24 @@ export const cartApi = baseAPI.injectEndpoints({
       }),
       providesTags: TAG,
     }),
+    putCartItem: builder.mutation({
+      query: ({ body, propertyId }: any) => ({
+        url: `${WEB_APP.PUT_CART_ITEM}/${propertyId}`,
+        method: "PUT",
+        body,
+      }),
+    }),
+    removeCartItem: builder.mutation({
+      query: (propertyId: string) => ({
+        url: `${WEB_APP.REMOVE_CART_ITEM}/${propertyId}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
-export const { useGetAllCartItemsQuery } = cartApi;
+export const {
+  useGetAllCartItemsQuery,
+  usePutCartItemMutation,
+  useRemoveCartItemMutation,
+} = cartApi;

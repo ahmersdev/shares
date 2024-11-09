@@ -22,6 +22,7 @@ import { FormProvider, RHFTextField } from "@/components/react-hook-form";
 import { pxToRem } from "@/utils/get-font-value";
 import { Fragment } from "react";
 import useClientCart from "./use-client-cart";
+import NoData from "@/components/no-data";
 
 export default function ClientCart() {
   const {
@@ -34,6 +35,7 @@ export default function ClientCart() {
     addToCartItem,
     handleBlur,
     totalAmount,
+    removeCartItem,
   } = useClientCart();
 
   if (isLoading || isFetching) return <SkeletonCart />;
@@ -50,186 +52,193 @@ export default function ClientCart() {
           borderRadius={3}
           p={1.2}
         >
-          {data?.data?.map((item: ICartItem, index: number) => (
-            <Fragment key={item._id}>
-              <Box display={"flex"} justifyContent={"space-between"} gap={1}>
-                <Box display={"flex"} gap={2}>
-                  <Image
-                    src={item.propertyId?.thumbnail ?? ""}
-                    alt={item.propertyId?.title}
-                    width={106}
-                    height={70}
-                    style={{
-                      objectFit: "contain",
-                      borderRadius: 8,
-                    }}
-                  />
-                  <Box>
-                    <Typography
-                      variant={"body1"}
-                      fontWeight={600}
-                      color={"text.heading"}
-                    >
-                      {item.propertyId?.title}
-                    </Typography>
+          {!!!data?.data?.length ? (
+            <NoData message={"Nothing in the cart"} />
+          ) : (
+            data?.data?.map((item: ICartItem, index: number) => (
+              <Fragment key={item._id}>
+                <Box display={"flex"} justifyContent={"space-between"} gap={1}>
+                  <Box display={"flex"} gap={2}>
+                    <Image
+                      src={item.propertyId?.thumbnail ?? ""}
+                      alt={item.propertyId?.title}
+                      width={106}
+                      height={70}
+                      style={{
+                        objectFit: "contain",
+                        borderRadius: 8,
+                      }}
+                    />
+                    <Box>
+                      <Typography
+                        variant={"body1"}
+                        fontWeight={600}
+                        color={"text.heading"}
+                      >
+                        {item.propertyId?.title}
+                      </Typography>
 
+                      <Box
+                        display={"flex"}
+                        justifyContent={"space-between"}
+                        flexWrap={"wrap"}
+                        gap={1}
+                      >
+                        <Box>
+                          <Typography variant={"caption"} fontWeight={600}>
+                            Gross Rent
+                          </Typography>
+                          <Typography
+                            variant={"subtitle2"}
+                            fontWeight={600}
+                            color={"text.heading"}
+                          >
+                            USD $
+                            {item.propertyId?.grossRent
+                              ? new Intl.NumberFormat("en-US").format(
+                                  item.propertyId.grossRent
+                                )
+                              : "-"}
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Typography variant={"caption"} fontWeight={600}>
+                            Maintenance
+                          </Typography>
+                          <Typography
+                            variant={"subtitle2"}
+                            fontWeight={600}
+                            color={"text.heading"}
+                          >
+                            USD $
+                            {item.propertyId?.maintaince
+                              ? new Intl.NumberFormat("en-US").format(
+                                  item.propertyId.maintaince
+                                )
+                              : "-"}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+
+                  <FormProvider methods={methods}>
                     <Box
                       display={"flex"}
-                      justifyContent={"space-between"}
-                      flexWrap={"wrap"}
+                      alignItems={"flex-start"}
+                      justifyContent={"flex-end"}
                       gap={1}
                     >
-                      <Box>
-                        <Typography variant={"caption"} fontWeight={600}>
-                          Gross Rent
-                        </Typography>
-                        <Typography
-                          variant={"subtitle2"}
-                          fontWeight={600}
-                          color={"text.heading"}
-                        >
-                          USD $
-                          {item.propertyId?.grossRent
-                            ? new Intl.NumberFormat("en-US").format(
-                                item.propertyId.grossRent
-                              )
-                            : "-"}
-                        </Typography>
+                      <IconButton
+                        sx={{
+                          border: 1,
+                          borderRadius: 1,
+                          borderColor: "text.stroke",
+                        }}
+                        size={"small"}
+                        color={"primary"}
+                        onClick={() => subtractFromCartItem(item)}
+                      >
+                        <RemoveRoundedIcon />
+                      </IconButton>
+                      <Box width={120}>
+                        <RHFTextField
+                          name={`amount_${item._id}`}
+                          type={"number"}
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <Typography variant={"subtitle2"}>
+                                  USD
+                                </Typography>
+                              </InputAdornment>
+                            ),
+                          }}
+                          sxProps={{
+                            mt: 0.2,
+                            ".MuiInputBase-root": {
+                              borderRadius: 1,
+                            },
+                          }}
+                          style={{
+                            fontSize: pxToRem(10),
+                            height: 1,
+                            fontWeight: 500,
+                          }}
+                          onBlur={handleBlur}
+                        />
                       </Box>
-                      <Box>
-                        <Typography variant={"caption"} fontWeight={600}>
-                          Maintenance
-                        </Typography>
-                        <Typography
-                          variant={"subtitle2"}
-                          fontWeight={600}
-                          color={"text.heading"}
-                        >
-                          USD $
-                          {item.propertyId?.maintaince
-                            ? new Intl.NumberFormat("en-US").format(
-                                item.propertyId.maintaince
-                              )
-                            : "-"}
-                        </Typography>
-                      </Box>
+                      <IconButton
+                        sx={{
+                          border: 1,
+                          borderRadius: 1,
+                          borderColor: "text.stroke",
+                        }}
+                        size={"small"}
+                        color={"primary"}
+                        onClick={() => addToCartItem(item)}
+                      >
+                        <AddRoundedIcon />
+                      </IconButton>
                     </Box>
-                  </Box>
+                  </FormProvider>
                 </Box>
 
-                <FormProvider methods={methods}>
-                  <Box
-                    display={"flex"}
-                    alignItems={"flex-start"}
-                    justifyContent={"flex-end"}
-                    gap={1}
-                  >
-                    <IconButton
+                <Box
+                  display={"flex"}
+                  justifyContent={"space-between"}
+                  gap={1}
+                  flexWrap={"wrap"}
+                  mt={5}
+                >
+                  <Box width={{ xs: "100%", md: "50%" }}>
+                    <LinearProgress
+                      variant={"determinate"}
+                      value={
+                        item.propertyId?.progress ? item.propertyId.progress : 0
+                      }
                       sx={{
-                        border: 1,
-                        borderRadius: 1,
-                        borderColor: "text.stroke",
+                        borderRadius: 1.5,
+                        height: 6,
+                        backgroundColor: "text.disabled",
+                        "& .MuiLinearProgress-bar1Determinate": {
+                          borderRadius: "inherit",
+                        },
                       }}
-                      size={"small"}
-                      color={"primary"}
-                      onClick={() => subtractFromCartItem(item)}
-                    >
-                      <RemoveRoundedIcon />
-                    </IconButton>
-                    <Box width={100}>
-                      <RHFTextField
-                        name={`amount_${item._id}`}
-                        type={"number"}
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <Typography variant={"subtitle2"}>USD</Typography>
-                            </InputAdornment>
-                          ),
-                        }}
-                        sxProps={{
-                          mt: 0.2,
-                          ".MuiInputBase-root": {
-                            borderRadius: 1,
-                          },
-                        }}
-                        style={{
-                          fontSize: pxToRem(10),
-                          height: 0,
-                          fontWeight: 500,
-                        }}
-                        onBlur={handleBlur}
-                      />
-                    </Box>
-                    <IconButton
-                      sx={{
-                        border: 1,
-                        borderRadius: 1,
-                        borderColor: "text.stroke",
-                      }}
-                      size={"small"}
-                      color={"primary"}
-                      onClick={() => addToCartItem(item)}
-                    >
-                      <AddRoundedIcon />
-                    </IconButton>
+                    />
+                    <Typography variant={"caption"}>
+                      {item.propertyId?.progress
+                        ? item.propertyId?.progress.toFixed(2)
+                        : "0"}
+                      % Funded
+                    </Typography>
                   </Box>
-                </FormProvider>
-              </Box>
 
-              <Box
-                display={"flex"}
-                justifyContent={"space-between"}
-                gap={1}
-                flexWrap={"wrap"}
-                mt={5}
-              >
-                <Box width={{ xs: "100%", md: "50%" }}>
-                  <LinearProgress
-                    variant={"determinate"}
-                    value={
-                      item.propertyId?.progress ? item.propertyId.progress : 0
-                    }
+                  <Button
+                    variant={"outlined"}
+                    size={"small"}
                     sx={{
-                      borderRadius: 1.5,
-                      height: 6,
-                      backgroundColor: "text.disabled",
-                      "& .MuiLinearProgress-bar1Determinate": {
-                        borderRadius: "inherit",
+                      ...BUTTON_STYLES,
+                      color: "text.body",
+                      borderColor: "text.stroke",
+                      ":hover": {
+                        borderColor: "text.stroke",
                       },
                     }}
-                  />
-                  <Typography variant={"caption"}>
-                    {item.propertyId?.progress
-                      ? item.propertyId?.progress.toFixed(2)
-                      : "0"}
-                    % Funded
-                  </Typography>
+                    startIcon={<DeleteTransparentIcon />}
+                    disableElevation
+                    onClick={() => removeCartItem(item._id)}
+                  >
+                    Remove
+                  </Button>
                 </Box>
 
-                <Button
-                  variant={"outlined"}
-                  size={"small"}
-                  sx={{
-                    ...BUTTON_STYLES,
-                    color: "text.body",
-                    borderColor: "text.stroke",
-                    ":hover": {
-                      borderColor: "text.stroke",
-                    },
-                  }}
-                  startIcon={<DeleteTransparentIcon />}
-                  disableElevation
-                >
-                  Remove
-                </Button>
-              </Box>
-
-              {index < data?.data?.length - 1 && (
-                <Divider sx={{ my: 1.2, borderColor: "text.stroke" }} />
-              )}
-            </Fragment>
-          ))}
+                {index < data?.data?.length - 1 && (
+                  <Divider sx={{ my: 1.2, borderColor: "text.stroke" }} />
+                )}
+              </Fragment>
+            ))
+          )}
         </Box>
       </Grid>
 
@@ -276,6 +285,7 @@ export default function ClientCart() {
                 backgroundColor: "primary.main",
               },
             }}
+            disabled={!!!data?.data?.length}
             disableElevation
           >
             Checkout
