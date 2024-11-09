@@ -12,7 +12,6 @@ import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { IApiErrorResponse } from "@/interfaces";
 
 export default function useClientCart() {
-  const [initialized, setInitialized] = useState(false);
   const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(
     null
   );
@@ -38,14 +37,6 @@ export default function useClientCart() {
     }
   };
 
-  const defaultValues = data?.data?.reduce(
-    (acc: { [key: string]: number | string }, item: ICartItem) => {
-      acc[`amount_${item._id}`] = item.amount || "";
-      return acc;
-    },
-    {} as { [key: string]: number | string }
-  );
-
   const methods = useForm({
     resolver: yupResolver(
       Yup.object().shape({
@@ -62,7 +53,7 @@ export default function useClientCart() {
         ),
       })
     ),
-    defaultValues,
+    defaultValues: { amount: "" },
   });
 
   const { setValue, getValues, reset } = methods;
@@ -70,11 +61,18 @@ export default function useClientCart() {
   const watchedAmounts = useWatch({ control: methods.control });
 
   useEffect(() => {
-    if (data && !initialized) {
-      setInitialized(true);
-      reset(defaultValues);
+    if (data && data.data) {
+      const calculatedDefaults = data.data.reduce(
+        (acc: { [key: string]: number | string }, item: ICartItem) => {
+          acc[`amount_${item._id}`] = item.amount || "";
+          return acc;
+        },
+        {}
+      );
+
+      reset(calculatedDefaults);
     }
-  }, [data, reset, defaultValues, initialized]);
+  }, [data, reset]);
 
   useEffect(() => {
     if (updateItem) {
