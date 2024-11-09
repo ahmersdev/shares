@@ -70,10 +70,6 @@ export default function useClientCart() {
   const watchedAmounts = useWatch({ control: methods.control });
 
   useEffect(() => {
-    setInitialized(false);
-  }, []);
-
-  useEffect(() => {
     if (data && !initialized) {
       setInitialized(true);
       reset(defaultValues);
@@ -142,20 +138,21 @@ export default function useClientCart() {
       if (res) {
         successSnackbar(res?.msg ?? "Property Removed Successfully!");
         refetch();
-        setInitialized(false);
-        const newTotal = Object.values(watchedAmounts || {}).reduce(
-          (acc: number, amount: any) => {
-            return acc + (parseInt(amount, 10) || 0);
-          },
-          0
-        );
-        setTotalAmount(newTotal);
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;
       errorSnackbar(errorResponse?.data?.errors);
     }
   };
+
+  useEffect(() => {
+    if (data && data.data) {
+      const newTotal = data.data.reduce((acc: number, item: ICartItem) => {
+        return acc + (item.amount || 0);
+      }, 0);
+      setTotalAmount(newTotal);
+    }
+  }, [data]);
 
   return {
     data,
