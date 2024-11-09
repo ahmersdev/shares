@@ -3,9 +3,29 @@ import { ApexOptions } from "apexcharts";
 import dayjs from "dayjs";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 import {
+  EAmenities,
   IPropertyDetails,
   ITimelineItemData,
 } from "./detail-content.interface";
+import {
+  PropertiesBreakfastIcon,
+  PropertiesLaundryIcon,
+  PropertiesParkingIcon,
+  PropertiesPoolIcon,
+  PropertiesRestaurantIcon,
+  PropertiesToiletriesIcon,
+  PropertiesWifiIcon,
+} from "@/assets/icons";
+
+export const amenityIcons: Record<EAmenities, JSX.Element> = {
+  [EAmenities.TOILETRIES]: <PropertiesToiletriesIcon />,
+  [EAmenities.FREE_BREAKFAST]: <PropertiesBreakfastIcon />,
+  [EAmenities.SWIMMING_POOL]: <PropertiesPoolIcon />,
+  [EAmenities.FREE_WIFI]: <PropertiesWifiIcon />,
+  [EAmenities.RESTAURANT]: <PropertiesRestaurantIcon />,
+  [EAmenities.LAUNDRY]: <PropertiesLaundryIcon />,
+  [EAmenities.PARKING]: <PropertiesParkingIcon />,
+};
 
 export const getChartOptions = (theme: Theme): ApexOptions => {
   return {

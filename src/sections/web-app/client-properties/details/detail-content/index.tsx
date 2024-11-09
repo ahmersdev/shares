@@ -24,6 +24,7 @@ import {
   getChartOptions,
   chartSeries,
   getTimelineData,
+  amenityIcons,
 } from "./detail-content.data";
 import ReactApexChart from "react-apexcharts";
 import {
@@ -37,7 +38,7 @@ import {
 import TripOriginOutlinedIcon from "@mui/icons-material/TripOriginOutlined";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { BUTTON_STYLES } from "@/styles";
-import { IDetailContentProps } from "./detail-content.interface";
+import { EAmenities, IDetailContentProps } from "./detail-content.interface";
 
 export default function DetailContent(props: IDetailContentProps) {
   const { dataToDisplay } = props;
@@ -45,6 +46,16 @@ export default function DetailContent(props: IDetailContentProps) {
   const theme = useTheme<Theme>();
   const chartOptions = getChartOptions(theme);
   const timelineData = getTimelineData(dataToDisplay);
+
+  function normalizeAmenityName(amenity: string): string {
+    return amenity.toLowerCase();
+  }
+
+  function isEAmenityKey(
+    normalizedAmenity: string
+  ): normalizedAmenity is EAmenities {
+    return Object.values(EAmenities).includes(normalizedAmenity as EAmenities);
+  }
 
   return (
     <Box
@@ -546,6 +557,30 @@ export default function DetailContent(props: IDetailContentProps) {
       >
         Amenities
       </Typography>
+
+      <Box display={"flex"} alignItems={"center"} gap={3.7} flexWrap={"wrap"}>
+        {dataToDisplay?.amenities?.map((amenity, index) => {
+          const normalizedAmenity = normalizeAmenityName(amenity);
+
+          const icon = isEAmenityKey(normalizedAmenity)
+            ? amenityIcons[normalizedAmenity as EAmenities]
+            : null;
+
+          return (
+            <Box display={"flex"} alignItems={"center"} gap={0.6} key={index}>
+              {icon}
+              <Typography
+                variant={"body3"}
+                component={"p"}
+                fontWeight={600}
+                textTransform={"capitalize"}
+              >
+                {amenity}
+              </Typography>
+            </Box>
+          );
+        })}
+      </Box>
 
       <Typography
         variant={"body2"}
