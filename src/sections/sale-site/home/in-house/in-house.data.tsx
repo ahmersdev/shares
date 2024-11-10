@@ -12,7 +12,7 @@ export const InHoseDataArray: IInHouseDataArray[] = [
     desc: "Our in-house Acquisitions team uses recent transaction data and local market expertise to secure the best prices, locking those in for our investors with a 10% deposit payment before listing on our platform",
   },
   {
-    id: 1,
+    id: 3,
     title: "Active asset management strategies",
     desc: "Our asset management team performs comprehensive renovations to maximize the value of your investment, before securing the highest rents at the lowest fees due to the breadth of our relationship with top property managers",
   },

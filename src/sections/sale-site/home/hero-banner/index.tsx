@@ -10,20 +10,60 @@ export default function HeroBanner() {
   return (
     <Box position={"relative"}>
       <Box
-        position={"absolute"}
+        position="absolute"
         top={0}
         left={0}
         zIndex={-1}
-        borderRadius={"0px 0px 64px 64px"}
-        width={"100%"}
-        height={"100vh"}
-        sx={{
-          backgroundImage: `url(${HomeHeroBanner.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "top left",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
+        width="100%"
+        height="100vh"
+        overflow="hidden"
+        borderRadius="0px 0px 64px 64px"
+      >
+        <iframe
+          allow="autoplay; encrypted-media; fullscreen"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="Shares By Coco"
+          src="https://drive.google.com/file/d/1EyQfFUwpSf2WtjUv20yVWLoNdRViQjMO/preview?autoplay=1"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            border: "none",
+          }}
+        />
+
+        {/* {isVideoLoaded ? (
+          <iframe
+            allow="autoplay; encrypted-media; fullscreen"
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="Shares By Coco"
+            src="https://drive.google.com/file/d/1EyQfFUwpSf2WtjUv20yVWLoNdRViQjMO/preview?autoplay=1"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              border: "none",
+            }}
+            onLoad={handleVideoLoad}
+          />
+        ) : (
+          <Image
+            src={HomeHeroBanner}
+            alt="Hero Banner"
+            width={100}
+            height={100}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              borderRadius: "0px 0px 64px 64px",
+            }}
+          />
+        )} */}
+      </Box>
+
       <Box
         display={"flex"}
         flexDirection={"column"}
