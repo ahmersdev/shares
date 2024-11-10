@@ -39,7 +39,6 @@ export default function HeroBanner() {
         height="100vh"
         overflow="hidden"
         borderRadius="0px 0px 64px 64px"
-        sx={{ pointerEvents: "none", aspectRatio: "16/9" }}
       >
         <iframe
           onLoad={() => setLoading(false)}

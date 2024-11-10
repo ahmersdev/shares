@@ -1,5 +1,10 @@
 import { IncomeEarnIcon, IncomePayIcon, IncomeVisaIcon } from "@/assets/icons";
-import { IncomeBrowseImg, IncomeInvestImg } from "@/assets/images";
+import {
+  IncomeExitImg,
+  IncomeBrowseImg,
+  IncomeEarnImg,
+  IncomeInvestImg,
+} from "@/assets/images";
 import { Box, Button, Theme, Typography } from "@mui/material";
 import { IBuildAnIncomeData } from "./build-an-income.interface";
 import Link from "next/link";
@@ -56,7 +61,7 @@ export const getBuildAnIncomeDataArray = (
       subtitle: "Receive passive income from monthly rental payments",
       description:
         "We manage the properties and pay you the rental income every month",
-      image: IncomeBrowseImg,
+      image: IncomeEarnImg,
       additionalContent: (
         <Box display={"flex"} alignItems={"center"} gap={1}>
           <Box width={24} height={24}>
@@ -74,7 +79,7 @@ export const getBuildAnIncomeDataArray = (
       subtitle: "Sell your shares flexibly",
       description:
         "Earn from capital appreciation when you sell your shares or when the property gets sold.",
-      image: IncomeInvestImg,
+      image: IncomeExitImg,
       additionalContent: (
         <Box
           display={"flex"}
