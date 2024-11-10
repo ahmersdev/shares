@@ -4,7 +4,7 @@ import { ICountData } from "./counts.interface";
 
 export default function Counts() {
   return (
-    <Box display={"flex"} justifyContent={"center"} px={2} mt={-9.5}>
+    <Box display={"flex"} justifyContent={"center"} px={2} mt={-7}>
       <Box
         bgcolor={"grey.50"}
         maxWidth={"lg"}

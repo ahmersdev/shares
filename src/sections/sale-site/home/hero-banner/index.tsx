@@ -19,7 +19,7 @@ export default function HeroBanner() {
           left={0}
           zIndex={-1}
           width="100%"
-          height="100vh"
+          height="100%"
           overflow="hidden"
           borderRadius="0px 0px 64px 64px"
           sx={{
@@ -36,7 +36,7 @@ export default function HeroBanner() {
         left={0}
         zIndex={-1}
         width="100%"
-        height="100vh"
+        height="100%"
         overflow="hidden"
         borderRadius="0px 0px 64px 64px"
       >
@@ -140,7 +140,9 @@ export default function HeroBanner() {
         </Box>
       </Box>
 
-      <Counts />
+      <Box position={"relative"}>
+        <Counts />
+      </Box>
     </Box>
   );
 }
