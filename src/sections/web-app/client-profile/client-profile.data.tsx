@@ -16,13 +16,13 @@ export const clientProfileData = [
     description: "View and Manage Your Personal Details",
     link: WEB_APP.ACCOUNT_INFORMATION,
   },
-  {
-    id: 2,
-    icon: PreferencesIcon,
-    title: "Preferences",
-    description: "Customize Language, Currency and Notification",
-    link: WEB_APP.PREFERENCES,
-  },
+  // {
+  //   id: 2,
+  //   icon: PreferencesIcon,
+  //   title: "Preferences",
+  //   description: "Customize Language, Currency and Notification",
+  //   link: WEB_APP.PREFERENCES,
+  // },
   {
     id: 3,
     icon: SecurityAndPrivacyIcon,

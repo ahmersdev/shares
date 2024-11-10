@@ -1,14 +1,35 @@
-import { HomeHeroBanner } from "@/assets/images";
 import { BUTTON_STYLES } from "@/styles";
 import { pxToRem } from "@/utils/get-font-value";
 import { Box, Button, Chip, Typography } from "@mui/material";
 import Counts from "./counts";
 import Link from "next/link";
 import { AUTH, SALE_SITE } from "@/constants/routes";
+import { useState } from "react";
+import { HomeHeroBanner } from "@/assets/images";
 
 export default function HeroBanner() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <Box position={"relative"}>
+      {loading && (
+        <Box
+          position={"absolute"}
+          top={0}
+          left={0}
+          zIndex={-1}
+          width="100%"
+          height="100vh"
+          overflow="hidden"
+          borderRadius="0px 0px 64px 64px"
+          sx={{
+            backgroundImage: `url(${HomeHeroBanner.src})`,
+            backgroundSize: "cover",
+            backgroundPosition: "top left",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+      )}
       <Box
         position="absolute"
         top={0}
@@ -18,50 +39,21 @@ export default function HeroBanner() {
         height="100vh"
         overflow="hidden"
         borderRadius="0px 0px 64px 64px"
+        sx={{ pointerEvents: "none", aspectRatio: "16/9" }}
       >
         <iframe
-          allow="autoplay; encrypted-media; fullscreen"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
+          onLoad={() => setLoading(false)}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           title="Shares By Coco"
-          src="https://drive.google.com/file/d/1EyQfFUwpSf2WtjUv20yVWLoNdRViQjMO/preview?autoplay=1"
+          src="https://www.youtube.com/embed/0PTzzTfYpIs?si=GQQAB6iUzoMXFBBb&autoplay=1&mute=1&loop=1&controls=0&modestbranding=0&rel=0&playsinline=1&showinfo=0&enablejsapi=1&playlist=0PTzzTfYpIs"
           style={{
-            width: "100%",
+            width: "300%",
             height: "100%",
+            marginLeft: "-100%",
             objectFit: "cover",
             border: "none",
           }}
         />
-
-        {/* {isVideoLoaded ? (
-          <iframe
-            allow="autoplay; encrypted-media; fullscreen"
-            allowFullScreen
-            referrerPolicy="strict-origin-when-cross-origin"
-            title="Shares By Coco"
-            src="https://drive.google.com/file/d/1EyQfFUwpSf2WtjUv20yVWLoNdRViQjMO/preview?autoplay=1"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              border: "none",
-            }}
-            onLoad={handleVideoLoad}
-          />
-        ) : (
-          <Image
-            src={HomeHeroBanner}
-            alt="Hero Banner"
-            width={100}
-            height={100}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              borderRadius: "0px 0px 64px 64px",
-            }}
-          />
-        )} */}
       </Box>
 
       <Box
