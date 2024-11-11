@@ -16,7 +16,7 @@ export default function useClientCart() {
     null
   );
   const [updateItem, setUpdateItem] = useState<{
-    amount: string;
+    amount: number;
     propertyId: string;
   } | null>(null);
 
@@ -27,7 +27,7 @@ export default function useClientCart() {
   const [putCartItemTrigger] = usePutCartItemMutation();
   const [removeCartItemTrigger] = useRemoveCartItemMutation();
 
-  const updateCartItem = async (amount: string, propertyId: string) => {
+  const updateCartItem = async (amount: number, propertyId: string) => {
     try {
       const params = { body: { amount }, propertyId };
       await putCartItemTrigger(params).unwrap();
@@ -98,21 +98,23 @@ export default function useClientCart() {
   }, [watchedAmounts]);
 
   const subtractFromCartItem = (item: ICartItem) => {
-    const currentAmount = getValues(`amount_${item._id}`) || 0;
+    const currentAmount =
+      parseInt(getValues(`amount_${item._id}`) as string, 10) || 0;
     if (currentAmount - 1000 >= 1000) {
-      const newAmount = Math.max(currentAmount - 1000, 0);
+      const newAmount = currentAmount - 1000;
       setValue(`amount_${item._id}`, newAmount);
-      setUpdateItem({ amount: String(newAmount), propertyId: item._id });
+      setUpdateItem({ amount: newAmount, propertyId: item._id });
     } else {
-      errorSnackbar("Can not go below 1000");
+      errorSnackbar("Cannot go below 1000");
     }
   };
 
   const addToCartItem = (item: ICartItem) => {
-    const currentAmount = getValues(`amount_${item._id}`) || 0;
+    const currentAmount =
+      parseInt(getValues(`amount_${item._id}`) as string, 10) || 0;
     const newAmount = currentAmount + 1000;
     setValue(`amount_${item._id}`, newAmount);
-    setUpdateItem({ amount: String(newAmount), propertyId: item._id });
+    setUpdateItem({ amount: newAmount, propertyId: item._id });
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -126,7 +128,7 @@ export default function useClientCart() {
       });
     } else {
       methods.clearErrors(e.target.name);
-      setUpdateItem({ amount: String(value), propertyId: itemId });
+      setUpdateItem({ amount: value, propertyId: itemId });
     }
   };
 
