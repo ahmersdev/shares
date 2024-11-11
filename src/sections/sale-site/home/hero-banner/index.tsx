@@ -18,7 +18,7 @@ export default function HeroBanner() {
           top={0}
           left={0}
           zIndex={-1}
-          width="100%"
+          width={{ xs: "100vh", sm: "100%" }}
           height="100%"
           overflow="hidden"
           borderRadius="0px 0px 64px 64px"
@@ -35,7 +35,7 @@ export default function HeroBanner() {
         top={0}
         left={0}
         zIndex={-1}
-        width="100%"
+        width={{ xs: "100vh", sm: "100%" }}
         height="100%"
         overflow="hidden"
         borderRadius="0px 0px 64px 64px"
