@@ -2,6 +2,7 @@ import {
   ChangeEvent,
   ComponentType,
   Dispatch,
+  ReactNode,
   SetStateAction,
   SVGProps,
 } from "react";
@@ -33,9 +34,14 @@ export interface IAccordionData {
   accordionId: number;
   summary: string;
   details: string;
+  additionalContent?: ReactNode;
 }
 
 export interface IMainSearchProps {
   search: string;
   setSearchTerm: Dispatch<SetStateAction<string>>;
+}
+
+export interface ICustomListProps {
+  items: string[];
 }

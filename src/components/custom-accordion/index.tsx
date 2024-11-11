@@ -35,6 +35,7 @@ export default function CustomAccordion({ accordions }: ICustomAccordionProps) {
             <Typography variant={"h7"} component={"p"} color={"text.heading"}>
               {accordion.details}
             </Typography>
+            {accordion.additionalContent}
           </AccordionDetails>
         </Accordion>
       ))}
