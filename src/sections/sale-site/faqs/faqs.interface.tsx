@@ -43,5 +43,5 @@ export interface IMainSearchProps {
 }
 
 export interface ICustomListProps {
-  items: string[];
+  items: { boldText?: string; text: string }[];
 }

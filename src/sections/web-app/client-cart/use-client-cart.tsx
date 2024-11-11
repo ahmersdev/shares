@@ -7,14 +7,13 @@ import { ICartItem } from "./client-cart.interface";
 import { useForm, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { IApiErrorResponse } from "@/interfaces";
 
 export default function useClientCart() {
-  const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(
-    null
-  );
+  const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
+
   const [updateItem, setUpdateItem] = useState<{
     amount: number;
     propertyId: string;
@@ -27,15 +26,18 @@ export default function useClientCart() {
   const [putCartItemTrigger] = usePutCartItemMutation();
   const [removeCartItemTrigger] = useRemoveCartItemMutation();
 
-  const updateCartItem = async (amount: number, propertyId: string) => {
-    try {
-      const params = { body: { amount }, propertyId };
-      await putCartItemTrigger(params).unwrap();
-    } catch (error) {
-      const errorResponse = error as IApiErrorResponse;
-      errorSnackbar(errorResponse?.data?.errors);
-    }
-  };
+  const updateCartItem = useCallback(
+    async (amount: number, propertyId: string) => {
+      try {
+        const params = { body: { amount }, propertyId };
+        await putCartItemTrigger(params).unwrap();
+      } catch (error) {
+        const errorResponse = error as IApiErrorResponse;
+        errorSnackbar(errorResponse?.data?.errors);
+      }
+    },
+    [putCartItemTrigger]
+  );
 
   const methods = useForm({
     resolver: yupResolver(
@@ -76,16 +78,15 @@ export default function useClientCart() {
 
   useEffect(() => {
     if (updateItem) {
-      if (debounceTimeout) clearTimeout(debounceTimeout);
-      const newTimeout = setTimeout(() => {
+      if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
+      debounceTimeout.current = setTimeout(() => {
         updateCartItem(updateItem.amount, updateItem.propertyId);
       }, 500);
-      setDebounceTimeout(newTimeout);
     }
     return () => {
-      if (debounceTimeout) clearTimeout(debounceTimeout);
+      if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
     };
-  }, [updateItem]);
+  }, [updateItem, updateCartItem]);
 
   useEffect(() => {
     const newTotal = Object.values(watchedAmounts || {}).reduce(
