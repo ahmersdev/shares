@@ -10,6 +10,7 @@ import ApiErrorState from "@/components/api-error-state";
 import { DeleteIcon } from "@/assets/icons";
 import useCards from "./use-cards";
 import { ICardItem } from "./cards.interface";
+import { cardBrandIcon } from "../client-wallet.data";
 
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
@@ -22,7 +23,6 @@ export default function Cards() {
     isLoading,
     isFetching,
     isError,
-    cardBrandIcon,
     deleteCard,
   } = useCards();
 

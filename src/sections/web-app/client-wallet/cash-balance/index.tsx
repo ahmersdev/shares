@@ -1,30 +1,30 @@
 import {
   Box,
   Button,
+  CircularProgress,
   Dialog,
-  DialogActions,
   DialogContent,
   DialogTitle,
+  Divider,
   Typography,
 } from "@mui/material";
 import { BUTTON_STYLES } from "@/styles";
 import useCashBalance from "./use-cash-balance";
-import { FormProvider, RHFTextField } from "@/components/react-hook-form";
-import { LoadingButton } from "@mui/lab";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import { DepositViaCardIcon, DepositViaCryptoIcon } from "@/assets/icons";
+import Crypto from "./deposit/crypto";
+import Card from "./deposit/card";
 
 export default function CashBalance() {
   const {
     theme,
-    openDialog,
-    setOpenDialog,
-    onCloseDialogHandler,
-    loading,
-    methods,
-    handleSubmit,
-    depositCashViaCard,
-    depositCashViaCrypto,
-    withdrawCash,
+    openDepositDialog,
+    setOpenDepositDialog,
+    onCloseDepositHandler,
+    data,
+    isLoading,
+    isFetching,
+    isError,
   } = useCashBalance();
 
   return (
@@ -45,9 +45,15 @@ export default function CashBalance() {
     >
       <Box display={"flex"} flexDirection={"column"} gap={1}>
         <Typography variant={"body1"}>Cash Balance</Typography>
-        <Typography variant={"h5"} color={"text.heading"}>
-          USD 0
-        </Typography>
+        {isLoading || isFetching ? (
+          <CircularProgress size={30} />
+        ) : isError ? (
+          "-"
+        ) : (
+          <Typography variant={"h5"} color={"text.heading"}>
+            USD {data?.data?.totalCash ?? "0"}
+          </Typography>
+        )}
       </Box>
 
       <Box display={"flex"} flexDirection={"column"} gap={0.8} width={120}>
@@ -65,7 +71,13 @@ export default function CashBalance() {
             },
           }}
           disableElevation
-          onClick={() => setOpenDialog(true)}
+          onClick={() =>
+            setOpenDepositDialog({
+              deposit: true,
+              depositViaCard: false,
+              depositViaCrypto: false,
+            })
+          }
         >
           Deposit
         </Button>
@@ -82,15 +94,15 @@ export default function CashBalance() {
             },
           }}
           disableElevation
-          onClick={withdrawCash}
+          // onClick={withdrawCash}
         >
           Withdraw
         </Button>
       </Box>
 
       <Dialog
-        open={openDialog}
-        onClose={onCloseDialogHandler}
+        open={openDepositDialog.deposit}
+        onClose={onCloseDepositHandler}
         fullWidth
         PaperProps={{
           sx: {
@@ -109,77 +121,92 @@ export default function CashBalance() {
           }}
         >
           <Typography variant={"body1"} fontWeight={700} color={"text.heading"}>
-            Deposit Amount
+            Deposit
           </Typography>
 
-          <CloseRoundedIcon sx={{ color: "text.body", cursor: "pointer" }} />
+          <CloseRoundedIcon
+            sx={{ color: "text.body", cursor: "pointer" }}
+            onClick={onCloseDepositHandler}
+          />
         </DialogTitle>
 
-        <FormProvider methods={methods}>
-          <DialogContent>
-            <RHFTextField
-              name={"amount"}
-              placeholder={"USD 2,000"}
-              type={"number"}
-            />
-          </DialogContent>
+        <DialogContent>
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            gap={1.6}
+            border={1}
+            borderRadius={3}
+            borderColor={"text.stroke"}
+            px={1.6}
+            py={2}
+          >
+            <Box
+              display={"flex"}
+              alignItems={"center"}
+              gap={1}
+              sx={{ cursor: "pointer" }}
+              onClick={() =>
+                setOpenDepositDialog({
+                  deposit: false,
+                  depositViaCard: true,
+                  depositViaCrypto: false,
+                })
+              }
+            >
+              <DepositViaCardIcon />
+              <Typography
+                variant={"body3"}
+                component={"p"}
+                color={"text.heading"}
+                fontWeight={600}
+              >
+                Deposit Via Debit Card
+              </Typography>
+            </Box>
 
-          <DialogActions sx={{ pr: 2.4, pb: 2.4 }}>
-            <Button
-              variant={"outlined"}
-              size={"small"}
-              sx={{
-                ...BUTTON_STYLES,
-                color: "text.body",
-                borderColor: "text.body",
-                ":hover": {
-                  borderColor: "text.body",
-                },
-              }}
-              disableElevation
-              onClick={onCloseDialogHandler}
+            <Divider sx={{ borderColor: "text.stroke" }} />
+
+            <Box
+              display={"flex"}
+              alignItems={"center"}
+              gap={1}
+              sx={{ cursor: "pointer" }}
+              onClick={() =>
+                setOpenDepositDialog({
+                  deposit: false,
+                  depositViaCard: false,
+                  depositViaCrypto: true,
+                })
+              }
             >
-              Cancel
-            </Button>
-            <LoadingButton
-              variant={"contained"}
-              size={"small"}
-              sx={{
-                ...BUTTON_STYLES,
-                color: "common.white",
-                borderColor: "primary.main",
-                backgroundColor: "primary.main",
-                ":hover": {
-                  backgroundColor: "primary.main",
-                },
-              }}
-              disableElevation
-              onClick={handleSubmit(depositCashViaCard)}
-              loading={loading}
-            >
-              Deposit Via Card
-            </LoadingButton>
-            <LoadingButton
-              variant={"contained"}
-              size={"small"}
-              sx={{
-                ...BUTTON_STYLES,
-                color: "common.white",
-                borderColor: "primary.main",
-                backgroundColor: "primary.main",
-                ":hover": {
-                  backgroundColor: "primary.main",
-                },
-              }}
-              disableElevation
-              onClick={handleSubmit(depositCashViaCrypto)}
-              loading={loading}
-            >
-              Deposit Via Wallet
-            </LoadingButton>
-          </DialogActions>
-        </FormProvider>
+              <DepositViaCryptoIcon />
+              <Typography
+                variant={"body3"}
+                component={"p"}
+                color={"text.heading"}
+                fontWeight={600}
+              >
+                Deposit Via Crypto
+              </Typography>
+            </Box>
+          </Box>
+        </DialogContent>
       </Dialog>
+
+      {openDepositDialog?.depositViaCrypto && (
+        <Crypto
+          openDepositDialog={openDepositDialog}
+          setOpenDepositDialog={setOpenDepositDialog}
+        />
+      )}
+
+      {openDepositDialog?.depositViaCard && (
+        <Card
+          openDepositDialog={openDepositDialog}
+          setOpenDepositDialog={setOpenDepositDialog}
+        />
+      )}
     </Box>
   );
 }

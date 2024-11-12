@@ -13,6 +13,7 @@ export const walletApi = baseAPI.injectEndpoints({
       }),
       invalidatesTags: TAG,
     }),
+
     getCardList: builder.query({
       query: () => ({
         url: WEB_APP.GET_CARD,
@@ -27,11 +28,29 @@ export const walletApi = baseAPI.injectEndpoints({
         method: "DELETE",
       }),
     }),
+
+    getTotalCash: builder.query({
+      query: () => ({
+        url: WEB_APP.GET_TOTAL_CASH,
+        method: "GET",
+      }),
+      providesTags: TAG,
+    }),
+    getCardListDropdown: builder.query({
+      query: () => ({
+        url: WEB_APP.GET_CARD,
+        method: "GET",
+      }),
+      transformResponse: (response: any) => response?.data,
+      providesTags: TAG,
+    }),
   }),
 });
 
 export const {
   usePostAddCardMutation,
   useGetCardListQuery,
+  useLazyGetCardListDropdownQuery,
   useDeleteCardMutation,
+  useGetTotalCashQuery,
 } = walletApi;

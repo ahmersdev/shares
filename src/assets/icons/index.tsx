@@ -99,3 +99,5 @@ export { default as PropertiesWifiIcon } from "./web-app/properties-wifi-icon";
 export { default as PropertiesRestaurantIcon } from "./web-app/properties-restaurant-icon";
 export { default as PropertiesLaundryIcon } from "./web-app/properties-laundry-icon";
 export { default as PropertiesParkingIcon } from "./web-app/properties-parking-icon";
+export { default as DepositViaCardIcon } from "./web-app/deposit-via-card-icon";
+export { default as DepositViaCryptoIcon } from "./web-app/deposit-via-crypto-icon";

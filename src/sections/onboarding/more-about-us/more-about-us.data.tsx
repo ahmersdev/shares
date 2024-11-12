@@ -1,5 +1,4 @@
-import { RHFTextField } from "@/components/react-hook-form";
-import RHFAutocomplete from "@/components/react-hook-form/rhf-autocomplete";
+import { RHFAutocomplete, RHFTextField } from "@/components/react-hook-form";
 import {
   COUNTRIES_DROPDOWN,
   MORE_ABOUT_US_DROPDOWN,
