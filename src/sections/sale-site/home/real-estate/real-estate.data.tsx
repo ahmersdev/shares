@@ -29,7 +29,7 @@ export const realEstateDataArray: IRealEstateData[] = [
     title: "Passive income",
     desc: "Property generates a consistent passive income like bonds, in the form of reliable monthly rental payments",
     href: "/",
-    bgcolor: "primary.25",
+    bgcolor: "primary.10",
   },
   {
     id: 4,
@@ -37,6 +37,6 @@ export const realEstateDataArray: IRealEstateData[] = [
     title: "Storehold of wealth",
     desc: "Everybody aspires to own a home, making property a tangible store of wealth with a very high recovery value",
     href: "/",
-    bgcolor: "primary.10",
+    bgcolor: "primary.25",
   },
 ];
