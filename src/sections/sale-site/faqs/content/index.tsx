@@ -33,7 +33,7 @@ export default function Content({ contentData, setSearchTerm }: IContentProps) {
                 width={"100%"}
                 height={"100%"}
                 border={1}
-                borderColor={"primary.main"}
+                borderColor={"primary.50"}
                 bgcolor={"grey.50"}
                 borderRadius={6}
                 textAlign={"center"}
@@ -41,7 +41,7 @@ export default function Content({ contentData, setSearchTerm }: IContentProps) {
                 sx={{ cursor: "pointer" }}
                 onClick={() => handleClick(parent.title)}
               >
-                <Box width={"100%"} bgcolor={"primary.5"} p={2.4}>
+                <Box width={"100%"} bgcolor={"primary.50"} p={2.4}>
                   <parent.icon />
                 </Box>
                 <Typography

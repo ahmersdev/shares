@@ -38,13 +38,7 @@ export default function Dubai() {
             />
           </Grid>
           <Grid item xs={12} md={8}>
-            <Box
-              border={1}
-              borderColor={"primary.main"}
-              bgcolor={"opacity.bg"}
-              borderRadius={6}
-              p={2.4}
-            >
+            <Box bgcolor={"primary.10"} borderRadius={6} p={2.4}>
               <Typography variant={"body2"}>
                 Rami, throughout his 20+ year real estate career with The First
                 Group and Damac in Dubai, met thousands of investors who wanted

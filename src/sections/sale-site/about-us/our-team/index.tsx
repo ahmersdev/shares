@@ -31,7 +31,12 @@ export default function OurTeam() {
               height={"100%"}
               gap={0.6}
             >
-              <Box border={8} borderColor={"primary.5"} borderRadius={"50%"}>
+              <Box
+                border={8}
+                borderColor={"primary.100"}
+                borderRadius={"50%"}
+                display={"flex"}
+              >
                 <Image
                   src={member.img}
                   alt={member.name}

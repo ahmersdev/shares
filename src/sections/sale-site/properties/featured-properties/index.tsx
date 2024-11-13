@@ -16,6 +16,7 @@ export default function FeaturedProperties() {
         gap={2.4}
         px={2}
         pb={5}
+        mt={5}
       >
         <Typography
           variant={"heading1"}

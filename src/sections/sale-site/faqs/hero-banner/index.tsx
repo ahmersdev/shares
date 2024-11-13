@@ -78,23 +78,19 @@ export default function HeroBanner({
               ".MuiInputBase-root": {
                 px: { xs: 2, md: 5 },
                 borderRadius: 6,
-                border: 1,
+                border: "none",
                 height: 80,
                 fontWeight: 500,
                 fontSize: pxToRem(20),
                 bgcolor: theme.palette.grey[50],
-                borderColor: theme.palette.primary[5],
                 "&:hover fieldset": {
-                  borderColor: theme.palette.primary[5],
-                  border: 1,
+                  border: "none",
                 },
                 "& fieldset": {
-                  borderColor: theme.palette.primary[5],
-                  border: 1,
+                  border: "none",
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.primary[5],
-                  border: 1,
+                  border: "none",
                 },
                 "& ::placeholder": {
                   color: theme.palette.text.body,

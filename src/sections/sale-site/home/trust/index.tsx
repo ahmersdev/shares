@@ -33,9 +33,7 @@ export default function Trust() {
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <Box
-              bgcolor={"primary.5"}
-              border={"1px solid"}
-              borderColor={"primary.main"}
+              bgcolor={"primary.50"}
               borderRadius={10}
               p={3.2}
               height={"100%"}
@@ -43,7 +41,7 @@ export default function Trust() {
               flexDirection={"column"}
               justifyContent={"center"}
               gap={2.4}
-              color={"text.heading"}
+              color={"grey.50"}
             >
               <TrustDualIcon />
               <Typography variant={"h5"}>DUAL REGULATED</Typography>
@@ -56,11 +54,12 @@ export default function Trust() {
                   variant={"contained"}
                   sx={{
                     ...BUTTON_STYLES,
-                    color: "primary.main",
+                    color: "grey.50",
                     borderColor: "primary.main",
-                    backgroundColor: "common.white",
+                    background: "primary.main",
+                    boxShadow: `0px 0px 0px 5px ${theme.palette.opacity.shadow}`,
                     ":hover": {
-                      backgroundColor: "primary.10",
+                      backgroundColor: "primary.main",
                     },
                   }}
                   disableElevation
@@ -75,11 +74,10 @@ export default function Trust() {
               {trustDataArray.map((item: ITrustData) => (
                 <Box
                   key={item.id}
-                  border={"1px solid"}
-                  borderColor={"primary.main"}
                   borderRadius={8}
                   p={4.5}
                   color={"text.heading"}
+                  bgcolor={item.bgcolor}
                 >
                   <item.icon />
                   <Typography variant={"h5"} my={2.4}>
@@ -130,7 +128,7 @@ export default function Trust() {
                     sx={{ transform: "translate(5%, -50%)" }}
                   >
                     <Box
-                      bgcolor={"primary.5"}
+                      bgcolor={"primary.10"}
                       borderRadius={"50%"}
                       width={100}
                       height={100}

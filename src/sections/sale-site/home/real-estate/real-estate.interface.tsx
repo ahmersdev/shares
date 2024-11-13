@@ -6,4 +6,5 @@ export interface IRealEstateData {
   title: string;
   desc: string;
   href?: string;
+  bgcolor: string;
 }

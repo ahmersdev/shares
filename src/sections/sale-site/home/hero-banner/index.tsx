@@ -68,7 +68,7 @@ export default function HeroBanner() {
         <Chip
           label={"8% Cash Back From Day 1"}
           sx={{
-            bgcolor: "primary.5",
+            bgcolor: "primary.100",
             color: "primary.main",
             px: 1,
             py: 2,
@@ -108,10 +108,10 @@ export default function HeroBanner() {
               sx={{
                 ...BUTTON_STYLES,
                 color: "primary.main",
-                borderColor: "primary.5",
-                backgroundColor: "primary.5",
+                borderColor: "primary.25",
+                backgroundColor: "primary.25",
                 ":hover": {
-                  backgroundColor: "primary.5",
+                  backgroundColor: "primary.25",
                 },
               }}
               disableElevation
@@ -126,10 +126,10 @@ export default function HeroBanner() {
               sx={{
                 ...BUTTON_STYLES,
                 color: "grey.50",
-                borderColor: "primary.main",
-                backgroundColor: "primary.main",
+                borderColor: "primary.50",
+                backgroundColor: "primary.50",
                 ":hover": {
-                  backgroundColor: "primary.main",
+                  backgroundColor: "primary.50",
                 },
               }}
               disableElevation

@@ -25,12 +25,12 @@ export default function DesktopSlider() {
 
   return (
     <Box
-      bgcolor={"opacity.bg"}
+      bgcolor={"primary.5"}
       display={{ xs: "none", sm: "flex" }}
       flexDirection={"column"}
       alignItems={"center"}
       gap={4}
-      pt={16}
+      pt={21}
       pb={3.2}
       px={2}
     >
@@ -78,22 +78,10 @@ export default function DesktopSlider() {
                 left: 0,
                 width: "100%",
                 height: "100%",
-                backgroundImage: `url(${PropertiesSliderOneImg.src})`,
+                backgroundImage: `${theme.palette.gradients.primary}, url(${PropertiesSliderOneImg.src})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center center",
                 backgroundRepeat: "no-repeat",
-                zIndex: 0,
-              }}
-            />
-            <Box
-              sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                background: theme.palette.gradients.primary,
-                zIndex: 1,
               }}
             />
             <Box color={"grey.900"} pl={6.2} py={9} zIndex={2}>

@@ -1,4 +1,10 @@
-import { Box, Button, LinearProgress, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  LinearProgress,
+  Typography,
+} from "@mui/material";
 import { DATE_FORMATS } from "@/constants";
 import Image from "next/image";
 import { BUTTON_STYLES } from "@/styles";
@@ -25,7 +31,7 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
       height={"100%"}
       justifyContent={"space-between"}
       border={1}
-      borderColor={"primary.main"}
+      borderColor={"primary.50"}
       position={"relative"}
     >
       {soldOut && (
@@ -93,6 +99,8 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
           </Typography>
         )}
 
+        <Divider sx={{ borderColor: "primary.5" }} />
+
         <Box
           display={"flex"}
           alignItems={"center"}
@@ -115,7 +123,7 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
         <Box
           display={"flex"}
           flexDirection={"column"}
-          bgcolor={"primary.5"}
+          bgcolor={"primary.10"}
           borderRadius={2}
           p={1.2}
           gap={1.2}
@@ -153,11 +161,13 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
         <LinearProgress
           variant={"determinate"}
           value={property.progress ? property.progress : 0}
-          color={"primary"}
           sx={{
             borderRadius: 1.5,
             height: 6,
             backgroundColor: "primary.5",
+            "& .MuiLinearProgress-bar": {
+              backgroundColor: "primary.50",
+            },
             "& .MuiLinearProgress-bar1Determinate": {
               borderRadius: "inherit",
             },

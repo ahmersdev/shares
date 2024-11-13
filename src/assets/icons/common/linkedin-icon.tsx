@@ -1,6 +1,6 @@
 import { IAssetsProps } from "@/interfaces";
 
-const LinkedInIcon = ({ fill = "#0E0E0E" }: IAssetsProps) => {
+const LinkedInIcon = ({ fill = "#FCFCFC" }: IAssetsProps) => {
   return (
     <svg
       width="25"

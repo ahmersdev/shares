@@ -34,14 +34,13 @@ export default function InHouse() {
 
         {InHoseDataArray.map((item: IInHouseDataArray) => (
           <Box
-            border={"1px solid"}
-            borderColor={"primary.50"}
             borderRadius={6}
             px={2.4}
             py={3}
             maxWidth={"sm"}
             width={"100%"}
             key={item.id}
+            bgcolor={item.bgcolor}
           >
             <Typography
               variant={"body2"}

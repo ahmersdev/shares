@@ -91,11 +91,11 @@ export default function Navbar() {
                   variant={"contained"}
                   sx={{
                     ...BUTTON_STYLES,
-                    color: "primary.main",
-                    borderColor: "primary.5",
-                    backgroundColor: "primary.5",
+                    color: "grey.50",
+                    borderColor: "primary.main",
+                    backgroundColor: "primary.main",
                     ":hover": {
-                      backgroundColor: "primary.5",
+                      backgroundColor: "primary.main",
                     },
                   }}
                   disableElevation
@@ -110,10 +110,10 @@ export default function Navbar() {
                   sx={{
                     ...BUTTON_STYLES,
                     color: "grey.50",
-                    borderColor: "primary.main",
-                    backgroundColor: "primary.main",
+                    borderColor: "primary.50",
+                    backgroundColor: "primary.50",
                     ":hover": {
-                      backgroundColor: "primary.main",
+                      backgroundColor: "primary.50",
                     },
                   }}
                   disableElevation

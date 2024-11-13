@@ -6,6 +6,7 @@ export interface ITrustData {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
   desc: string;
+  bgcolor: string;
 }
 
 interface Badge {

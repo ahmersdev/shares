@@ -30,11 +30,9 @@ export default function Investors() {
         >
           {topInvestorsData.map((investor: IInvestors) => (
             <Box
-              border={1}
-              borderColor={"primary.main"}
               p={"12px 20px"}
               borderRadius={3}
-              bgcolor={"opacity.bg"}
+              bgcolor={investor.bgcolor}
               height={"100%"}
               display={"flex"}
               alignItems={"center"}
@@ -64,11 +62,9 @@ export default function Investors() {
         >
           {investorsData.map((investor: IInvestors) => (
             <Box
-              border={1}
-              borderColor={"primary.main"}
               p={"12px 20px"}
               borderRadius={3}
-              bgcolor={"opacity.bg"}
+              bgcolor={investor.bgcolor}
               height={"100%"}
               display={"flex"}
               alignItems={"center"}

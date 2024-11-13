@@ -26,12 +26,12 @@ export default function MobileSlider() {
 
   return (
     <Box
-      bgcolor={"opacity.bg"}
+      bgcolor={"primary.5"}
       display={{ xs: "flex", sm: "none" }}
       flexDirection={"column"}
       alignItems={"center"}
       gap={4}
-      pt={16}
+      pt={21}
       pb={3.2}
       px={2}
     >
@@ -75,22 +75,10 @@ export default function MobileSlider() {
                 left: 0,
                 width: "100%",
                 height: "100%",
-                backgroundImage: `url(${PropertiesSliderOneImg.src})`,
+                backgroundImage: `${theme.palette.gradients.primary}, url(${PropertiesSliderOneImg.src})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center center",
                 backgroundRepeat: "no-repeat",
-                zIndex: 0,
-              }}
-            />
-            <Box
-              sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                background: theme.palette.gradients.primary,
-                zIndex: 1,
               }}
             />
             <Box
@@ -136,7 +124,7 @@ export default function MobileSlider() {
             borderRadius={6}
             overflow={"hidden"}
             pt={7}
-            bgcolor={"primary.5"}
+            bgcolor={"primary.25"}
             height={"80vh"}
           >
             <Box
@@ -186,7 +174,7 @@ export default function MobileSlider() {
             borderRadius={6}
             overflow={"hidden"}
             pt={7}
-            bgcolor={"primary.5"}
+            bgcolor={"primary.25"}
             height={"80vh"}
           >
             <Box

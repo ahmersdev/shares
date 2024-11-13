@@ -114,11 +114,9 @@ export default function Testimonials() {
           <SwiperSlide
             key={item.id}
             style={{
-              backgroundColor: theme.palette.grey[50],
+              backgroundColor: theme.palette.primary[10],
               borderRadius: 24,
               height: "100%",
-              border: "1px solid",
-              borderColor: theme.palette.primary[50],
             }}
           >
             <Box py={1.6} px={2.4}>

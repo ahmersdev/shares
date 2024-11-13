@@ -30,11 +30,9 @@ export default function Mission() {
           {missionData.map((mission: IMissionData) => (
             <Grid item xs={12} md={6} key={mission.id}>
               <Box
-                border={1}
-                borderColor={"primary.main"}
                 p={2.4}
                 borderRadius={6}
-                bgcolor={"opacity.bg"}
+                bgcolor={mission.bgcolor}
                 height={"100%"}
               >
                 <Typography variant={"h5"} color={"primary.main"} mb={2.4}>

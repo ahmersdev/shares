@@ -29,7 +29,7 @@ export default function HowItWorks() {
           {howItWorksDataArray.map((item: IHowItWorksData) => (
             <Grid item xs={12} sm={6} md={3} key={item.id}>
               <Box
-                bgcolor={"primary.5"}
+                bgcolor={"primary.10"}
                 p={2.4}
                 borderRadius={6}
                 display={"flex"}

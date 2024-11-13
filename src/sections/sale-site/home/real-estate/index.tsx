@@ -43,8 +43,6 @@ export default function RealEstate() {
           {realEstateDataArray.map((item: IRealEstateData) => (
             <Grid item xs={12} sm={6} key={item.id}>
               <Box
-                border={1}
-                borderColor={"primary.main"}
                 borderRadius={6}
                 p={{ xs: 2, md: 6 }}
                 height={"100%"}
@@ -52,7 +50,7 @@ export default function RealEstate() {
                 flexDirection={"column"}
                 justifyContent={"center"}
                 gap={3.2}
-                bgcolor={"opacity.bg"}
+                bgcolor={item.bgcolor}
                 color={"text.heading"}
               >
                 <item.icon />

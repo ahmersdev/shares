@@ -1,5 +1,11 @@
 import { BUTTON_STYLES } from "@/styles";
-import { Box, Button, LinearProgress, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  LinearProgress,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
 import { IDetailsPublic, IInteriorDetails } from "@/interfaces/properties";
 import { IPropertiesDataArray } from "./properties-card.interface";
@@ -17,7 +23,7 @@ export default function PropertiesCard(props: IPropertiesDataArray) {
       height={"100%"}
       justifyContent={"space-between"}
       border={1}
-      borderColor={"primary.main"}
+      borderColor={"primary.50"}
       position={"relative"}
     >
       {property.soldOutBadge && (
@@ -72,6 +78,8 @@ export default function PropertiesCard(props: IPropertiesDataArray) {
           {property.description}
         </Typography>
 
+        <Divider sx={{ borderColor: "primary.5" }} />
+
         <Box
           display={"flex"}
           alignItems={"center"}
@@ -90,7 +98,7 @@ export default function PropertiesCard(props: IPropertiesDataArray) {
         <Box
           display={"flex"}
           flexDirection={"column"}
-          bgcolor={"primary.5"}
+          bgcolor={"primary.10"}
           borderRadius={2}
           p={1.2}
           gap={1.2}
@@ -117,11 +125,13 @@ export default function PropertiesCard(props: IPropertiesDataArray) {
         <LinearProgress
           variant={"determinate"}
           value={property.progress}
-          color={"primary"}
           sx={{
             borderRadius: 1.5,
             height: 6,
             backgroundColor: "primary.5",
+            "& .MuiLinearProgress-bar": {
+              backgroundColor: "primary.50",
+            },
             "& .MuiLinearProgress-bar1Determinate": {
               borderRadius: "inherit",
             },
@@ -150,11 +160,11 @@ export default function PropertiesCard(props: IPropertiesDataArray) {
             sx={{
               ...BUTTON_STYLES,
               color: "grey.50",
-              borderColor: "primary.main",
-              backgroundColor: "primary.main",
+              borderColor: "primary.50",
+              backgroundColor: "primary.50",
               width: "100%",
               ":hover": {
-                backgroundColor: "primary.main",
+                backgroundColor: "primary.50",
               },
             }}
             disableElevation
