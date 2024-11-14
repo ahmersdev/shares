@@ -1,7 +1,7 @@
 import { IAssetsProps } from "@/interfaces";
 
 const DepositViaCardIcon = ({
-  fill = "#F5F0EB",
+  fill = "#E6ECF5",
   stroke = "#4E4E4E",
 }: IAssetsProps) => {
   return (

@@ -5,6 +5,7 @@ const TAG = ["WALLET"];
 
 export const walletApi = baseAPI.injectEndpoints({
   endpoints: (builder) => ({
+    // Add Card
     postAddCard: builder.mutation({
       query: (body: any) => ({
         url: WEB_APP.ADD_CARD,
@@ -13,7 +14,7 @@ export const walletApi = baseAPI.injectEndpoints({
       }),
       invalidatesTags: TAG,
     }),
-
+    // Cards List
     getCardList: builder.query({
       query: () => ({
         url: WEB_APP.GET_CARD,
@@ -21,14 +22,14 @@ export const walletApi = baseAPI.injectEndpoints({
       }),
       providesTags: TAG,
     }),
-
+    // Delete Card
     deleteCard: builder.mutation({
       query: (cardId: any) => ({
         url: `${WEB_APP.DELETE_CARD}/${cardId}`,
         method: "DELETE",
       }),
     }),
-
+    // Total Cash Balance
     getTotalCash: builder.query({
       query: () => ({
         url: WEB_APP.GET_TOTAL_CASH,
@@ -36,6 +37,7 @@ export const walletApi = baseAPI.injectEndpoints({
       }),
       providesTags: TAG,
     }),
+    // Card List dropdown
     getCardListDropdown: builder.query({
       query: () => ({
         url: WEB_APP.GET_CARD,
@@ -43,6 +45,15 @@ export const walletApi = baseAPI.injectEndpoints({
       }),
       transformResponse: (response: any) => response?.data,
       providesTags: TAG,
+    }),
+    // Deposit Amount Via Card
+    postDepositAmountViaCard: builder.mutation({
+      query: (body: any) => ({
+        url: WEB_APP.DEPOSIT_VIA_CARD,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: TAG,
     }),
   }),
 });
@@ -53,4 +64,5 @@ export const {
   useLazyGetCardListDropdownQuery,
   useDeleteCardMutation,
   useGetTotalCashQuery,
+  usePostDepositAmountViaCardMutation,
 } = walletApi;

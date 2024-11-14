@@ -5,7 +5,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { ICardProps } from "./card.interface";
-import { useLazyGetCardListDropdownQuery } from "@/services/web-app/wallet";
+import {
+  useLazyGetCardListDropdownQuery,
+  usePostDepositAmountViaCardMutation,
+} from "@/services/web-app/wallet";
+import { IApiErrorResponse } from "@/interfaces";
 
 export default function useCard(props: ICardProps) {
   const { setOpenDepositDialog } = props;
@@ -35,17 +39,28 @@ export default function useCard(props: ICardProps) {
   });
 
   const { handleSubmit, reset } = methods;
+  const [postDepositAmountViaCardTrigger] =
+    usePostDepositAmountViaCardMutation();
 
   const depositCashViaCard = async (data: {
     amount: number;
-    paymentMethod: null;
+    paymentMethod: any;
   }) => {
     setLoading(true);
+    const updatedData = {
+      amount: data.amount,
+      paymentMethod: data?.paymentMethod?.id,
+    };
     try {
-      successSnackbar("Investment successful!");
-      reset();
+      const res = await postDepositAmountViaCardTrigger(updatedData).unwrap();
+      if (res) {
+        successSnackbar(res?.msg ?? "Deposit successful!");
+        reset();
+        onCloseCardHandler();
+      }
     } catch (error) {
-      errorSnackbar("Investment failed");
+      const errorResponse = error as IApiErrorResponse;
+      errorSnackbar(errorResponse?.data?.errors);
     } finally {
       setLoading(false);
     }

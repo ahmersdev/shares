@@ -53,6 +53,7 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
         height={312}
         style={{
           objectFit: "cover",
+          width: "100%",
         }}
       />
 
