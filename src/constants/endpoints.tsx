@@ -30,4 +30,5 @@ export const WEB_APP = {
   GET_TOTAL_CASH: `/users/wallet-info`,
   DEPOSIT_VIA_CARD: `/user/card/deposite-amount`,
   WITHDRAW_VIA_CARD: `/user/card/withdraw-amount`,
+  GET_ALL_TRANSACTIONS: `/user/transaction/all`,
 };

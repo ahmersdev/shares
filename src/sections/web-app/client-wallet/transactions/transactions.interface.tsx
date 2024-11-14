@@ -1,7 +1,6 @@
 export interface ITransactionTableColumn {
-  time: string;
+  createdAt: string;
   status: string;
-  date: string;
-  wallet: string;
+  paymentIntentId: string;
   amount: number;
 }

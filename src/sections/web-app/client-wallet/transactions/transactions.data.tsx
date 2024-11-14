@@ -1,30 +1,32 @@
 import { CellContext } from "@tanstack/react-table";
 import { ITransactionTableColumn } from "./transactions.interface";
+import dayjs from "dayjs";
+import { Typography } from "@mui/material";
 
 export const transactionsTableColumns = [
   {
-    accessorFn: (row: ITransactionTableColumn) => row?.time,
-    id: "time",
-    header: "Time",
-    cell: (info: CellContext<ITransactionTableColumn, any>) => info.getValue(),
+    accessorFn: (row: ITransactionTableColumn) => row?.createdAt,
+    id: "date",
+    header: "Date",
+    cell: (info: CellContext<ITransactionTableColumn, any>) =>
+      dayjs(info.getValue()).format("YYYY-MM-DD THH:mm"),
   },
   {
     accessorFn: (row: ITransactionTableColumn) => row?.status,
     id: "status",
     header: "Status",
-    cell: (info: CellContext<ITransactionTableColumn, any>) => info.getValue(),
+    cell: (info: CellContext<ITransactionTableColumn, any>) => (
+      <Typography variant={"caption"} textTransform={"capitalize"}>
+        {info.getValue()}
+      </Typography>
+    ),
   },
   {
-    accessorFn: (row: ITransactionTableColumn) => row?.date,
-    id: "date",
-    header: "Date",
-    cell: (info: CellContext<ITransactionTableColumn, any>) => info.getValue(),
-  },
-  {
-    accessorFn: (row: ITransactionTableColumn) => row?.wallet,
+    accessorFn: (row: ITransactionTableColumn) => row?.paymentIntentId,
     id: "wallet",
     header: "Wallet",
-    cell: (info: CellContext<ITransactionTableColumn, any>) => info.getValue(),
+    cell: (info: CellContext<ITransactionTableColumn, any>) =>
+      !!!info.getValue() ? `Card` : "Crypto",
   },
   {
     accessorFn: (row: ITransactionTableColumn) => row?.amount,

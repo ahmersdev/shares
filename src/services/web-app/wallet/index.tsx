@@ -64,6 +64,14 @@ export const walletApi = baseAPI.injectEndpoints({
       }),
       invalidatesTags: TAG,
     }),
+    // Get List of All Transactions
+    getListOfAllTransactions: builder.query({
+      query: () => ({
+        url: WEB_APP.GET_ALL_TRANSACTIONS,
+        method: "GET",
+      }),
+      providesTags: TAG,
+    }),
   }),
 });
 
@@ -75,4 +83,5 @@ export const {
   useGetTotalCashQuery,
   usePostDepositAmountViaCardMutation,
   usePostWithdrawAmountViaCardMutation,
+  useGetListOfAllTransactionsQuery,
 } = walletApi;
