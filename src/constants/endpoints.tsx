@@ -29,4 +29,5 @@ export const WEB_APP = {
   REMOVE_CART_ITEM: `/users/delete-cart-item`,
   GET_TOTAL_CASH: `/users/wallet-info`,
   DEPOSIT_VIA_CARD: `/user/card/deposite-amount`,
+  WITHDRAW_VIA_CARD: `/user/card/withdraw-amount`,
 };

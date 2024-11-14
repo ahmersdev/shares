@@ -55,6 +55,15 @@ export const walletApi = baseAPI.injectEndpoints({
       }),
       invalidatesTags: TAG,
     }),
+    // Withdraw Amount Via Card
+    postWithdrawAmountViaCard: builder.mutation({
+      query: (body: any) => ({
+        url: WEB_APP.WITHDRAW_VIA_CARD,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: TAG,
+    }),
   }),
 });
 
@@ -65,4 +74,5 @@ export const {
   useDeleteCardMutation,
   useGetTotalCashQuery,
   usePostDepositAmountViaCardMutation,
+  usePostWithdrawAmountViaCardMutation,
 } = walletApi;

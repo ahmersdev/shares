@@ -13,7 +13,7 @@ import useCashBalance from "./use-cash-balance";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { DepositViaCardIcon, DepositViaCryptoIcon } from "@/assets/icons";
 import { CryptoDeposit, CardDeposit } from "./deposit";
-import { CryptoWithdraw } from "./withdraw";
+import { CardWithdraw, CryptoWithdraw } from "./withdraw";
 
 export default function CashBalance() {
   const {
@@ -323,6 +323,12 @@ export default function CashBalance() {
       )}
       {openWithdrawDialog?.withdrawViaCrypto && (
         <CryptoWithdraw
+          openWithdrawDialog={openWithdrawDialog}
+          setOpenWithdrawDialog={setOpenWithdrawDialog}
+        />
+      )}
+      {openWithdrawDialog?.withdrawViaCard && (
+        <CardWithdraw
           openWithdrawDialog={openWithdrawDialog}
           setOpenWithdrawDialog={setOpenWithdrawDialog}
         />

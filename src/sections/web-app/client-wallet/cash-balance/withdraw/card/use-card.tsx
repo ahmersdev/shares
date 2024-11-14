@@ -4,24 +4,21 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
-import { ICardDepositProps } from "./card.interface";
-import {
-  useLazyGetCardListDropdownQuery,
-  usePostDepositAmountViaCardMutation,
-} from "@/services/web-app/wallet";
+import { usePostWithdrawAmountViaCardMutation } from "@/services/web-app/wallet";
 import { IApiErrorResponse } from "@/interfaces";
+import { ICardWithdrawProps } from "./card.interface";
 
-export default function useCardDeposit(props: ICardDepositProps) {
-  const { setOpenDepositDialog } = props;
+export default function useCardDeposit(props: ICardWithdrawProps) {
+  const { setOpenWithdrawDialog } = props;
   const theme = useTheme<Theme>();
 
   const [loading, setLoading] = useState(false);
 
   const onCloseCardHandler = () => {
-    setOpenDepositDialog({
-      deposit: false,
-      depositViaCard: false,
-      depositViaCrypto: false,
+    setOpenWithdrawDialog({
+      withdraw: false,
+      withdrawViaCard: false,
+      withdrawViaCrypto: false,
     });
   };
 
@@ -32,29 +29,21 @@ export default function useCardDeposit(props: ICardDepositProps) {
           .positive("Must be above 0")
           .typeError("Must be a number")
           .required("Amount is Required"),
-        paymentMethod: Yup.mixed().nullable().required("Card is Required"),
-      }) as any
+      })
     ),
-    defaultValues: { amount: undefined, paymentMethod: null },
+    defaultValues: { amount: undefined },
   });
 
   const { handleSubmit, reset } = methods;
-  const [postDepositAmountViaCardTrigger] =
-    usePostDepositAmountViaCardMutation();
+  const [postWithdrawAmountViaCardTrigger] =
+    usePostWithdrawAmountViaCardMutation();
 
-  const depositCashViaCard = async (data: {
-    amount: number;
-    paymentMethod: any;
-  }) => {
+  const withdrawCashViaCard = async (data: { amount: number }) => {
     setLoading(true);
-    const updatedData = {
-      amount: data.amount,
-      paymentMethod: data?.paymentMethod?.id,
-    };
     try {
-      const res = await postDepositAmountViaCardTrigger(updatedData).unwrap();
+      const res = await postWithdrawAmountViaCardTrigger(data).unwrap();
       if (res) {
-        successSnackbar(res?.msg ?? "Deposit successful!");
+        successSnackbar(res?.msg ?? "Withdraw successful!");
         reset();
         onCloseCardHandler();
       }
@@ -66,15 +55,12 @@ export default function useCardDeposit(props: ICardDepositProps) {
     }
   };
 
-  const apiQueryCards = useLazyGetCardListDropdownQuery();
-
   return {
     theme,
     onCloseCardHandler,
     loading,
     methods,
     handleSubmit,
-    depositCashViaCard,
-    apiQueryCards,
+    withdrawCashViaCard,
   };
 }
