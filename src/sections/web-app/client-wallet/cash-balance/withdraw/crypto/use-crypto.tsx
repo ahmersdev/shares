@@ -1,25 +1,25 @@
 import { Theme, useTheme } from "@mui/material";
+import { ICryptoWithdrawProps } from "./crypto.interface";
+import { useState } from "react";
+import { errorSnackbar, successSnackbar } from "@/utils/api";
+import { BrowserProvider, ethers, Contract } from "ethers";
+import { CONTRACT_ADDRESS } from "@/constants";
+import RealEstateSPVABI from "@/json/RealEstateSPVABI.json";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
-import { errorSnackbar, successSnackbar } from "@/utils/api";
-import { Contract, ethers, BrowserProvider } from "ethers";
-import RealEstateSPVABI from "@/json/RealEstateSPVABI.json";
-import { ICryptoDepositProps } from "./crypto.interface";
-import { CONTRACT_ADDRESS as contractAddress } from "@/constants";
 
-export default function useCryptoDeposit(props: ICryptoDepositProps) {
-  const { setOpenDepositDialog } = props;
+export default function useCryptoWithdraw(props: ICryptoWithdrawProps) {
+  const { setOpenWithdrawDialog } = props;
   const theme = useTheme<Theme>();
 
   const [loading, setLoading] = useState(false);
 
   const onCloseCryptoHandler = () => {
-    setOpenDepositDialog({
-      deposit: false,
-      depositViaCard: false,
-      depositViaCrypto: false,
+    setOpenWithdrawDialog({
+      withdraw: false,
+      withdrawViaCard: false,
+      withdrawViaCrypto: false,
     });
   };
 
@@ -45,7 +45,7 @@ export default function useCryptoDeposit(props: ICryptoDepositProps) {
       loading,
       methods,
       handleSubmit,
-      depositCashViaCrypto: () => {},
+      withdrawCashViaCrypto: () => {},
     };
   }
 
@@ -54,24 +54,18 @@ export default function useCryptoDeposit(props: ICryptoDepositProps) {
 
   const initializeContract = async () => {
     const signer = await provider?.getSigner();
-    contract = new Contract(contractAddress, RealEstateSPVABI, signer);
+    contract = new Contract(CONTRACT_ADDRESS, RealEstateSPVABI, signer);
   };
 
-  const depositCashViaCrypto = async (data: { amount: number }) => {
+  const withdrawCashViaCrypto = async (data: { amount: number }) => {
     setLoading(true);
     try {
-      if (typeof window === "undefined" || !(window as any)?.ethereum) {
-        errorSnackbar("MetaMask not found. Please install it.");
-        setLoading(false);
-        return;
-      }
-
       if (!contract) await initializeContract();
-      const tx = await contract!.invest({
+      const tx = await contract!.payCashback({
         value: ethers?.parseEther(data?.amount?.toString()),
       });
       await tx?.wait();
-      successSnackbar("Investment successful!");
+      successSnackbar("Cashback Paid Successfully!");
       reset();
       onCloseCryptoHandler();
     } catch (error) {
@@ -87,6 +81,6 @@ export default function useCryptoDeposit(props: ICryptoDepositProps) {
     loading,
     methods,
     handleSubmit,
-    depositCashViaCrypto,
+    withdrawCashViaCrypto,
   };
 }

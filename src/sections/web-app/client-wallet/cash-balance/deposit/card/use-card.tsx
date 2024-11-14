@@ -4,14 +4,14 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
-import { ICardProps } from "./card.interface";
+import { ICardDepositProps } from "./card.interface";
 import {
   useLazyGetCardListDropdownQuery,
   usePostDepositAmountViaCardMutation,
 } from "@/services/web-app/wallet";
 import { IApiErrorResponse } from "@/interfaces";
 
-export default function useCard(props: ICardProps) {
+export default function useCardDeposit(props: ICardDepositProps) {
   const { setOpenDepositDialog } = props;
   const theme = useTheme<Theme>();
 

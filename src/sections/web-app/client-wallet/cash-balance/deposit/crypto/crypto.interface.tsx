@@ -4,7 +4,7 @@ interface IOpenDepositDialog {
   depositViaCrypto: boolean;
 }
 
-export interface ICryptoProps {
+export interface ICryptoDepositProps {
   openDepositDialog: IOpenDepositDialog;
   setOpenDepositDialog: React.Dispatch<
     React.SetStateAction<IOpenDepositDialog>

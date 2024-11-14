@@ -12,8 +12,8 @@ import { BUTTON_STYLES } from "@/styles";
 import useCashBalance from "./use-cash-balance";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { DepositViaCardIcon, DepositViaCryptoIcon } from "@/assets/icons";
-import Crypto from "./deposit/crypto";
-import Card from "./deposit/card";
+import { CryptoDeposit, CardDeposit } from "./deposit";
+import { CryptoWithdraw } from "./withdraw";
 
 export default function CashBalance() {
   const {
@@ -25,6 +25,9 @@ export default function CashBalance() {
     isLoading,
     isFetching,
     isError,
+    openWithdrawDialog,
+    setOpenWithdrawDialog,
+    onCloseWithdrawHandler,
   } = useCashBalance();
 
   return (
@@ -55,7 +58,6 @@ export default function CashBalance() {
           </Typography>
         )}
       </Box>
-
       <Box display={"flex"} flexDirection={"column"} gap={0.8} width={120}>
         <Button
           variant={"contained"}
@@ -94,117 +96,235 @@ export default function CashBalance() {
             },
           }}
           disableElevation
-          // onClick={withdrawCash}
+          onClick={() =>
+            setOpenWithdrawDialog({
+              withdraw: true,
+              withdrawViaCard: false,
+              withdrawViaCrypto: false,
+            })
+          }
         >
           Withdraw
         </Button>
       </Box>
 
-      <Dialog
-        open={openDepositDialog.deposit}
-        onClose={onCloseDepositHandler}
-        fullWidth
-        PaperProps={{
-          sx: {
-            borderRadius: 6,
-            border: 1,
-            borderColor: "text.stroke",
-            maxWidth: theme.breakpoints.values.sm - 80,
-          },
-        }}
-      >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
+      {/* Deposit Actions */}
+      {openDepositDialog.deposit && (
+        <Dialog
+          open={openDepositDialog.deposit}
+          onClose={onCloseDepositHandler}
+          fullWidth
+          PaperProps={{
+            sx: {
+              borderRadius: 6,
+              border: 1,
+              borderColor: "text.stroke",
+              maxWidth: theme.breakpoints.values.sm - 80,
+            },
           }}
         >
-          <Typography variant={"body1"} fontWeight={700} color={"text.heading"}>
-            Deposit
-          </Typography>
-
-          <CloseRoundedIcon
-            sx={{ color: "text.body", cursor: "pointer" }}
-            onClick={onCloseDepositHandler}
-          />
-        </DialogTitle>
-
-        <DialogContent>
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            gap={1.6}
-            border={1}
-            borderRadius={3}
-            borderColor={"text.stroke"}
-            px={1.6}
-            py={2}
+          <DialogTitle
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
           >
+            <Typography
+              variant={"body1"}
+              fontWeight={700}
+              color={"text.heading"}
+            >
+              Deposit
+            </Typography>
+
+            <CloseRoundedIcon
+              sx={{ color: "text.body", cursor: "pointer" }}
+              onClick={onCloseDepositHandler}
+            />
+          </DialogTitle>
+
+          <DialogContent>
             <Box
               display={"flex"}
-              alignItems={"center"}
-              gap={1}
-              sx={{ cursor: "pointer" }}
-              onClick={() =>
-                setOpenDepositDialog({
-                  deposit: false,
-                  depositViaCard: true,
-                  depositViaCrypto: false,
-                })
-              }
+              flexDirection={"column"}
+              gap={1.6}
+              border={1}
+              borderRadius={3}
+              borderColor={"text.stroke"}
+              px={1.6}
+              py={2}
             >
-              <DepositViaCardIcon />
-              <Typography
-                variant={"body3"}
-                component={"p"}
-                color={"text.heading"}
-                fontWeight={600}
+              <Box
+                display={"flex"}
+                alignItems={"center"}
+                gap={1}
+                sx={{ cursor: "pointer" }}
+                onClick={() =>
+                  setOpenDepositDialog({
+                    deposit: false,
+                    depositViaCard: true,
+                    depositViaCrypto: false,
+                  })
+                }
               >
-                Deposit Via Debit Card
-              </Typography>
-            </Box>
+                <DepositViaCardIcon />
+                <Typography
+                  variant={"body3"}
+                  component={"p"}
+                  color={"text.heading"}
+                  fontWeight={600}
+                >
+                  Deposit Via Debit Card
+                </Typography>
+              </Box>
 
-            <Divider sx={{ borderColor: "text.stroke" }} />
+              <Divider sx={{ borderColor: "text.stroke" }} />
 
-            <Box
-              display={"flex"}
-              alignItems={"center"}
-              gap={1}
-              sx={{ cursor: "pointer" }}
-              onClick={() =>
-                setOpenDepositDialog({
-                  deposit: false,
-                  depositViaCard: false,
-                  depositViaCrypto: true,
-                })
-              }
-            >
-              <DepositViaCryptoIcon />
-              <Typography
-                variant={"body3"}
-                component={"p"}
-                color={"text.heading"}
-                fontWeight={600}
+              <Box
+                display={"flex"}
+                alignItems={"center"}
+                gap={1}
+                sx={{ cursor: "pointer" }}
+                onClick={() =>
+                  setOpenDepositDialog({
+                    deposit: false,
+                    depositViaCard: false,
+                    depositViaCrypto: true,
+                  })
+                }
               >
-                Deposit Via Crypto
-              </Typography>
+                <DepositViaCryptoIcon />
+                <Typography
+                  variant={"body3"}
+                  component={"p"}
+                  color={"text.heading"}
+                  fontWeight={600}
+                >
+                  Deposit Via Crypto
+                </Typography>
+              </Box>
             </Box>
-          </Box>
-        </DialogContent>
-      </Dialog>
-
+          </DialogContent>
+        </Dialog>
+      )}
       {openDepositDialog?.depositViaCrypto && (
-        <Crypto
+        <CryptoDeposit
+          openDepositDialog={openDepositDialog}
+          setOpenDepositDialog={setOpenDepositDialog}
+        />
+      )}
+      {openDepositDialog?.depositViaCard && (
+        <CardDeposit
           openDepositDialog={openDepositDialog}
           setOpenDepositDialog={setOpenDepositDialog}
         />
       )}
 
-      {openDepositDialog?.depositViaCard && (
-        <Card
-          openDepositDialog={openDepositDialog}
-          setOpenDepositDialog={setOpenDepositDialog}
+      {/* Withdraw Actions */}
+      {openWithdrawDialog.withdraw && (
+        <Dialog
+          open={openWithdrawDialog.withdraw}
+          onClose={onCloseWithdrawHandler}
+          fullWidth
+          PaperProps={{
+            sx: {
+              borderRadius: 6,
+              border: 1,
+              borderColor: "text.stroke",
+              maxWidth: theme.breakpoints.values.sm - 80,
+            },
+          }}
+        >
+          <DialogTitle
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography
+              variant={"body1"}
+              fontWeight={700}
+              color={"text.heading"}
+            >
+              Withdraw
+            </Typography>
+
+            <CloseRoundedIcon
+              sx={{ color: "text.body", cursor: "pointer" }}
+              onClick={onCloseWithdrawHandler}
+            />
+          </DialogTitle>
+
+          <DialogContent>
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              gap={1.6}
+              border={1}
+              borderRadius={3}
+              borderColor={"text.stroke"}
+              px={1.6}
+              py={2}
+            >
+              <Box
+                display={"flex"}
+                alignItems={"center"}
+                gap={1}
+                sx={{ cursor: "pointer" }}
+                onClick={() =>
+                  setOpenWithdrawDialog({
+                    withdraw: false,
+                    withdrawViaCard: true,
+                    withdrawViaCrypto: false,
+                  })
+                }
+              >
+                <DepositViaCardIcon />
+                <Typography
+                  variant={"body3"}
+                  component={"p"}
+                  color={"text.heading"}
+                  fontWeight={600}
+                >
+                  Withdraw Via Debit Card
+                </Typography>
+              </Box>
+
+              <Divider sx={{ borderColor: "text.stroke" }} />
+
+              <Box
+                display={"flex"}
+                alignItems={"center"}
+                gap={1}
+                sx={{ cursor: "pointer" }}
+                onClick={() =>
+                  setOpenWithdrawDialog({
+                    withdraw: false,
+                    withdrawViaCard: false,
+                    withdrawViaCrypto: true,
+                  })
+                }
+              >
+                <DepositViaCryptoIcon />
+                <Typography
+                  variant={"body3"}
+                  component={"p"}
+                  color={"text.heading"}
+                  fontWeight={600}
+                >
+                  Withdraw Via Crypto
+                </Typography>
+              </Box>
+            </Box>
+          </DialogContent>
+        </Dialog>
+      )}
+      {openWithdrawDialog?.withdrawViaCrypto && (
+        <CryptoWithdraw
+          openWithdrawDialog={openWithdrawDialog}
+          setOpenWithdrawDialog={setOpenWithdrawDialog}
         />
       )}
     </Box>

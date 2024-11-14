@@ -14,6 +14,11 @@ export default function useCashBalance() {
     depositViaCard: false,
     depositViaCrypto: false,
   });
+  const [openWithdrawDialog, setOpenWithdrawDialog] = useState({
+    withdraw: false,
+    withdrawViaCard: false,
+    withdrawViaCrypto: false,
+  });
 
   const onCloseDepositHandler = () => {
     setOpenDepositDialog({
@@ -22,17 +27,13 @@ export default function useCashBalance() {
       depositViaCrypto: false,
     });
   };
-
-  // const withdrawCash = async () => {
-  //   try {
-  //     if (!contract) await initializeContract();
-  //     const tx = await contract!.payCashback();
-  //     await tx?.wait();
-  //     successSnackbar("Cashback paid successfully!");
-  //   } catch (error) {
-  //     errorSnackbar("Cashback payment failed");
-  //   }
-  // };
+  const onCloseWithdrawHandler = () => {
+    setOpenWithdrawDialog({
+      withdraw: false,
+      withdrawViaCard: false,
+      withdrawViaCrypto: false,
+    });
+  };
 
   return {
     theme,
@@ -43,5 +44,8 @@ export default function useCashBalance() {
     isLoading,
     isFetching,
     isError,
+    openWithdrawDialog,
+    setOpenWithdrawDialog,
+    onCloseWithdrawHandler,
   };
 }

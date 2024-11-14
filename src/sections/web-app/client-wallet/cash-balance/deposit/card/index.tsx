@@ -9,8 +9,8 @@ import {
   Typography,
 } from "@mui/material";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { ICardProps } from "./card.interface";
-import useCard from "./use-card";
+import { ICardDepositProps } from "./card.interface";
+import useCardDeposit from "./use-card";
 import {
   FormProvider,
   RHFAutocompleteAsync,
@@ -20,7 +20,7 @@ import { BUTTON_STYLES } from "@/styles";
 import { LoadingButton } from "@mui/lab";
 import { cardBrandIcon } from "../../../client-wallet.data";
 
-export default function Card(props: ICardProps) {
+export default function CardDeposit(props: ICardDepositProps) {
   const { openDepositDialog } = props;
 
   const {
@@ -31,7 +31,7 @@ export default function Card(props: ICardProps) {
     handleSubmit,
     depositCashViaCard,
     apiQueryCards,
-  } = useCard(props);
+  } = useCardDeposit(props);
 
   return (
     <Dialog

@@ -6,15 +6,15 @@ import {
   DialogTitle,
   Typography,
 } from "@mui/material";
+import { ICryptoWithdrawProps } from "./crypto.interface";
+import useCryptoWithdraw from "./use-crypto";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { FormProvider, RHFTextField } from "@/components/react-hook-form";
 import { BUTTON_STYLES } from "@/styles";
 import { LoadingButton } from "@mui/lab";
-import { ICryptoDepositProps } from "./crypto.interface";
-import useCryptoDeposit from "./use-crypto";
 
-export default function CryptoDeposit(props: ICryptoDepositProps) {
-  const { openDepositDialog } = props;
+export default function CryptoWithdraw(props: ICryptoWithdrawProps) {
+  const { openWithdrawDialog } = props;
 
   const {
     theme,
@@ -22,12 +22,12 @@ export default function CryptoDeposit(props: ICryptoDepositProps) {
     loading,
     methods,
     handleSubmit,
-    depositCashViaCrypto,
-  } = useCryptoDeposit(props);
+    withdrawCashViaCrypto,
+  } = useCryptoWithdraw(props);
 
   return (
     <Dialog
-      open={openDepositDialog.depositViaCrypto}
+      open={openWithdrawDialog.withdrawViaCrypto}
       onClose={onCloseCryptoHandler}
       fullWidth
       PaperProps={{
@@ -58,7 +58,7 @@ export default function CryptoDeposit(props: ICryptoDepositProps) {
 
       <FormProvider
         methods={methods}
-        onSubmit={handleSubmit(depositCashViaCrypto)}
+        onSubmit={handleSubmit(withdrawCashViaCrypto)}
       >
         <DialogContent>
           <RHFTextField
@@ -102,7 +102,7 @@ export default function CryptoDeposit(props: ICryptoDepositProps) {
             type={"submit"}
             loading={loading}
           >
-            Deposit
+            Withdraw
           </LoadingButton>
         </DialogActions>
       </FormProvider>
