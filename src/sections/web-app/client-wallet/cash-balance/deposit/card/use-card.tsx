@@ -1,10 +1,10 @@
 import { Theme, useTheme } from "@mui/material";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
-import { ICardDepositProps } from "./card.interface";
+import { ICardDepositForm, ICardDepositProps } from "./card.interface";
 import {
   useLazyGetCardListDropdownQuery,
   usePostDepositAmountViaCardMutation,
@@ -25,7 +25,7 @@ export default function useCardDeposit(props: ICardDepositProps) {
     });
   };
 
-  const methods = useForm({
+  const methods = useForm<ICardDepositForm>({
     resolver: yupResolver(
       Yup.object().shape({
         amount: Yup.number()
@@ -42,10 +42,7 @@ export default function useCardDeposit(props: ICardDepositProps) {
   const [postDepositAmountViaCardTrigger] =
     usePostDepositAmountViaCardMutation();
 
-  const depositCashViaCard = async (data: {
-    amount: number;
-    paymentMethod: any;
-  }) => {
+  const depositCashViaCard: SubmitHandler<ICardDepositForm> = async (data) => {
     setLoading(true);
     const updatedData = {
       amount: data.amount,

@@ -10,3 +10,8 @@ export interface ICardDepositProps {
     React.SetStateAction<IOpenDepositDialog>
   >;
 }
+
+export interface ICardDepositForm {
+  amount?: number;
+  paymentMethod: { id: string } | null;
+}
