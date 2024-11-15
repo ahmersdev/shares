@@ -1,6 +1,11 @@
-export const getAccountInformationData = () => ({
-  Name: "Frontend App",
-  Email: "email@test.com",
-  "Phone Number": "+923154806474",
-  "Investor Type": "Retail",
+export const getAccountInformationData = (data: {
+  fullName: string;
+  email: string;
+  phoneNumber?: string;
+  employmentStatus?: string;
+}) => ({
+  Name: data?.fullName ?? "---",
+  Email: data?.email ?? "---",
+  "Phone Number": data?.phoneNumber ?? "---",
+  "Employment Status": data?.employmentStatus ?? "---",
 });

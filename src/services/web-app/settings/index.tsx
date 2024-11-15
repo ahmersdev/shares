@@ -1,8 +1,6 @@
 import { WEB_APP } from "@/constants/endpoints";
 import { baseAPI } from "@/services/base-api";
 
-const TAG = ["SETTINGS"];
-
 export const userSettings = baseAPI.injectEndpoints({
   endpoints: (builder) => ({
     getUserDetails: builder.query({
@@ -11,9 +9,16 @@ export const userSettings = baseAPI.injectEndpoints({
         method: "GET",
         params,
       }),
-      providesTags: TAG,
+    }),
+    getAccountSettingsDetails: builder.query({
+      query: (params: any) => ({
+        url: WEB_APP.USER_PROFILE,
+        method: "GET",
+        params,
+      }),
     }),
   }),
 });
 
-export const { useGetUserDetailsQuery } = userSettings;
+export const { useGetUserDetailsQuery, useGetAccountSettingsDetailsQuery } =
+  userSettings;
