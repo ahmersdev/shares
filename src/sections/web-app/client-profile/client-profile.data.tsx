@@ -1,9 +1,4 @@
-import {
-  PersonIcon,
-  PreferencesIcon,
-  ReferIcon,
-  SecurityAndPrivacyIcon,
-} from "@/assets/icons";
+import { PersonIcon, ReferIcon, SecurityAndPrivacyIcon } from "@/assets/icons";
 import { WEB_APP } from "@/constants/routes";
 
 export const clientProfileData = [
@@ -16,15 +11,8 @@ export const clientProfileData = [
     description: "View and Manage Your Personal Details",
     link: WEB_APP.ACCOUNT_INFORMATION,
   },
-  // {
-  //   id: 2,
-  //   icon: PreferencesIcon,
-  //   title: "Preferences",
-  //   description: "Customize Language, Currency and Notification",
-  //   link: WEB_APP.PREFERENCES,
-  // },
   {
-    id: 3,
+    id: 2,
     icon: SecurityAndPrivacyIcon,
     title: "Security and Privacy",
     description: "Setup Additional Security For Your Account",
