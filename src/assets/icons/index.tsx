@@ -100,3 +100,4 @@ export { default as PropertiesLaundryIcon } from "./web-app/properties-laundry-i
 export { default as PropertiesParkingIcon } from "./web-app/properties-parking-icon";
 export { default as DepositViaCardIcon } from "./web-app/deposit-via-card-icon";
 export { default as DepositViaCryptoIcon } from "./web-app/deposit-via-crypto-icon";
+export { default as SecurityAndPrivacyBlueIcon } from "./web-app/security-and-privacy-blue-icon";

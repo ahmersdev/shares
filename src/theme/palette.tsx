@@ -46,6 +46,8 @@ const WARNING = {
 const INFO = {
   main: "#4094F7",
   secondary: "#E2F2FF",
+  900: "#00A3FF",
+  800: "#E8F3FC",
 };
 
 const GRADIENTS = {

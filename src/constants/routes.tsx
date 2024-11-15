@@ -33,6 +33,5 @@ export const WEB_APP = {
   PROFILE: "/client-profile",
   BOOKMARKS: "/client-bookmarks",
   ACCOUNT_INFORMATION: "/client-profile/account-information",
-  PREFERENCES: "/client-profile/preferences",
   SECURITY_AND_PRIVACY: "/client-profile/security-and-privacy",
 };

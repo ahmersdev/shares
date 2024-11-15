@@ -1,8 +1,9 @@
 import { WEB_APP } from "@/constants/routes";
 import { WEB_APP_LAYOUT } from "@/constants/layout";
-import { Theme, Typography } from "@mui/material";
+import { Button, Theme, Typography } from "@mui/material";
 import { NextIcon } from "@/assets/icons";
 import Link from "next/link";
+import { BUTTON_STYLES } from "@/styles";
 
 export const headerTitle = (pathName: string, theme: Theme) => {
   let title;
@@ -74,36 +75,6 @@ export const headerTitle = (pathName: string, theme: Theme) => {
       );
       break;
 
-    case WEB_APP.PREFERENCES:
-      title = (
-        <>
-          <Typography
-            component={"p"}
-            variant={"body1"}
-            color={"text.bodyLight"}
-            fontWeight={600}
-            display={"flex"}
-            alignItems={"center"}
-            gap={1}
-          >
-            <Link href={WEB_APP.PROFILE}>
-              <Typography
-                component={"span"}
-                variant={"body1"}
-                color={"text.body"}
-                fontWeight={600}
-              >
-                Profile & Settings
-              </Typography>
-            </Link>
-            <NextIcon fill={theme.palette.common.bgDark} /> Preferences
-          </Typography>
-          <br />
-          Preferences
-        </>
-      );
-      break;
-
     case WEB_APP.SECURITY_AND_PRIVACY:
       title = (
         <>
@@ -128,6 +99,34 @@ export const headerTitle = (pathName: string, theme: Theme) => {
             </Link>
             <NextIcon fill={theme.palette.common.bgDark} /> Security & Privacy
           </Typography>
+          <Typography
+            component={"p"}
+            variant={"body1"}
+            color={"text.heading"}
+            fontWeight={600}
+            my={1.6}
+          >
+            Privacy
+          </Typography>
+          <Link href={"#"}>
+            <Button
+              variant={"outlined"}
+              size={"small"}
+              sx={{
+                ...BUTTON_STYLES,
+                color: "text.heading",
+                borderColor: "text.stroke",
+                ":hover": {
+                  borderColor: "text.stroke",
+                },
+              }}
+              disableElevation
+              endIcon={<NextIcon fill={theme.palette.text.heading} />}
+            >
+              View Privacy Policy
+            </Button>
+          </Link>
+          <br />
           <br />
           Security & Privacy
         </>
