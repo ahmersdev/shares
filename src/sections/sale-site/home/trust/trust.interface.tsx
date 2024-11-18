@@ -1,3 +1,4 @@
+import { PaletteColor } from "@mui/material";
 import { StaticImageData } from "next/image";
 import { ComponentType, SVGProps } from "react";
 
@@ -7,6 +8,7 @@ export interface ITrustData {
   title: string;
   desc: string;
   bgcolor: string;
+  fill: keyof PaletteColor;
 }
 
 interface Badge {

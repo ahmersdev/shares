@@ -1,4 +1,4 @@
-import { PersonOneImg } from "@/assets/images";
+import { PersonOneImg, PersonTwoImg } from "@/assets/images";
 import { Box, Grid, Theme, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 
@@ -30,40 +30,53 @@ export default function Dubai() {
         <Grid container spacing={2.4}>
           <Grid item xs={12} md={3}>
             <Image
-              src={PersonOneImg}
-              alt={"Rami Tabbara"}
+              src={PersonTwoImg}
+              alt={"Rasmus Holst"}
               width={275}
               height={329}
-              style={{ width: "100%", height: "100%", borderRadius: 40 }}
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: 40,
+              }}
             />
           </Grid>
           <Grid item xs={12} md={8}>
-            <Box bgcolor={"primary.10"} borderRadius={6} p={2.4}>
+            <Box
+              bgcolor={"primary.10"}
+              borderRadius={6}
+              p={2.4}
+              height={"100%"}
+              display={"flex"}
+              flexDirection={"column"}
+              justifyContent={"space-between"}
+            >
               <Typography variant={"body2"}>
-                Rami, throughout his 20+ year real estate career with The First
-                Group and Damac in Dubai, met thousands of investors who wanted
-                to invest but couldn&rsquo;t. Many lost money buying the wrong
-                properties and struggled to secure a second income for their
-                families because they couldn&rsquo;t afford it or didn&rsquo;t
-                have access to a transparent, regulated platform with handpicked
-                properties. His experience leading Sales teams of over 800
-                people in the region brought a deep understanding of investor
-                needs and the importance of offering vetted, high-quality real
-                estate opportunities on Stake.
+                COCO is for lifestyle entrepreneurs, we are for people who make
+                conscious decisions about their lives, their investments and
+                their future.
+                <br />
+                <br />
+                Our community is experience driven. We believe in that a place
+                is only as good as the people in it and creating good
+                investments, comes through creating more than just properties.
+                It comes through the experience, the people you meet and the
+                memories you take with you.
               </Typography>
 
-              <Typography
-                variant={"body1"}
-                fontWeight={600}
-                color={"text.heading"}
-                mt={4}
-              >
-                Rami Tabbara
-              </Typography>
+              <Box>
+                <Typography
+                  variant={"body1"}
+                  fontWeight={600}
+                  color={"text.heading"}
+                >
+                  Rasmus Holst
+                </Typography>
 
-              <Typography variant={"body2"} color={"text.heading"}>
-                Co-Founder & Co-CEO
-              </Typography>
+                <Typography variant={"body2"} color={"text.heading"}>
+                  Founder & CEO
+                </Typography>
+              </Box>
             </Box>
           </Grid>
         </Grid>

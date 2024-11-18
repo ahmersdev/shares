@@ -1,4 +1,4 @@
-import { TrustBaliIcon, TrustIndonesianIcon } from "@/assets/icons";
+import { TrustDualIcon } from "@/assets/icons";
 import { ITrustData, ITrustDataImagesArray } from "./trust.interface";
 import {
   TrustVillaFive,
@@ -11,17 +11,19 @@ import {
 export const trustDataArray: ITrustData[] = [
   {
     id: 1,
-    icon: TrustBaliIcon,
-    title: "Regulated in Bali by the DFSA",
-    desc: "Invest with the assurance that we are dual regulated by the most prestigious regulators in the Middle East",
+    icon: TrustDualIcon,
+    title: "Regulatory Information",
+    desc: "Shares By Coco company operates under the Department of Financial Protection and Innovation (DFPI) in California",
     bgcolor: "primary.10",
+    fill: 50,
   },
   {
     id: 2,
-    icon: TrustIndonesianIcon,
-    title: "Regulated in Indonesia by the CMA",
-    desc: "Invest with the assurance that we are dual regulated by the most prestigious regulators in the Middle East",
+    icon: TrustDualIcon,
+    title: "Regulatory Information",
+    desc: "Also, facilitates real estate investments through blockchain technology and transactions in USD Coin (USDC), a cryptocurrency pegged to the U.S. dollar.",
     bgcolor: "primary.25",
+    fill: "main",
   },
 ];
 

@@ -44,10 +44,18 @@ export default function Trust() {
               color={"grey.50"}
             >
               <TrustDualIcon />
-              <Typography variant={"h5"}>DUAL REGULATED</Typography>
+              <Typography variant={"h5"} textTransform={"uppercase"}>
+                Regulatory Information
+              </Typography>
               <Typography variant={"body2"}>
-                Invest with the assurance that we are dual regulated by the most
-                prestigious regulators in the Middle East
+                We operate under a Singapore-registered company, ensuring
+                compliance with international standards and regulations.
+                <br />
+                <br />
+                Which is why SharesbyCoco emphasizes that investments made
+                through its platform involve significant risk, and prospective
+                investors are advised to conduct thorough due diligence and
+                consult with legal or financial professionals before investing.
               </Typography>
               <Link href={SALE_SITE.PROPERTIES}>
                 <Button
@@ -79,7 +87,7 @@ export default function Trust() {
                   color={"text.heading"}
                   bgcolor={item.bgcolor}
                 >
-                  <item.icon />
+                  <item.icon fill={theme.palette.primary[item.fill]} />
                   <Typography variant={"h5"} my={2.4}>
                     {item.title}
                   </Typography>
