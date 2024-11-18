@@ -31,4 +31,5 @@ export const WEB_APP = {
   DEPOSIT_VIA_CARD: `/user/card/deposite-amount`,
   WITHDRAW_VIA_CARD: `/user/card/withdraw-amount`,
   GET_ALL_TRANSACTIONS: `/user/transaction/all`,
+  GET_REWARDS: `/users/referral-earnings`,
 };

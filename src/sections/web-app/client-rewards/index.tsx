@@ -20,9 +20,14 @@ import { BUTTON_STYLES } from "@/styles";
 import { successSnackbar } from "@/utils/api";
 import { WEB_APP } from "@/constants/routes";
 import Link from "next/link";
+import { useGetRewardsQuery } from "@/services/web-app/rewards";
 
 export default function ClientRewards() {
   const theme = useTheme<Theme>();
+
+  const { data, isLoading, isFetching, isError } = useGetRewardsQuery(null, {
+    refetchOnMountOrArgChange: true,
+  });
 
   const domain = window.location.hostname;
 
