@@ -3,7 +3,7 @@ import { PaletteMode, PaletteOptions } from "@mui/material";
 const PRIMARY = {
   main: "#545452",
   100: "#F5F0EB",
-  50: "#9EA3AC",
+  50: "#9FBACD",
   25: "#E4DFD0",
   10: "#F2F0EA",
   5: "#E6ECF5",

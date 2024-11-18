@@ -1,7 +1,7 @@
 import { IAssetsProps } from "@/interfaces";
 
 const HomeProjectsIcon = ({
-  fill = "#9EA3AC",
+  fill = "#9FBACD",
   stroke = "#FFFFFF",
 }: IAssetsProps) => {
   return (

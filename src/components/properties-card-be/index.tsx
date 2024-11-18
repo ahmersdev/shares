@@ -128,6 +128,7 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
           borderRadius={2}
           p={1.2}
           gap={1.2}
+          color={"text.body"}
         >
           {[
             {
@@ -203,11 +204,11 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
               sx={{
                 ...BUTTON_STYLES,
                 color: "grey.50",
-                borderColor: "primary.main",
-                backgroundColor: "primary.main",
+                borderColor: "primary.50",
+                backgroundColor: "primary.50",
                 width: "100%",
                 ":hover": {
-                  backgroundColor: "primary.main",
+                  backgroundColor: "primary.50",
                 },
               }}
               disableElevation
