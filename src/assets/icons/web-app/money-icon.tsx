@@ -1,10 +1,14 @@
-import { IAssetsProps } from "@/interfaces";
+import { IAssetsPropsDimension } from "@/interfaces";
 
-const MoneyIcon = ({ fill = "#4E4E4E" }: IAssetsProps) => {
+const MoneyIcon = ({
+  fill = "#4E4E4E",
+  width = "16",
+  height = "16",
+}: IAssetsPropsDimension) => {
   return (
     <svg
-      width="16"
-      height="16"
+      width={width}
+      height={height}
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

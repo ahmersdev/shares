@@ -1,35 +1,5 @@
-import {
-  CopyIcon,
-  HomeIcon,
-  MoneyIcon,
-  PercentageIcon,
-  PersonIcon,
-} from "@/assets/icons";
+import { CopyIcon, HomeIcon, PersonIcon } from "@/assets/icons";
 import { Typography } from "@mui/material";
-
-export const getClientsRewardsData = () => [
-  {
-    id: 1,
-    icon: MoneyIcon,
-    title: "Monthly income",
-    tooltip: "Monthly income",
-    detail: "USD 0",
-  },
-  {
-    id: 2,
-    icon: PersonIcon,
-    title: "Referrals",
-    tooltip: "Referrals",
-    detail: "USD 0",
-  },
-  {
-    id: 3,
-    icon: PercentageIcon,
-    title: "Promotional",
-    tooltip: "Promotional",
-    detail: "USD 0",
-  },
-];
 
 export const referAndEarn = [
   {

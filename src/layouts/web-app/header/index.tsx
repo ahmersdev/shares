@@ -44,7 +44,7 @@ const Header = () => {
         </Box>
       ) : (
         <>
-          {!data?.isContactAdded && !data?.isKYCVerified && (
+          {!data?.data?.isContactAdded && !data?.data?.isKYCVerified && (
             <Box
               display={"flex"}
               justifyContent={"space-between"}
@@ -73,9 +73,9 @@ const Header = () => {
 
               <Link
                 href={
-                  !data?.isContactAdded
+                  !data?.data?.isContactAdded
                     ? ONBOARDING.QR_CODE
-                    : !data?.isKYCVerified
+                    : !data?.data?.isKYCVerified
                     ? ONBOARDING.KYC_VERIFICATION
                     : ""
                 }

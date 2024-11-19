@@ -1,13 +1,15 @@
-import { IAssetsProps } from "@/interfaces";
+import { IAssetsPropsDimension } from "@/interfaces";
 
 const OnBoardingHeaderIcon = ({
   fill = "#FF8A00",
   stroke = "#FCFCFC",
-}: IAssetsProps) => {
+  width = "53",
+  height = "53",
+}: IAssetsPropsDimension) => {
   return (
     <svg
-      width="53"
-      height="53"
+      width={width}
+      height={height}
       viewBox="0 0 53 53"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

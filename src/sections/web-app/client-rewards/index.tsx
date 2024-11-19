@@ -8,19 +8,33 @@ import {
   Theme,
   LinearProgress,
   Button,
+  Divider,
 } from "@mui/material";
-import { CopyIcon, NextIcon, ReferIcon, StarIcon } from "@/assets/icons";
+import {
+  ArrowRightIcon,
+  CopyIcon,
+  MoneyIcon,
+  NextIcon,
+  OnBoardingHeaderIcon,
+  PersonIcon,
+  ReferIcon,
+  StarIcon,
+} from "@/assets/icons";
 import { CustomTooltip } from "@/components/custom-tooltip";
 import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
-import { getClientsRewardsData, referAndEarn } from "./client-rewards.data";
+import { referAndEarn } from "./client-rewards.data";
 import { pxToRem } from "@/utils/get-font-value";
 import { FormProvider, RHFTextField } from "@/components/react-hook-form";
 import { useForm } from "react-hook-form";
 import { BUTTON_STYLES } from "@/styles";
 import { successSnackbar } from "@/utils/api";
-import { WEB_APP } from "@/constants/routes";
+import { ONBOARDING, WEB_APP } from "@/constants/routes";
 import Link from "next/link";
 import { useGetRewardsQuery } from "@/services/web-app/rewards";
+import ApiErrorState from "@/components/api-error-state";
+import { SkeletonDetails } from "@/components/skeletons";
+import { useEffect } from "react";
+import { useGetAccountSettingsDetailsQuery } from "@/services/web-app/settings";
 
 export default function ClientRewards() {
   const theme = useTheme<Theme>();
@@ -28,43 +42,60 @@ export default function ClientRewards() {
   const { data, isLoading, isFetching, isError } = useGetRewardsQuery(null, {
     refetchOnMountOrArgChange: true,
   });
+  const referralCode = data?.totalEarning?.referralCode;
 
   const domain = window.location.hostname;
 
-  const clientsRewardsData = getClientsRewardsData();
-
   const methods = useForm({
     defaultValues: {
-      link: `${domain}/sign-up?rewards=1234`,
+      link: `${domain}/sign-up?rewards=${referralCode}`,
     },
   });
-  const { getValues } = methods;
+  const { getValues, reset } = methods;
+
+  useEffect(() => {
+    reset({
+      link: `${domain}/sign-up?rewards=${referralCode}`,
+    });
+  }, [data, reset, domain]);
 
   const copyUrlHandler = () => {
     navigator.clipboard.writeText(getValues("link"));
     successSnackbar("URL Copied Successfully!");
   };
 
+  const {
+    data: dataUser,
+    isLoading: isLoadingUser,
+    isFetching: isFetchingUser,
+    isError: isErrorUser,
+  } = useGetAccountSettingsDetailsQuery(null, {
+    refetchOnMountOrArgChange: true,
+  });
+
+  if (isLoading || isFetching || isLoadingUser || isFetchingUser)
+    return <SkeletonDetails />;
+
+  if (isError || isErrorUser) return <ApiErrorState />;
+
   return (
     <Grid container spacing={4}>
-      <Grid item xs={12}>
-        <Grid
-          container
-          bgcolor={"grey.50"}
-          border={1}
-          borderColor={"text.stroke"}
-          borderRadius={3}
-          py={2.4}
-          px={1}
-        >
-          <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6}>
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
             <Box
+              bgcolor={"grey.50"}
+              border={1}
+              borderColor={"text.stroke"}
+              borderRadius={3}
+              py={2.4}
+              px={3.2}
               display={"flex"}
               alignItems={"center"}
               justifyContent={"space-between"}
               flexWrap={"wrap"}
               gap={2}
-              px={2}
+              width={"100%"}
             >
               <Box display={"flex"} flexDirection={"column"} gap={1}>
                 <Typography variant={"body1"}>
@@ -81,7 +112,7 @@ export default function ClientRewards() {
                   </CustomTooltip>
                 </Typography>
                 <Typography variant={"h5"} color={"text.heading"}>
-                  USD 0
+                  USD {data?.totalEarning?.totalEarning ?? "0"}
                 </Typography>
                 <Link href={WEB_APP.WALLET}>
                   <Box display={"flex"} gap={1}>
@@ -100,120 +131,57 @@ export default function ClientRewards() {
               <StarIcon />
             </Box>
           </Grid>
-          <Grid item xs={12} md={6} borderLeft={1} borderColor={"text.stroke"}>
+
+          <Grid item xs={12} sm={6}>
             <Box
-              px={2}
-              height={"100%"}
-              display={"flex"}
-              flexDirection={"column"}
-              justifyContent={"space-between"}
+              bgcolor={"grey.50"}
+              border={1}
+              borderColor={"text.stroke"}
+              borderRadius={3}
+              py={2.4}
+              px={3.2}
             >
-              {clientsRewardsData.map((item) => (
-                <Box
-                  display={"flex"}
-                  alignItems={"center"}
-                  justifyContent={"space-between"}
-                  flexWrap={"wrap"}
-                  gap={1}
-                  key={item.id}
+              <Box display={"flex"} gap={1.2} mb={1.2}>
+                <PersonIcon width={"24"} height={"24"} />
+                <Typography
+                  variant={"body2"}
+                  fontWeight={700}
+                  color={"text.heading"}
                 >
-                  <Box display={"flex"} alignItems={"center"} gap={0.5}>
-                    <item.icon />
-                    <Typography variant={"caption"}>{item.title}</Typography>
-                    <CustomTooltip title={item.tooltip}>
-                      <ErrorOutlineRoundedIcon
-                        sx={{
-                          fontSize: "13px",
-                          cursor: "pointer",
-                          mb: -0.1,
-                        }}
-                      />
-                    </CustomTooltip>
-                  </Box>
-                  <Typography
-                    variant={"body2"}
-                    fontWeight={700}
-                    color={"text.heading"}
-                  >
-                    {item.detail}
-                  </Typography>
-                </Box>
-              ))}
+                  {data?.totalEarning?.referrals ?? "0"}
+                </Typography>
+              </Box>
+              <Typography variant={"body2"} color={"text.body"}>
+                Registered
+              </Typography>
+            </Box>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <Box
+              bgcolor={"grey.50"}
+              border={1}
+              borderColor={"text.stroke"}
+              borderRadius={3}
+              py={2.4}
+              px={3.2}
+            >
+              <Box display={"flex"} gap={1.2} mb={1.2}>
+                <MoneyIcon width={"24"} height={"24"} />
+                <Typography
+                  variant={"body2"}
+                  fontWeight={700}
+                  color={"text.heading"}
+                >
+                  {data?.totalEarning?.totalInvested ?? "0"}
+                </Typography>
+              </Box>
+              <Typography variant={"body2"} color={"text.body"}>
+                Invested
+              </Typography>
             </Box>
           </Grid>
         </Grid>
-      </Grid>
-
-      <Grid item xs={12} md={6}>
-        <Box
-          bgcolor={"grey.50"}
-          border={1}
-          borderColor={"text.stroke"}
-          borderRadius={3}
-          py={2.4}
-          px={1}
-          display={"flex"}
-          flexDirection={"column"}
-          gap={1}
-        >
-          <Typography variant={"h7"} color={"grey.800"} fontWeight={900}>
-            Shares
-            <Typography
-              variant={"h7"}
-              component={"span"}
-              color={"primary.main"}
-              fontWeight={900}
-            >
-              .
-            </Typography>
-          </Typography>
-
-          <Box
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"space-between"}
-            flexWrap={"wrap"}
-            color={"primary.main"}
-            gap={1}
-          >
-            <Typography
-              variant={"body2"}
-              fontWeight={700}
-              color={"text.heading"}
-            >
-              USD 0
-            </Typography>
-            <Typography variant={"body2"} fontWeight={500}>
-              Invested In Last 12 Months
-            </Typography>
-          </Box>
-
-          <LinearProgress
-            variant={"determinate"}
-            value={0}
-            sx={{
-              borderRadius: 1.5,
-              height: 6,
-              backgroundColor: "text.disabled",
-              "& .MuiLinearProgress-bar1Determinate": {
-                borderRadius: "inherit",
-              },
-            }}
-          />
-
-          <Typography variant={"body3"} component={"p"} textAlign={"center"}>
-            Invest{" "}
-            <Typography
-              variant={"body3"}
-              component={"span"}
-              color={"text.heading"}
-              fontWeight={700}
-            >
-              USD 25,000
-            </Typography>{" "}
-            To Reach Plus
-          </Typography>
-        </Box>
       </Grid>
 
       <Grid item xs={12} md={6}>
@@ -281,35 +249,95 @@ export default function ClientRewards() {
               Fully Funded And Closed
             </Typography>
 
-            <Box display={"flex"} alignItems={"end"} gap={1} width={"100%"}>
-              <FormProvider methods={methods} style={{ width: "100%" }}>
-                <Typography variant={"subtitle2"} fontWeight={600}>
-                  Share Your Link
-                </Typography>
-                <RHFTextField name={"link"} disabled size={"small"} />
-              </FormProvider>
-
-              <Button
-                variant={"contained"}
-                startIcon={<CopyIcon />}
-                sx={{
-                  ...BUTTON_STYLES,
-                  color: "grey.50",
-                  borderColor: "primary.main",
-                  backgroundColor: "primary.main",
-                  mb: 0.5,
-                  whiteSpace: "nowrap",
-                  fontSize: pxToRem(10),
-                  ":hover": {
-                    backgroundColor: "primary.main",
-                  },
-                }}
-                disableElevation
-                onClick={copyUrlHandler}
+            {!dataUser?.data?.isContactAdded &&
+            !dataUser?.data?.isKYCVerified ? (
+              <Box
+                border={1}
+                borderColor={"common.bgOnBoardingBorder"}
+                bgcolor={"common.bgOnBoarding"}
+                p={2}
+                borderRadius={2}
               >
-                Copy Link
-              </Button>
-            </Box>
+                <Box display={"flex"} gap={1}>
+                  <OnBoardingHeaderIcon width={"31"} height={"31"} />
+                  <Box display={"flex"} flexDirection={"column"}>
+                    <Typography
+                      variant={"caption"}
+                      fontWeight={600}
+                      color={"text.heading"}
+                    >
+                      Complete Onboarding
+                    </Typography>
+                    <Typography variant={"subtitle1"}>
+                      Local Regulations Require All Investors To Complete
+                      Onboarding Before They Can Invest.
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Divider
+                  sx={{ borderColor: "common.bgOnBoardingBorder", my: 1 }}
+                />
+
+                <Link
+                  href={
+                    !data?.data?.isContactAdded
+                      ? ONBOARDING.QR_CODE
+                      : !data?.data?.isKYCVerified
+                      ? ONBOARDING.KYC_VERIFICATION
+                      : ""
+                  }
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Typography
+                    variant={"caption"}
+                    fontWeight={600}
+                    color={"common.bgOnBoardingBorder"}
+                  >
+                    Complete Onboarding
+                  </Typography>
+
+                  <ArrowRightIcon
+                    fill={theme.palette.common.bgOnBoardingBorder}
+                  />
+                </Link>
+              </Box>
+            ) : (
+              <Box display={"flex"} alignItems={"end"} gap={1} width={"100%"}>
+                <FormProvider methods={methods} style={{ width: "100%" }}>
+                  <Typography variant={"subtitle2"} fontWeight={600}>
+                    Share Your Link
+                  </Typography>
+                  <RHFTextField name={"link"} disabled size={"small"} />
+                </FormProvider>
+
+                <Button
+                  variant={"contained"}
+                  startIcon={<CopyIcon />}
+                  sx={{
+                    ...BUTTON_STYLES,
+                    color: "grey.50",
+                    borderColor: "primary.main",
+                    backgroundColor: "primary.main",
+                    mb: 0.5,
+                    whiteSpace: "nowrap",
+                    fontSize: pxToRem(10),
+                    ":hover": {
+                      backgroundColor: "primary.main",
+                    },
+                  }}
+                  disableElevation
+                  onClick={copyUrlHandler}
+                >
+                  Copy Link
+                </Button>
+              </Box>
+            )}
           </Box>
         </Box>
       </Grid>
