@@ -1,7 +1,9 @@
 import { HeroBannerBgImg } from "@/assets/images";
 import { Box, Typography } from "@mui/material";
 
-export default function HeroBanner() {
+export default function CustomHeroBanner(props: { title: string }) {
+  const { title } = props;
+
   return (
     <Box position={"relative"}>
       <Box
@@ -34,7 +36,7 @@ export default function HeroBanner() {
           maxWidth={"55%"}
           textAlign={"center"}
         >
-          About Us
+          {title}
         </Typography>
       </Box>
     </Box>

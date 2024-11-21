@@ -10,25 +10,25 @@ export const howItWorksDataArray: IHowItWorksData[] = [
   {
     id: 1,
     icon: WorksBrowseIcon,
-    title: "Browse",
-    desc: "Review our portfolio of high-yielding rental properties",
+    title: "Discover",
+    desc: "Explore our portfolio of high-return properties designed for modern investors",
   },
   {
     id: 2,
     icon: WorksInvestIcon,
-    title: "Invest",
-    desc: "Select the properties you want to invest in starting from $1",
+    title: "Join",
+    desc: "Start with just $1,000 and unlock exclusive travel perks through the World of COCO",
   },
   {
     id: 3,
     icon: WorksEarnIcon,
     title: "Earn",
-    desc: "Receive monthly rental income and withdraw anytime",
+    desc: "Enjoy monthly rental income deposited directly into your account— as well as discounts and cashback on your next stay",
   },
   {
     id: 4,
     icon: WorksExitIcon,
     title: "Exit",
-    desc: "Hold, repurchase or sell whenever you want",
+    desc: "Hold, reinvest, or sell your shares anytime with ease",
   },
 ];

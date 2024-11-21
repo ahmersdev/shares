@@ -9,10 +9,10 @@ import Loader from "@/components/loader";
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Shares by Coco",
+  title: "Shares By Coco",
   description:
-    "Welcome to Shares by Coco Development Group, a premier investment opportunity in Bali properties. As part of the renowned Coco Development Group, we bring you exclusive access to high-return investments in Bali's vibrant real estate market. Unlike many platforms, our offerings are entirely our own developments, ensuring quality and reliability.",
-  applicationName: "Shares by Coco",
+    "Shares By Coco connects individuals to exclusive investment opportunities in luxury lifestyle properties. Designed for those who want more than just returns, the platform combines smart property investments with the joy of travel and unique experiences. From owning a share in stunning properties in Bali to enjoying rental income and vacation stays, Shares By Coco blends financial growth with the adventure of exploring premium destinations.",
+  applicationName: "Shares By Coco",
   authors: [{ name: "ahmersdev" }],
   referrer: "origin-when-cross-origin",
   creator: "ahmersdev",
@@ -45,18 +45,18 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://sharesbycoco.com/"),
   openGraph: {
-    title: "Shares by Coco",
+    title: "Shares By Coco",
     description:
-      "Welcome to Shares by Coco Development Group, a premier investment opportunity in Bali properties. As part of the renowned Coco Development Group, we bring you exclusive access to high-return investments in Bali's vibrant real estate market. Unlike many platforms, our offerings are entirely our own developments, ensuring quality and reliability.",
+      "Shares By Coco connects individuals to exclusive investment opportunities in luxury lifestyle properties. Designed for those who want more than just returns, the platform combines smart property investments with the joy of travel and unique experiences. From owning a share in stunning properties in Bali to enjoying rental income and vacation stays, Shares By Coco blends financial growth with the adventure of exploring premium destinations.",
     url: "https://sharesbycoco.com/",
-    siteName: "Shares by Coco",
+    siteName: "Shares By Coco",
     images: [
       { url: "/og-image.png", width: 800, height: 600 },
       {
         url: "/og-image.png",
         width: 1800,
         height: 1600,
-        alt: "Shares by Coco",
+        alt: "Shares By Coco",
       },
     ],
     locale: "en-US",
@@ -64,13 +64,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shares by Coco",
+    title: "Shares By Coco",
     description:
-      "Welcome to Shares by Coco Development Group, a premier investment opportunity in Bali properties. As part of the renowned Coco Development Group, we bring you exclusive access to high-return investments in Bali's vibrant real estate market. Unlike many platforms, our offerings are entirely our own developments, ensuring quality and reliability.",
+      "Shares By Coco connects individuals to exclusive investment opportunities in luxury lifestyle properties. Designed for those who want more than just returns, the platform combines smart property investments with the joy of travel and unique experiences. From owning a share in stunning properties in Bali to enjoying rental income and vacation stays, Shares By Coco blends financial growth with the adventure of exploring premium destinations.",
     creator: "ahmersdev",
     images: {
       url: "/og-image.png",
-      alt: "Shares by Coco",
+      alt: "Shares By Coco",
     },
   },
 };

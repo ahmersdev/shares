@@ -87,9 +87,9 @@ export const contentData: IContentData[] = [
     accordions: [
       {
         accordionId: 1,
-        summary: "What services does SharesByCoco offer?",
+        summary: "What services does Shares By Coco offer?",
         details:
-          "SharesByCoco handles the entire investment process for you. From developing and managing prime real estate opportunities to overseeing the operational aspects until the end of your Investment Term, we ensure a seamless experience.",
+          "Shares By Coco handles the entire investment process for you. From developing and managing prime real estate opportunities to overseeing the operational aspects until the end of your Investment Term, we ensure a seamless experience.",
         additionalContent: (
           <Typography
             variant={"h7"}
@@ -198,7 +198,7 @@ export const contentData: IContentData[] = [
         accordionId: 3,
         summary: "How does it work?",
         details:
-          "Investing with SharesByCoco is simple, but involves a few key steps:",
+          "Investing with Shares By Coco is simple, but involves a few key steps:",
         additionalContent: (
           <>
             <Typography
@@ -655,7 +655,7 @@ export const contentData: IContentData[] = [
       },
       {
         accordionId: 2,
-        summary: "How will I earn my return on SharesByCoco?",
+        summary: "How will I earn my return on Shares By Coco?",
         details:
           "Your share of the rental income will be distributed to your Shares by Coco wallet. While we aim to distribute dividends monthly, dividends are declared and paid out at least quarterly. The net distributions are calculated after deducting operation and management at a fixed fee of 30% of the properties net income, covering all expenses, such as service charges, running costs, maintenance, annual administrative fees, insurances etc.",
         additionalContent: (

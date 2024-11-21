@@ -29,7 +29,7 @@ export default function FooterNav() {
     <Box
       maxWidth={"lg"}
       width={"100%"}
-      my={5}
+      mt={5}
       display={"flex"}
       justifyContent={"space-between"}
       flexWrap={"wrap"}

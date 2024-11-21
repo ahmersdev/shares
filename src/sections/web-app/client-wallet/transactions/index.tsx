@@ -7,31 +7,38 @@ import RealEstateSPVABI from "@/json/RealEstateSPVABI.json";
 import { CONTRACT_ADDRESS } from "@/constants";
 import { useEffect } from "react";
 
+const getListOfAllTransactionsFromCrypto = async (contract: Contract) => {
+  try {
+    const filter = contract.filters.InvestmentMade();
+    contract.on(filter, (investor, amount, time, event) => {
+      console.log("Investment Made:", { investor, amount, time, event });
+    });
+  } catch (error) {
+    console.error("Error setting up event listener:", error);
+  }
+};
+
 export default function Transactions() {
   const { data, isLoading, isFetching, isError, isSuccess } =
     useGetListOfAllTransactionsQuery(null, {
       refetchOnMountOrArgChange: true,
     });
 
-  if (typeof window === "undefined" || !(window as any)?.ethereum) {
-    return;
-  }
-  const provider = new BrowserProvider((window as any)?.ethereum);
-  const contract = new Contract(CONTRACT_ADDRESS, RealEstateSPVABI, provider);
-
-  const useGetListOfAllTransactionsFromCrypto = async () => {
-    try {
-      const filter = contract.filters.InvestmentMade();
-      contract.on(filter, (investor, amount, time, event) => {
-        console.log("Investment Made:", { investor, amount, time, event });
-      });
-    } catch (error) {
-      console.error("Error setting up event listener:", error);
-    }
-  };
-
   useEffect(() => {
-    useGetListOfAllTransactionsFromCrypto();
+    const setupContractListener = async () => {
+      if (typeof window !== "undefined" && (window as any)?.ethereum) {
+        const provider = new BrowserProvider((window as any)?.ethereum);
+        const contract = new Contract(
+          CONTRACT_ADDRESS,
+          RealEstateSPVABI,
+          provider
+        );
+
+        await getListOfAllTransactionsFromCrypto(contract);
+      }
+    };
+
+    setupContractListener();
   }, []);
 
   return (

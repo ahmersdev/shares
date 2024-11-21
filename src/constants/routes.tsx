@@ -3,6 +3,10 @@ export const SALE_SITE = {
   ABOUT_US: "/about-us",
   PROPERTIES: "/properties",
   FAQS: "/faqs",
+  PRIVACY_POLICY: "/privacy-policy",
+  TERMS_AND_CONDITIONS: "/terms-and-conditions",
+  KEY_RISKS: "/key-risks",
+  COOKIE_NOTICE: "/cookie-notice",
 };
 
 export const AUTH = {

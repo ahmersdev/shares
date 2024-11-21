@@ -52,7 +52,7 @@ export default function Trust() {
                 compliance with international standards and regulations.
                 <br />
                 <br />
-                Which is why SharesbyCoco emphasizes that investments made
+                Which is why Shares By Coco emphasizes that investments made
                 through its platform involve significant risk, and prospective
                 investors are advised to conduct thorough due diligence and
                 consult with legal or financial professionals before investing.

@@ -2,7 +2,7 @@ import { PersonThreeImg } from "@/assets/images";
 import { Box, Grid, Rating, Theme, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow } from "swiper/modules";
+import { EffectCoverflow, Autoplay } from "swiper/modules";
 import { testimonialsDataArray } from "./testimonials.data";
 import { ITestimonialsDataArray } from "./testimonials.interface";
 
@@ -65,10 +65,12 @@ export default function Testimonials() {
               height={"100%"}
             >
               <Typography variant={"body1"}>
-                I really enjoyed using the app! Being able to actually own a
-                stake in a property with just a button, literally like
-                you&rsquo;re shopping for a property, that&rsquo;s a really cool
-                concept honestly
+                I discovered Coco Development during a family trip to Bali.
+                Their professionalism and reliability stood out, and I felt
+                confident in their projects. The security and peace of mind in
+                Bali, combined with Coco&rsquo;s commitment to delivering
+                results, made investing an easy decision. I&rsquo;m happy to see
+                the projects evolve and look forward to more investments!
               </Typography>
               <Typography
                 variant={"body1"}
@@ -89,19 +91,20 @@ export default function Testimonials() {
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
-        centeredSlides={true}
-        loop={true}
+        centeredSlides
+        loop
         slidesPerView={1}
         spaceBetween={30}
-        speed={500}
+        speed={10000}
         initialSlide={2}
+        autoplay={{ delay: 0 }}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
           depth: 0,
           modifier: 0,
         }}
-        modules={[EffectCoverflow]}
+        modules={[EffectCoverflow, Autoplay]}
         className="mySwiper"
         style={{ width: "100%", marginBottom: 34 }}
         breakpoints={{

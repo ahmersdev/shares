@@ -57,7 +57,7 @@ export default function ClientRewards() {
     reset({
       link: `${domain}/sign-up?rewards=${referralCode}`,
     });
-  }, [data, reset, domain]);
+  }, [data, reset, domain, referralCode]);
 
   const copyUrlHandler = () => {
     navigator.clipboard.writeText(getValues("link"));
