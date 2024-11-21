@@ -7,7 +7,7 @@ import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { Contract, ethers, BrowserProvider } from "ethers";
 import RealEstateSPVABI from "@/json/RealEstateSPVABI.json";
 import { ICryptoDepositProps } from "./crypto.interface";
-import { CONTRACT_ADDRESS as contractAddress } from "@/constants";
+import { CONTRACT_ADDRESS } from "@/constants";
 
 export default function useCryptoDeposit(props: ICryptoDepositProps) {
   const { setOpenDepositDialog } = props;
@@ -54,7 +54,7 @@ export default function useCryptoDeposit(props: ICryptoDepositProps) {
 
   const initializeContract = async () => {
     const signer = await provider?.getSigner();
-    contract = new Contract(contractAddress, RealEstateSPVABI, signer);
+    contract = new Contract(CONTRACT_ADDRESS, RealEstateSPVABI, signer);
   };
 
   const depositCashViaCrypto = async (data: { amount: number }) => {
