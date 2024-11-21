@@ -28,6 +28,7 @@ export const walletApi = baseAPI.injectEndpoints({
         url: `${WEB_APP.DELETE_CARD}/${cardId}`,
         method: "DELETE",
       }),
+      invalidatesTags: TAG,
     }),
     // Total Cash Balance
     getTotalCash: builder.query({
