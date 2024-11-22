@@ -100,7 +100,7 @@ export default function Footer() {
         </Typography>
         <Typography variant={"body2"} textAlign={"center"}>
           <Link href={SALE_SITE.PRIVACY_POLICY}>Privacy Policy</Link> |{" "}
-          <Link href={SALE_SITE.TERMS_AND_CONDITIONS}>Terms of Use</Link>
+          <Link href={SALE_SITE.TERMS_OF_USE}>Terms of Use</Link>
         </Typography>
       </Box>
 

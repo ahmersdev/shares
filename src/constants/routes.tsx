@@ -4,7 +4,7 @@ export const SALE_SITE = {
   PROPERTIES: "/properties",
   FAQS: "/faqs",
   PRIVACY_POLICY: "/privacy-policy",
-  TERMS_AND_CONDITIONS: "/terms-and-conditions",
+  TERMS_OF_USE: "/terms-of-use",
   KEY_RISKS: "/key-risks",
   COOKIE_NOTICE: "/cookie-notice",
 };

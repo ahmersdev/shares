@@ -18,3 +18,10 @@ export const SALE_SITE_LAYOUT = {
   SIGN_UP: "Sign Up",
   DASHBOARD: "Dashboard",
 };
+
+export const LEGAL_LAYOUT = {
+  TERMS_OF_USE: "Terms of Use",
+  KEY_RISKS: "Key Risks",
+  PRIVACY_POLICY: "Privacy Policy",
+  COOKIE_NOTICE: "Cookie Notice",
+};
