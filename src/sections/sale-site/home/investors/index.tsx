@@ -23,10 +23,11 @@ export default function Investors() {
         gap={3.2}
       >
         <Typography variant={"h5"} fontWeight={500} color={"primary.main"}>
-          Golden Sands, Golden Opportunities
+          Dream Properties, Real Returns
         </Typography>
         <Typography
-          variant={"heading1"}component={"h1"}
+          variant={"heading1"}
+          component={"h1"}
           color={"text.heading"}
           textAlign={"center"}
           textTransform={"capitalize"}

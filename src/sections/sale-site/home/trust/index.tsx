@@ -48,14 +48,16 @@ export default function Trust() {
                 Regulatory Information
               </Typography>
               <Typography variant={"body2"}>
-                We operate under a Singapore-registered company, ensuring
-                compliance with international standards and regulations.
+                We operate under a U.S.-registered company, adhering to
+                international standards and regulations to ensure transparency
+                and compliance.
                 <br />
                 <br />
-                Which is why Shares By Coco emphasizes that investments made
-                through its platform involve significant risk, and prospective
-                investors are advised to conduct thorough due diligence and
-                consult with legal or financial professionals before investing.
+                Shares By Coco emphasizes that investments made through its
+                platform carry significant risks. Prospective investors are
+                strongly encouraged to perform thorough due diligence and seek
+                advice from legal or financial professionals before making
+                investment decisions.
               </Typography>
               <Link href={SALE_SITE.PROPERTIES}>
                 <Button

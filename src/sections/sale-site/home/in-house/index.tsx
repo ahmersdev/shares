@@ -19,17 +19,18 @@ export default function InHouse() {
         alignItems={"center"}
         gap={2.4}
       >
-        <Typography variant={"h7"} color={"primary.main"} textAlign={"center"}>
-          In-house management
-        </Typography>
         <Typography
           variant={"heading1"}
           component={"h1"}
           color={"text.heading"}
           textAlign={"center"}
-          textTransform={"capitalize"}
         >
-          We expertly source and manage the properties
+          In-House Development & Management
+        </Typography>
+        <Typography variant={"h7"} textAlign={"center"} component={"p"}>
+          We handle everything in-house, from developing prime real estate to
+          managing the entire process, ensuring maximum value for your
+          investment.
         </Typography>
 
         {InHoseDataArray.map((item: IInHouseDataArray) => (

@@ -3,20 +3,26 @@ import { IInHouseDataArray } from "./in-house.interface";
 export const InHoseDataArray: IInHouseDataArray[] = [
   {
     id: 1,
-    title: "Strategic deal sourcing",
-    desc: "We leverage 20+ years of local real estate experience and industry relationships to access exclusive prime property deals, before running detailed financial simulations to pressure test their investment potential",
+    title: "Strategic Deal Sourcing",
+    desc: "With years of expertise in Bali's real estate market and access to exclusive prime locations, we identify opportunities in high-growth areas. Our deep market understanding allows us to select properties that promise strong long-term returns for our investors.",
     bgcolor: "primary.10",
   },
   {
     id: 2,
-    title: "Deal price negotiation",
-    desc: "Our in-house Acquisitions team uses recent transaction data and local market expertise to secure the best prices, locking those in for our investors with a 10% deposit payment before listing on our platform",
+    title: "Development & Market Insight",
+    desc: "We don’t just purchase; we develop. By carefully designing and building in sought-after locations, we create lifestyle-focused properties that attract both short-term renters and long-term investors. We maximize the value of each development by staying on top of market trends, ensuring high demand and value appreciation over time.",
     bgcolor: "primary.25",
   },
   {
     id: 3,
-    title: "Active asset management strategies",
-    desc: "Our asset management team performs comprehensive renovations to maximize the value of your investment, before securing the highest rents at the lowest fees due to the breadth of our relationship with top property managers",
+    title: "Full-Service Management & Branding",
+    desc: "Our dedicated in-house team takes care of everything post-development, from managing day-to-day operations to branding and marketing of each property. We ensure high occupancy and rental income for our investors, taking care of all operational aspects.",
     bgcolor: "primary.10",
+  },
+  {
+    id: 4,
+    title: "Strategic Exit",
+    desc: "We monitor market conditions closely and exit when the time is right, typically within a 3-5 year period, ensuring that investments are sold at peak market value. This strategic approach allows investors to maximize their returns, while benefiting from prime property ownership during the hold period.",
+    bgcolor: "primary.25",
   },
 ];

@@ -8,23 +8,21 @@ export default function Dubai() {
   return (
     <Box display={"flex"} justifyContent={"center"} px={2}>
       <Box
-        maxWidth={theme.breakpoints.values.lg - 100}
+        maxWidth={theme.breakpoints.values.lg}
         width={"100%"}
         display={"flex"}
         flexDirection={"column"}
         alignItems={"center"}
         gap={2}
       >
-        <Typography variant={"h6"} fontWeight={"normal"} color={"primary.main"}>
-          Dubai Real Estate
-        </Typography>
         <Typography
           variant={"heading1"}
           component={"h1"}
-          textAlign={"center"}
           color={"text.heading"}
+          textAlign={"center"}
+          textTransform={"capitalize"}
         >
-          20+ Years Of Local Experience
+          Dubai Real Estate
         </Typography>
 
         <Grid container spacing={2.4}>
@@ -38,45 +36,66 @@ export default function Dubai() {
                 width: "100%",
                 height: "100%",
                 borderRadius: 40,
+                objectFit: "cover",
               }}
             />
           </Grid>
           <Grid item xs={12} md={8}>
-            <Box
-              bgcolor={"primary.10"}
-              borderRadius={6}
-              p={2.4}
-              height={"100%"}
-              display={"flex"}
-              flexDirection={"column"}
-              justifyContent={"space-between"}
-            >
-              <Typography variant={"body2"}>
-                COCO is for lifestyle entrepreneurs, we are for people who make
-                conscious decisions about their lives, their investments and
-                their future.
-                <br />
-                <br />
-                Our community is experience driven. We believe in that a place
-                is only as good as the people in it and creating good
-                investments, comes through creating more than just properties.
-                It comes through the experience, the people you meet and the
-                memories you take with you.
+            <Box bgcolor={"primary.10"} borderRadius={6} p={2.4}>
+              <Typography
+                variant={"body1"}
+                fontWeight={600}
+                color={"text.heading"}
+              >
+                Meet Rasmus Holst
               </Typography>
-
-              <Box>
+              <Typography
+                variant={"body2"}
+                color={"text.heading"}
+                fontWeight={600}
+                mb={2}
+              >
+                Founder & CEO of Coco Development Group
+              </Typography>
+              <Typography variant={"body2"}>
+                Danish developer, investor, and serial entrepreneur Rasmus Holst
+                established Coco Development Group as the foundation of a
+                world-leading lifestyle property chain. His vision goes beyond
+                creating properties—he’s building vibrant communities that
+                redefine luxury and elevate how people live, invest, and
+                connect.
+                <br />
+                <br />
+                Under Rasmus’s leadership, Coco Development Group champions{" "}
                 <Typography
-                  variant={"body1"}
+                  variant={"body2"}
+                  component={"span"}
                   fontWeight={600}
-                  color={"text.heading"}
                 >
-                  Rasmus Holst
+                  conscious living and smart investing.
+                </Typography>{" "}
+                Every project is designed to integrate wellness, social
+                connection, and financial growth, empowering investors and
+                residents alike to thrive in spaces that inspire and connect
+                them to their surroundings.
+                <br />
+                <br />
+                <Typography
+                  variant={"body2"}
+                  component={"span"}
+                  fontWeight={600}
+                >
+                  “A place is only as good as the people in it. That&rsquo;s why
+                  Coco isn&rsquo;t just about properties—it&rsquo;s about
+                  building purposeful communities that leave a lasting legacy.”
+                  – Rasmus Holst
                 </Typography>
-
-                <Typography variant={"body2"} color={"text.heading"}>
-                  Founder & CEO
-                </Typography>
-              </Box>
+                <br />
+                <br />
+                Through Coco Development Group, Rasmus aims to create a global
+                network of lifestyle entrepreneurs who embrace meaningful living
+                and value-driven investments.
+              </Typography>
             </Box>
           </Grid>
         </Grid>

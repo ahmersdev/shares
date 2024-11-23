@@ -29,7 +29,6 @@ export { default as FooterPhoneImg } from "./sale-site/footer-phone-img.png";
 export { default as FooterMobilePhoneImg } from "./sale-site/footer-mobile-phone-img.png";
 export { default as PropertiesSliderOneImg } from "./sale-site/properties-slider-one-img.png";
 export { default as PropertiesSliderTwoImg } from "./sale-site/properties-slider-two-img.png";
-export { default as PropertiesSliderTwoMobileImg } from "./sale-site/properties-slider-two-mobile-img.png";
 export { default as PropertiesSliderThreeImg } from "./sale-site/properties-slider-three-img.png";
 export { default as PropertiesSliderThreeMobileImg } from "./sale-site/properties-slider-three-mobile-img.png";
 export { default as PropertiesSliderOnePersonImg } from "./sale-site/properties-slider-one-person-img.png";

@@ -26,7 +26,9 @@ export default function MarketAnalysis() {
             <Typography variant={"body2"} my={1.6} color={"text.body"}>
               {item.desc}
             </Typography>
-            <Image src={item.image} alt={item.title ?? ""} height={27} />
+            <Box mt={"auto"}>
+              <Image src={item.image} alt={item.title ?? ""} height={27} />
+            </Box>
           </Box>
         </Grid>
       ))}

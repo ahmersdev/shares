@@ -84,17 +84,19 @@ export default function DesktopSlider() {
                 backgroundRepeat: "no-repeat",
               }}
             />
-            <Box color={"grey.900"} pl={6.2} py={9} zIndex={2}>
-              <Typography variant={"h5"} fontWeight={800}>
-                As Seen on TV
+            <Box color={"common.bgDark"} pl={6.2} py={9} zIndex={2}>
+              <Typography variant={"h7"} component={"p"} fontWeight={500}>
+                One of the main Speakers
               </Typography>
-              <Typography variant={"h5"} fontWeight={600}>
-                Channel News Asia
+              <Typography variant={"heading1"} component={"p"}>
+                INVEST
+              </Typography>
+              <Typography variant={"heading1"} component={"p"} fontWeight={700}>
+                FORUM
               </Typography>
             </Box>
 
             <Box
-              color={"grey.900"}
               zIndex={2}
               display={"flex"}
               flexDirection={"column"}
@@ -103,18 +105,14 @@ export default function DesktopSlider() {
               position={"relative"}
               pr={20}
             >
-              <Typography variant={"h1"} fontWeight={600}>
-                THE BIG
-              </Typography>
-              <Typography variant={"h1"} fontWeight={800}>
-                SPARK
+              <Typography variant={"h1"} color={"transparent"}>
+                **
               </Typography>
               <Box
-                component="span"
                 sx={{
                   position: "absolute",
                   top: 0,
-                  right: -50,
+                  right: 10,
                   width: "100%",
                   height: "100%",
                   backgroundImage: `url(${PropertiesSliderOnePersonImg.src})`,
@@ -166,9 +164,11 @@ export default function DesktopSlider() {
                 }}
               />
               <Typography variant={"h4"} fontWeight={800} my={1.6}>
-                Villa Lembah Giri
+                Amazon Jungle Resort
               </Typography>
-              <Typography variant={"h7"}>Ubud, Bali</Typography>
+              <Typography variant={"h7"} component={"p"}>
+                Kaba-Kaba-Bali | Indonesia
+              </Typography>
             </Box>
           </SwiperSlide>
 

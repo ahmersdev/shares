@@ -7,7 +7,7 @@ import {
   PropertiesSliderOneImg,
   PropertiesSliderOnePersonImg,
   PropertiesSliderThreeMobileImg,
-  PropertiesSliderTwoMobileImg,
+  PropertiesVillaFourImg,
 } from "@/assets/images";
 import { pxToRem } from "@/utils/get-font-value";
 import { FooterAppStoreButton, FooterGooglePlayButton } from "@/assets/icons";
@@ -82,23 +82,19 @@ export default function MobileSlider() {
               }}
             />
             <Box
-              color={"grey.900"}
+              color={"common.bgDark"}
               zIndex={2}
               textAlign={"center"}
               width={"100%"}
             >
-              <Typography variant={"h5"} fontWeight={800}>
-                As Seen on TV
+              <Typography variant={"h7"} component={"p"} fontWeight={500}>
+                One of the main Speakers
               </Typography>
-              <Typography variant={"h5"} fontWeight={600}>
-                Channel News Asia
+              <Typography variant={"heading1"} component={"p"}>
+                INVEST
               </Typography>
-
-              <Typography variant={"h1"} fontWeight={600} mt={2}>
-                THE BIG
-              </Typography>
-              <Typography variant={"h1"} fontWeight={800}>
-                SPARK
+              <Typography variant={"heading1"} component={"p"} fontWeight={700}>
+                FORUM
               </Typography>
 
               <Image
@@ -146,14 +142,14 @@ export default function MobileSlider() {
               />
 
               <Typography variant={"h4"} fontWeight={800} my={1.6}>
-                Villa Lembah Giri
+                Amazon Jungle Resort
               </Typography>
-              <Typography variant={"h7"} component={"p"} mb={2}>
-                Ubud, Bali
+              <Typography variant={"h7"} component={"p"} m={2}>
+                Kaba-Kaba-Bali | Indonesia
               </Typography>
 
               <Image
-                src={PropertiesSliderTwoMobileImg}
+                src={PropertiesVillaFourImg}
                 alt={"Person"}
                 width={500}
                 height={300}
