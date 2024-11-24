@@ -19,11 +19,25 @@ import {
 import TanstackTable from "@/components/table";
 import { PortfolioFooterIcon } from "@/assets/icons";
 import { BUTTON_STYLES } from "@/styles";
+import { useGetPortfolioQuery } from "@/services/web-app/portfolio";
+import { SkeletonDetails } from "@/components/skeletons";
+import ApiErrorState from "@/components/api-error-state";
+import { PORTFOLIO_PAGE_ANNUAL_LIMIT } from "@/constants";
 
 export default function ClientPortfolio() {
-  const keyFinancial = getKeyFinancialData();
-  const quickInsight = getQuickInsightsData();
-  const annualInvestmentLimit = getAnnualInvestmentLimit();
+  const { data, isLoading, isFetching, isError } = useGetPortfolioQuery(null, {
+    refetchOnMountOrArgChange: true,
+  });
+  const totalInvestment = data?.data?.totalInvestment ?? 0;
+  const percentage = (totalInvestment / PORTFOLIO_PAGE_ANNUAL_LIMIT) * 100;
+
+  const keyFinancial = getKeyFinancialData(data?.data);
+  const quickInsight = getQuickInsightsData(data?.data);
+  const annualInvestmentLimit = getAnnualInvestmentLimit(totalInvestment);
+
+  if (isLoading || isFetching) return <SkeletonDetails />;
+
+  if (isError) return <ApiErrorState />;
 
   return (
     <Stack spacing={4}>
@@ -37,7 +51,7 @@ export default function ClientPortfolio() {
       >
         <Typography variant={"body1"}>Portfolio Value</Typography>
         <Typography variant={"h5"} color={"text.heading"} mt={1}>
-          USD 0
+          USD {data?.data?.totalInvestment ?? "0"}
         </Typography>
       </Box>
 
@@ -181,7 +195,7 @@ export default function ClientPortfolio() {
                 fontWeight={600}
                 color={"text.heading"}
               >
-                0%{" "}
+                {`${Math.min(percentage, 100).toFixed(2)}% `}
                 <Typography variant={"caption"} color={"text.body"}>
                   Of limit Used
                 </Typography>
@@ -189,7 +203,7 @@ export default function ClientPortfolio() {
 
               <LinearProgress
                 variant={"determinate"}
-                value={0}
+                value={Math.min(percentage, 100)}
                 sx={{
                   borderRadius: 1.5,
                   height: 6,

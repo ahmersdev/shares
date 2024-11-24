@@ -5,14 +5,15 @@ import {
   MoneyIcon,
   PercentageIcon,
 } from "@/assets/icons";
+import { PORTFOLIO_PAGE_ANNUAL_LIMIT } from "@/constants";
 
-export const getKeyFinancialData = () => [
+export const getKeyFinancialData = (data: any) => [
   {
     id: 1,
     icon: MoneyIcon,
     title: "Monthly income",
     tooltip: "Monthly income",
-    amount: `USD 0`,
+    amount: `USD ${data?.totalMonthlyIncome ?? "0"}`,
     date: "June 2024",
   },
   {
@@ -20,7 +21,7 @@ export const getKeyFinancialData = () => [
     icon: IncomeIcon,
     title: "Total Rental Income",
     tooltip: "Total Rental Income",
-    amount: `USD 0`,
+    amount: `USD ${data?.totalMonthlyRentalIncome ?? "0"}`,
     date: "June 2024",
   },
   {
@@ -28,52 +29,58 @@ export const getKeyFinancialData = () => [
     icon: AnalyticsIcon,
     title: "Total Appreciation",
     tooltip: "Total Appreciation",
-    amount: `USD 0`,
+    amount: `USD ${data?.totalMonthlyAppreciation ?? "0"}`,
     date: "June 2024",
   },
 ];
 
-export const getQuickInsightsData = () => [
+export const getQuickInsightsData = (data: any) => [
   {
     id: 1,
     icon: HomeIcon,
     title: "Number of properties",
     tooltip: "Number of properties",
-    amount: "0",
+    amount: `${data?.noOfProperties ?? "0"}`,
   },
   {
     id: 2,
     icon: PercentageIcon,
     title: "Occupancy rate",
     tooltip: "Occupancy rate",
-    amount: "0%",
+    amount: `${data?.occupancyRate ?? "0"}%`,
   },
   {
     id: 3,
     icon: AnalyticsIcon,
     title: "Annual rental yield",
     tooltip: "Annual rental yield",
-    amount: "0%",
+    amount: `${data?.annualRentalYield ?? "0"}%`,
   },
 ];
 
-export const getAnnualInvestmentLimit = () => [
-  {
-    id: 1,
-    title: "Annual Limit",
-    detail: "USD 183,500",
-  },
-  {
-    id: 2,
-    title: "Invested In Last 12 Months",
-    detail: "USD 0",
-  },
-  {
-    id: 3,
-    title: "Available to Invest",
-    detail: "USD 183,500",
-  },
-];
+export const getAnnualInvestmentLimit = (totalInvestment: number) => {
+  const formatter = new Intl.NumberFormat("en-US");
+
+  return [
+    {
+      id: 1,
+      title: "Annual Limit",
+      detail: `USD ${formatter.format(PORTFOLIO_PAGE_ANNUAL_LIMIT)}`,
+    },
+    {
+      id: 2,
+      title: "Invested In Last 12 Months",
+      detail: `USD ${formatter.format(totalInvestment)}`,
+    },
+    {
+      id: 3,
+      title: "Available to Invest",
+      detail: `USD ${formatter.format(
+        PORTFOLIO_PAGE_ANNUAL_LIMIT - totalInvestment
+      )}`,
+    },
+  ];
+};
 
 export const myStakesColumns = [
   {

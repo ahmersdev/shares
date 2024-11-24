@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  Box,
-  Grid,
-  Typography,
-  useTheme,
-  Theme,
-  LinearProgress,
-  Button,
-  Divider,
-} from "@mui/material";
+import { Box, Grid, Typography, Button, Divider } from "@mui/material";
 import {
   ArrowRightIcon,
   CopyIcon,
@@ -25,53 +16,27 @@ import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
 import { referAndEarn } from "./client-rewards.data";
 import { pxToRem } from "@/utils/get-font-value";
 import { FormProvider, RHFTextField } from "@/components/react-hook-form";
-import { useForm } from "react-hook-form";
 import { BUTTON_STYLES } from "@/styles";
-import { successSnackbar } from "@/utils/api";
 import { ONBOARDING, WEB_APP } from "@/constants/routes";
 import Link from "next/link";
-import { useGetRewardsQuery } from "@/services/web-app/rewards";
 import ApiErrorState from "@/components/api-error-state";
 import { SkeletonDetails } from "@/components/skeletons";
-import { useEffect } from "react";
-import { useGetAccountSettingsDetailsQuery } from "@/services/web-app/settings";
+import useClientRewards from "./use-client-rewards";
 
 export default function ClientRewards() {
-  const theme = useTheme<Theme>();
-
-  const { data, isLoading, isFetching, isError } = useGetRewardsQuery(null, {
-    refetchOnMountOrArgChange: true,
-  });
-  const referralCode = data?.totalEarning?.referralCode;
-
-  const domain = window.location.hostname;
-
-  const methods = useForm({
-    defaultValues: {
-      link: `${domain}/sign-up?rewards=${referralCode}`,
-    },
-  });
-  const { getValues, reset } = methods;
-
-  useEffect(() => {
-    reset({
-      link: `${domain}/sign-up?rewards=${referralCode}`,
-    });
-  }, [data, reset, domain, referralCode]);
-
-  const copyUrlHandler = () => {
-    navigator.clipboard.writeText(getValues("link"));
-    successSnackbar("URL Copied Successfully!");
-  };
-
   const {
-    data: dataUser,
-    isLoading: isLoadingUser,
-    isFetching: isFetchingUser,
-    isError: isErrorUser,
-  } = useGetAccountSettingsDetailsQuery(null, {
-    refetchOnMountOrArgChange: true,
-  });
+    theme,
+    methods,
+    data,
+    isLoading,
+    isFetching,
+    isError,
+    copyUrlHandler,
+    dataUser,
+    isLoadingUser,
+    isFetchingUser,
+    isErrorUser,
+  } = useClientRewards();
 
   if (isLoading || isFetching || isLoadingUser || isFetchingUser)
     return <SkeletonDetails />;

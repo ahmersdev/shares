@@ -32,4 +32,5 @@ export const WEB_APP = {
   WITHDRAW_VIA_CARD: `/user/card/withdraw-amount`,
   GET_ALL_TRANSACTIONS: `/user/transaction/all`,
   GET_REWARDS: `/users/referral-earnings`,
+  GET_PORTFOLIO: `/users/portfolio-info`,
 };
