@@ -1,5 +1,4 @@
 import {
-  useCheckoutViaCardMutation,
   useGetAllCartItemsQuery,
   usePutCartItemMutation,
   useRemoveCartItemMutation,
@@ -20,7 +19,6 @@ export default function useClientCart() {
     checkout: false,
     checkoutViaCard: false,
     checkoutViaCrypto: false,
-    checkoutViaDeposit: false,
   });
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -36,7 +34,6 @@ export default function useClientCart() {
       checkout: false,
       checkoutViaCard: false,
       checkoutViaCrypto: false,
-      checkoutViaDeposit: false,
     });
   };
 
@@ -54,8 +51,6 @@ export default function useClientCart() {
 
   const [putCartItemTrigger] = usePutCartItemMutation();
   const [removeCartItemTrigger] = useRemoveCartItemMutation();
-  const [postCheckoutViaCardTrigger, postCheckoutViaCardStatus] =
-    useCheckoutViaCardMutation();
 
   const updateCartItem = useCallback(
     async (amount: number, propertyId: string) => {
@@ -205,5 +200,6 @@ export default function useClientCart() {
     openCheckoutDialog,
     setOpenCheckoutDialog,
     onCloseCheckoutHandler,
+    refetch,
   };
 }

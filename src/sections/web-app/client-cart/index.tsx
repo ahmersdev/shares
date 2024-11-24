@@ -51,6 +51,7 @@ export default function ClientCart() {
     openCheckoutDialog,
     setOpenCheckoutDialog,
     onCloseCheckoutHandler,
+    refetch,
   } = useClientCart();
 
   if (isLoading || isFetching || isLoadingUser || isFetchingUser)
@@ -299,8 +300,7 @@ export default function ClientCart() {
               </Typography>
             </Box>
 
-            {!dataUser?.data?.isContactAdded &&
-            !dataUser?.data?.isKYCVerified ? (
+            {dataUser?.data?.isContactAdded && dataUser?.data?.isKYCVerified ? (
               <Box
                 border={1}
                 borderColor={"common.bgOnBoardingBorder"}
@@ -377,7 +377,6 @@ export default function ClientCart() {
                     checkout: true,
                     checkoutViaCard: false,
                     checkoutViaCrypto: false,
-                    checkoutViaDeposit: false,
                   })
                 }
               >
@@ -392,6 +391,8 @@ export default function ClientCart() {
           openCheckoutDialog={openCheckoutDialog}
           setOpenCheckoutDialog={setOpenCheckoutDialog}
           onCloseCheckoutHandler={onCloseCheckoutHandler}
+          refetch={refetch}
+          totalAmount={totalAmount}
         />
       )}
     </>

@@ -1,3 +1,5 @@
+import { QueryActionCreatorResult } from "@reduxjs/toolkit/query";
+
 interface IClientCartProperty {
   thumbnail: string;
   title: string;
@@ -16,7 +18,6 @@ interface IOpenCheckoutDialog {
   checkout: boolean;
   checkoutViaCard: boolean;
   checkoutViaCrypto: boolean;
-  checkoutViaDeposit: boolean;
 }
 
 export interface ICheckoutProps {
@@ -25,4 +26,6 @@ export interface ICheckoutProps {
     React.SetStateAction<IOpenCheckoutDialog>
   >;
   onCloseCheckoutHandler: () => void;
+  refetch: () => void;
+  totalAmount: number;
 }

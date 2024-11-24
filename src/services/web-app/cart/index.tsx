@@ -33,6 +33,13 @@ export const cartApi = baseAPI.injectEndpoints({
       }),
       invalidatesTags: TAG,
     }),
+    checkoutViaDepositMoney: builder.query({
+      query: () => ({
+        url: WEB_APP.CHECKOUT,
+        method: "GET",
+      }),
+      providesTags: TAG,
+    }),
   }),
 });
 
@@ -41,4 +48,5 @@ export const {
   usePutCartItemMutation,
   useRemoveCartItemMutation,
   useCheckoutViaCardMutation,
+  useLazyCheckoutViaDepositMoneyQuery,
 } = cartApi;
