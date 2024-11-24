@@ -16,13 +16,13 @@ import { SALE_SITE_LAYOUT } from "@/constants/layout";
 import useNavbar from "./use-navbar";
 
 export default function Navbar() {
-  const { pathName, tokenCookies, initialLoad } = useNavbar();
+  const { theme, pathName, tokenCookies, initialLoad } = useNavbar();
 
   return (
     <Box display={{ xs: "none", md: "block" }}>
       <Box
         position={"fixed"}
-        maxWidth={"xl"}
+        maxWidth={theme.breakpoints.values.xl + 100}
         width={"100%"}
         left={"50%"}
         zIndex={9}
@@ -32,7 +32,7 @@ export default function Navbar() {
           display={"flex"}
           justifyContent={"space-between"}
           alignItems={"center"}
-          bgcolor={"grey.50"}
+          bgcolor={"primary.10"}
           borderRadius={6}
           mt={2}
           mx={5}
@@ -91,11 +91,11 @@ export default function Navbar() {
                   variant={"contained"}
                   sx={{
                     ...BUTTON_STYLES,
-                    color: "grey.50",
-                    borderColor: "primary.main",
-                    backgroundColor: "primary.main",
+                    color: "primary.main",
+                    borderColor: "grey.50",
+                    backgroundColor: "grey.50",
                     ":hover": {
-                      backgroundColor: "primary.main",
+                      backgroundColor: "grey.50",
                     },
                   }}
                   disableElevation
@@ -110,10 +110,10 @@ export default function Navbar() {
                   sx={{
                     ...BUTTON_STYLES,
                     color: "grey.50",
-                    borderColor: "primary.50",
-                    backgroundColor: "primary.50",
+                    borderColor: "primary.main",
+                    backgroundColor: "primary.main",
                     ":hover": {
-                      backgroundColor: "primary.50",
+                      backgroundColor: "primary.main",
                     },
                   }}
                   disableElevation

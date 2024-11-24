@@ -5,7 +5,7 @@ const PRIMARY = {
   100: "#F5F0EB",
   50: "#9FBACD",
   25: "#E4DFD0",
-  10: "#F2F0EA",
+  10: "#F5F0EB",
   5: "#E6ECF5",
 };
 

@@ -20,7 +20,7 @@ export default function QRCode() {
           pr={4}
           gap={2}
         >
-          <Box bgcolor={"opacity.qrCode"} p={1} borderRadius={2}>
+          <Box bgcolor={"primary.10"} p={1} borderRadius={2}>
             <Avatar
               src={QRCodeImg.src}
               variant={"square"}

@@ -28,7 +28,7 @@ export default function DrawerSaleSite({
       PaperProps={{
         style: {
           width: "280px",
-          backgroundColor: `${theme.palette.grey[50]}`,
+          backgroundColor: `${theme.palette.primary[10]}`,
           padding: "20px",
           borderRadius: "0px 24px 24px 0px",
         },

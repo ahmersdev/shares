@@ -21,7 +21,7 @@ export default function Header() {
           display={"flex"}
           justifyContent={"space-between"}
           alignItems={"center"}
-          bgcolor={"grey.50"}
+          bgcolor={"primary.10"}
           borderRadius={6}
           m={2}
           p={2}

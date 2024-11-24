@@ -1,8 +1,8 @@
 import { IAssetsProps } from "@/interfaces";
 
 const HomeProjectsIcon = ({
-  fill = "#9FBACD",
-  stroke = "#FFFFFF",
+  fill = "#F5F0EB",
+  stroke = "#545452",
 }: IAssetsProps) => {
   return (
     <svg

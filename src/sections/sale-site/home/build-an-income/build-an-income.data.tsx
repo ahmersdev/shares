@@ -63,11 +63,24 @@ export const getBuildAnIncomeDataArray = (
         "We manage the properties and pay you the rental income every month",
       image: IncomeEarnImg,
       additionalContent: (
-        <Box display={"flex"} alignItems={"center"} gap={1}>
+        <Box
+          display={"flex"}
+          alignItems={"center"}
+          gap={1}
+          bgcolor={"#47CE8E1A"}
+          px={2}
+          py={1}
+          borderRadius={2}
+        >
           <Box width={24} height={24}>
             <IncomeEarnIcon />
           </Box>
-          <Typography variant={"body2"} fontWeight={600} color={"text.heading"}>
+          <Typography
+            variant={"body3"}
+            component={"p"}
+            fontWeight={500}
+            color={"#47CE8E"}
+          >
             8% cash back from day 1 l Paid directly to your Shares wallet
           </Typography>
         </Box>
@@ -86,13 +99,14 @@ export const getBuildAnIncomeDataArray = (
           flexDirection={"column"}
           alignItems={"start"}
           gap={3.2}
-          color={"primary.main"}
+          color={"#47CE8E"}
         >
           <Typography
-            variant={"body2"}
-            fontWeight={600}
-            borderRadius={25}
-            bgcolor={"primary.100"}
+            variant={"body3"}
+            component={"p"}
+            fontWeight={500}
+            borderRadius={2}
+            bgcolor={"#47CE8E1A"}
             px={2}
             py={1}
             textAlign={"center"}
@@ -100,10 +114,11 @@ export const getBuildAnIncomeDataArray = (
             Sell During Our Exit Windows (Every 12 Months)
           </Typography>
           <Typography
-            variant={"body2"}
-            fontWeight={600}
-            borderRadius={25}
-            bgcolor={"primary.100"}
+            variant={"body3"}
+            component={"p"}
+            fontWeight={500}
+            borderRadius={2}
+            bgcolor={"#47CE8E1A"}
             px={2}
             py={1}
             textAlign={"center"}

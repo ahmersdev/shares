@@ -1,8 +1,10 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import { useTheme, Theme } from "@mui/material";
 
 export default function useNavbar() {
+  const theme = useTheme<Theme>();
   const pathName: string = usePathname();
 
   const [tokenCookies, setTokenCookies] = useState("");
@@ -16,5 +18,5 @@ export default function useNavbar() {
     setInitialLoad(false);
   }, [tokenCookies, pathName]);
 
-  return { pathName, tokenCookies, initialLoad };
+  return { theme, pathName, tokenCookies, initialLoad };
 }

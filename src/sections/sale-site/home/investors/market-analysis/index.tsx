@@ -15,6 +15,8 @@ export default function MarketAnalysis() {
             p={2.4}
             borderRadius={6}
             height={"100%"}
+            display={"flex"}
+            flexDirection={"column"}
           >
             <Typography
               variant={"body1"}

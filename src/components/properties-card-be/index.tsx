@@ -31,7 +31,7 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
       height={"100%"}
       justifyContent={"space-between"}
       border={1}
-      borderColor={"primary.50"}
+      borderColor={"text.body"}
       position={"relative"}
     >
       {soldOut && (
@@ -166,9 +166,9 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
           sx={{
             borderRadius: 1.5,
             height: 6,
-            backgroundColor: "primary.5",
+            backgroundColor: "text.stroke",
             "& .MuiLinearProgress-bar": {
-              backgroundColor: "primary.50",
+              backgroundColor: "primary.10",
             },
             "& .MuiLinearProgress-bar1Determinate": {
               borderRadius: "inherit",
@@ -203,12 +203,12 @@ export default function PropertiesCardBe(props: IPropertiesBeDataArray) {
               variant={"contained"}
               sx={{
                 ...BUTTON_STYLES,
-                color: "grey.50",
-                borderColor: "primary.50",
-                backgroundColor: "primary.50",
+                color: "primary.main",
+                borderColor: "primary.10",
+                backgroundColor: "primary.10",
                 width: "100%",
                 ":hover": {
-                  backgroundColor: "primary.50",
+                  backgroundColor: "primary.10",
                 },
               }}
               disableElevation

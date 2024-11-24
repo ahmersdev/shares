@@ -79,7 +79,14 @@ export default function BuildAnIncome() {
               <Typography
                 variant={"h7"}
                 fontWeight={500}
-                color={"primary.main"}
+                color={item.id === 3 || item.id === 4 ? "#CE4747" : "#47CE8E"}
+                bgcolor={
+                  item.id === 3 || item.id === 4 ? "#CE47471A" : "#47CE8E1A"
+                }
+                width={"max-content"}
+                px={2.4}
+                py={1.2}
+                borderRadius={2}
               >
                 {item.title}
               </Typography>
