@@ -11,3 +11,18 @@ export interface ICartItem {
   amount: number;
   propertyId: IClientCartProperty;
 }
+
+interface IOpenCheckoutDialog {
+  checkout: boolean;
+  checkoutViaCard: boolean;
+  checkoutViaCrypto: boolean;
+  checkoutViaDeposit: boolean;
+}
+
+export interface ICheckoutProps {
+  openCheckoutDialog: IOpenCheckoutDialog;
+  setOpenCheckoutDialog: React.Dispatch<
+    React.SetStateAction<IOpenCheckoutDialog>
+  >;
+  onCloseCheckoutHandler: () => void;
+}

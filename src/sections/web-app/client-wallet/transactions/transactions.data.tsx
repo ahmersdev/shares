@@ -22,11 +22,14 @@ export const transactionsTableColumns = [
     ),
   },
   {
-    accessorFn: (row: ITransactionTableColumn) => row?.paymentIntentId,
+    accessorFn: (row: ITransactionTableColumn) => row?.paymentType,
     id: "wallet",
     header: "Wallet",
-    cell: (info: CellContext<ITransactionTableColumn, any>) =>
-      !!!info.getValue() ? `Card` : "Crypto",
+    cell: (info: CellContext<ITransactionTableColumn, any>) => (
+      <Typography variant={"caption"} textTransform={"capitalize"}>
+        {info.getValue()}
+      </Typography>
+    ),
   },
   {
     accessorFn: (row: ITransactionTableColumn) => row?.amount,

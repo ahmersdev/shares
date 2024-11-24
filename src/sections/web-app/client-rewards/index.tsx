@@ -246,9 +246,9 @@ export default function ClientRewards() {
 
                 <Link
                   href={
-                    !data?.data?.isContactAdded
+                    !dataUser?.data?.isContactAdded
                       ? ONBOARDING.QR_CODE
-                      : !data?.data?.isKYCVerified
+                      : !dataUser?.data?.isKYCVerified
                       ? ONBOARDING.KYC_VERIFICATION
                       : ""
                   }

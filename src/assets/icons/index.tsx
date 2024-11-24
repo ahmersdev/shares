@@ -99,3 +99,4 @@ export { default as PropertiesParkingIcon } from "./web-app/properties-parking-i
 export { default as DepositViaCardIcon } from "./web-app/deposit-via-card-icon";
 export { default as DepositViaCryptoIcon } from "./web-app/deposit-via-crypto-icon";
 export { default as SecurityAndPrivacyBlueIcon } from "./web-app/security-and-privacy-blue-icon";
+export { default as CheckoutViaWalletIcon } from "./web-app/checkout-via-wallet-icon";

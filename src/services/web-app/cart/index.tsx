@@ -25,6 +25,14 @@ export const cartApi = baseAPI.injectEndpoints({
         method: "DELETE",
       }),
     }),
+    checkoutViaCard: builder.mutation({
+      query: (body: any) => ({
+        url: WEB_APP.PUT_CART_ITEM,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: TAG,
+    }),
   }),
 });
 
@@ -32,4 +40,5 @@ export const {
   useGetAllCartItemsQuery,
   usePutCartItemMutation,
   useRemoveCartItemMutation,
+  useCheckoutViaCardMutation,
 } = cartApi;

@@ -1,6 +1,6 @@
 export interface ITransactionTableColumn {
   createdAt: string;
   status: string;
-  paymentIntentId: string;
+  paymentType: string;
   amount: number;
 }

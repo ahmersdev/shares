@@ -1,4 +1,5 @@
 import {
+  useCheckoutViaCardMutation,
   useGetAllCartItemsQuery,
   usePutCartItemMutation,
   useRemoveCartItemMutation,
@@ -10,8 +11,17 @@ import * as Yup from "yup";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { IApiErrorResponse } from "@/interfaces";
+import { useGetAccountSettingsDetailsQuery } from "@/services/web-app/settings";
+import { useTheme, Theme } from "@mui/material";
 
 export default function useClientCart() {
+  const theme = useTheme<Theme>();
+  const [openCheckoutDialog, setOpenCheckoutDialog] = useState({
+    checkout: false,
+    checkoutViaCard: false,
+    checkoutViaCrypto: false,
+    checkoutViaDeposit: false,
+  });
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const [updateItem, setUpdateItem] = useState<{
@@ -21,10 +31,31 @@ export default function useClientCart() {
 
   const [totalAmount, setTotalAmount] = useState(0);
 
+  const onCloseCheckoutHandler = () => {
+    setOpenCheckoutDialog({
+      checkout: false,
+      checkoutViaCard: false,
+      checkoutViaCrypto: false,
+      checkoutViaDeposit: false,
+    });
+  };
+
   const { data, isLoading, isFetching, isError, refetch } =
     useGetAllCartItemsQuery(null, { refetchOnMountOrArgChange: true });
+
+  const {
+    data: dataUser,
+    isLoading: isLoadingUser,
+    isFetching: isFetchingUser,
+    isError: isErrorUser,
+  } = useGetAccountSettingsDetailsQuery(null, {
+    refetchOnMountOrArgChange: true,
+  });
+
   const [putCartItemTrigger] = usePutCartItemMutation();
   const [removeCartItemTrigger] = useRemoveCartItemMutation();
+  const [postCheckoutViaCardTrigger, postCheckoutViaCardStatus] =
+    useCheckoutViaCardMutation();
 
   const updateCartItem = useCallback(
     async (amount: number, propertyId: string) => {
@@ -156,6 +187,7 @@ export default function useClientCart() {
   }, [data]);
 
   return {
+    theme,
     data,
     isLoading,
     isFetching,
@@ -166,5 +198,12 @@ export default function useClientCart() {
     handleBlur,
     totalAmount,
     removeCartItem,
+    dataUser,
+    isLoadingUser,
+    isFetchingUser,
+    isErrorUser,
+    openCheckoutDialog,
+    setOpenCheckoutDialog,
+    onCloseCheckoutHandler,
   };
 }
