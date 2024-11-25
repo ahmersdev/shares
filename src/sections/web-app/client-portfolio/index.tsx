@@ -28,7 +28,7 @@ export default function ClientPortfolio() {
   const { data, isLoading, isFetching, isError } = useGetPortfolioQuery(null, {
     refetchOnMountOrArgChange: true,
   });
-  const totalInvestment = data?.data?.totalInvestment ?? 0;
+  const totalInvestment = data?.data?.totalInvestment.toFixed(2) ?? 0;
   const percentage = (totalInvestment / PORTFOLIO_PAGE_ANNUAL_LIMIT) * 100;
 
   const keyFinancial = getKeyFinancialData(data?.data);
@@ -250,7 +250,7 @@ export default function ClientPortfolio() {
 
         <TanstackTable
           columns={myStakesColumns}
-          data={[]}
+          data={data?.data?.stakes}
           noDataProps={{ height: "20vh", message: "No Investment Found!" }}
         />
       </Box>
