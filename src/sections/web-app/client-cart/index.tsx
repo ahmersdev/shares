@@ -30,6 +30,7 @@ import NoData from "@/components/no-data";
 import Link from "next/link";
 import { ONBOARDING } from "@/constants/routes";
 import Checkout from "./checkout";
+import Card from "./checkout/card";
 
 export default function ClientCart() {
   const {
@@ -386,13 +387,20 @@ export default function ClientCart() {
           </Box>
         </Grid>
       </Grid>
-      {openCheckoutDialog?.checkout && (
+      {openCheckoutDialog.checkout && (
         <Checkout
           openCheckoutDialog={openCheckoutDialog}
           setOpenCheckoutDialog={setOpenCheckoutDialog}
           onCloseCheckoutHandler={onCloseCheckoutHandler}
           refetch={refetch}
           totalAmount={totalAmount}
+        />
+      )}
+      {openCheckoutDialog.checkoutViaCard && (
+        <Card
+          openCheckoutDialog={openCheckoutDialog}
+          onCloseCheckoutHandler={onCloseCheckoutHandler}
+          refetch={refetch}
         />
       )}
     </>

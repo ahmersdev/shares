@@ -14,7 +14,7 @@ export interface ICartItem {
   propertyId: IClientCartProperty;
 }
 
-interface IOpenCheckoutDialog {
+export interface IOpenCheckoutDialog {
   checkout: boolean;
   checkoutViaCard: boolean;
   checkoutViaCrypto: boolean;

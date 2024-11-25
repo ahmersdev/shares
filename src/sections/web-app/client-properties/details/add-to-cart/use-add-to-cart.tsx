@@ -22,7 +22,7 @@ export default function useAddToCart(props: IAddToCartProps) {
     defaultValues: { amount: undefined },
   });
 
-  const { handleSubmit } = methods;
+  const { handleSubmit, reset } = methods;
 
   const [
     postAddPropertyToCardFromPropertyTrigger,
@@ -37,6 +37,7 @@ export default function useAddToCart(props: IAddToCartProps) {
       }).unwrap();
       if (res) {
         successSnackbar(res?.msg ?? "Property Added to Cart Successfully!");
+        reset();
       }
     } catch (error) {
       const errorResponse = error as IApiErrorResponse;

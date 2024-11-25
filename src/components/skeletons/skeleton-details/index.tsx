@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Grid, Skeleton, Stack } from "@mui/material";
 
 export default function SkeletonDetails() {

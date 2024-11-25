@@ -18,7 +18,7 @@ import {
 } from "@/components/react-hook-form";
 import { BUTTON_STYLES } from "@/styles";
 import { LoadingButton } from "@mui/lab";
-import { cardBrandIcon } from "../../../client-wallet.data";
+import { cardBrandIcon } from "@/utils/card-brand";
 
 export default function CardDeposit(props: ICardDepositProps) {
   const { openDepositDialog } = props;

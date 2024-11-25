@@ -1,8 +1,6 @@
 import { WEB_APP } from "@/constants/endpoints";
 import { baseAPI } from "@/services/base-api";
 
-const TAG = ["CART"];
-
 export const cartApi = baseAPI.injectEndpoints({
   endpoints: (builder) => ({
     getAllCartItems: builder.query({
@@ -10,7 +8,6 @@ export const cartApi = baseAPI.injectEndpoints({
         url: WEB_APP.GET_ALL_cART,
         method: "GET",
       }),
-      providesTags: TAG,
     }),
     putCartItem: builder.mutation({
       query: ({ body, propertyId }: any) => ({
@@ -27,18 +24,16 @@ export const cartApi = baseAPI.injectEndpoints({
     }),
     checkoutViaCard: builder.mutation({
       query: (body: any) => ({
-        url: WEB_APP.PUT_CART_ITEM,
+        url: WEB_APP.CHECKOUT,
         method: "POST",
         body,
       }),
-      invalidatesTags: TAG,
     }),
     checkoutViaDepositMoney: builder.query({
       query: () => ({
         url: WEB_APP.CHECKOUT,
         method: "GET",
       }),
-      providesTags: TAG,
     }),
   }),
 });
