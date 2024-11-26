@@ -18,12 +18,13 @@ export default function useEmailOtp() {
 
   const encodedParams = searchParams.get("data");
 
-  let email = "No email provided";
-  let fullName = "No name provided";
+  let email = "";
+  let fullName = "";
+  let referralLink = "";
 
   if (encodedParams) {
     const decodedParams = atob(encodedParams);
-    [email, fullName] = decodedParams.split("|");
+    [email, fullName, referralLink] = decodedParams.split("|");
   }
 
   const [otp, setOtp] = useState("");
@@ -62,7 +63,7 @@ export default function useEmailOtp() {
     usePostSignUpUserMutation();
 
   const onSubmitResendOtp = async () => {
-    const updatedData = { email, fullName };
+    const updatedData = { email, fullName, referralLink };
     try {
       const res = await postResendOtpTrigger(updatedData).unwrap();
       if (res) {

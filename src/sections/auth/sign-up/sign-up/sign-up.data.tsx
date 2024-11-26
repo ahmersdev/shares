@@ -7,11 +7,13 @@ export const signUpFormValidationSchema = Yup.object().shape({
     .trim()
     .email("Invalid email format")
     .required("Email is Required"),
+  referralLink: Yup.string().trim(),
 });
 
 export const signUpFormDefaultValues = {
   fullName: "",
   email: "",
+  referralLink: "",
 };
 
 export const signUpDataArray = [
@@ -31,6 +33,15 @@ export const signUpDataArray = [
       label: "Email",
       placeholder: "Enter Email Address",
       type: "email",
+    },
+    component: RHFTextField,
+  },
+  {
+    id: 3,
+    componentProps: {
+      name: "referralLink",
+      label: "Referral Code",
+      placeholder: "Enter Referral Code",
     },
     component: RHFTextField,
   },
