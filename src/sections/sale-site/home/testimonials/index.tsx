@@ -1,6 +1,4 @@
-import { PersonThreeImg } from "@/assets/images";
 import { Box, Grid, Rating, Theme, Typography, useTheme } from "@mui/material";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 import { testimonialsDataArray } from "./testimonials.data";
@@ -42,20 +40,27 @@ export default function Testimonials() {
         </Typography>
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
-            <Image
-              src={PersonThreeImg}
-              alt={"Testimonials"}
-              width={580}
-              height={397}
-              style={{
+            <Box
+              sx={{
                 width: "100%",
-                objectFit: "cover",
-                objectPosition: "center center",
-                borderRadius: 24,
-                border: "1px solid",
-                borderColor: theme.palette.primary[25],
+                height: { xs: "100%", md: "400px" },
+                borderRadius: 2,
               }}
-            />
+            >
+              <iframe
+                src="https://drive.google.com/file/d/1iAt6fa_u4axOOWtkDrj8fzKx1XUD1k9K/preview"
+                allowFullScreen
+                allow="autoplay"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  border: "none",
+                  borderRadius: "inherit",
+                }}
+                title="Testimonial Video"
+              />
+            </Box>
           </Grid>
           <Grid item xs={12} md={6}>
             <Box
@@ -78,10 +83,10 @@ export default function Testimonials() {
                 color={"text.heading"}
                 mt={3}
               >
-                Venus Kaassamani
+                Javier Roca
               </Typography>
               <Typography variant={"body2"} color={"text.heading"}>
-                Inverstor
+                Investor
               </Typography>
             </Box>
           </Grid>

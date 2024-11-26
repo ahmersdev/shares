@@ -23,7 +23,6 @@ export { default as InvestorsSavillsImg } from "./sale-site/investors-savills-im
 export { default as InvestorsPwcImg } from "./sale-site/investors-pwc-img.png";
 export { default as PersonOneImg } from "./sale-site/person-one-img.png";
 export { default as PersonTwoImg } from "./sale-site/person-two-img.png";
-export { default as PersonThreeImg } from "./sale-site/person-three-img.png";
 export { default as PersonFourImg } from "./sale-site/person-four-img.png";
 export { default as FooterPhoneImg } from "./sale-site/footer-phone-img.png";
 export { default as FooterMobilePhoneImg } from "./sale-site/footer-mobile-phone-img.png";

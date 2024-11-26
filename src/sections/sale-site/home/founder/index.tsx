@@ -1,8 +1,8 @@
-import { PersonOneImg, PersonTwoImg } from "@/assets/images";
+import { PersonTwoImg } from "@/assets/images";
 import { Box, Grid, Theme, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 
-export default function Dubai() {
+export default function Founder() {
   const theme = useTheme<Theme>();
 
   return (
@@ -22,7 +22,7 @@ export default function Dubai() {
           textAlign={"center"}
           textTransform={"capitalize"}
         >
-          Dubai Real Estate
+          Meet the Founder
         </Typography>
 
         <Grid container spacing={2.4}>

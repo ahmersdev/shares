@@ -9,7 +9,7 @@ import BuildAnIncome from "./build-an-income";
 import Investors from "./investors";
 import Trust from "./trust";
 import RealEstate from "./real-estate";
-import Dubai from "./dubai";
+import Founder from "./founder";
 import InHouse from "./in-house";
 import Testimonials from "./testimonials";
 
@@ -24,7 +24,7 @@ export default function Home() {
       <Investors />
       <Trust />
       <RealEstate />
-      <Dubai />
+      <Founder />
       <InHouse />
       <Testimonials />
     </Stack>
