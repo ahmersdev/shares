@@ -51,7 +51,10 @@ export default function ClientPortfolio() {
       >
         <Typography variant={"body1"}>Portfolio Value</Typography>
         <Typography variant={"h5"} color={"text.heading"} mt={1}>
-          USD {data?.data?.totalInvestment ?? "0"}
+          USD{" "}
+          {data?.data?.totalInvestment
+            ? new Intl.NumberFormat("en-US").format(data?.data?.totalInvestment)
+            : "0"}
         </Typography>
       </Box>
 

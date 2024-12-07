@@ -15,7 +15,11 @@ export const getKeyFinancialData = (data: any) => [
     icon: MoneyIcon,
     title: "Monthly income",
     tooltip: "Monthly income",
-    amount: `USD ${data?.totalMonthlyIncome.toFixed(2) ?? "0"}`,
+    amount: `USD ${
+      data?.totalMonthlyIncome
+        ? new Intl.NumberFormat("en-US").format(data?.totalMonthlyIncome)
+        : "0"
+    }`,
     date: "June 2024",
   },
   {
@@ -23,7 +27,11 @@ export const getKeyFinancialData = (data: any) => [
     icon: IncomeIcon,
     title: "Total Rental Income",
     tooltip: "Total Rental Income",
-    amount: `USD ${data?.totalMonthlyRentalIncome.toFixed(2) ?? "0"}`,
+    amount: `USD ${
+      data?.totalMonthlyRentalIncome
+        ? new Intl.NumberFormat("en-US").format(data?.totalMonthlyRentalIncome)
+        : "0"
+    }`,
     date: "June 2024",
   },
   {
@@ -31,7 +39,11 @@ export const getKeyFinancialData = (data: any) => [
     icon: AnalyticsIcon,
     title: "Total Appreciation",
     tooltip: "Total Appreciation",
-    amount: `USD ${data?.totalMonthlyAppreciation.toFixed(2) ?? "0"}`,
+    amount: `USD ${
+      data?.totalMonthlyAppreciation
+        ? new Intl.NumberFormat("en-US").format(data?.totalMonthlyAppreciation)
+        : "0"
+    }`,
     date: "June 2024",
   },
 ];
