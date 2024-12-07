@@ -94,7 +94,7 @@ export default function ClientCart() {
                       width={106}
                       height={70}
                       style={{
-                        objectFit: "contain",
+                        objectFit: "cover",
                         borderRadius: 8,
                       }}
                     />
@@ -111,7 +111,7 @@ export default function ClientCart() {
                         display={"flex"}
                         justifyContent={"space-between"}
                         flexWrap={"wrap"}
-                        gap={1}
+                        gap={5}
                       >
                         <Box>
                           <Typography variant={"caption"} fontWeight={600}>
@@ -132,7 +132,7 @@ export default function ClientCart() {
                         </Box>
                         <Box>
                           <Typography variant={"caption"} fontWeight={600}>
-                            Maintenance
+                            Appreciation
                           </Typography>
                           <Typography
                             variant={"subtitle2"}
@@ -140,9 +140,9 @@ export default function ClientCart() {
                             color={"text.heading"}
                           >
                             USD $
-                            {item.propertyId?.maintaince
+                            {item?.monthlyAppreciationRate
                               ? new Intl.NumberFormat("en-US").format(
-                                  item.propertyId.maintaince
+                                  item.monthlyAppreciationRate
                                 )
                               : "-"}
                           </Typography>
@@ -223,9 +223,7 @@ export default function ClientCart() {
                   <Box width={{ xs: "100%", md: "50%" }}>
                     <LinearProgress
                       variant={"determinate"}
-                      value={
-                        item.propertyId?.progress ? item.propertyId.progress : 0
-                      }
+                      value={item?.progress ? item.progress : 0}
                       sx={{
                         borderRadius: 1.5,
                         height: 6,
@@ -236,10 +234,7 @@ export default function ClientCart() {
                       }}
                     />
                     <Typography variant={"caption"}>
-                      {item.propertyId?.progress
-                        ? item.propertyId?.progress.toFixed(2)
-                        : "0"}
-                      % Funded
+                      {item?.progress ? item.progress.toFixed(2) : "0"}% Funded
                     </Typography>
                   </Box>
 
@@ -301,7 +296,8 @@ export default function ClientCart() {
               </Typography>
             </Box>
 
-            {dataUser?.data?.isContactAdded && dataUser?.data?.isKYCVerified ? (
+            {!dataUser?.data?.isContactAdded &&
+            !dataUser?.data?.isKYCVerified ? (
               <Box
                 border={1}
                 borderColor={"common.bgOnBoardingBorder"}

@@ -1,16 +1,14 @@
-import { QueryActionCreatorResult } from "@reduxjs/toolkit/query";
-
 interface IClientCartProperty {
   thumbnail: string;
   title: string;
   grossRent: number;
-  maintaince: number;
-  progress: number;
 }
 
 export interface ICartItem {
   _id: string;
   amount: number;
+  monthlyAppreciationRate: number;
+  progress: number;
   propertyId: IClientCartProperty;
 }
 
