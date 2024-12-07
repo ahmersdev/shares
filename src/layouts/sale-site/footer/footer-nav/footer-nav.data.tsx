@@ -14,25 +14,6 @@ export const footerNavDataArray: IFooterNavDataArray[] = [
         href: SALE_SITE.PROPERTIES,
       },
       { id: 12, label: SALE_SITE_LAYOUT.ABOUT_US, href: SALE_SITE.ABOUT_US },
-      { id: 13, label: "How it works", href: "#" },
-      { id: 14, label: "Newsletter", href: "#" },
-    ],
-  },
-  {
-    id: 2,
-    title: "Services",
-    navItems: [
-      { id: 21, label: "Learn", href: "#" },
-      { id: 22, label: "Sell", href: "#" },
-      { id: 23, label: "Buy", href: "#" },
-    ],
-  },
-  {
-    id: 3,
-    title: "Help",
-    navItems: [
-      { id: 31, label: "Help Center", href: "#" },
-      { id: 32, label: "Contact Us", href: "#" },
     ],
   },
 ];
