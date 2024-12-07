@@ -1,9 +1,12 @@
-import { Box, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import { StarIcon } from "@/assets/icons";
 import { CustomTooltip } from "@/components/custom-tooltip";
 import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
+import { IWalletHeaderInterface } from "../client-wallet.interface";
 
-export default function RewardBalance() {
+export default function RewardBalance(props: IWalletHeaderInterface) {
+  const { data, isLoading, isFetching, isError } = props;
+
   return (
     <Box
       bgcolor={"grey.50"}
@@ -29,9 +32,18 @@ export default function RewardBalance() {
             />
           </CustomTooltip>
         </Typography>
-        <Typography variant={"h5"} color={"text.heading"}>
-          USD 0
-        </Typography>
+        {isLoading || isFetching ? (
+          <CircularProgress size={30} />
+        ) : isError ? (
+          "-"
+        ) : (
+          <Typography variant={"h5"} color={"text.heading"}>
+            USD{" "}
+            {data?.data?.rewardBalance
+              ? new Intl.NumberFormat("en-US").format(data?.data?.rewardBalance)
+              : "0"}
+          </Typography>
+        )}
       </Box>
 
       <StarIcon />

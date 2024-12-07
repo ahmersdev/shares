@@ -1,13 +1,8 @@
 import { useState } from "react";
 import { useTheme, Theme } from "@mui/material";
-import { useGetTotalCashQuery } from "@/services/web-app/wallet";
 
 export default function useCashBalance() {
   const theme = useTheme<Theme>();
-
-  const { data, isLoading, isFetching, isError } = useGetTotalCashQuery(null, {
-    refetchOnMountOrArgChange: true,
-  });
 
   const [openDepositDialog, setOpenDepositDialog] = useState({
     deposit: false,
@@ -40,10 +35,6 @@ export default function useCashBalance() {
     openDepositDialog,
     setOpenDepositDialog,
     onCloseDepositHandler,
-    data,
-    isLoading,
-    isFetching,
-    isError,
     openWithdrawDialog,
     setOpenWithdrawDialog,
     onCloseWithdrawHandler,

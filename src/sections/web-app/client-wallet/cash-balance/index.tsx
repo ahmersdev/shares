@@ -14,17 +14,16 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { DepositViaCardIcon, DepositViaCryptoIcon } from "@/assets/icons";
 import { CryptoDeposit, CardDeposit } from "./deposit";
 import { CardWithdraw, CryptoWithdraw } from "./withdraw";
+import { IWalletHeaderInterface } from "../client-wallet.interface";
 
-export default function CashBalance() {
+export default function CashBalance(props: IWalletHeaderInterface) {
+  const { data, isLoading, isFetching, isError } = props;
+
   const {
     theme,
     openDepositDialog,
     setOpenDepositDialog,
     onCloseDepositHandler,
-    data,
-    isLoading,
-    isFetching,
-    isError,
     openWithdrawDialog,
     setOpenWithdrawDialog,
     onCloseWithdrawHandler,
@@ -54,7 +53,10 @@ export default function CashBalance() {
           "-"
         ) : (
           <Typography variant={"h5"} color={"text.heading"}>
-            USD {data?.data?.totalCash ?? "0"}
+            USD{" "}
+            {data?.data?.totalCash
+              ? new Intl.NumberFormat("en-US").format(data?.data?.totalCash)
+              : "0"}
           </Typography>
         )}
       </Box>
