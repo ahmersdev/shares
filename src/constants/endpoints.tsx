@@ -6,6 +6,7 @@ export const AUTH = {
   RESET_PASSWORD: `/users/reset-password/email`,
   RESET_PASSWORD_OTP: `/users/reset-password/otp`,
   RESET_SET_PASSWORD: `/users/reset-password`,
+  DELETE_USER: `/users/delete-user`,
 };
 
 export const ONBOARDING = {

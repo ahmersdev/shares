@@ -5,14 +5,44 @@ import { getAccountInformationData } from "./account-information.data";
 import { useGetAccountSettingsDetailsQuery } from "@/services/web-app/settings";
 import { SkeletonForm } from "@/components/skeletons";
 import ApiErrorState from "@/components/api-error-state";
+import { useDeleteUserMutation } from "@/services/auth";
+import { useState } from "react";
+import AlertDialog from "@/components/alert-dialog";
+import { IApiErrorResponse } from "@/interfaces";
+import { errorSnackbar, successSnackbar } from "@/utils/api";
+import { useAppDispatch } from "@/store";
+import { logOut } from "@/store/auth";
+import { useRouter } from "next/navigation";
+import { SALE_SITE } from "@/constants/routes";
 
 export default function AccountInformation() {
+  const [openModal, setOpenModal] = useState(false);
+  const router = useRouter();
+
+  const dispatch = useAppDispatch();
+
   const { data, isLoading, isFetching, isError } =
     useGetAccountSettingsDetailsQuery(null, {
       refetchOnMountOrArgChange: true,
     });
 
   const accountInformationData = getAccountInformationData(data?.data);
+
+  const [deleteUserTrigger, deleteUserStatus] = useDeleteUserMutation();
+
+  const handleDelete = async () => {
+    try {
+      const res = await deleteUserTrigger(null).unwrap();
+      if (res) {
+        successSnackbar(res?.msg ?? "Account Deleted Successfully!");
+        dispatch(logOut());
+        router.push(SALE_SITE.HOME);
+      }
+    } catch (error) {
+      const errorResponse = error as IApiErrorResponse;
+      errorSnackbar(errorResponse?.data?.errors);
+    }
+  };
 
   return (
     <Box maxWidth={"sm"} width={"100%"} textAlign={"center"}>
@@ -65,9 +95,23 @@ export default function AccountInformation() {
         sx={{ mt: 1 }}
         disableElevation
         disabled={isLoading || isFetching || isError}
+        onClick={() => setOpenModal(true)}
       >
         Delete Account
       </Button>
+
+      {openModal && (
+        <AlertDialog
+          type={"delete"}
+          message={
+            "Are you sure you want to delete your account? This action is permanent, and you will lose all your data without recovery."
+          }
+          open={openModal}
+          handleClose={() => setOpenModal(false)}
+          handleSubmitBtn={handleDelete}
+          loading={deleteUserStatus?.isLoading}
+        />
+      )}
     </Box>
   );
 }
