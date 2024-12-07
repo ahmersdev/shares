@@ -1,4 +1,30 @@
-import { ITestimonialsDataArray } from "./testimonials.interface";
+import {
+  ITestimonialSwiper,
+  ITestimonialsDataArray,
+} from "./testimonials.interface";
+
+export const testimonialSwiper: ITestimonialSwiper[] = [
+  {
+    id: 1,
+    video:
+      "https://drive.google.com/file/d/1iAt6fa_u4axOOWtkDrj8fzKx1XUD1k9K/preview",
+    comment:
+      "I discovered Coco Development during a family trip to Bali. Their professionalism and reliability stood out, and I felt confident in their projects. The security and peace of mind in Bali, combined with Coco’s commitment to delivering results, made investing an easy decision. I’m happy to see the projects evolve and look forward to more investments!",
+    name: "Javier Roca",
+    type: "Investor",
+  },
+  {
+    id: 2,
+    video:
+      "https://drive.google.com/file/d/1XEpJF-Iiw3rCsspi3Gs848-jh5Rq1gNa/preview",
+    comment:
+      "It's great because I went to Bali after investing, so that was quite a risk—investing from Europe to Bali—even though I’ve known Bali for a while. I feel really great because I love the team and the first residences I saw.",
+    comment2:
+      "I loved the way it’s built, the seriousness the team is putting into it, and the fact that this group, led by Rasmus, is developing with such great energy. It’s the energy of passion, entrepreneurship, and connectivity—not just about money. That’s what makes me feel like I’m in the right place.",
+    name: "Francesca Gatti",
+    type: "Investor",
+  },
+];
 
 export const testimonialsDataArray: ITestimonialsDataArray[] = [
   {

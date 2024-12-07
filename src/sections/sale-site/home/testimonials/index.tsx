@@ -1,8 +1,21 @@
-import { Box, Grid, Rating, Theme, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Grid,
+  IconButton,
+  Rating,
+  Theme,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Autoplay } from "swiper/modules";
-import { testimonialsDataArray } from "./testimonials.data";
-import { ITestimonialsDataArray } from "./testimonials.interface";
+import { EffectCoverflow, Autoplay, Navigation } from "swiper/modules";
+import { testimonialsDataArray, testimonialSwiper } from "./testimonials.data";
+import {
+  ITestimonialsDataArray,
+  ITestimonialSwiper,
+} from "./testimonials.interface";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function Testimonials() {
   const theme = useTheme<Theme>();
@@ -38,59 +51,94 @@ export default function Testimonials() {
         >
           Hear from our global investors
         </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                width: "100%",
-                height: { xs: "100%", md: "400px" },
-                borderRadius: 2,
-              }}
-            >
-              <iframe
-                src="https://drive.google.com/file/d/1iAt6fa_u4axOOWtkDrj8fzKx1XUD1k9K/preview"
-                allowFullScreen
-                allow="autoplay"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  border: "none",
-                  borderRadius: "inherit",
-                }}
-                title="Testimonial Video"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Box
-              display={"flex"}
-              flexDirection={"column"}
-              justifyContent={"center"}
-              height={"100%"}
-            >
-              <Typography variant={"body1"}>
-                I discovered Coco Development during a family trip to Bali.
-                Their professionalism and reliability stood out, and I felt
-                confident in their projects. The security and peace of mind in
-                Bali, combined with Coco&rsquo;s commitment to delivering
-                results, made investing an easy decision. I&rsquo;m happy to see
-                the projects evolve and look forward to more investments!
-              </Typography>
-              <Typography
-                variant={"body1"}
-                fontWeight={600}
-                color={"text.heading"}
-                mt={3}
-              >
-                Javier Roca
-              </Typography>
-              <Typography variant={"body2"} color={"text.heading"}>
-                Investor
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
+
+        <Swiper
+          effect={"coverflow"}
+          grabCursor
+          centeredSlides
+          loop
+          slidesPerView={1}
+          spaceBetween={30}
+          speed={500}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 0,
+            modifier: 0,
+          }}
+          navigation={{
+            nextEl: ".swiper-next",
+            prevEl: ".swiper-prev",
+          }}
+          modules={[EffectCoverflow, Navigation]}
+          className="mySwiperSuccess"
+          style={{ width: "100%" }}
+        >
+          {testimonialSwiper.map((item: ITestimonialSwiper) => (
+            <SwiperSlide key={item.id}>
+              <Grid container spacing={4}>
+                <Grid item xs={12} md={6}>
+                  <Box
+                    sx={{
+                      width: "100%",
+                      height: { xs: "100%", md: "400px" },
+                      borderRadius: 2,
+                    }}
+                  >
+                    <iframe
+                      src={item.video}
+                      allowFullScreen
+                      allow="autoplay"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        border: "none",
+                        borderRadius: "inherit",
+                      }}
+                      title="Testimonial Video"
+                    />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Box
+                    display={"flex"}
+                    flexDirection={"column"}
+                    justifyContent={"center"}
+                    height={"100%"}
+                  >
+                    <Typography variant={"body1"}>
+                      {item.comment}
+                      <br />
+                      <br />
+                      {item.comment2}
+                    </Typography>
+                    <Typography
+                      variant={"body1"}
+                      fontWeight={600}
+                      color={"text.heading"}
+                      mt={3}
+                    >
+                      {item.name}
+                    </Typography>
+                    <Typography variant={"body2"} color={"text.heading"}>
+                      {item.type}
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <IconButton className={"swiper-prev"} sx={{ bgcolor: "primary.10" }}>
+            <ArrowBackIosNewIcon color={"primary"} />
+          </IconButton>
+          <IconButton className={"swiper-next"} sx={{ bgcolor: "primary.10" }}>
+            <ArrowForwardIosIcon color={"primary"} />
+          </IconButton>
+        </Box>
       </Box>
 
       <Swiper
