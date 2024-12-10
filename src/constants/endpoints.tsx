@@ -35,4 +35,5 @@ export const WEB_APP = {
   GET_REWARDS: `/users/referral-earnings`,
   GET_PORTFOLIO: `/users/portfolio-info`,
   CHECKOUT: `/checkout`,
+  UPDATE_MFA: `/users/update-mfa`,
 };

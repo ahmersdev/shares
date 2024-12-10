@@ -4,21 +4,28 @@ import { baseAPI } from "@/services/base-api";
 export const userSettings = baseAPI.injectEndpoints({
   endpoints: (builder) => ({
     getUserDetails: builder.query({
-      query: (params: any) => ({
+      query: () => ({
         url: WEB_APP.USER_PROFILE,
         method: "GET",
-        params,
       }),
     }),
     getAccountSettingsDetails: builder.query({
-      query: (params: any) => ({
+      query: () => ({
         url: WEB_APP.USER_PROFILE,
         method: "GET",
-        params,
+      }),
+    }),
+    getUpdateMfa: builder.query({
+      query: () => ({
+        url: WEB_APP.UPDATE_MFA,
+        method: "GET",
       }),
     }),
   }),
 });
 
-export const { useGetUserDetailsQuery, useGetAccountSettingsDetailsQuery } =
-  userSettings;
+export const {
+  useGetUserDetailsQuery,
+  useGetAccountSettingsDetailsQuery,
+  useLazyGetUpdateMfaQuery,
+} = userSettings;

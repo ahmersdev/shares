@@ -1,4 +1,4 @@
-import { WEB_APP } from "@/constants/routes";
+import { SALE_SITE, WEB_APP } from "@/constants/routes";
 import { WEB_APP_LAYOUT } from "@/constants/layout";
 import { Button, Theme, Typography } from "@mui/material";
 import { NextIcon } from "@/assets/icons";
@@ -108,7 +108,7 @@ export const headerTitle = (pathName: string, theme: Theme) => {
           >
             Privacy
           </Typography>
-          <Link href={"#"}>
+          <Link href={SALE_SITE.PRIVACY_POLICY}>
             <Button
               variant={"outlined"}
               size={"small"}

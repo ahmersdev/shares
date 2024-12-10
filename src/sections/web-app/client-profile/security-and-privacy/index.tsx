@@ -1,10 +1,30 @@
 "use client";
 
 import { SecurityAndPrivacyBlueIcon } from "@/assets/icons";
+import { IApiErrorResponse } from "@/interfaces";
+import { useLazyGetUpdateMfaQuery } from "@/services/web-app/settings";
 import { BUTTON_STYLES } from "@/styles";
-import { Box, Button, Typography } from "@mui/material";
+import { errorSnackbar, successSnackbar } from "@/utils/api";
+import { LoadingButton } from "@mui/lab";
+import { Box, Typography } from "@mui/material";
 
 export default function SecurityAndPrivacy() {
+  const [updatedMfaTrigger, updateMfaStatus] = useLazyGetUpdateMfaQuery();
+
+  const setupMfaHandler = async () => {
+    try {
+      const res = await updatedMfaTrigger(null).unwrap();
+      if (res) {
+        !res?.user?.enabledMFA
+          ? successSnackbar("MFA Deactivated Successfully!")
+          : successSnackbar("MFA Activated Successfully!");
+      }
+    } catch (error) {
+      const errorResponse = error as IApiErrorResponse;
+      errorSnackbar(errorResponse?.data?.errors);
+    }
+  };
+
   return (
     <>
       <Box
@@ -43,7 +63,7 @@ export default function SecurityAndPrivacy() {
         Each time you login, you will need an authenticator app to generate an
         one time code.
       </Typography>
-      <Button
+      <LoadingButton
         variant={"contained"}
         size={"small"}
         sx={{
@@ -55,9 +75,11 @@ export default function SecurityAndPrivacy() {
           },
         }}
         disableElevation
+        loading={updateMfaStatus?.isLoading}
+        onClick={setupMfaHandler}
       >
         Setup MFA
-      </Button>
+      </LoadingButton>
     </>
   );
 }
