@@ -17,6 +17,7 @@ export const AUTH = {
   CREATE_PASSWORD: "/create-password",
   FORGOT_OTP: "/forgot-otp",
   FORGOT_CREATE_PASSWORD: "/forgot-create-password",
+  MFA_OTP: "/mfa-otp",
 };
 
 export const ONBOARDING = {

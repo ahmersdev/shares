@@ -7,6 +7,8 @@ export const AUTH = {
   RESET_PASSWORD_OTP: `/users/reset-password/otp`,
   RESET_SET_PASSWORD: `/users/reset-password`,
   DELETE_USER: `/users/delete-user`,
+  RESEND_OTP: `/users/resend-otp`,
+  VERIFY_MFA_OTP: `/users/verify-otp`,
 };
 
 export const ONBOARDING = {

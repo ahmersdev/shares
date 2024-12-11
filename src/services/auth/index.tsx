@@ -65,6 +65,22 @@ export const authAPI = baseAPI.injectEndpoints({
         method: "DELETE",
       }),
     }),
+
+    resendMfaOtp: builder.mutation({
+      query: (body: any) => ({
+        url: AUTH.RESEND_OTP,
+        method: "POST",
+        body,
+      }),
+    }),
+
+    verifyMfaOtp: builder.mutation({
+      query: (body: any) => ({
+        url: AUTH.VERIFY_MFA_OTP,
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
@@ -77,4 +93,6 @@ export const {
   usePostResetPasswordOtpVerificationMutation,
   usePostResetSetPasswordMutation,
   useDeleteUserMutation,
+  useResendMfaOtpMutation,
+  useVerifyMfaOtpMutation,
 } = authAPI;
