@@ -100,3 +100,7 @@ export { default as DepositViaCardIcon } from "./web-app/deposit-via-card-icon";
 export { default as DepositViaCryptoIcon } from "./web-app/deposit-via-crypto-icon";
 export { default as SecurityAndPrivacyBlueIcon } from "./web-app/security-and-privacy-blue-icon";
 export { default as CheckoutViaWalletIcon } from "./web-app/checkout-via-wallet-icon";
+export { default as ChatHomeActiveIcon } from "./web-app/chat-home-active-icon";
+export { default as ChatHomeInactiveIcon } from "./web-app/chat-home-inactive-icon";
+export { default as ChatMessagesActiveIcon } from "./web-app/chat-messages-active-icon";
+export { default as ChatMessagesInactiveIcon } from "./web-app/chat-messages-inactive-icon";

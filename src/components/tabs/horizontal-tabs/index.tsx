@@ -14,7 +14,7 @@ import {
   useTheme,
   Theme,
 } from "@mui/material";
-import { IHorizontalTabsProps, ITabData } from "./horizontal-tabs.interface";
+import { IHorizontalTabsProps, ITabData } from "../tabs.interface";
 
 const HorizontalTabs = ({
   tabsDataArray = [],
