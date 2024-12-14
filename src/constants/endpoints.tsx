@@ -38,4 +38,6 @@ export const WEB_APP = {
   GET_PORTFOLIO: `/users/portfolio-info`,
   CHECKOUT: `/checkout`,
   UPDATE_MFA: `/users/update-mfa`,
+  GET_CHAT: `/chat/user-chat`,
+  POST_CHAT: `/chat/send-message`,
 };
