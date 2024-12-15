@@ -1,6 +1,5 @@
 import { Box, Grid, Skeleton } from "@mui/material";
 import { ISkeletonsProps } from "../skeletons.interface";
-import { Fragment } from "react";
 
 export default function SkeletonCart(props: ISkeletonsProps) {
   const { length = 2 } = props;

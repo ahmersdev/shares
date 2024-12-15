@@ -104,3 +104,5 @@ export { default as ChatHomeActiveIcon } from "./web-app/chat-home-active-icon";
 export { default as ChatHomeInactiveIcon } from "./web-app/chat-home-inactive-icon";
 export { default as ChatMessagesActiveIcon } from "./web-app/chat-messages-active-icon";
 export { default as ChatMessagesInactiveIcon } from "./web-app/chat-messages-inactive-icon";
+export { default as ChatHelpActiveIcon } from "./web-app/chat-help-active-icon";
+export { default as ChatHelpInactiveIcon } from "./web-app/chat-help-inactive-icon";

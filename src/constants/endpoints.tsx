@@ -27,7 +27,7 @@ export const WEB_APP = {
   ADD_CARD: `/user/card/add`,
   GET_CARD: `/user/card/all`,
   DELETE_CARD: `/user/card/delete`,
-  GET_ALL_cART: `/users/get-all-carts`,
+  GET_ALL_CART: `/users/get-all-carts`,
   PUT_CART_ITEM: `/users/update-cart-item`,
   REMOVE_CART_ITEM: `/users/delete-cart-item`,
   GET_TOTAL_CASH: `/users/wallet-info`,

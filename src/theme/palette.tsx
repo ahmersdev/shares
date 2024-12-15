@@ -71,6 +71,7 @@ const COMMON = {
     bgLight: "#F8FAF8",
     bgOnBoarding: "#FCF3E8",
     bgOnBoardingBorder: "#FF8A00",
+    bgChat: "#1D2742",
   },
   primary: { ...PRIMARY },
   text: { ...TEXT },

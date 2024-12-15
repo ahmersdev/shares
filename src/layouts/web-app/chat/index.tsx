@@ -8,6 +8,8 @@ import {
 } from "@mui/material";
 import { CustomTooltip } from "@/components/custom-tooltip";
 import {
+  ChatHelpActiveIcon,
+  ChatHelpInactiveIcon,
   ChatMessagesActiveIcon,
   ChatMessagesInactiveIcon,
   HelpAndSupportIcon,
@@ -15,6 +17,8 @@ import {
 import { useState } from "react";
 import { BottomTabs } from "@/components/tabs";
 import { ChatHomeActiveIcon, ChatHomeInactiveIcon } from "@/assets/icons";
+import Home from "./home";
+import Messages from "./messages";
 
 export default function Chat() {
   const theme = useTheme<Theme>();
@@ -71,14 +75,14 @@ export default function Chat() {
               },
               {
                 title: "Help",
-                activeIcon: <ChatHomeActiveIcon />,
-                inactiveIcon: <ChatHomeInactiveIcon />,
+                activeIcon: <ChatHelpActiveIcon />,
+                inactiveIcon: <ChatHelpInactiveIcon />,
               },
             ]}
             margin={"auto"}
           >
-            <>Home</>
-            <>Chat</>
+            <Home />
+            <Messages handleClose={handleClose} />
             <>Help</>
           </BottomTabs>
         </DialogContent>

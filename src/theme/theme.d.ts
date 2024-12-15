@@ -31,6 +31,7 @@ declare module "@mui/material/styles" {
     bgLight: string;
     bgOnBoarding: string;
     bgOnBoardingBorder: string;
+    bgChat: string;
   }
 
   interface PaletteColor {

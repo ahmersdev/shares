@@ -12,12 +12,14 @@ export default function ApiErrorState(props: IApiErrorState) {
 
   return (
     <Box
-      height={height}
-      display={"flex"}
-      flexDirection={"column"}
-      alignItems={"center"}
-      justifyContent={"center"}
-      gap={0.6}
+      sx={{
+        height,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 0.6,
+      }}
     >
       <ErrorOutlineRoundedIcon
         sx={{ color: "text.heading" }}

@@ -5,7 +5,7 @@ export const cartApi = baseAPI.injectEndpoints({
   endpoints: (builder) => ({
     getAllCartItems: builder.query({
       query: () => ({
-        url: WEB_APP.GET_ALL_cART,
+        url: WEB_APP.GET_ALL_CART,
         method: "GET",
       }),
     }),
