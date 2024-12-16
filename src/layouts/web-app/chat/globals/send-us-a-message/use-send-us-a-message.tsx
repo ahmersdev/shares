@@ -1,18 +1,11 @@
-import {
-  useGetAllChatQuery,
-  usePostSendMessageMutation,
-} from "@/services/web-app/chat";
+import { usePostSendMessageMutation } from "@/services/web-app/chat";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { errorSnackbar } from "@/utils/api";
 import { IApiErrorResponse } from "@/interfaces";
 
-export default function useMessages() {
-  const { data, isLoading, isFetching, isError } = useGetAllChatQuery(null, {
-    refetchOnMountOrArgChange: true,
-  });
-
+export default function useSendUsAMessage() {
   const methods = useForm({
     resolver: yupResolver(
       Yup.object().shape({
@@ -39,10 +32,6 @@ export default function useMessages() {
   };
 
   return {
-    data,
-    isLoading,
-    isFetching,
-    isError,
     methods,
     handleSubmit,
     onSubmit,

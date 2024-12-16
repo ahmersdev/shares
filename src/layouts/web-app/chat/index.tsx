@@ -81,7 +81,7 @@ export default function Chat() {
             ]}
             margin={"auto"}
           >
-            <Home />
+            <Home handleClose={handleClose} />
             <Messages handleClose={handleClose} />
             <>Help</>
           </BottomTabs>

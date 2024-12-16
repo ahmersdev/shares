@@ -1,26 +1,19 @@
-import { Box, InputAdornment, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { IChatProps } from "../chat.interface";
 import ApiErrorState from "@/components/api-error-state";
 import { SkeletonChat } from "@/components/skeletons";
-import { FormProvider, RHFTextField } from "@/components/react-hook-form";
-import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import { ChatMessagesActiveIcon } from "@/assets/icons";
 import Chat from "./chat";
-import useMessages from "./use-messages";
+import SendUsAMessage from "../globals/send-us-a-message";
+import { useGetAllChatQuery } from "@/services/web-app/chat";
 
 export default function Messages(props: IChatProps) {
   const { handleClose } = props;
 
-  const {
-    data,
-    isLoading,
-    isFetching,
-    isError,
-    methods,
-    handleSubmit,
-    onSubmit,
-  } = useMessages();
+  const { data, isLoading, isFetching, isError } = useGetAllChatQuery(null, {
+    refetchOnMountOrArgChange: true,
+  });
 
   return (
     <>
@@ -87,24 +80,7 @@ export default function Messages(props: IChatProps) {
             )}
           </Box>
 
-          <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-            <RHFTextField
-              name={"message"}
-              placeholder={"Send Us A Message"}
-              size={"small"}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment
-                    position="end"
-                    sx={{ cursor: "pointer" }}
-                    onClick={handleSubmit(onSubmit)}
-                  >
-                    <SendRoundedIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </FormProvider>
+          <SendUsAMessage />
         </Box>
       )}
     </>
