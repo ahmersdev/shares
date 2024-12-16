@@ -40,7 +40,7 @@ export default function Home(props: IChatProps) {
           />
         </Box>
 
-        <Box sx={{ mt: "10vh" }}>
+        <Box sx={{ mt: { xs: "10vh", sm: "8vh" } }}>
           <Typography variant={"h5"} color={"text.body"}>
             Hi Ahmer
           </Typography>
@@ -59,6 +59,21 @@ export default function Home(props: IChatProps) {
               },
             }}
           />
+        </Box>
+
+        <Box
+          sx={{
+            height: { xs: "35vh", sm: "30vh" },
+            border: 1,
+            mt: 1,
+            borderRadius: 3,
+            borderColor: "text.stroke",
+            bgcolor: "common.white",
+            p: 1,
+            overflow: "auto",
+          }}
+        >
+          faqs
         </Box>
       </Box>
     </>
