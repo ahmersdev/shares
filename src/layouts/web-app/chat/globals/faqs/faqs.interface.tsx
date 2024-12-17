@@ -4,7 +4,7 @@ export interface IFaqsData {
   parentId: number;
   title: string;
   desc: string;
-  accordions?: IAccordionData[];
+  accordions: IAccordionData[];
 }
 
 export interface IAccordionData {

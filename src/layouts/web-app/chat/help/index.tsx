@@ -1,4 +1,12 @@
-import { Box, InputAdornment, TextField, Typography } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { IChatProps } from "../chat.interface";
 import CloseIcon from "@mui/icons-material/Close";
 import { ChangeEvent, useMemo, useState } from "react";
@@ -6,14 +14,22 @@ import { SearchIcon } from "@/assets/icons";
 import { pxToRem } from "@/utils/get-font-value";
 import { faqsData } from "../globals/faqs/faqs.data";
 import AccordionsFaqs from "../globals/accordions-faqs";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function Help(props: IChatProps) {
   const { handleClose } = props;
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [expandedParent, setExpandedParent] = useState<number>(0);
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
+
+  const handleAccordionChange =
+    (parentId: number) => (_: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpandedParent(isExpanded ? parentId : 0);
+    };
 
   const filteredAccordions = useMemo(() => {
     return faqsData
@@ -106,25 +122,72 @@ export default function Help(props: IChatProps) {
           </Typography>
         </Box>
 
-        <Box sx={{ p: 1.6 }}>
-          {searchTerm ? (
-            <>
-              {filteredAccordions.length ? (
+        {searchTerm ? (
+          <>
+            {filteredAccordions.length ? (
+              <Box sx={{ p: 1.6 }}>
                 <AccordionsFaqs filteredAccordions={filteredAccordions} />
-              ) : (
-                <Typography
-                  variant={"caption"}
-                  color={"error.main"}
-                  textAlign={"center"}
-                >
-                  No Information Available, try talking to us instead!
-                </Typography>
-              )}
-            </>
-          ) : (
-            <>All Accordion</>
-          )}
-        </Box>
+              </Box>
+            ) : (
+              <Typography
+                variant={"caption"}
+                color={"error.main"}
+                textAlign={"center"}
+                p={1.6}
+              >
+                No Information Available, try talking to us instead!
+              </Typography>
+            )}
+          </>
+        ) : (
+          <>
+            {faqsData.map((parentAccordion) => (
+              <Accordion
+                key={parentAccordion.parentId}
+                expanded={expandedParent === parentAccordion.parentId}
+                onChange={handleAccordionChange(parentAccordion.parentId)}
+                sx={{
+                  bgcolor: "inherit",
+                  boxShadow: "none",
+                  borderBottom: 1,
+                  borderColor: "text.stroke",
+                  px: 1.6,
+                  "&.Mui-expanded": {
+                    margin: 0,
+                  },
+                  "&:before": {
+                    display: "none",
+                  },
+                }}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ p: 0 }}>
+                  <Box
+                    sx={{ display: "flex", flexDirection: "column", gap: 1 }}
+                  >
+                    <Typography
+                      variant={"caption"}
+                      fontWeight={600}
+                      color={"text.heading"}
+                    >
+                      {parentAccordion.title}
+                    </Typography>
+                    <Typography variant={"caption"} color={"text.body"}>
+                      {parentAccordion.desc}
+                    </Typography>
+                    <Typography variant={"caption"} color={"text.body"}>
+                      {parentAccordion.accordions.length ?? "0"} Articles
+                    </Typography>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails sx={{ p: 0 }}>
+                  <AccordionsFaqs
+                    filteredAccordions={parentAccordion.accordions}
+                  />
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </>
+        )}
       </Box>
     </>
   );
