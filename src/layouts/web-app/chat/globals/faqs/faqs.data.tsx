@@ -1,19 +1,10 @@
-import {
-  FaqsAboutIcon,
-  FaqsDepositIcon,
-  FaqsInvestingIcon,
-  FaqsReturnsIcon,
-  FaqsRewardsIcon,
-  FaqsWindowsIcon,
-} from "@/assets/icons";
-import { IContentData } from "./faqs.interface";
 import { Typography } from "@mui/material";
+import { IFaqsData } from "./faqs.interface";
 import { CustomList } from "@/components/custom-list";
 
-export const contentData: IContentData[] = [
+export const contentData: IFaqsData[] = [
   {
     parentId: 1,
-    icon: FaqsAboutIcon,
     title: "About Shares",
     desc: "Learn More About Shares and How To Get Started",
     accordions: [
@@ -226,7 +217,6 @@ export const contentData: IContentData[] = [
   },
   {
     parentId: 2,
-    icon: FaqsInvestingIcon,
     title: "Investing",
     desc: "All Your Questions About How to Invest Using Shares, Answered!",
     accordions: [
@@ -506,7 +496,6 @@ export const contentData: IContentData[] = [
   },
   {
     parentId: 3,
-    icon: FaqsReturnsIcon,
     title: "Returns",
     desc: "How Do I Make Money",
     accordions: [
@@ -652,7 +641,6 @@ export const contentData: IContentData[] = [
   },
   {
     parentId: 4,
-    icon: FaqsDepositIcon,
     title: "Deposit And Withdrawals",
     desc: "Everything You Need To Know About Transferring Funds",
     accordions: [
@@ -893,7 +881,6 @@ export const contentData: IContentData[] = [
   },
   {
     parentId: 5,
-    icon: FaqsWindowsIcon,
     title: "Exit Windows",
     desc: "FAQs and Informational Articles About Our Properties Exit Windows",
     accordions: [
@@ -1128,7 +1115,6 @@ export const contentData: IContentData[] = [
   },
   {
     parentId: 6,
-    icon: FaqsRewardsIcon,
     title: "Rewards",
     desc: "Earn More Through Our Loyalty and Referral Programs",
     accordions: [

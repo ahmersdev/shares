@@ -1,10 +1,21 @@
-import { Box, Typography } from "@mui/material";
+import { Box, InputAdornment, TextField, Typography } from "@mui/material";
 import { IChatProps } from "../chat.interface";
 import CloseIcon from "@mui/icons-material/Close";
 import SendUsAMessage from "../globals/send-us-a-message";
+import { useGetUserDetailsQuery } from "@/services/web-app/settings";
+import { ChangeEvent, useState } from "react";
+import { SearchIcon } from "@/assets/icons";
+import { pxToRem } from "@/utils/get-font-value";
 
 export default function Home(props: IChatProps) {
   const { handleClose } = props;
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const { data } = useGetUserDetailsQuery(null);
 
   return (
     <>
@@ -42,7 +53,7 @@ export default function Home(props: IChatProps) {
 
         <Box sx={{ mt: { xs: "10vh", sm: "8vh" } }}>
           <Typography variant={"h5"} color={"text.body"}>
-            Hi Ahmer
+            Hi {data?.data?.fullName ?? "---"}
           </Typography>
           <Typography variant={"h5"} color={"common.white"} mb={2.4}>
             How Can We Help You?
@@ -73,7 +84,38 @@ export default function Home(props: IChatProps) {
             overflow: "auto",
           }}
         >
-          faqs
+          <TextField
+            variant={"outlined"}
+            placeholder={"Search For Articles"}
+            value={searchTerm}
+            onChange={handleInputChange}
+            fullWidth
+            inputProps={{
+              style: {
+                color: "text.heading",
+              },
+            }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <SearchIcon width={"16"} height={"16"} />
+                </InputAdornment>
+              ),
+            }}
+            sx={{
+              ".MuiInputBase-root": {
+                borderRadius: 2,
+                height: 38,
+                fontWeight: 600,
+                fontSize: pxToRem(10),
+                bgcolor: "common.bgLight",
+                borderColor: "text.stroke",
+                "& ::placeholder": {
+                  color: "text.heading",
+                },
+              },
+            }}
+          />
         </Box>
       </Box>
     </>

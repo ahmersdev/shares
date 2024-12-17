@@ -41,7 +41,3 @@ export interface IMainSearchProps {
   search: string;
   setSearchTerm: Dispatch<SetStateAction<string>>;
 }
-
-export interface ICustomListProps {
-  items: { boldText?: string; text: string }[];
-}
