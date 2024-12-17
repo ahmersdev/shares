@@ -19,6 +19,7 @@ import { BottomTabs } from "@/components/tabs";
 import { ChatHomeActiveIcon, ChatHomeInactiveIcon } from "@/assets/icons";
 import Home from "./home";
 import Messages from "./messages";
+import Help from "./help";
 
 export default function Chat() {
   const theme = useTheme<Theme>();
@@ -83,7 +84,7 @@ export default function Chat() {
           >
             <Home handleClose={handleClose} />
             <Messages handleClose={handleClose} />
-            <>Help</>
+            <Help handleClose={handleClose} />
           </BottomTabs>
         </DialogContent>
       </Dialog>

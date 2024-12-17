@@ -17,6 +17,7 @@ import { pxToRem } from "@/utils/get-font-value";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { IAccordionData } from "../globals/faqs/faqs.interface";
 import { faqsData } from "../globals/faqs/faqs.data";
+import AccordionsFaqs from "../globals/accordions-faqs";
 
 export default function Home(props: IChatProps) {
   const { handleClose } = props;
@@ -143,41 +144,7 @@ export default function Home(props: IChatProps) {
           />
 
           {filteredAccordions.length ? (
-            filteredAccordions.map((accordion, index) => (
-              <Accordion
-                key={index}
-                sx={{
-                  bgcolor: "inherit",
-                  boxShadow: "none",
-                  "&.Mui-expanded": {
-                    margin: 0,
-                  },
-                  "&:before": {
-                    display: "none",
-                  },
-                }}
-              >
-                <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ p: 0 }}>
-                  <Typography
-                    variant={"caption"}
-                    fontWeight={600}
-                    color={"text.heading"}
-                  >
-                    {accordion.summary}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={{ p: 0 }}>
-                  <Typography
-                    variant={"caption"}
-                    component={"p"}
-                    color={"text.body"}
-                  >
-                    {accordion.details}
-                  </Typography>
-                  {accordion.additionalContent}
-                </AccordionDetails>
-              </Accordion>
-            ))
+            <AccordionsFaqs filteredAccordions={filteredAccordions} />
           ) : (
             <Typography
               variant={"caption"}
