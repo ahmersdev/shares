@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { successSnackbar } from "@/utils/api";
 import { useGetRewardsQuery } from "@/services/web-app/rewards";
 import { useEffect } from "react";
-import { useGetAccountSettingsDetailsQuery } from "@/services/web-app/settings";
+import { useGetUserDetailsQuery } from "@/services/web-app/settings";
 
 export default function useClientRewards() {
   const theme = useTheme<Theme>();
@@ -38,9 +38,7 @@ export default function useClientRewards() {
     isLoading: isLoadingUser,
     isFetching: isFetchingUser,
     isError: isErrorUser,
-  } = useGetAccountSettingsDetailsQuery(null, {
-    refetchOnMountOrArgChange: true,
-  });
+  } = useGetUserDetailsQuery(null);
 
   return {
     theme,

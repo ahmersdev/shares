@@ -16,10 +16,7 @@ export default function useDrawerNavbar() {
     setOpenCollapseMenu((prevState) => !prevState);
   };
 
-  const { data, isLoading, isFetching, isError } = useGetUserDetailsQuery(
-    null,
-    { refetchOnMountOrArgChange: true }
-  );
+  const { data, isLoading, isFetching, isError } = useGetUserDetailsQuery(null);
 
   return {
     theme,

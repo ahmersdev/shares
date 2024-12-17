@@ -21,10 +21,7 @@ export default function useNavbar() {
     setAnchorEl(null);
   };
 
-  const { data, isLoading, isFetching, isError } = useGetUserDetailsQuery(
-    null,
-    { refetchOnMountOrArgChange: true }
-  );
+  const { data, isLoading, isFetching, isError } = useGetUserDetailsQuery(null);
 
   return {
     pathName,

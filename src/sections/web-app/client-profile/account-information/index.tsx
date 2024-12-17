@@ -2,7 +2,7 @@
 
 import { Box, Button, Typography } from "@mui/material";
 import { getAccountInformationData } from "./account-information.data";
-import { useGetAccountSettingsDetailsQuery } from "@/services/web-app/settings";
+import { useGetUserDetailsQuery } from "@/services/web-app/settings";
 import { SkeletonForm } from "@/components/skeletons";
 import ApiErrorState from "@/components/api-error-state";
 import { useDeleteUserMutation } from "@/services/auth";
@@ -21,10 +21,7 @@ export default function AccountInformation() {
 
   const dispatch = useAppDispatch();
 
-  const { data, isLoading, isFetching, isError } =
-    useGetAccountSettingsDetailsQuery(null, {
-      refetchOnMountOrArgChange: true,
-    });
+  const { data, isLoading, isFetching, isError } = useGetUserDetailsQuery(null);
 
   const accountInformationData = getAccountInformationData(data?.data);
 

@@ -1,6 +1,8 @@
 import { ONBOARDING } from "@/constants/endpoints";
 import { baseAPI } from "../base-api";
 
+const TAG = "USER_DETAILS";
+
 export const onboardingAPI = baseAPI.injectEndpoints({
   endpoints: (builder) => ({
     postOnboardingAddPhoneNumber: builder.mutation({
@@ -9,6 +11,7 @@ export const onboardingAPI = baseAPI.injectEndpoints({
         method: "POST",
         body,
       }),
+      invalidatesTags: [TAG],
     }),
 
     postOnboardingPhoneNumberOtpVerification: builder.mutation({
@@ -17,6 +20,7 @@ export const onboardingAPI = baseAPI.injectEndpoints({
         method: "POST",
         body,
       }),
+      invalidatesTags: [TAG],
     }),
 
     postOnboardingAddKyc: builder.mutation({
@@ -25,6 +29,7 @@ export const onboardingAPI = baseAPI.injectEndpoints({
         method: "POST",
         body,
       }),
+      invalidatesTags: [TAG],
     }),
 
     getOnboardingAddKyc: builder.query({
@@ -32,6 +37,7 @@ export const onboardingAPI = baseAPI.injectEndpoints({
         url: ONBOARDING.VERIFY_KYC,
         method: "GET",
       }),
+      providesTags: [TAG],
     }),
   }),
 });

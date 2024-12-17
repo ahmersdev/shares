@@ -25,10 +25,7 @@ const Header = () => {
 
   const [open, setOpen] = useState(false);
 
-  const { data, isLoading, isFetching, isError } = useGetUserDetailsQuery(
-    null,
-    { refetchOnMountOrArgChange: true }
-  );
+  const { data, isLoading, isFetching, isError } = useGetUserDetailsQuery(null);
 
   return (
     <>

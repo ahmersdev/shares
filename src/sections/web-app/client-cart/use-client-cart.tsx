@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { errorSnackbar, successSnackbar } from "@/utils/api";
 import { IApiErrorResponse } from "@/interfaces";
-import { useGetAccountSettingsDetailsQuery } from "@/services/web-app/settings";
+import { useGetUserDetailsQuery } from "@/services/web-app/settings";
 import { useTheme, Theme } from "@mui/material";
 
 export default function useClientCart() {
@@ -45,9 +45,7 @@ export default function useClientCart() {
     isLoading: isLoadingUser,
     isFetching: isFetchingUser,
     isError: isErrorUser,
-  } = useGetAccountSettingsDetailsQuery(null, {
-    refetchOnMountOrArgChange: true,
-  });
+  } = useGetUserDetailsQuery(null);
 
   const [putCartItemTrigger] = usePutCartItemMutation();
   const [removeCartItemTrigger] = useRemoveCartItemMutation();
