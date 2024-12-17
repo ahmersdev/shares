@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import { IFaqsData } from "./faqs.interface";
 import { CustomList } from "@/components/custom-list";
 
-export const contentData: IFaqsData[] = [
+export const faqsData: IFaqsData[] = [
   {
     parentId: 1,
     title: "About Shares",
@@ -14,12 +14,7 @@ export const contentData: IFaqsData[] = [
         details:
           "Shares By Coco handles the entire investment process for you. From developing and managing prime real estate opportunities to overseeing the operational aspects until the end of your Investment Term, we ensure a seamless experience.",
         additionalContent: (
-          <Typography
-            variant={"h7"}
-            component={"p"}
-            color={"text.heading"}
-            mt={1}
-          >
+          <Typography variant={"caption"} color={"text.body"} mt={1}>
             This includes maintaining compliance with local regulations,
             evaluating assets, and managing investments responsibly. We take
             care of all operational aspects, such as tenant management, leasing,
@@ -36,15 +31,18 @@ export const contentData: IFaqsData[] = [
         additionalContent: (
           <>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Step 1: Create your account
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 { text: "Download our app or visit https://sharesbycoco.com/" },
                 {
@@ -57,15 +55,18 @@ export const contentData: IFaqsData[] = [
               ]}
             />
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Step 2: Invest in a property
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "Browse our available properties to find your investment choice",
@@ -79,15 +80,18 @@ export const contentData: IFaqsData[] = [
               ]}
             />
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Step 3: Receive your documents
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 { text: "Once fully funded, ownership transfer will occur" },
                 {
@@ -96,15 +100,18 @@ export const contentData: IFaqsData[] = [
               ]}
             />
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Step 4: Receive rental payments
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "Rental income will be paid out to your shares wallet once per month",
@@ -125,15 +132,18 @@ export const contentData: IFaqsData[] = [
         additionalContent: (
           <>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Property Listing
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "Properties are listed on our platform to raise funds for their purchase. Listings are typically available for 30 - 60 days, before they are fully funded.",
@@ -141,15 +151,18 @@ export const contentData: IFaqsData[] = [
               ]}
             />
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Fundraising
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "Once all shares are funded, the fundraising closes and the deal progresses.",
@@ -157,15 +170,18 @@ export const contentData: IFaqsData[] = [
               ]}
             />
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               SPV Creation
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "A Special Purpose Vehicle (SPV) is created to ensure all investors are legally registered owners of the property through their shares in the SPV. The SPV will be listed as the owner on the title deed.",
@@ -173,15 +189,18 @@ export const contentData: IFaqsData[] = [
               ]}
             />
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Document Distribution
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "After the funding is completed, investors receive title deeds and share certificates as proof of ownership. We're also working on new document processes to simplify share distribution. For properties under development, investors will receive 8% annual cashback, distributed monthly.",
@@ -189,15 +208,18 @@ export const contentData: IFaqsData[] = [
               ]}
             />
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Rental Payments
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "Investors receive from day 1 through the development period 8% cashback, yearly calculation, paid out monthly.",
@@ -227,9 +249,8 @@ export const contentData: IFaqsData[] = [
           "Shares by Coco is committed to making real estate investment accessible to everyone. There are no limits to how much you can invest, allowing you to tailor your investment according to your financial goals. For those looking to invest over $25,000, we offer a premium solution package, including a dedicated Asset Manager. This service provides you with personalized guidance and support to maximize your investment potential.",
         additionalContent: (
           <Typography
-            variant={"h7"}
-            component={"p"}
-            color={"text.heading"}
+            variant={"caption"}
+            color={"text.body"}
             mt={1}
             sx={{ fontStyle: "italic" }}
           >
@@ -246,6 +267,10 @@ export const contentData: IFaqsData[] = [
           "Real estate is a tangible and stable asset class that has consistently delivered strong returns over time. It is a favoured investment for both large institutions and high-net-worth individuals for several reasons:",
         additionalContent: (
           <CustomList
+            color={"text.body"}
+            fontSize={10}
+            iconSize={"8px"}
+            mt={0.8}
             items={[
               {
                 boldText: "Value Appreciation:",
@@ -274,12 +299,7 @@ export const contentData: IFaqsData[] = [
           "Bali stands out as one of the most attractive real estate markets in the world. Tourism in Bali has seen a significant surge, with visitor numbers increasing steadily year after year. The island enjoys an average occupancy rate of over 70%, and its unique appeal as a year-round destination ensures a consistent flow of tourists. With 365 days of sunshine and a thriving cultural scene, Bali offers an unmatched lifestyle that continues to draw visitors from all over the globe.",
         additionalContent: (
           <>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               This constant influx of tourists, combined with Bali&apos;s
               reputation as a premier destination, makes it an ideal market for
               real estate investment. Properties in Bali not only benefit from
@@ -289,12 +309,7 @@ export const contentData: IFaqsData[] = [
               provides lucrative opportunities for both short-term and long-term
               gains.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               With a stable political environment, growing infrastructure, and
               strong demand for high-quality accommodations, Bali truly is one
               of the best real estate markets in the world. Now is the perfect
@@ -310,12 +325,7 @@ export const contentData: IFaqsData[] = [
         details:
           "At Shares by Coco, we ensure a seamless investment process by focusing on our own developments, which are pre-funded by our own capital. This means there are no time limits on the funding period, and you don't have to worry about the project stalling or being canceled due to insufficient funds. The only limit is the opportunity being sold out or 'fully funded', which ensures that your investment is secure from the start.",
         additionalContent: (
-          <Typography
-            variant={"h7"}
-            component={"p"}
-            color={"text.heading"}
-            mt={1}
-          >
+          <Typography variant={"caption"} color={"text.body"} mt={1}>
             Because of our pre-funding model, you can be confident that your
             investment is always moving forward, and there&apos;s no risk of
             delays or cancellations due to lack of funding. This approach allows
@@ -331,12 +341,7 @@ export const contentData: IFaqsData[] = [
           "When you invest in a property through Shares by Coco, you're purchasing shares in a Special Purpose Vehicle (SPV) that holds the title deed to that specific property. The SPV is a legal entity created solely for owning and managing the property, ensuring that your investment is securely tied to the actual real estate.",
         additionalContent: (
           <>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Each investor receives shares in the SPV proportional to their
               investment, providing a clear and direct ownership stake in the
               property. This structure is common in the US real estate market,
@@ -344,12 +349,7 @@ export const contentData: IFaqsData[] = [
               the SPV without having to manage the complexities of property
               ownership individually.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Shares by Coco administers all SPVs throughout the investment
               period, ensuring that legal and operational aspects are
               professionally managed. This setup allows you to benefit from
@@ -372,12 +372,7 @@ export const contentData: IFaqsData[] = [
         details:
           "Investing in real estate is often a long-term commitment, and we encourage investors to hold their shares for the full recommended term, typically 3-5 years, to maximize potential returns. However, we understand that circumstances can change, so we've introduced an annual Exit Window after the property's completion. This Exit Window allows you the opportunity to sell your shares once per year if needed, offering flexibility while still focusing on the long-term growth of your investment.",
         additionalContent: (
-          <Typography
-            variant={"h7"}
-            component={"p"}
-            color={"text.heading"}
-            mt={1}
-          >
+          <Typography variant={"caption"} color={"text.body"} mt={1}>
             By holding your shares until the property is sold or for the full
             investment term, you&apos;ll likely see the most significant
             returns, but the Exit Window ensures that you have a viable option
@@ -393,6 +388,10 @@ export const contentData: IFaqsData[] = [
         additionalContent: (
           <>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   boldText: "Exit Window:",
@@ -412,12 +411,7 @@ export const contentData: IFaqsData[] = [
         details:
           "All properties owned by Shares by Coco investors are managed by our in-house management team under PT. COCO PROPERTIES BALI, a local entity that handles both the development and management of our properties. With over 200 properties in Bali managed today, we ensure top-tier oversight and service quality.",
         additionalContent: (
-          <Typography
-            variant={"h7"}
-            component={"p"}
-            color={"text.heading"}
-            mt={1}
-          >
+          <Typography variant={"caption"} color={"text.body"} mt={1}>
             For transparency, we provide investors with access to comprehensive
             3D videos, high-resolution photos, and detailed reports for each
             property. Should you wish to visit, we can facilitate arrangements
@@ -443,8 +437,8 @@ export const contentData: IFaqsData[] = [
         details: "",
         additionalContent: (
           <>
-            <Typography variant={"h7"} component={"p"} color={"text.heading"}>
-              <Typography variant={"h7"} fontWeight={700}>
+            <Typography variant={"caption"} color={"text.body"}>
+              <Typography variant={"caption"} fontWeight={700}>
                 Guarantee Initiation:
               </Typography>
               Investors in Shares by Coco benefit from a guaranteed cashback of
@@ -455,13 +449,8 @@ export const contentData: IFaqsData[] = [
               cashback is designed to be reinvested before the property&apos;s
               completion and cannot be withdrawn.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
-              <Typography variant={"h7"} fontWeight={700}>
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
+              <Typography variant={"caption"} fontWeight={700}>
                 Post-Completion ROI:
               </Typography>
               After the property is completed, investors enjoy a guaranteed
@@ -470,6 +459,10 @@ export const contentData: IFaqsData[] = [
               any time.
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   boldText: "Coverage of Rent:",
@@ -506,20 +499,14 @@ export const contentData: IFaqsData[] = [
         additionalContent: (
           <>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
             >
               At Shares by Coco, you can benefit from three types of returns:
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
-              <Typography variant={"h7"} fontWeight={700}>
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
+              <Typography variant={"caption"} fontWeight={700}>
                 Cashback During Development:
               </Typography>{" "}
               While your investment property is under development, you will
@@ -529,13 +516,8 @@ export const contentData: IFaqsData[] = [
               the property is completed, it provides steady returns during the
               development period.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
-              <Typography variant={"h7"} fontWeight={700}>
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
+              <Typography variant={"caption"} fontWeight={700}>
                 Rental Income:
               </Typography>{" "}
               Once the property is operational, your share of the rental income
@@ -545,13 +527,8 @@ export const contentData: IFaqsData[] = [
               rental income to your bank account or reinvest it into other
               properties on our platform.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
-              <Typography variant={"h7"} fontWeight={700}>
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
+              <Typography variant={"caption"} fontWeight={700}>
                 Capital Appreciation:
               </Typography>{" "}
               Capital appreciation refers to the increase in the value of your
@@ -561,12 +538,7 @@ export const contentData: IFaqsData[] = [
               share. Please note that investments must be held for at least one
               year before they are eligible for sale.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               This structure ensures that you can benefit from both immediate
               income and long-term growth, making your investment with Shares by
               Coco a valuable addition to your portfolio.
@@ -581,22 +553,12 @@ export const contentData: IFaqsData[] = [
           "Your share of the rental income will be distributed to your Shares by Coco wallet. While we aim to distribute dividends monthly, dividends are declared and paid out at least quarterly. The net distributions are calculated after deducting operation and management at a fixed fee of 30% of the properties net income, covering all expenses, such as service charges, running costs, maintenance, annual administrative fees, insurances etc.",
         additionalContent: (
           <>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Once dividends are credited to your wallet, they will be available
               as a balance that you can either withdraw to your registered bank
               account or reinvest in another property through the platform.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               At the end of the Investment Term, the property will be sold, and
               your share of the sale proceeds—after deducting all relevant
               transaction costs—will be distributed to you according to your
@@ -612,12 +574,7 @@ export const contentData: IFaqsData[] = [
         details:
           "At Shares by Coco, we focus on identifying and securing attractive investment opportunities. We consider total returns, which include both yield from recurring rental income and potential capital appreciation. We strive to balance high returns with value preservation and risk management.",
         additionalContent: (
-          <Typography
-            variant={"h7"}
-            component={"p"}
-            color={"text.heading"}
-            mt={1}
-          >
+          <Typography variant={"caption"} color={"text.body"} mt={1}>
             We aim for an annualized Return on Investment (ROI) of 10-12% over
             the property’s holding period. The actual return you earn will
             depend on the net yield of the property and the amount you invested.
@@ -650,23 +607,26 @@ export const contentData: IFaqsData[] = [
         details: "",
         additionalContent: (
           <>
-            <Typography variant={"h7"} component={"p"} color={"text.heading"}>
-              <Typography variant={"h7"} fontWeight={700}>
+            <Typography variant={"caption"} color={"text.body"}>
+              <Typography variant={"caption"} fontWeight={700}>
                 Funding your wallet is easy
               </Typography>{" "}
               and can be done through bank transfer, debit card, credit card, or
               even cryptocurrency. Here’s how:
             </Typography>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Bank Transfer:
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: 'Go to your wallet and select "Deposit" -> "Add Payment Method."',
@@ -682,28 +642,26 @@ export const contentData: IFaqsData[] = [
                 },
               ]}
             />
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
-              <Typography variant={"h7"} fontWeight={700}>
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
+              <Typography variant={"caption"} fontWeight={700}>
                 Timing:
               </Typography>{" "}
               Local transfers take 1-2 business days; international transfers
               may take a few extra days.
             </Typography>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Debit/Credit Card:
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: 'Go to your wallet and select "Deposit" -> "Add Payment Method."',
@@ -716,27 +674,25 @@ export const contentData: IFaqsData[] = [
                 },
               ]}
             />
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
-              <Typography variant={"h7"} fontWeight={700}>
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
+              <Typography variant={"caption"} fontWeight={700}>
                 Timing:
               </Typography>{" "}
               Deposits by debit card are instant.
             </Typography>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Cryptocurrency (USDT or ETH):
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "If you have USDT, you can purchase it on any P2P platform.",
@@ -756,6 +712,10 @@ export const contentData: IFaqsData[] = [
         additionalContent: (
           <>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "Follow the bank transfer instructions provided on our platform.",
@@ -768,13 +728,8 @@ export const contentData: IFaqsData[] = [
                 },
               ]}
             />
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
-              <Typography variant={"h7"} fontWeight={700}>
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
+              <Typography variant={"caption"} fontWeight={700}>
                 Timing:
               </Typography>{" "}
               Transfers through Wise usually take 1-3 business days. You’ll
@@ -791,15 +746,14 @@ export const contentData: IFaqsData[] = [
           "Withdrawals from your Shares by Coco wallet can be made via bank transfer. You can withdraw to any bank account as long as it’s in your name.",
         additionalContent: (
           <>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               To withdraw funds:
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "Navigate to your wallet.",
@@ -813,15 +767,18 @@ export const contentData: IFaqsData[] = [
               ]}
             />
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Timelines:
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   text: "Local withdrawals: 1-2 business days",
@@ -841,23 +798,13 @@ export const contentData: IFaqsData[] = [
           "Shares by Coco doesn’t charge any fees for deposits or for withdrawing rental income or invested funds. However, a 2.5% fee applies to withdrawals of funds that were deposited via debit card and not invested. This fee covers the processing costs associated with debit card transactions. If you invest these funds, the fee is waived.",
         additionalContent: (
           <>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               We aim for transparency in our fee structure to ensure you’re
               fully informed. By investing your funds, you can avoid this fee,
               as Shares by Coco absorbs the card processing fee when funds are
               used for investment purposes.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Please note: Foreign exchange charges may apply for international
               card payments, which are beyond our control. All transactions are
               conducted in AED.
@@ -891,12 +838,7 @@ export const contentData: IFaqsData[] = [
           "Exit windows provide an opportunity for sellers to exit their investments and for buyers to acquire shares in already funded properties. This exit facility allows investors to list their shares for sale, while giving buyers access to prime real estate.",
         additionalContent: (
           <>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               For buyers, exit windows present a chance to diversify their
               portfolios with properties that have already been funded and are
               in operation. For sellers, these windows offer flexibility,
@@ -904,12 +846,7 @@ export const contentData: IFaqsData[] = [
               recommended 5-year holding period, giving them more control over
               their investment strategy.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Exit windows opens by completion of the development and once per
               year from there. During these exit windows, you have the
               opportunity to list your shares for sale. Shares bought during an
@@ -934,24 +871,22 @@ export const contentData: IFaqsData[] = [
         additionalContent: (
           <>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               mt={1}
               fontWeight={700}
             >
               Past Performance
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               As of today, Shares by Coco has achieved significant milestones,
               including:
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   boldText: "$14.5M USD Total Investment Volume:",
@@ -979,12 +914,7 @@ export const contentData: IFaqsData[] = [
                 },
               ]}
             />
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               These achievements showcase the strength and potential of
               investing with Shares by Coco.
             </Typography>
@@ -1015,12 +945,7 @@ export const contentData: IFaqsData[] = [
         details:
           "You can list your shares for sale at the current valuation or up to 20% below the current share price of the property. The share price is influenced by various factors, including the property’s current valuation, available discounts, and the supply of shares. These details will be shown when you create your sell listing.",
         additionalContent: (
-          <Typography
-            variant={"h7"}
-            component={"p"}
-            color={"text.heading"}
-            mt={1}
-          >
+          <Typography variant={"caption"} color={"text.body"} mt={1}>
             If you’re looking to sell quickly, it’s advisable to list with the
             maximum discount allowed to make your listing more attractive to
             buyers, increasing your chances of finding a buyer promptly. This
@@ -1043,12 +968,7 @@ export const contentData: IFaqsData[] = [
           "If your shares aren't sold, your investment continues to generate rental income until they are sold.- If you'd like to sell, you can indicate 'yes' to place your shares in the exit window.",
         additionalContent: (
           <>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Once listed, your shares become available for potential buyers.
               However, if no one buys your shares, they remain in your
               portfolio, and you&apos;ll continue to earn the associated returns
@@ -1057,15 +977,18 @@ export const contentData: IFaqsData[] = [
               relist them in the next exit window.
             </Typography>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               mt={1}
               fontWeight={700}
             >
               Example:
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   boldText: "Seller A",
@@ -1082,15 +1005,18 @@ export const contentData: IFaqsData[] = [
               ]}
             />
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               mt={1}
               fontWeight={700}
             >
               Result:
             </Typography>
             <CustomList
+              color={"text.body"}
+              fontSize={10}
+              iconSize={"8px"}
+              mt={0.8}
               items={[
                 {
                   boldText: "Seller A",
@@ -1126,20 +1052,14 @@ export const contentData: IFaqsData[] = [
         additionalContent: (
           <>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Steps to participate:
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               As an existing client, share your referral link through the
               Rewards tab. <br />
               Your friend must use this link to create their account and will
@@ -1159,12 +1079,7 @@ export const contentData: IFaqsData[] = [
           "Invite a friend to Shares by Coco, and earn a bonus of 200 USD!",
         additionalContent: (
           <>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Shares by Coco’s loyalty program rewards clients for their
               continued support and investment activity. Your tier level is
               determined based on your total investment over the past 12 months,
@@ -1172,48 +1087,31 @@ export const contentData: IFaqsData[] = [
               automatically calculated, allowing you to enjoy benefits
               effortlessly.
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Each tier offers a range of benefits:
             </Typography>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Shares by Coco Intro
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Required Investment: (1000 - 24,999 USD)
               <br />
               Benefits: (100 USD) reward for each qualified referral.
             </Typography>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Shares by Coco Plus
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Required Investment: (25,000 - 99,999 USD)
               <br />
               Benefits:
@@ -1223,20 +1121,14 @@ export const contentData: IFaqsData[] = [
               1% extra cash back on all investments.
             </Typography>
             <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
+              variant={"caption"}
+              color={"text.body"}
               fontWeight={700}
               mt={1}
             >
               Shares by Coco Elite
             </Typography>
-            <Typography
-              variant={"h7"}
-              component={"p"}
-              color={"text.heading"}
-              mt={1}
-            >
+            <Typography variant={"caption"} color={"text.body"} mt={1}>
               Required Investment: (100,000 USD) +
               <br />
               Benefits:
@@ -1247,14 +1139,14 @@ export const contentData: IFaqsData[] = [
               <br />
               Exclusive welcome gift pack.
             </Typography>
-            <Typography variant={"h7"} component={"p"} color={"text.heading"}>
+            <Typography variant={"caption"} color={"text.body"}>
               You can track your current tier status and progress in the Rewards
               section of our app. Please note that cancelling a pending
               investment may affect your tier level and any associated cash back
               rewards. Stay invested to enjoy the full benefits of our loyalty
               program.
             </Typography>
-            <Typography variant={"h7"} component={"p"} color={"text.heading"}>
+            <Typography variant={"caption"} color={"text.body"}>
               We greatly value your loyalty and commitment to Shares by Coco,
               and we’re excited to offer these rewards as a token of our
               appreciation.

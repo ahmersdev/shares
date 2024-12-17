@@ -11,7 +11,13 @@ import { FC } from "react";
 import Link from "next/link";
 import { ICustomListProps } from "./custom-list.interface";
 
-export const CustomList: FC<ICustomListProps> = ({ items }) => {
+export const CustomList: FC<ICustomListProps> = ({
+  items,
+  color = "text.heading",
+  iconSize = "12px",
+  fontSize = 18,
+  mt = 1.2,
+}) => {
   const renderTextWithLink = (text: string) => {
     const urlRegex = /(https?:\/\/[^\s]+)/g;
 
@@ -37,10 +43,8 @@ export const CustomList: FC<ICustomListProps> = ({ items }) => {
     <List>
       {items.map((item, index) => (
         <ListItem sx={{ py: 0, alignItems: "flex-start" }} key={index}>
-          <ListItemIcon sx={{ minWidth: pxToRem(25), mt: 1.2 }}>
-            <FiberManualRecordIcon
-              sx={{ color: "text.heading", fontSize: "12px" }}
-            />
+          <ListItemIcon sx={{ minWidth: pxToRem(25), mt: mt }}>
+            <FiberManualRecordIcon sx={{ color: color, fontSize: iconSize }} />
           </ListItemIcon>
           <ListItemText
             primary={
@@ -58,9 +62,9 @@ export const CustomList: FC<ICustomListProps> = ({ items }) => {
               </>
             }
             sx={{
-              color: "text.heading",
+              color: color,
               ".MuiTypography-root": {
-                fontSize: pxToRem(18),
+                fontSize: pxToRem(fontSize),
               },
             }}
           />

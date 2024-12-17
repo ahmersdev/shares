@@ -1,11 +1,22 @@
-import { Box, InputAdornment, TextField, Typography } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { IChatProps } from "../chat.interface";
 import CloseIcon from "@mui/icons-material/Close";
 import SendUsAMessage from "../globals/send-us-a-message";
 import { useGetUserDetailsQuery } from "@/services/web-app/settings";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useMemo, useState } from "react";
 import { SearchIcon } from "@/assets/icons";
 import { pxToRem } from "@/utils/get-font-value";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { IAccordionData } from "../globals/faqs/faqs.interface";
+import { faqsData } from "../globals/faqs/faqs.data";
 
 export default function Home(props: IChatProps) {
   const { handleClose } = props;
@@ -14,6 +25,20 @@ export default function Home(props: IChatProps) {
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
+
+  // Extract all accordions into a single array
+  const allAccordions: IAccordionData[] = useMemo(() => {
+    return faqsData.flatMap((faq) => faq.accordions || []);
+  }, []);
+
+  // Filter accordions based on search term
+  const filteredAccordions = useMemo(() => {
+    return allAccordions.filter(
+      (accordion) =>
+        accordion.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        accordion.details.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm, allAccordions]);
 
   const { data } = useGetUserDetailsQuery(null);
 
@@ -116,6 +141,52 @@ export default function Home(props: IChatProps) {
               },
             }}
           />
+
+          {filteredAccordions.length ? (
+            filteredAccordions.map((accordion, index) => (
+              <Accordion
+                key={index}
+                sx={{
+                  bgcolor: "inherit",
+                  boxShadow: "none",
+                  "&.Mui-expanded": {
+                    margin: 0,
+                  },
+                  "&:before": {
+                    display: "none",
+                  },
+                }}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ p: 0 }}>
+                  <Typography
+                    variant={"caption"}
+                    fontWeight={600}
+                    color={"text.heading"}
+                  >
+                    {accordion.summary}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ p: 0 }}>
+                  <Typography
+                    variant={"caption"}
+                    component={"p"}
+                    color={"text.body"}
+                  >
+                    {accordion.details}
+                  </Typography>
+                  {accordion.additionalContent}
+                </AccordionDetails>
+              </Accordion>
+            ))
+          ) : (
+            <Typography
+              variant={"caption"}
+              color={"error.main"}
+              textAlign={"center"}
+            >
+              No Information Available, try talking to us instead!
+            </Typography>
+          )}
         </Box>
       </Box>
     </>
