@@ -5,7 +5,7 @@ export const createForgotPasswordFormValidationSchema = Yup.object().shape({
     .trim()
     .required("Password is Required")
     .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/,
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\S]{8,}$/,
       "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character."
     ),
   confirmPassword: Yup.string()
