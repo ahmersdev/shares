@@ -68,6 +68,22 @@ export default function FooterNav() {
       </Box>
 
       <Box display={"flex"} gap={8} flexWrap={"wrap"}>
+        <Box display={"flex"} flexDirection={"column"} gap={2}>
+          <Typography variant={"body1"} fontWeight={700} color={"text.heading"}>
+            Company Name
+          </Typography>
+          <Typography variant={"body3"} component={"p"} color={"text.body"}>
+            PT COCO PROPERTIES BALI
+          </Typography>
+          <Typography variant={"body1"} fontWeight={700} color={"text.heading"}>
+            Company Address
+          </Typography>
+          <Typography variant={"body3"} component={"p"} color={"text.body"}>
+            Jalan kayu tulang, promenade
+            <br />
+            teratai, S8 Canggu, badung, bali, 80361
+          </Typography>
+        </Box>
         {footerNavDataArray.map((parent: IFooterNavDataArray) => (
           <Box
             display={"flex"}

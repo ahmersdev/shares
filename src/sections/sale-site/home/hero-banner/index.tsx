@@ -44,7 +44,7 @@ export default function HeroBanner() {
           onLoad={() => setLoading(false)}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           title="Shares By Coco"
-          src="https://www.youtube.com/embed/0PTzzTfYpIs?si=GQQAB6iUzoMXFBBb&autoplay=1&mute=1&loop=1&controls=0&modestbranding=0&rel=0&playsinline=1&showinfo=0&enablejsapi=1&playlist=0PTzzTfYpIs"
+          src="https://www.youtube.com/embed/0PTzzTfYpIs?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=0PTzzTfYpIs"
           style={{
             width: "300%",
             height: "100%",
