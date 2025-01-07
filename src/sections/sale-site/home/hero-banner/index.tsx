@@ -1,14 +1,67 @@
+"use client";
+
 import { BUTTON_STYLES } from "@/styles";
 import { pxToRem } from "@/utils/get-font-value";
 import { Box, Button, Chip, Typography } from "@mui/material";
 import Counts from "./counts";
 import Link from "next/link";
 import { AUTH, SALE_SITE } from "@/constants/routes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HomeHeroBanner } from "@/assets/images";
+
+declare global {
+  interface Window {
+    YT: any;
+    onYouTubeIframeAPIReady: () => void;
+  }
+}
 
 export default function HeroBanner() {
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const onYouTubeIframeAPIReady = () => {
+      const player = new window.YT.Player("hero-banner-video", {
+        videoId: "0PTzzTfYpIs",
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          loop: 1,
+          playlist: "0PTzzTfYpIs",
+          controls: 0,
+          modestbranding: 1,
+          rel: 0,
+          fs: 0,
+          iv_load_policy: 3,
+          playsinline: 1,
+        },
+        events: {
+          onReady: (event: any) => {
+            setLoading(false);
+            event.target.setPlaybackQuality("hd720");
+          },
+          onStateChange: (event: any) => {
+            if (event.data === window.YT.PlayerState.ENDED) {
+              player.playVideo();
+            }
+          },
+        },
+      });
+    };
+
+    // Dynamically load the YouTube API script
+    if (!window.YT) {
+      const scriptTag = document.createElement("script");
+      scriptTag.src = "https://www.youtube.com/iframe_api";
+      scriptTag.async = true;
+      document.body.appendChild(scriptTag);
+
+      // Attach the API ready function
+      window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+    } else {
+      onYouTubeIframeAPIReady();
+    }
+  }, []);
 
   return (
     <Box position={"relative"}>
@@ -40,21 +93,11 @@ export default function HeroBanner() {
         overflow="hidden"
         borderRadius="0px 0px 64px 64px"
       >
-        <iframe
-          onLoad={() => setLoading(false)}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          title="Shares By Coco"
-          src="https://www.youtube.com/embed/0PTzzTfYpIs?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=0PTzzTfYpIs"
-          style={{
-            width: "300%",
-            height: "100%",
-            marginLeft: "-100%",
-            objectFit: "cover",
-            border: "none",
-          }}
+        <Box
+          id="hero-banner-video"
+          sx={{ width: "300%", height: "100%", marginLeft: "-100%" }}
         />
       </Box>
-
       <Box
         display={"flex"}
         flexDirection={"column"}
